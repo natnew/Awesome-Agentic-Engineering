@@ -145,72 +145,72 @@ Memory is a first-class concern in agentic systems.
 ## 🖥 Coding Agents
 
 ### IDE-Native Agents
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [Cursor](https://cursor.com) | VS Code fork. Composer mode for multi-file edits. Claude, GPT, Gemini. $29.3B valuation. | Free / $20/mo |
-| [GitHub Copilot](https://github.com/features/copilot) | Agent Mode in VS Code. Copilot Workspace issue-to-PR. Multi-model (Claude, GPT-5, Gemini 3). | $10/mo / $39/mo Pro+ |
-| [Windsurf (Codeium)](https://windsurf.com) | Cascade agentic mode. Project-level memory. 5 parallel agents. | Free / $15/mo |
-| [JetBrains AI](https://www.jetbrains.com/ai/) | Deep integration across all JetBrains IDEs. Context-aware completions. | Included with IDE |
-| [Amazon Q Developer](https://aws.amazon.com/q/developer/) | AWS-native. Lambda, CloudWatch, infrastructure, security scanning. | Free / $19/mo |
-| [Tabnine](https://www.tabnine.com/) | Privacy-first. On-premise option. Fine-tuned on your codebase. | Free / $12/mo |
-| [Sourcegraph Cody](https://sourcegraph.com/cody) | Excels at large codebases. Enterprise context engine. | Free / $9/mo |
-| [Google Antigravity](https://idx.google.com) | Free Claude Opus 4.5 access. Learning-focused. | Free |
+| Agent | Description |
+|-------|------------- |
+| [Cursor](https://cursor.com) | VS Code fork. Composer mode for multi-file edits. Claude, GPT, Gemini. $29.3B valuation. |
+| [GitHub Copilot](https://github.com/features/copilot) | Agent Mode in VS Code. Copilot Workspace issue-to-PR. Multi-model (Claude, GPT-5, Gemini 3). |
+| [Windsurf (Codeium)](https://windsurf.com) | Cascade agentic mode. Project-level memory. 5 parallel agents. |
+| [JetBrains AI](https://www.jetbrains.com/ai/) | Deep integration across all JetBrains IDEs. Context-aware completions. |
+| [Amazon Q Developer](https://aws.amazon.com/q/developer/) | AWS-native. Lambda, CloudWatch, infrastructure, security scanning. |
+| [Tabnine](https://www.tabnine.com/) | Privacy-first. On-premise option. Fine-tuned on your codebase. |
+| [Sourcegraph Cody](https://sourcegraph.com/cody) | Excels at large codebases. Enterprise context engine. |
+| [Google Antigravity](https://idx.google.com) | Free Claude Opus 4.5 access. Learning-focused. |
 
 ### Terminal and CLI Agents
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | Anthropic CLI agent. Best reasoning. 80.9% SWE-bench. Agent Teams. | $20/mo+ API |
-| [OpenAI Codex CLI](https://github.com/openai/codex) | OpenAI terminal agent. Agents SDK. Multi-agent. | ChatGPT sub |
-| [Aider](https://github.com/paul-gauthier/aider) | OSS pair programmer. Git-aware. Any LLM. | Free + API |
-| [Cline](https://github.com/cline/cline) | VS Code extension. Full terminal and browser access for Claude/GPT. | Free + API |
-| [RooCode](https://github.com/RooVetGit/Roo-Code) | Cline fork. Structured modes. Reduced hallucinations. | Free + API |
-| [Kilo Code](https://kilocode.ai) | Emerging. Structured modes. Tighter context. | Free + API |
-| [OpenCode](https://github.com/opencode-ai/opencode) | BYOK terminal agent for Cursor refugees. | Free + API |
+| Agent | Description |
+|-------|------------- |
+| [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | Anthropic CLI agent. Best reasoning. 80.9% SWE-bench. Agent Teams. |
+| [OpenAI Codex CLI](https://github.com/openai/codex) | OpenAI terminal agent. Agents SDK. Multi-agent. |
+| [Aider](https://github.com/paul-gauthier/aider) | OSS pair programmer. Git-aware. Any LLM. |
+| [Cline](https://github.com/cline/cline) | VS Code extension. Full terminal and browser access for Claude/GPT. |
+| [RooCode](https://github.com/RooVetGit/Roo-Code) | Cline fork. Structured modes. Reduced hallucinations. |
+| [Kilo Code](https://kilocode.ai) | Emerging. Structured modes. Tighter context. |
+| [OpenCode](https://github.com/opencode-ai/opencode) | BYOK terminal agent for Cursor refugees. |
 
 ### Autonomous Software Engineers
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [Devin](https://devin.ai) | Cognition. Fully autonomous. Sandboxed cloud env. Devin 2.0 with Interactive Planning. | $20/mo + ACU |
-| [Copilot Workspace](https://githubnext.com/projects/copilot-workspace) | GitHub issue-to-PR agent. | Copilot sub |
-| [SWE-Agent](https://github.com/princeton-nlp/SWE-agent) | Princeton. Resolves real GitHub issues autonomously. | Free (OSS) |
-| [OpenHands](https://github.com/All-Hands-AI/OpenHands) | OSS autonomous software engineer (ex-OpenDevin). | Free (OSS) |
-| [Grok Build (xAI)](https://x.ai) | 8 parallel agents for code gen. | xAI sub |
-| [Kiro](https://kiro.dev) | Spec-driven development. DevOps automation. | Beta |
+| Agent | Description |
+|-------|------------- |
+| [Devin](https://devin.ai) | Cognition. Fully autonomous. Sandboxed cloud env. Devin 2.0 with Interactive Planning. |
+| [Copilot Workspace](https://githubnext.com/projects/copilot-workspace) | GitHub issue-to-PR agent. |
+| [SWE-Agent](https://github.com/princeton-nlp/SWE-agent) | Princeton. Resolves real GitHub issues autonomously. |
+| [OpenHands](https://github.com/All-Hands-AI/OpenHands) | OSS autonomous software engineer (ex-OpenDevin). |
+| [Grok Build (xAI)](https://x.ai) | 8 parallel agents for code gen. |
+| [Kiro](https://kiro.dev) | Spec-driven development. DevOps automation. |
 
 ### Code Review and Security
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [Qodo](https://www.qodo.ai/) | AI code review. Context-aware PR validation. | Free / Enterprise |
-| [CodeRabbit](https://coderabbit.ai/) | AI PR reviewer. Inline suggestions, security. | Free OSS / $15/mo |
-| [Snyk Code](https://snyk.io/) | AI security scanner. Real-time vuln detection. | Free / Enterprise |
-| [PR-Agent](https://github.com/Codium-ai/pr-agent) | OSS AI PR reviewer. Auto-describe, review, improve. | Free (OSS) |
+| Agent | Description |
+|-------|------------- |
+| [Qodo](https://www.qodo.ai/) | AI code review. Context-aware PR validation. |
+| [CodeRabbit](https://coderabbit.ai/) | AI PR reviewer. Inline suggestions, security. |
+| [Snyk Code](https://snyk.io/) | AI security scanner. Real-time vuln detection. |
+| [PR-Agent](https://github.com/Codium-ai/pr-agent) | OSS AI PR reviewer. Auto-describe, review, improve. |
 
 ### App Builders (Prompt-to-App)
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [Bolt.new](https://bolt.new) | Prompt to full-stack web app in browser. | Free / Paid |
-| [Lovable](https://lovable.dev) | Describe then build then deploy from chat. | Free / $20/mo |
-| [v0 (Vercel)](https://v0.dev) | Prompt to React/Tailwind components. | Free / Pro |
-| [Replit Agent](https://replit.com) | Full-stack from prompt. Auto-deploys. | Free / $25/mo |
-| [PlayCode Agent](https://playcode.io) | Browser-based. English to websites. | $9.99/mo |
-| [Dyad](https://github.com/dyad-sh/dyad) | OSS. Local-first. No-code app builder. | Free (OSS) |
+| Agent | Description |
+|-------|------------- |
+| [Bolt.new](https://bolt.new) | Prompt to full-stack web app in browser. |
+| [Lovable](https://lovable.dev) | Describe then build then deploy from chat. |
+| [v0 (Vercel)](https://v0.dev) | Prompt to React/Tailwind components. |
+| [Replit Agent](https://replit.com) | Full-stack from prompt. Auto-deploys. |
+| [PlayCode Agent](https://playcode.io) | Browser-based. English to websites. |
+| [Dyad](https://github.com/dyad-sh/dyad) | OSS. Local-first. No-code app builder. |
 
 ---
 
 ## 🌐 Browser and Desktop Agents
 
 ### Consumer Products
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [OpenAI Operator](https://operator.chatgpt.com) | ChatGPT autonomous web agent. Human checkpoints. CUA tech. | ChatGPT Pro |
-| [Manus (Meta)](https://manus.im) | Autonomous digital employee. Browser Operator extension. Acquired by Meta. | Free / Paid |
-| [Claude Computer Use](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use) | Anthropic desktop/browser control via screenshots. | API |
-| [Claude in Chrome](https://claude.ai) | Anthropic browsing agent. Beta. | Claude sub |
-| [Google Project Mariner](https://deepmind.google/technologies/project-mariner/) | Gemini browser agent. Multi-tasking. | Waitlist |
-| [OpenAI Atlas](https://atlas.openai.com) | AI browser with Agent Mode. | ChatGPT sub |
-| [Dia Browser](https://diabrowser.com) | AI-native browser (Atlassian/Browser Company). | Beta |
-| [Fellou](https://fellou.ai) | Transparent. Visual workflow editing. Agentic memory. | Beta |
-| [Genspark](https://genspark.ai) | 169+ on-device models. No internet required. | Free / Paid |
+| Agent | Description |
+|-------|------------- |
+| [OpenAI Operator](https://operator.chatgpt.com) | ChatGPT autonomous web agent. Human checkpoints. CUA tech. |
+| [Manus (Meta)](https://manus.im) | Autonomous digital employee. Browser Operator extension. Acquired by Meta. |
+| [Claude Computer Use](https://docs.anthropic.com/en/docs/agents-and-tools/computer-use) | Anthropic desktop/browser control via screenshots. |
+| [Claude in Chrome](https://claude.ai) | Anthropic browsing agent. Beta. |
+| [Google Project Mariner](https://deepmind.google/technologies/project-mariner/) | Gemini browser agent. Multi-tasking. |
+| [OpenAI Atlas](https://atlas.openai.com) | AI browser with Agent Mode. |
+| [Dia Browser](https://diabrowser.com) | AI-native browser (Atlassian/Browser Company). |
+| [Fellou](https://fellou.ai) | Transparent. Visual workflow editing. Agentic memory. |
+| [Genspark](https://genspark.ai) | 169+ on-device models. No internet required. |
 
 ### Developer Infrastructure
 | Tool | Description |
@@ -229,19 +229,19 @@ Memory is a first-class concern in agentic systems.
 ## 🎙 Voice Agents
 
 ### Platforms and APIs
-| Platform | Description | Pricing |
-|----------|-------------|---------|
-| [ElevenLabs](https://elevenlabs.io) | Industry benchmark. Conv AI 2.0. RAG, multimodal, batch calling. 75ms. HIPAA. $11B. | Free / $5+/mo |
-| [Vapi](https://vapi.ai) | Developer-first. Low-latency, model-agnostic. | Usage-based |
-| [Bland AI](https://bland.ai) | Outbound call automation. CRM integration. SOC2/HIPAA. | Usage-based |
-| [Voiceflow](https://voiceflow.com) | No-code voice and chat builder. Drag-and-drop. | Free / $50+/mo |
-| [Synthflow](https://synthflow.ai) | No-code voice agents for SMBs. Templates. | From $29/mo |
-| [PolyAI](https://poly.ai) | Enterprise. Natural multi-turn. Hospitality/retail. | Enterprise |
-| [Retell AI](https://retellai.com) | Human-like voice agents. Multi-language. Telephony. | Usage-based |
-| [HeyGen](https://heygen.com) | Talking avatars. Voice cloning. Lip-sync translation. | From $24/mo |
-| [Synthesia](https://synthesia.io) | AI video avatars. 120+ languages. Enterprise. | From $22/mo |
-| [Deepgram](https://deepgram.com) | STT and TTS APIs. Sub-300ms latency. | Usage-based |
-| [AssemblyAI](https://assemblyai.com) | STT with diarization, sentiment, summarization. | Usage-based |
+| Platform | Description |
+|----------|------------- |
+| [ElevenLabs](https://elevenlabs.io) | Industry benchmark. Conv AI 2.0. RAG, multimodal, batch calling. 75ms. HIPAA. $11B. |
+| [Vapi](https://vapi.ai) | Developer-first. Low-latency, model-agnostic. |
+| [Bland AI](https://bland.ai) | Outbound call automation. CRM integration. SOC2/HIPAA. |
+| [Voiceflow](https://voiceflow.com) | No-code voice and chat builder. Drag-and-drop. |
+| [Synthflow](https://synthflow.ai) | No-code voice agents for SMBs. Templates. |
+| [PolyAI](https://poly.ai) | Enterprise. Natural multi-turn. Hospitality/retail. |
+| [Retell AI](https://retellai.com) | Human-like voice agents. Multi-language. Telephony. |
+| [HeyGen](https://heygen.com) | Talking avatars. Voice cloning. Lip-sync translation. |
+| [Synthesia](https://synthesia.io) | AI video avatars. 120+ languages. Enterprise. |
+| [Deepgram](https://deepgram.com) | STT and TTS APIs. Sub-300ms latency. |
+| [AssemblyAI](https://assemblyai.com) | STT with diarization, sentiment, summarization. |
 
 ### Open-Source Voice
 | Tool | Description |
@@ -256,130 +256,130 @@ Memory is a first-class concern in agentic systems.
 ## 🎨 Creative AI
 
 ### Image Generation
-| Tool | Description | Pricing |
-|------|-------------|---------|
-| [Midjourney v7](https://midjourney.com) | Best artistic quality. Unmatched aesthetics. Discord + web. | From $10/mo |
-| [DALL-E 3.5](https://openai.com/dall-e) | Best prompt comprehension. 95% text accuracy. ChatGPT. | ChatGPT Plus |
-| [FLUX 2](https://blackforestlabs.ai) | Open-weight. Best photorealism. 4K. 6x speed. | Free / API |
-| [Stable Diffusion 3.5](https://stability.ai) | Open-source. ControlNet, LoRAs, ComfyUI ecosystem. | Free (OSS) |
-| [Adobe Firefly 3](https://firefly.adobe.com) | Licensed data only. Commercial indemnification. Photoshop. | Adobe CC |
-| [Google Imagen 4](https://deepmind.google) | State-of-art photorealism. API via AI Studio. | API |
-| [Ideogram v3](https://ideogram.ai) | Best text-in-image. Zero spelling errors. Logos/posters. | Free / $7+/mo |
-| [Leonardo AI](https://leonardo.ai) | Multi-model. Realtime Canvas. 3D gaming assets. Canva-owned. | Free / $12+/mo |
-| [Recraft](https://recraft.ai) | Design-focused. Vector art, brand consistency. | Free / Paid |
+| Tool | Description |
+|------|------------- |
+| [Midjourney v7](https://midjourney.com) | Best artistic quality. Unmatched aesthetics. Discord + web. |
+| [DALL-E 3.5](https://openai.com/dall-e) | Best prompt comprehension. 95% text accuracy. ChatGPT. |
+| [FLUX 2](https://blackforestlabs.ai) | Open-weight. Best photorealism. 4K. 6x speed. |
+| [Stable Diffusion 3.5](https://stability.ai) | Open-source. ControlNet, LoRAs, ComfyUI ecosystem. |
+| [Adobe Firefly 3](https://firefly.adobe.com) | Licensed data only. Commercial indemnification. Photoshop. |
+| [Google Imagen 4](https://deepmind.google) | State-of-art photorealism. API via AI Studio. |
+| [Ideogram v3](https://ideogram.ai) | Best text-in-image. Zero spelling errors. Logos/posters. |
+| [Leonardo AI](https://leonardo.ai) | Multi-model. Realtime Canvas. 3D gaming assets. Canva-owned. |
+| [Recraft](https://recraft.ai) | Design-focused. Vector art, brand consistency. |
 
 ### Video Generation
-| Tool | Description | Pricing |
-|------|-------------|---------|
-| [Sora 2](https://sora.com) | Best narrative coherence. Physics realism. 25s. 1080p. | $20+/mo |
-| [Google Veo 3.1](https://deepmind.google) | Best cinematic. Native audio. 4K. Vertex AI. | API |
-| [Runway Gen-4.5](https://runwayml.com) | No.1 benchmark. Motion Brush, Director Mode. Best editing. | From $12/mo |
-| [Kling 3.0](https://klingai.com) | Best value. 4K, 2min, native audio. $0.029/sec API. | Free / $6.99+/mo |
-| [Seedance 2.0](https://seedance.ai) | Quad-modal input. Lip sync. 2K resolution. | Free credits |
-| [Pika 2.5](https://pika.art) | Beginner-friendly. Pikaswaps. Fast renders. | Free / $8+/mo |
-| [Luma Dream Machine](https://lumalabs.ai) | 4K HDR. Physics simulation. 3D/cinematic. | From $7.99/mo |
-| [HaiLuo AI](https://hailuoai.video) | Budget video. 10 free/day. MiniMax. | Free / $4.99+/mo |
-| [Wan 2.1](https://github.com/Wan-Video/Wan2.1) | Best free OSS video gen. Self-hostable. No limits. | Free (OSS) |
-| [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) | Tencent OSS. Consumer GPU. Multi-style. | Free (OSS) |
-| [LTX Video](https://github.com/Lightricks/LTX-Video) | OSS. Licensed data. Clear commercial terms. | Free (OSS) |
+| Tool | Description |
+|------|------------- |
+| [Sora 2](https://sora.com) | Best narrative coherence. Physics realism. 25s. 1080p. |
+| [Google Veo 3.1](https://deepmind.google) | Best cinematic. Native audio. 4K. Vertex AI. |
+| [Runway Gen-4.5](https://runwayml.com) | No.1 benchmark. Motion Brush, Director Mode. Best editing. |
+| [Kling 3.0](https://klingai.com) | Best value. 4K, 2min, native audio. $0.029/sec API. |
+| [Seedance 2.0](https://seedance.ai) | Quad-modal input. Lip sync. 2K resolution. |
+| [Pika 2.5](https://pika.art) | Beginner-friendly. Pikaswaps. Fast renders. |
+| [Luma Dream Machine](https://lumalabs.ai) | 4K HDR. Physics simulation. 3D/cinematic. |
+| [HaiLuo AI](https://hailuoai.video) | Budget video. 10 free/day. MiniMax. |
+| [Wan 2.1](https://github.com/Wan-Video/Wan2.1) | Best free OSS video gen. Self-hostable. No limits. |
+| [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) | Tencent OSS. Consumer GPU. Multi-style. |
+| [LTX Video](https://github.com/Lightricks/LTX-Video) | OSS. Licensed data. Clear commercial terms. |
 
 ### Music and Audio
-| Tool | Description | Pricing |
-|------|-------------|---------|
-| [Suno](https://suno.ai) | Text-to-song. Full tracks with vocals. Viral hit maker. | Free / $8+/mo |
-| [Udio](https://udio.com) | High-fidelity music gen. Fine control. | Free / $10+/mo |
-| [ElevenLabs Music](https://elevenlabs.io) | Vocals, instrumentals. Sectional editing. Stem separation. | Plan included |
-| [Stable Audio](https://stableaudio.com) | High-quality. Commercial license. | Free / Paid |
-| [Meta AudioCraft](https://github.com/facebookresearch/audiocraft) | OSS. MusicGen + AudioGen. | Free (OSS) |
+| Tool | Description |
+|------|------------- |
+| [Suno](https://suno.ai) | Text-to-song. Full tracks with vocals. Viral hit maker. |
+| [Udio](https://udio.com) | High-fidelity music gen. Fine control. |
+| [ElevenLabs Music](https://elevenlabs.io) | Vocals, instrumentals. Sectional editing. Stem separation. |
+| [Stable Audio](https://stableaudio.com) | High-quality. Commercial license. |
+| [Meta AudioCraft](https://github.com/facebookresearch/audiocraft) | OSS. MusicGen + AudioGen. |
 
 ### 3D and Design
-| Tool | Description | Pricing |
-|------|-------------|---------|
-| [Meshy](https://meshy.ai) | Text/image to 3D. Game assets, products. | Free / Paid |
-| [Tripo AI](https://tripo3d.ai) | Fast 3D from text/images. Multi-format export. | Free / Paid |
-| [Vizcom](https://vizcom.ai) | Real-time AI rendering for industrial designers. | From $20/mo |
+| Tool | Description |
+|------|------------- |
+| [Meshy](https://meshy.ai) | Text/image to 3D. Game assets, products. |
+| [Tripo AI](https://tripo3d.ai) | Fast 3D from text/images. Multi-format export. |
+| [Vizcom](https://vizcom.ai) | Real-time AI rendering for industrial designers. |
 
 ---
 
 ## ⚡ Task and Workflow Agents
 
 ### Automation
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [n8n](https://github.com/n8n-io/n8n) | OSS workflow automation with AI agent nodes. Visual + code. | Free / Cloud |
-| [Zapier AI](https://zapier.com/ai) | 7000+ apps. Natural language workflows. | From $19.99/mo |
-| [Make](https://make.com) | Visual workflow platform. AI capabilities. | Free / Paid |
-| [Activepieces](https://github.com/activepieces/activepieces) | OSS Zapier alternative with AI. | Free (OSS) |
-| [Temporal](https://github.com/temporalio/temporal) | Durable execution for long-running agent workflows. | Free / Cloud |
+| Agent | Description |
+|-------|------------- |
+| [n8n](https://github.com/n8n-io/n8n) | OSS workflow automation with AI agent nodes. Visual + code. |
+| [Zapier AI](https://zapier.com/ai) | 7000+ apps. Natural language workflows. |
+| [Make](https://make.com) | Visual workflow platform. AI capabilities. |
+| [Activepieces](https://github.com/activepieces/activepieces) | OSS Zapier alternative with AI. |
+| [Temporal](https://github.com/temporalio/temporal) | Durable execution for long-running agent workflows. |
 
 ### No-Code Agent Builders
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [Dify](https://github.com/langgenius/dify) | OSS LLMOps. Visual agent builder. RAG. 130k+ stars. | Free / Cloud |
-| [Flowise](https://github.com/FlowiseAI/Flowise) | OSS drag-and-drop LLM agent builder. | Free (OSS) |
-| [Langflow](https://github.com/langflow-ai/langflow) | Visual multi-agent and RAG builder. | Free / Cloud |
-| [Lindy](https://lindy.ai) | No-code agents. 3000+ integrations. | From $49/mo |
-| [Relevance AI](https://relevanceai.com) | No-code agents for sales, support, research. | Free / Paid |
-| [Rivet](https://rivet.ironcladapp.com) | Visual AI workflow builder. Drag-and-drop. | Free (OSS) |
-| [FastAgency](https://github.com/airtai/fastagency) | Deploy multi-agent workflows as APIs. | Free (OSS) |
+| Agent | Description |
+|-------|------------- |
+| [Dify](https://github.com/langgenius/dify) | OSS LLMOps. Visual agent builder. RAG. 130k+ stars. |
+| [Flowise](https://github.com/FlowiseAI/Flowise) | OSS drag-and-drop LLM agent builder. |
+| [Langflow](https://github.com/langflow-ai/langflow) | Visual multi-agent and RAG builder. |
+| [Lindy](https://lindy.ai) | No-code agents. 3000+ integrations. |
+| [Relevance AI](https://relevanceai.com) | No-code agents for sales, support, research. |
+| [Rivet](https://rivet.ironcladapp.com) | Visual AI workflow builder. Drag-and-drop. |
+| [FastAgency](https://github.com/airtai/fastagency) | Deploy multi-agent workflows as APIs. |
 
 ---
 
 ## 💼 Customer Support and CRM Agents
 
 ### Support Agents
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [Intercom Fin](https://intercom.com) | Resolves 50%+ tickets. Learns from help center. | From $29/seat |
-| [Zendesk AI](https://zendesk.com) | Ticket routing, sentiment detection, Answer Bot. | From $19/agent |
-| [Ada](https://ada.cx) | Autonomous resolution. Multi-channel. SOP Playbooks. | Enterprise |
-| [Assembled](https://assembled.com) | Workforce-aware handoffs. End-to-end resolution. | Enterprise |
-| [Freshdesk Freddy AI](https://freshworks.com) | Auto-triage, smart routing, predictive analytics. | From $15/agent |
-| [Dixa (Mim)](https://dixa.com) | Conversational CRM. AI routing and prioritization. | Enterprise |
+| Agent | Description |
+|-------|------------- |
+| [Intercom Fin](https://intercom.com) | Resolves 50%+ tickets. Learns from help center. |
+| [Zendesk AI](https://zendesk.com) | Ticket routing, sentiment detection, Answer Bot. |
+| [Ada](https://ada.cx) | Autonomous resolution. Multi-channel. SOP Playbooks. |
+| [Assembled](https://assembled.com) | Workforce-aware handoffs. End-to-end resolution. |
+| [Freshdesk Freddy AI](https://freshworks.com) | Auto-triage, smart routing, predictive analytics. |
+| [Dixa (Mim)](https://dixa.com) | Conversational CRM. AI routing and prioritization. |
 
 ### AI-Powered CRMs
-| CRM | AI Features | Pricing |
-|-----|-------------|---------|
-| [Salesforce Einstein + Agentforce](https://salesforce.com) | Predictions, autonomous agents, ChatGPT integration. | Enterprise |
-| [HubSpot Breeze](https://hubspot.com) | Copilot, Agents, Intelligence. Agent marketplace. | Free / $45+/mo |
-| [Monday CRM (Lexi)](https://monday.com) | AI sales agent. Lead sourcing, qualification. AI Blocks. | From $12/seat |
-| [Zoho CRM (Zia)](https://zoho.com/crm) | Predictive, sentiment, voice commands. | From $14/user |
-| [Pipedrive AI](https://pipedrive.com) | Email gen, deal priority, smart reports. | From $14/seat |
-| [Dynamics 365 Copilot](https://dynamics.microsoft.com) | Drafting, summarizing, translating. Power Platform. | Enterprise |
-| [ServiceNow AI Agents](https://servicenow.com) | Orchestrator across IT, HR, CRM. | Enterprise |
-| [Creatio](https://creatio.com) | No-code. Pre-configured agents. | From $25/user |
-| [Salesmate](https://salesmate.io) | Call summarization, lead qualification. | From $23/user |
+| CRM | AI Features |
+|-----|------------- |
+| [Salesforce Einstein + Agentforce](https://salesforce.com) | Predictions, autonomous agents, ChatGPT integration. |
+| [HubSpot Breeze](https://hubspot.com) | Copilot, Agents, Intelligence. Agent marketplace. |
+| [Monday CRM (Lexi)](https://monday.com) | AI sales agent. Lead sourcing, qualification. AI Blocks. |
+| [Zoho CRM (Zia)](https://zoho.com/crm) | Predictive, sentiment, voice commands. |
+| [Pipedrive AI](https://pipedrive.com) | Email gen, deal priority, smart reports. |
+| [Dynamics 365 Copilot](https://dynamics.microsoft.com) | Drafting, summarizing, translating. Power Platform. |
+| [ServiceNow AI Agents](https://servicenow.com) | Orchestrator across IT, HR, CRM. |
+| [Creatio](https://creatio.com) | No-code. Pre-configured agents. |
+| [Salesmate](https://salesmate.io) | Call summarization, lead qualification. |
 
 ### Sales and Outreach Agents
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [Clay](https://clay.com) | AI data enrichment. Personalized outreach at scale. | From $149/mo |
-| [Apollo.io](https://apollo.io) | AI prospecting, sequences, scoring. 275M+ contacts. | Free / $49+/mo |
-| [Instantly](https://instantly.ai) | AI cold email. Unlimited accounts. Smart rotation. | From $30/mo |
-| [Lavender](https://lavender.ai) | AI email coach. Real-time scoring. | Free / $29/mo |
+| Agent | Description |
+|-------|------------- |
+| [Clay](https://clay.com) | AI data enrichment. Personalized outreach at scale. |
+| [Apollo.io](https://apollo.io) | AI prospecting, sequences, scoring. 275M+ contacts. |
+| [Instantly](https://instantly.ai) | AI cold email. Unlimited accounts. Smart rotation. |
+| [Lavender](https://lavender.ai) | AI email coach. Real-time scoring. |
 
 ---
 
 ## 📊 Data and Research Agents
 
 ### Deep Research
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [Claude Deep Research](https://claude.ai) | Multi-step investigation with citations. | Claude Pro |
-| [ChatGPT Deep Research](https://chat.openai.com) | Extended reasoning, web browsing, reports. | ChatGPT Pro |
-| [Gemini Deep Research](https://gemini.google.com) | Google Search and Knowledge Graph. | Gemini Advanced |
-| [Perplexity Pro](https://perplexity.ai) | AI search with deep research mode. Real-time citations. | Free / $20/mo |
-| [DeerFlow](https://github.com/bytedance/deer-flow) | ByteDance OSS. Planning, tools, memory, execution. | Free (OSS) |
-| [GPT Researcher](https://github.com/assafelovic/gpt-researcher) | OSS autonomous comprehensive research. | Free (OSS) |
-| [STORM](https://github.com/stanford-oval/storm) | Stanford. Writes Wikipedia-like articles from scratch. | Free (OSS) |
+| Agent | Description |
+|-------|------------- |
+| [Claude Deep Research](https://claude.ai) | Multi-step investigation with citations. |
+| [ChatGPT Deep Research](https://chat.openai.com) | Extended reasoning, web browsing, reports. |
+| [Gemini Deep Research](https://gemini.google.com) | Google Search and Knowledge Graph. |
+| [Perplexity Pro](https://perplexity.ai) | AI search with deep research mode. Real-time citations. |
+| [DeerFlow](https://github.com/bytedance/deer-flow) | ByteDance OSS. Planning, tools, memory, execution. |
+| [GPT Researcher](https://github.com/assafelovic/gpt-researcher) | OSS autonomous comprehensive research. |
+| [STORM](https://github.com/stanford-oval/storm) | Stanford. Writes Wikipedia-like articles from scratch. |
 
 ### Data Analysis
-| Agent | Description | Pricing |
-|-------|-------------|---------|
-| [Julius AI](https://julius.ai) | Upload CSV/Excel, ask in natural language. | Free / Paid |
-| [Hex AI](https://hex.tech) | Collaborative data platform. AI analysis. | Free / Paid |
-| [PandasAI](https://github.com/Sinaptik-AI/pandas-ai) | Chat with your data. NL to Pandas/SQL. | Free (OSS) |
-| [TaskWeaver](https://github.com/microsoft/TaskWeaver) | Microsoft. Code-first data analytics agents. | Free (OSS) |
+| Agent | Description |
+|-------|------------- |
+| [Julius AI](https://julius.ai) | Upload CSV/Excel, ask in natural language. |
+| [Hex AI](https://hex.tech) | Collaborative data platform. AI analysis. |
+| [PandasAI](https://github.com/Sinaptik-AI/pandas-ai) | Chat with your data. NL to Pandas/SQL. |
+| [TaskWeaver](https://github.com/microsoft/TaskWeaver) | Microsoft. Code-first data analytics agents. |
 
 ### RAG and Knowledge Bases
 | Tool | Description |
@@ -423,15 +423,15 @@ Memory is a first-class concern in agentic systems.
 
 ## 🤖 Multi-Agent Platforms
 
-| Platform | Description | Pricing |
-|----------|-------------|---------|
-| [ChatGPT](https://chat.openai.com) | GPTs, Deep Research, Canvas, Agent Mode, vision. GPT-5. | Free / $20+/mo |
-| [Claude](https://claude.ai) | Tool use, computer control, MCP, code exec. Chrome, Excel, Cowork. | Free / $20+/mo |
-| [Gemini](https://gemini.google.com) | Deep Think, Gems, multi-modal. 1M tokens. Google ecosystem. | Free / $19.99+/mo |
-| [Grok](https://x.ai) | Real-time X data. Grok Build. Image gen. | X Premium+ |
-| [Meta AI](https://meta.ai) | Llama-powered. WhatsApp/Messenger. Manus acquisition. | Free |
-| [Microsoft Copilot](https://copilot.microsoft.com) | Office 365 integration. Enterprise. | Free / $30/user |
-| [Coze](https://coze.com) | ByteDance agent builder. Visual workflow. Plugin marketplace. | Free / Paid |
+| Platform | Description |
+|----------|------------- |
+| [ChatGPT](https://chat.openai.com) | GPTs, Deep Research, Canvas, Agent Mode, vision. GPT-5. |
+| [Claude](https://claude.ai) | Tool use, computer control, MCP, code exec. Chrome, Excel, Cowork. |
+| [Gemini](https://gemini.google.com) | Deep Think, Gems, multi-modal. 1M tokens. Google ecosystem. |
+| [Grok](https://x.ai) | Real-time X data. Grok Build. Image gen. |
+| [Meta AI](https://meta.ai) | Llama-powered. WhatsApp/Messenger. Manus acquisition. |
+| [Microsoft Copilot](https://copilot.microsoft.com) | Office 365 integration. Enterprise. |
+| [Coze](https://coze.com) | ByteDance agent builder. Visual workflow. Plugin marketplace. |
 
 ---
 
