@@ -24,6 +24,7 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 - [📡 Protocols and Standards](#-protocols-and-standards)
 - [🧪 Evaluation & Safety](#-evaluation--safety)
 - [🧠 Skills and Operating Principles](#-skills-and-operating-principles)
+- [🚫 What NOT to Do](#-what-not-to-do)
 - [📊 Signals (How to Read This List)](#-signals-how-to-read-this-list)
 - [🚀 Getting Started](#-getting-started)
 - [🤝 Contributing](#-contributing)
@@ -311,6 +312,18 @@ Building agentic systems requires a shift in skillset:
 - Evaluation design  
 - Failure mode analysis  
 - Safety and governance thinking  
+
+---
+
+## 🚫 What NOT to Do
+
+To keep this repository genuinely opinionated, we advocate against these common anti-patterns:
+
+- **Do not begin with multi-agent systems when a single agent plus tools will do.** Escalate to multi-agent only when task decomposition requires it.
+- **Do not add memory before defining what deserves persistence.** Avoid "state bloat" by being intentional about what is stored and why.
+- **Do not treat tracing as optional for long-running systems.** Observability is the only way to debug non-deterministic agentic failures.
+- **Do not confuse benchmark wins with production readiness.** Real-world reliability requires evaluation on *your* specific data and edge cases.
+- **Do not use framework abstractions as a substitute for architecture.** Understand your control flow before outsourcing it to a library.
 
 ---
 
