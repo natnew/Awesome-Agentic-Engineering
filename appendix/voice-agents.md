@@ -3,7 +3,7 @@
 ### Platforms and APIs
 | Platform | Description |
 |----------|------------- |
-| [ElevenLabs](https://elevenlabs.io) | Industry benchmark. Conv AI 2.0. RAG, multimodal, batch calling. 75ms. HIPAA. $11B. |
+| [ElevenLabs](https://elevenlabs.io) | Voice platform with conversational AI, multimodal support, batch calling, and compliance-oriented deployment options. |
 | [Vapi](https://vapi.ai) | Developer-first. Low-latency, model-agnostic. |
 | [Bland AI](https://bland.ai) | Outbound call automation. CRM integration. SOC2/HIPAA. |
 | [Voiceflow](https://voiceflow.com) | No-code voice and chat builder. Drag-and-drop. |

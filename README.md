@@ -1,8 +1,8 @@
 # 🧠 Awesome Agentic Engineering
 
-> **Stop prompting. Start engineering. The definitive blueprint for taking AI agents to production.**
+> **Stop prompting. Start engineering. A structured reference for taking AI agents into production.**
 
-[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re) [![Stars](https://img.shields.io/github/stars/natnew/Awesome-Agentic-Engineering?style=flat-square&color=yellow)](https://github.com/natnew/Awesome-Agentic-Engineering/stargazers) [![Last Update](https://img.shields.io/badge/last%20update-March%202026-blue?style=flat-square)]() [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](LICENSE)
+[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re) [![Last Update](https://img.shields.io/badge/last%20update-March%202026-blue?style=flat-square)]() [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](LICENSE)
 
 A curated map of agentic AI systems — covering architectures, frameworks, memory, evaluation, and safety.
 
@@ -69,7 +69,7 @@ These patterns underpin most production-grade agentic systems.
 
 | Pattern | Description | Key Characteristic |
 | :--- | :--- | :--- |
-| **Single-Agent + Tool Use** | One reasoning loop with structured tool invocation | Best for focused tasks with bounded scope |
+| **Single-Agent + Tool Use** | One reasoning loop with structured tool invocation | Suited to focused tasks with bounded scope |
 | **Supervisor / Router Agents** | Central agent delegates tasks to specialised agents | Enables modularity and scalability |
 | **Multi-Agent Collaboration** | Agents operate in parallel or sequence | Patterns: debate, critique, planning/execution split |
 | **Reflection / Critique Loops** | Agents evaluate and refine their own outputs | Improves reliability over multiple iterations |
@@ -82,10 +82,10 @@ These patterns underpin most production-grade agentic systems.
 
 Representative system designs for real-world use.
 
-| Architecture | Status | Description | Pros & Cons | Use Case | Paradigm | Operational Risks |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DeerFlow** | *Emerging* | **Is:** Open-source super agent harness orchestrating sub-agents, memory, and sandboxes.<br>**Demonstrates:** Workflow-oriented orchestration and the composition of sub-agents with memory. A fuller “agent system”. | **Strengths:** Strong system-level example, helpful reference for memory + sandbox + skills composition, better architectural signal than minimal repos.<br>**Weaknesses:** Higher complexity than most teams need initially, heavier operational surface, less suitable as a first learning path. | **Best for:** Teams studying full-stack agent architectures, compound research/coding workflows.<br>**Avoid if:** You only need lightweight orchestration or your workflow does not justify sub-agents. | Hierarchical multi-agent orchestration. | Increased operational complexity, sandbox escape risks if untrusted logic is executed. |
-| **SWE-agent** | *Experimental* | **Is:** Autonomous SWE system using a specialized Agent-Computer Interface (ACI).<br>**Demonstrates:** AI-native abstractions improving execution accuracy. | **Strengths:** Streamlined command space, SOTA on SWE-bench, compressed history processor.<br>**Weaknesses:** Benchmark-tailored, high token cost & long fix latency. | **Best for:** Isolated PRs, self-contained bug fixes.<br>**Avoid if:** Enterprise refactoring, lacking standard build tools. | Single-agent with highly specialized action space (ACI). | Can introduce silent bugs or unpredictable code changes if not strictly bounded; latency and token cost overruns. |
+| Architecture | Ecosystem Maturity | Description | Architectural Strengths | Operational Constraints | Workload Suitability | Design Paradigm | Governance Fit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **DeerFlow** | *Emerging* | **Is:** Open-source orchestration system combining sub-agents, memory, and sandboxes.<br>**Demonstrates:** Workflow-oriented orchestration across agents with shared execution context. | Strong system-level reference for memory, sandbox, and skills composition. | Higher setup complexity and a heavier runtime surface than most teams need initially. | Strong fit for compound research/coding workflows and teams studying full-stack agent architectures. Poor fit for lightweight orchestration or narrowly scoped tasks. | Hierarchical multi-agent orchestration. | Requires explicit sandbox policy, tool boundaries, and operator oversight before untrusted code execution. |
+| **SWE-agent** | *Experimental* | **Is:** Autonomous SWE system using a specialized Agent-Computer Interface (ACI).<br>**Demonstrates:** Narrow action spaces and interface design tuned for code-repair tasks. | Streamlined command space, compressed history handling, and a clear task boundary for patch workflows. | Benchmark-oriented design, high token cost, and long end-to-end fix latency on larger tasks. | Strong fit for isolated PRs and self-contained bug fixes. Poor fit for broad refactors or environments without standard build tooling. | Single agent with a highly specialized action space (ACI). | Needs tight repository scoping, review gates, and execution controls to reduce silent code regressions. |
 
 ---
 
@@ -152,8 +152,11 @@ Every major framework and architecture in this repository is judged against the 
 | **Type safety / structured outputs** | Are outputs guaranteed against strict schemas? |
 | **Provider portability** | How tightly coupled is it to one specific LLM provider? |
 | **Security posture** | Are there built-in mechanisms for sandboxing, access control, or guardrails? |
-| **Production maturity** | Is it a stable interface supported by widespread enterprise adoption? |
-| **Best fit workload** | What specific workflow or architectural pattern is it uniquely suited for? |
+| **Architectural strengths** | Which design choices materially improve decomposition, control, state handling, or interface clarity? |
+| **Operational constraints** | What deployment burden, runtime cost, debugging friction, or failure modes does it introduce? |
+| **Ecosystem maturity** | How stable are the APIs, docs, integrations, and operator knowledge base? |
+| **Governance fit** | Does it support auditability, approval gates, access boundaries, policy enforcement, and regulated environments? |
+| **Workload suitability** | Which workflows, task shapes, and team contexts does it fit well or poorly? |
 
 ---
 
@@ -161,13 +164,13 @@ Every major framework and architecture in this repository is judged against the 
 
 ### Deep Dives
 
-| Framework | Status | Description | Pros & Cons | Use Case | Paradigm | Operational Risks |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **LangGraph** | *Production-ready* | **Is:** Stateful orchestration framework building directed acyclic graphs (DAGs).<br>**Demonstrates:** Deterministic execution control mixed with LLM reasoning. | **Strengths:** Explicit state management, complex multi-actor workflows, persistence.<br>**Weaknesses:** Verbosity, steep learning curve. | **Best for:** Multi-step, stateful, and interruptible agent systems.<br>**Avoid if:** You just need simple single-prompt completions or linear chains. | DAG-based state machine. | Complex graphs can become difficult to trace and maintain; infinite loops if edges aren't tightly constrained. |
-| **CrewAI** | *Emerging* | **Is:** Multi-agent collaboration framework where agents are assigned roles, goals, and tools.<br>**Demonstrates:** Role-based agentic workflows. | **Strengths:** Simple mental model, fast setup and prototyping.<br>**Weaknesses:** Limited control for highly complex or non-standard systems. | **Best for:** Rapid prototyping of agent teams.<br>**Avoid if:** You need deterministic execution, rigorous type safety, or custom orchestration loops. | Role-based sequential or hierarchical process execution. | Emergent loops can lead to hallucination spirals; potentially less predictable than graph-based execution. |
-| **OpenAI Assistants / Agents APIs** | *Production-ready* | **Is:** Hosted orchestration and state management by OpenAI.<br>**Demonstrates:** Managed state and tool execution. | **Strengths:** Integrated tools, simplicity, offloads infrastructure.<br>**Weaknesses:** Limited transparency and control, vendor lock-in. | **Best for:** Managed environments, fast go-to-market.<br>**Avoid if:** You need provider portability, local models, or complex multi-agent setups. | Hosted black-box orchestration. | Complete dependence on OpenAI uptime and API deprecation cycles; data privacy concerns for sensitive enterprise data. |
-| **Pydantic AI** | *Production-ready* | **Is:** Framework built directly on Pydantic enforcing strict data validation & type-safe outputs from LLMs.<br>**Demonstrates:** Type-driven agentic execution and dependency injection. | **Strengths:** Type-system integration, type-safe dependency injection, auto-retry loops.<br>**Weaknesses:** Nascent ecosystem vs others, loop retries can spike costs. | **Best for:** Production systems needing strict type safety & predictable parsing.<br>**Avoid if:** Tasks are mostly open-ended generative writing or not schema-driven. | Strongly typed, schema-first LLM interactions. | Unbounded retry loops can spike LLM token costs significantly; brittle if models degrade in schema following. |
-| **Smolagents** | *Emerging* | **Is:** Minimalist framework using `CodeAgents` (Python logic code generation over JSON calling).<br>**Demonstrates:** Code-first model execution bounds. | **Strengths:** Extremely lightweight (~1k LOC), code-first native execution bounds.<br>**Weaknesses:** Sandbox escape & SSRF risks, weak typed-state enforcement. | **Best for:** Fast prototyping & pure Python logic preference.<br>**Avoid if:** Building regulated enterprise networks needing tight security or rigorous observability. | Python-native logic execution via LLM generation. | Direct execution of generated code poses massive sandbox escape, RCE, and SSRF risks if sandboxing is bypassed. |
+| Framework | Ecosystem Maturity | Description | Architectural Strengths | Operational Constraints | Workload Suitability | Design Paradigm | Governance Fit |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LangGraph** | *Production-ready* | **Is:** Stateful orchestration framework building directed acyclic graphs (DAGs).<br>**Demonstrates:** Deterministic execution control mixed with LLM reasoning. | Explicit state management, persistence, and support for complex multi-actor workflows. | Verbose abstractions, steep learning curve, and graph sprawl if the workflow is over-modeled. | Strong fit for multi-step, stateful, and interruptible agent systems. Poor fit for simple single-prompt completions or linear chains. | DAG-based state machine. | Good fit for auditable workflows and approval gates, but graph edges must be tightly constrained to avoid runaway loops. |
+| **CrewAI** | *Emerging* | **Is:** Multi-agent collaboration framework where agents are assigned roles, goals, and tools.<br>**Demonstrates:** Role-based agentic workflows. | Simple mental model and fast team-based decomposition for prototypes. | Less control for highly complex or non-standard systems. | Strong fit for rapid prototyping of agent teams. Poor fit for deterministic execution, rigorous type safety, or custom orchestration loops. | Role-based sequential or hierarchical process execution. | Requires added guardrails and observability to manage emergent loops and inconsistent agent behaviour. |
+| **OpenAI Assistants / Agents APIs** | *Production-ready* | **Is:** Hosted orchestration and state management by OpenAI.<br>**Demonstrates:** Managed state and tool execution. | Integrated tools, simplified operations, and reduced infrastructure ownership. | Limited transparency and control, with strong provider coupling. | Strong fit for managed environments and teams optimizing for delivery speed. Poor fit for provider portability, local models, or complex multi-agent setups. | Hosted black-box orchestration. | Viable for hosted approval flows, but bounded by vendor policy, uptime, and data-handling constraints. |
+| **Pydantic AI** | *Production-ready* | **Is:** Framework built directly on Pydantic enforcing strict data validation and type-safe outputs from LLMs.<br>**Demonstrates:** Type-driven agentic execution and dependency injection. | Strong type-system integration, schema enforcement, dependency injection, and retry support. | Smaller surrounding ecosystem than older orchestration stacks; retry loops can increase latency and cost. | Strong fit for production systems needing strict type safety and predictable parsing. Poor fit for open-ended generative writing or weakly structured tasks. | Strongly typed, schema-first LLM interactions. | Good fit where schema validation and dependency control matter, but retry policies need explicit cost and failure bounds. |
+| **Smolagents** | *Emerging* | **Is:** Minimalist framework using `CodeAgents` (Python logic code generation over JSON calling).<br>**Demonstrates:** Code-first model execution bounds. | Lightweight core and direct execution model that stays close to Python control flow. | Weak typed-state enforcement and high exposure if generated code runs with broad permissions. | Strong fit for fast prototyping and Python-native experimentation. Poor fit for regulated networks or systems that need strict sandboxing and observability. | Python-native logic execution via LLM generation. | Requires strong sandboxing, network controls, and review boundaries before production use. |
 
 ---
 
@@ -176,9 +179,9 @@ Every major framework and architecture in this repository is judged against the 
 #### General Purpose
 | Framework | Lang | Description |
 |-----------|------|-------------|
-| [LangChain](https://github.com/langchain-ai/langchain) | Py/JS | Most adopted. Modular architecture, memory, tools. |
+| [LangChain](https://github.com/langchain-ai/langchain) | Py/JS | Modular framework with chains, tools, memory, and broad integration coverage. |
 | [LangGraph](https://github.com/langchain-ai/langgraph) | Py/JS | Graph-based orchestration. Stateful directed graphs. |
-| [LlamaIndex](https://github.com/run-llama/llama_index) | Py/JS | Data-focused. Best for RAG agents. |
+| [LlamaIndex](https://github.com/run-llama/llama_index) | Py/JS | Data-centric framework for retrieval-heavy and RAG-oriented agent systems. |
 | [Haystack](https://github.com/deepset-ai/haystack) | Py | Pipeline-based. Search and retrieval. |
 | [Semantic Kernel](https://github.com/microsoft/semantic-kernel) | C#/Py/Java | Microsoft enterprise. Azure integration. |
 | [Pydantic AI](https://github.com/pydantic/pydantic-ai) | Py | Type-safe. Clean Pythonic API. Production-ready. |
@@ -198,7 +201,7 @@ Every major framework and architecture in this repository is judged against the 
 | [CAMEL](https://github.com/camel-ai/camel) | Py | Role-based simulation. Collaborative reasoning. |
 | [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | Py | Pioneer. Now full platform with visual builder. |
 | [AgentScope](https://github.com/modelscope/agentscope) | Py | Alibaba multi-agent framework. |
-| [DeerFlow](https://github.com/bytedance/deer-flow) | Py | ByteDance. No.1 GitHub Trending Feb 2026. 25k+ stars. |
+| [DeerFlow](https://github.com/bytedance/deer-flow) | Py | ByteDance orchestration system for planning, tools, memory, and execution. |
 
 #### Lightweight / Minimalist
 | Framework | Lang | Description |
@@ -215,7 +218,7 @@ Every major framework and architecture in this repository is judged against the 
 
 | Protocol | Description |
 |----------|-------------|
-| [MCP (Model Context Protocol)](https://github.com/modelcontextprotocol) | Anthropic open standard. "USB-C for AI." Industry standard for tools. |
+| [MCP (Model Context Protocol)](https://github.com/modelcontextprotocol) | Open standard for exposing tools, memory, and file systems to agents. |
 | [A2A (Agent-to-Agent)](https://github.com/google/A2A) | Google protocol for inter-agent communication. |
 | [OpenAI Function Calling](https://platform.openai.com/docs/guides/function-calling) | OpenAI native tool-use. JSON schema. |
 | [Tool Use (Anthropic)](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) | Claude native tool-use. Structured JSON. |
@@ -236,7 +239,7 @@ This section covers frameworks and operational tooling for testing agent quality
 - Robustness under adversarial input  
 
 ### Evaluation Frameworks
-| Framework | Description | Methodology / Best Fit |
+| Framework | Description | Methodology / Workload Suitability |
 |-----------|-------------|------------------------|
 | [OpenAI Evals](https://developers.openai.com/api/docs/guides/evals/) | Core framework for testing and improving AI systems. | Foundational evaluation framework and methodology. |
 | [DeepEval](https://deepeval.com/docs/getting-started) | Dedicated open-source LLM evaluation framework with metrics for hallucination, answer relevance, task completion, etc. | Application-level evaluation and regression testing. |
@@ -263,9 +266,9 @@ This section covers frameworks and operational tooling for testing agent quality
 ### Benchmarks
 | Benchmark | Description |
 |-----------|-------------|
-| [SWE-bench](https://github.com/princeton-nlp/SWE-bench) | Industry standard for coding agents. Top: 80.9% (Opus). |
+| [SWE-bench](https://github.com/princeton-nlp/SWE-bench) | Coding-agent benchmark grounded in real GitHub issues and patches. |
 | [AgentBench](https://github.com/THUDM/AgentBench) | 8-environment LLM agent benchmark. |
-| [Terminal-Bench](https://terminalbench.com) | Terminal agent performance. GPT-5.3 leads at 77.3%. |
+| [Terminal-Bench](https://terminalbench.com) | Evaluates terminal-agent execution on shell-based tasks. |
 | [GAIA](https://huggingface.co/gaia-benchmark) | General AI Assistant. Real-world tasks. |
 | [WebArena](https://github.com/web-arena-x/webarena) | Web agent benchmark. Real websites. |
 
@@ -280,7 +283,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | Unbounded autonomous behaviour | Policy-driven execution |
 
 ### Safety Tooling & Methodologies
-| Resource | Description | Best Fit | Official Link |
+| Resource | Description | Workload Suitability | Official Link |
 |----------|-------------|----------|---------------|
 | **garak** | LLM vulnerability scanner probing for hallucination, leakage, injection, toxicity, and jailbreaks. | Automated red teaming & vulnerability scanning | [GitHub](https://github.com/NVIDIA/garak) |
 | **OWASP GenAI Security Project** | Governance and mitigation framework for safety risks in LLMs and agentic systems. | Governance, controls, and secure-design reference | [Project Home](https://genai.owasp.org/) |
@@ -353,9 +356,9 @@ Contributions are welcome! Please read the [**CONTRIBUTING.md**](CONTRIBUTING.md
 At a high level, submissions must meet the following criteria:
 
 - Clear description of purpose  
-- Strengths and weaknesses  
-- When to use / when not to use  
-- Evidence of real-world usage (preferred)  
+- Architectural strengths and operational constraints  
+- Governance fit and workload suitability  
+- Evidence of ecosystem maturity or real-world usage (preferred)  
 
 This is a **curated list**, not an exhaustive one.
 
