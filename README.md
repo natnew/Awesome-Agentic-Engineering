@@ -20,6 +20,7 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 - [🏗️ Reference Architectures](#-reference-architectures)
 - [🧠 Memory Systems](#-memory-systems)
 - [📊 Formal Evaluation Rubric](#-formal-evaluation-rubric)
+- [Benchmark and Evidence Policy](#benchmark-and-evidence-policy)
 - [⚙️ Orchestration Frameworks](#-orchestration-frameworks)
 - [📡 Protocols and Standards](#-protocols-and-standards)
 - [🧪 Evaluation & Safety](#-evaluation--safety)
@@ -159,6 +160,22 @@ Every major framework and architecture in this repository is judged against the 
 | **Workload suitability** | Which workflows, task shapes, and team contexts does it fit well or poorly? |
 
 ---
+
+## Benchmark and Evidence Policy
+
+Canonical resources are trusted here because they define what counts as evidence. Prefer official docs, architecture guides, papers, benchmark repos, and first-party repositories when establishing capabilities, methodology, or interface details.
+
+| Evidence Tag | Use For |
+| :--- | :--- |
+| `[official]` | Official docs, architecture guides, specifications, benchmark documentation, or first-party repositories. |
+| `[benchmark]` | Published benchmark runs, evaluation papers, or benchmark repos tied to a named workload. |
+| `[field report]` | Production write-ups, incident reports, engineering blogs, or operator notes about real deployments. |
+| `[author assessment]` | This repository's synthesis after reviewing the sources above and applying the rubric. |
+
+- Do not treat marketing copy, launch-day demos, or GitHub stars as sufficient evidence for production claims.
+- Separate benchmark performance from production maturity. A benchmark result can support workload fit, but it does not by itself prove reliability, governance fit, cost control, or operational maturity.
+- Record `Last reviewed: Month YYYY` in rapidly changing sections such as product lists, vendor capability summaries, and release-sensitive guidance.
+- See [appendix/benchmark-and-evidence-policy.md](appendix/benchmark-and-evidence-policy.md) for the full policy.
 
 ## ⚙️ Orchestration Frameworks
 
@@ -359,8 +376,11 @@ At a high level, submissions must meet the following criteria:
 - Architectural strengths and operational constraints  
 - Governance fit and workload suitability  
 - Evidence of ecosystem maturity or real-world usage (preferred)  
+- Evidence tags and `Last reviewed` markers where claims are time-sensitive or likely to change
 
 This is a **curated list**, not an exhaustive one.
+
+See [appendix/benchmark-and-evidence-policy.md](appendix/benchmark-and-evidence-policy.md) for the sourcing, evidence-tagging, and `Last reviewed` policy.
 
 ---
 

@@ -2,6 +2,10 @@
 
 ---
 
+> Last reviewed: March 2026
+>
+> Evidence note: verify current capabilities against official docs or first-party repos before treating an entry as current. Inclusion here is not benchmark evidence and does not imply production maturity.
+
 Descriptions in this appendix prioritise delivery model, control surface, operational constraints, and workload fit over valuation, star growth, or leaderboard claims.
 
 ## 🖥 Coding Agents
