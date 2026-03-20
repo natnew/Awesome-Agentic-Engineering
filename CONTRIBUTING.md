@@ -25,8 +25,11 @@ We reject "tool list energy." Every major framework and architecture is judged a
 - **Type safety / structured outputs**: Are outputs guaranteed against strict schemas?
 - **Provider portability**: How tightly coupled is it to one specific LLM provider?
 - **Security posture**: Are there built-in mechanisms for sandboxing, access control, or guardrails?
-- **Production maturity**: Is it a stable interface supported by widespread enterprise adoption?
-- **Best fit workload**: What specific workflow or architectural pattern is it uniquely suited for?
+- **Architectural strengths**: Which design choices materially improve decomposition, control, state handling, or interface clarity?
+- **Operational constraints**: What deployment burden, runtime cost, debugging friction, or failure modes does it introduce?
+- **Ecosystem maturity**: How stable are the APIs, docs, integrations, and operator knowledge base?
+- **Governance fit**: Does it support auditability, approval gates, access boundaries, policy enforcement, and regulated environments?
+- **Workload suitability**: Which workflows, task shapes, and team contexts does it fit well or poorly?
 
 ## Guidelines for Submissions
 
@@ -44,12 +47,12 @@ To ensure consistency, every **major entry** (e.g., deep dives, reference archit
 ### [Framework/Architecture Name]
 - **What it is**: [Concise definition]
 - **What it demonstrates**: [Why is this a significant example?]
-- **Strengths**: [Key engineering advantages based on the rubric]
-- **Weaknesses**: [Trade-offs, limitations, and operational friction]
-- **Best for**: [Specific use case where this excels]
-- **Avoid if**: [When this tool introduces unnecessary complexity or risk]
+- **Architectural strengths**: [Key engineering advantages based on the rubric]
+- **Operational constraints**: [Trade-offs, limitations, and operational friction]
+- **Ecosystem maturity**: [API stability, docs, surrounding tooling, and operator familiarity]
+- **Governance fit**: [Auditability, approval boundaries, access control, and policy alignment]
+- **Workload suitability**: [Where it fits well, and where it creates unnecessary complexity or risk]
 - **Design paradigm**: [e.g., Node-based DAG, Actor Model, Pipeline]
-- **Operational risks**: [Security, scaling, or reliability concerns]
 ```
 
 For minor landscape table entries, carefully condense your criteria to match the standard layout used in that section.
@@ -57,7 +60,7 @@ For minor landscape table entries, carefully condense your criteria to match the
 
 ### Updating Existing Sections
 
-We highly encourage updates to existing sections if definitions become outdated, or if the "strengths/weaknesses" of a framework substantively shift due to a major ecosystem update. 
+We highly encourage updates to existing sections if definitions become outdated, or if the architectural strengths, operational constraints, or governance profile of a framework substantively shift due to a major ecosystem update. 
 
 ## The Pull Request Process
 
@@ -66,4 +69,4 @@ We highly encourage updates to existing sections if definitions become outdated,
 3. Keep the **Pull Request title** clear and descriptive (e.g., `Add Inspect to Evaluation Frameworks`).
 4. In the PR body, briefly explain **why** the resource meets the critical bar for this specific repository.
 
-Welcome to the cutting edge of AI engineering. We look forward to building with you!
+Thanks for helping keep the repository engineering-focused and usable.

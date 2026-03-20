@@ -3,7 +3,7 @@
 ### Support Agents
 | Agent | Description |
 |-------|------------- |
-| [Intercom Fin](https://intercom.com) | Resolves 50%+ tickets. Learns from help center. |
+| [Intercom Fin](https://intercom.com) | Support agent grounded in help-center content with automated ticket resolution workflows. |
 | [Zendesk AI](https://zendesk.com) | Ticket routing, sentiment detection, Answer Bot. |
 | [Ada](https://ada.cx) | Autonomous resolution. Multi-channel. SOP Playbooks. |
 | [Assembled](https://assembled.com) | Workforce-aware handoffs. End-to-end resolution. |
@@ -27,7 +27,7 @@
 | Agent | Description |
 |-------|------------- |
 | [Clay](https://clay.com) | AI data enrichment. Personalized outreach at scale. |
-| [Apollo.io](https://apollo.io) | AI prospecting, sequences, scoring. 275M+ contacts. |
+| [Apollo.io](https://apollo.io) | AI prospecting platform with sequencing, scoring, and contact-database workflows. |
 | [Instantly](https://instantly.ai) | AI cold email. Unlimited accounts. Smart rotation. |
 | [Lavender](https://lavender.ai) | AI email coach. Real-time scoring. |
 
