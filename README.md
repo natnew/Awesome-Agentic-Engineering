@@ -90,11 +90,50 @@ Representative system designs for real-world use.
 
 ## 🧠 Memory Systems
 
-Memory is a first-class concern in agentic systems.
+Memory is a first-class concern in agentic systems. Rather than treating memory as a simple array of previous messages, production systems require structured approaches to state, persistence, and retrieval.
 
-| 🧠 Types of Memory | 🔑 Key Concepts | 🛠️ Tooling |
+### Memory Taxonomy
+
+Different types of memory serve distinct functional roles in an agentic architecture:
+
+| Type | Definition | Implementation Examples |
 | :--- | :--- | :--- |
-| • **Episodic:** task-specific history<br>• **Procedural:** reusable skills and behaviours<br>• **Semantic:** embedded knowledge (vector DBs) | • Context window management<br>• Memory retrieval strategies<br>• Semantic caching<br>• Memory pruning and decay<br>• Cross-agent memory sharing | • Vector databases (FAISS, Weaviate, Pinecone)<br>• Redis / KV stores for fast state<br>• Emerging standards (e.g. MCP) |
+| **Working Memory** (Thread State) | Short-term context for the current execution loop or active conversation thread. Ephemeral. | Context window, LangGraph `State`, in-memory message lists. |
+| **Episodic Memory** | Autobiographical history of past actions, inputs, and outcomes. Enables reflection on past mistakes. | Checkpoint logs, event stores, prompt / trajectory histories. |
+| **Procedural Memory** | Reusable skills, system prompts, and tool configurations. Defines *how* the agent operates. | Static configuration, retrieved skill libraries, GitHub workflows. |
+| **Semantic Memory** | Embedded, factual knowledge about the world, the user, or the domain. Defines *what* the agent knows. | Vector databases (FAISS, Pinecone), knowledge graphs, Letta core memory. |
+
+### Architectural Patterns: Shared vs. Private Memory
+
+In multi-agent systems, memory boundaries are architectural decisions:
+- **Private Agent Memory**: Each agent maintains its own semantic and episodic stores. Prevents context leakage and maintains strong role boundaries.
+- **Shared Workspace (Global Memory)**: A common blackboard or shared state where multiple agents read and write. Requires collision management and strict typing.
+
+### Retrieval and Persistence Decisions
+
+Managing the memory lifecycle is critical for long-running agents.
+
+| Mechanism | Description | Best Practices & Risks |
+| :--- | :--- | :--- |
+| **Checkpointing** | Saving the exact thread state at a specific point in time (e.g., node transitions). | Enables "time travel" (rewind and replay) and human-in-the-loop approvals. |
+| **Write Policies** | Rules defining when and how an agent commits data to long-term storage. | Prefer explicit `SaveMemory` tool calls over passive auto-saving to maintain control. |
+| **Retrieval Triggers** | Determining when to query past memory (e.g., pre-fetch vs. just-in-time). | Use vector search for semantic recall, but use explicit graph keys for structured state. |
+| **Summarisation / Compression** | Reducing token counts of episodic histories. | Summarise older interactions into a rolling summary while preserving recent exact messages. |
+| **Pruning / Decay** | Deleting or archiving old or irrelevant memories. | Implement TTL (time-to-live) for working memory to prevent context exhaustion. |
+| **Contamination / Poisoning** | Malicious or incorrect data persisting in long-term memory. | **Risk**: Once poisoned, an agent's future logic breaks. Require validation or bounds on semantic writes. |
+
+### Systems and Protocols
+
+Specialised infrastructure for managing agent memory.
+
+| System | Role | Description |
+| :--- | :--- | :--- |
+| **LangGraph Persistence** | Thread-level state | Built-in check-pointers (SQLite, Postgres) for DAG-based execution loops, enabling interrupt/resume. |
+| **LangMem** | Long-term memory extraction | LangChain's framework for extracting user preferences and entity profiles in the background. |
+| **Letta** (formerly MemGPT) | OS-level memory abstraction | Advanced core memory management with explicit paging (read/write limits) to mimic virtual memory. |
+| **Mem0** | Personalized memory layer | Managed memory API focusing on user contexts, interactions, and entity relationships. |
+| **Zep / Graphiti** | Enterprise memory & graphs | Fast, long-term memory for AI assistants; uses temporal knowledge graphs to map entity relationships over time. |
+| **MCP** (Model Context Protocol) | Interoperability fabric | While not a DB itself, MCP provides a standard protocol to expose memory stores and file systems universally across tools and agents. |
 
 ---
 
