@@ -30,7 +30,8 @@ It is a structured guide to building **reliable, observable, and production-grad
 - [🤖 Multi-Agent Platforms](#-multi-agent-platforms)
 - [📡 Protocols and Standards](#-protocols-and-standards)
 - [🧪 Evaluation & Reliability](#-evaluation--reliability)
-- [🛡️ Safety & Governance](#️-safety--governance)
+- [🛡️ Safety, Red Teaming & Alignment Stress-Testing](#️-safety-red-teaming--alignment-stress-testing)
+- [🧱 Simulation & Environments](#-simulation--environments)
 - [🔐 Cybersecurity Agents](#-cybersecurity-agents)
 - [🧠 Open-Source Models for Agents](#-open-source-models-for-agents)
 - [📚 Learning Resources](#-learning-resources)
@@ -72,7 +73,7 @@ Representative system designs for real-world use.
 
 | 🏗️ Architecture | 📖 Description | 🟢 Strengths | 🔴 Weaknesses | 🎯 Use Cases |
 | :--- | :--- | :--- | :--- | :--- |
-| **DeerFlow**<br>*(Emerging)* | Multi-agent research framework using sandboxes to manage long-running tasks.<br><br>***Demonstrates:*** Progressive skill-loading and robust memory. | • Strictly isolated execution<br>• On-demand skill loading<br>• Built-in checkpointing | • High k8s/Docker overhead<br>• Slower latency on tasks | **Best for:** Deep research, data analysis, strict sandboxing.<br><br>**Avoid if:** Low-latency chatbots, linear workflows. |
+| **DeerFlow**<br>*(Emerging)* | Open-source super agent harness orchestrating sub-agents, memory, and sandboxes.<br><br>***Demonstrates:*** Workflow-oriented orchestration and the composition of sub-agents with memory. A fuller “agent system”. | • Strong system-level example<br>• Helpful reference for memory + sandbox + skills composition<br>• Better architectural signal than minimal repos | • Higher complexity than most teams need initially<br>• Heavier operational surface<br>• Less suitable as a first learning path | **Best for:** Teams studying full-stack agent architectures, compound research/coding workflows.<br><br>**Avoid if:** You only need lightweight orchestration or your workflow does not justify sub-agents. |
 | **SWE-agent**<br>*(Experimental)* | Autonomous SWE system using a specialized Agent-Computer Interface (ACI).<br><br>***Demonstrates:*** AI-native abstractions improving execution accuracy. | • Streamlined command space<br>• SOTA on SWE-bench<br>• Compressed history processor | • Benchmark-tailored<br>• High token cost & long fix latency | **Best for:** Isolated PRs, self-contained bug fixes.<br><br>**Avoid if:** Enterprise refactoring, lacking standard build tools. |
 
 ---
@@ -448,7 +449,7 @@ Memory is a first-class concern in agentic systems.
 
 ## 🧪 Evaluation & Reliability
 
-Evaluation is the defining constraint of agentic systems.
+This section covers frameworks and operational tooling for testing agent quality, correctness, task completion, regressions, and system behaviour. 
 
 ### Core Areas
 
@@ -458,12 +459,13 @@ Evaluation is the defining constraint of agentic systems.
 - Latency and cost  
 - Robustness under adversarial input  
 
-### Frameworks
-
-- Promptfoo  
-- DeepEval  
-- Ragas  
-- Custom evaluation harnesses  
+### Evaluation Frameworks
+| Framework | Description | Methodology / Best Fit |
+|-----------|-------------|------------------------|
+| [OpenAI Evals](https://developers.openai.com/api/docs/guides/evals/) | Core framework for testing and improving AI systems. | Foundational evaluation framework and methodology. |
+| [DeepEval](https://deepeval.com/docs/getting-started) | Dedicated open-source LLM evaluation framework with metrics for hallucination, answer relevance, task completion, etc. | Application-level evaluation and regression testing. |
+| [promptfoo](https://www.promptfoo.dev/docs/intro/) | CLI and library for evaluation and red teaming of LLM apps. | Regression testing, prompt/application evals, adversarial testing. |
+| [Inspect](https://inspect.aisi.org.uk/) | UK AI Security Institute's framework for rigorous LLM evals covering coding, reasoning, agent behavior, and model-graded scoring. | Rigorous research-grade and agent-task evaluation. |
 
 ### Key Practices
 
@@ -493,23 +495,30 @@ Evaluation is the defining constraint of agentic systems.
 
 ---
 
-## 🛡️ Safety & Governance
+## 🛡️ Safety, Red Teaming & Alignment Stress-Testing
 
-Agentic systems introduce new risk surfaces:
+This section covers security scanning, red teaming, policy testing, misalignment research, and structured safety frameworks. 
 
-- Prompt injection (direct & indirect)  
-- Tool misuse  
-- Data exfiltration  
-- Memory poisoning  
-- Unbounded autonomous behaviour  
+### Core Risk Surfaces & Mitigations
 
-### Mitigation Strategies
+| ⚠️ Core Risk Surfaces | 🛡️ Mitigation Strategies |
+| :--- | :--- |
+| Prompt injection (direct & indirect) | Input validation and filtering |
+| Tool misuse | Tool permissioning and sandboxing |
+| Data exfiltration | Human-in-the-loop approval gates |
+| Memory poisoning | Audit logs and traceability |
+| Unbounded autonomous behaviour | Policy-driven execution |
 
-- Input validation and filtering  
-- Tool permissioning and sandboxing  
-- Human-in-the-loop approval gates  
-- Audit logs and traceability  
-- Policy-driven execution  
+### Tooling, Frameworks & Methodologies
+| Resource | Description | Best Fit | Official Link |
+|----------|-------------|----------|---------------|
+| **garak** | LLM vulnerability scanner probing for hallucination, leakage, injection, toxicity, and jailbreaks. | Automated red teaming & vulnerability scanning | [GitHub](https://github.com/NVIDIA/garak) |
+| **OWASP GenAI Security Project** | Governance and mitigation framework for safety risks in LLMs and agentic systems. | Governance, controls, and secure-design reference | [Project Home](https://genai.owasp.org/) |
+| **Anthropic Alignment Stress-Testing** | Research and operational approach for deliberately stress-testing alignment evals and oversight. | Research-driven safety evaluation methodology | [Post](https://www.alignmentforum.org/posts/EPDSdXr8YbsDkgsDG/introducing-alignment-stress-testing-at-anthropic) |
+| **Model Organisms of Misalignment** | In-vitro demonstrations of alignment failures so they can be studied empirically. | Advanced safety research and methodology | [Post](https://www.alignmentforum.org/posts/ChDH335ckdvpxXaXX/model-organisms-of-misalignment-the-case-for-a-new-pillar-of-1) |
+| **AI Safety via Debate** | Alignment framework for cases where direct human supervision is too hard. | Alignment and scalable oversight resource | [Paper](https://arxiv.org/abs/1805.00899) |
+| **Concrete Problems in AI Safety** | Foundational framing paper for safety problems (side effects, reward hacking, safe exploration, shift). | Foundational safety resource | [Paper](https://arxiv.org/abs/1606.06565) |
+| **Anthropic Agentic Misalignment** | Grounds safety concerns in concrete behaviours (blackmail, espionage) in simulated settings. | Applied safety & threat-modelling reference | [Research Post](https://www.anthropic.com/research/agentic-misalignment) |
 
 ### AI Safety and Guardrails
 | Tool | Description |
@@ -519,6 +528,14 @@ Agentic systems introduce new risk surfaces:
 | [LLM Guard](https://github.com/protectai/llm-guard) | Security toolkit. Input/output scanning. |
 | [Rebuff](https://github.com/protectai/rebuff) | Prompt injection detection. |
 | [Lakera Guard](https://lakera.ai) | Real-time protection. Prompt injection, data leakage, toxicity. |
+
+---
+
+## 🧱 Simulation & Environments
+
+| Tool | Description | Strengths | Weaknesses | Best For |
+|------|-------------|-----------|------------|----------|
+| [Arnis](https://github.com/louis-e/arnis) | Converts real-world geographic data into Minecraft Java and Bedrock worlds (terrain, streets, buildings). | Strong bridge between real-world geography and simulated environments. | Niche relevance unless building spatial/embodied agent systems. | Embodied AI exploration, spatial simulation environments, and synthetic task environments mapping real-world locations. |
 
 ---
 
@@ -626,7 +643,9 @@ Building agentic systems requires a shift in skillset:
 
 ## 🤝 Contributing
 
-Contributions are welcome, but must meet the following criteria:
+Contributions are welcome! Please read the [**CONTRIBUTING.md**](CONTRIBUTING.md) for full details before submitting a pull request.
+
+At a high level, submissions must meet the following criteria:
 
 - Clear description of purpose  
 - Strengths and weaknesses  
