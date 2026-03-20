@@ -38,6 +38,9 @@ To keep the repository highly structured and focused, **all major contributions 
 1. **Rigorous Evaluation**: Use the rubric above to formulate your assessment.
 2. **No Marketing Fluff**: Provide an honest, engineering-focused assessment of the system's pros and cons. 
 3. **Evidence of Real-World Usage**: Preference is heavily given to tools with demonstrated production adoption and operational maturity.
+4. **Evidence Discipline**: Anchor substantive claims to canonical sources, tag the evidence type, and add `Last reviewed` dates for rapidly changing sections.
+
+See [appendix/benchmark-and-evidence-policy.md](appendix/benchmark-and-evidence-policy.md) for the source order, evidence tags, and date-stamping rule.
 
 ### Formatting Your Pull Request
 
@@ -53,9 +56,11 @@ To ensure consistency, every **major entry** (e.g., deep dives, reference archit
 - **Governance fit**: [Auditability, approval boundaries, access control, and policy alignment]
 - **Workload suitability**: [Where it fits well, and where it creates unnecessary complexity or risk]
 - **Design paradigm**: [e.g., Node-based DAG, Actor Model, Pipeline]
+- **Evidence basis**: [[official] / [benchmark] / [field report] / [author assessment]]
 ```
 
 For minor landscape table entries, carefully condense your criteria to match the standard layout used in that section.
+If you update a rapidly changing section such as a product list or API capability summary, add or refresh a visible `Last reviewed: Month YYYY` marker in that document.
 *(Column names may vary slightly across sections—just match the surrounding table exactly.)*
 
 ### Updating Existing Sections
