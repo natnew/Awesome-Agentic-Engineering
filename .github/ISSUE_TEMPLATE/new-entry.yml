@@ -1,0 +1,96 @@
+name: New entry proposal
+description: Propose a new tool, framework, or resource for the list
+title: "[New Entry]: "
+labels: ["new-entry", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for proposing a new entry. Please complete every field — incomplete proposals are closed.
+        See [`CONTRIBUTING.md`](../../CONTRIBUTING.md) for the Entry Rubric (v1) and evidence policy.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: Name of the tool, framework, or resource
+      placeholder: e.g. LangGraph
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Primary URL
+      description: Canonical link (GitHub repo, official docs, or paper)
+      placeholder: https://github.com/...
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Proposed category
+      description: Which section of the repository does this belong in?
+      options:
+        - Orchestration Frameworks
+        - Memory Systems
+        - Protocols and Standards
+        - Evaluation & Safety
+        - Reference Architectures
+        - Browser / Desktop Agents
+        - Voice Agents
+        - Creative AI
+        - Customer Support / CRM Agents
+        - Open-Source Models for Agents
+        - Learning Resources
+        - Newsletters and Communities
+        - Other (specify below)
+    validations:
+      required: true
+  - type: textarea
+    id: reliability
+    attributes:
+      label: Reliability
+      description: API stability, maintainers, known failure modes, operator track record
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Tag as [official] / [benchmark] / [field report] / [author assessment] with links
+      placeholder: |
+        [official] https://...
+        [field report] https://...
+    validations:
+      required: true
+  - type: textarea
+    id: uniqueness
+    attributes:
+      label: Uniqueness
+      description: What does this offer that existing entries don't? Why is it not a duplicate?
+    validations:
+      required: true
+  - type: textarea
+    id: maturity
+    attributes:
+      label: Maturity
+      description: Ecosystem stability, release cadence, integrations, community
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+      description: One or two sentences describing what it is and why it matters
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have checked the README and appendices — this is not already listed.
+          required: true
+        - label: This is not marketing content, a demo repo, or a single-author prototype presented as production-ready.
+          required: true
+        - label: I have read `CONTRIBUTING.md`.
+          required: true
