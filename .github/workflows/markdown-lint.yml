@@ -15,14 +15,14 @@ jobs:
   lint:
     name: markdownlint-cli2
     runs-on: ubuntu-latest
-    # Advisory rollout: do not fail the PR on lint violations.
-    # Remove `continue-on-error` once existing content is cleaned up.
-    continue-on-error: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Run markdownlint-cli2
+      - name: Run markdownlint-cli2 (advisory)
+        # Advisory rollout: surface violations but do not fail the check.
+        # Flip this to `false` once existing content is cleaned up.
+        continue-on-error: true
         uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           globs: |
