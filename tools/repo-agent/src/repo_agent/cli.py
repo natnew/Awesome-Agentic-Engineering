@@ -11,12 +11,18 @@ Usage::
     repo-agent propose --url https://... --section "Orchestration Frameworks"
     repo-agent triage --fixture tests/fixtures/sample-pr.json
     repo-agent freshness [--threshold 9]
+
+    # Phase 6 workflows
+    repo-agent workflow new-tool --url https://... --section "..." [--open-issue --repo owner/name]
+    repo-agent workflow landscape-scan [--dry-run] [--repo owner/name] [--since-days 7]
+    repo-agent workflow review-pr --pr 123 [--post --repo owner/name]
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -92,6 +98,81 @@ def _cmd_freshness(args: argparse.Namespace) -> int:
     return 0
 
 
+# ---------------------------------------------------------------------------
+# Phase 6 workflows
+# ---------------------------------------------------------------------------
+
+
+def _make_gh_client(repo: str | None):
+    if not repo:
+        return None
+    from .workflows.github import GitHubClient
+
+    return GitHubClient(repo)
+
+
+def _cmd_workflow_new_tool(args: argparse.Namespace) -> int:
+    from .workflows import new_tool
+
+    gh = _make_gh_client(args.repo) if args.open_issue else None
+    result = new_tool.run(
+        url=args.url,
+        section=args.section,
+        rationale=args.rationale or "",
+        gh_client=gh,
+        open_issue=args.open_issue,
+    )
+    if args.json:
+        _emit(result.to_dict())
+    else:
+        sys.stdout.write(result.markdown)
+        sys.stderr.write(f"\n[workflow:new-tool] {result.summary}\n")
+    return 0 if result.status != "error" else 1
+
+
+def _cmd_workflow_landscape_scan(args: argparse.Namespace) -> int:
+    from .workflows import landscape_scan
+
+    gh = _make_gh_client(args.repo) if not args.dry_run else None
+    result = landscape_scan.run(
+        since_days=args.since_days,
+        gh_client=gh,
+        dry_run=args.dry_run,
+        threshold_months=args.threshold,
+    )
+    if args.json:
+        _emit(result.to_dict())
+    else:
+        sys.stdout.write(result.markdown)
+        sys.stderr.write(f"\n[workflow:landscape-scan] {result.summary}\n")
+    return 0 if result.status != "error" else 1
+
+
+def _cmd_workflow_review_pr(args: argparse.Namespace) -> int:
+    from .workflows import review_pr
+
+    payload = None
+    if args.fixture:
+        payload = json.loads(Path(args.fixture).read_text(encoding="utf-8"))
+    gh = _make_gh_client(args.repo) if (args.post or payload is None) else None
+    result = review_pr.run(
+        pr_number=args.pr,
+        pr_payload=payload,
+        gh_client=gh,
+        post=args.post,
+    )
+    if args.json:
+        _emit(result.to_dict())
+    else:
+        sys.stdout.write(result.markdown)
+        sys.stderr.write(f"\n[workflow:review-pr] {result.summary}\n")
+    return 0 if result.status != "error" else 1
+
+
+def _default_repo() -> str | None:
+    return os.environ.get("GITHUB_REPOSITORY")
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="repo-agent", description="Awesome-Agentic-Engineering agentic system (Phase 5)")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -138,6 +219,37 @@ def build_parser() -> argparse.ArgumentParser:
     pd.add_argument("--section", required=True)
     pd.add_argument("--rationale", default="")
     pd.set_defaults(func=_cmd_propose)
+
+    # --------------------------------------------------------------- workflows
+    pw = sub.add_parser("workflow", help="Phase 6 agentic workflows.")
+    wsub = pw.add_subparsers(dest="workflow_cmd", required=True)
+
+    default_repo = _default_repo()
+
+    wn = wsub.add_parser("new-tool", help="6.1 — draft a rubric-aligned entry for a URL.")
+    wn.add_argument("--url", required=True)
+    wn.add_argument("--section", required=True)
+    wn.add_argument("--rationale", default="")
+    wn.add_argument("--open-issue", action="store_true", help="Upsert a tracking issue.")
+    wn.add_argument("--repo", default=default_repo, help="owner/name (defaults to $GITHUB_REPOSITORY).")
+    wn.add_argument("--json", action="store_true", help="Emit the full result as JSON.")
+    wn.set_defaults(func=_cmd_workflow_new_tool)
+
+    wl = wsub.add_parser("landscape-scan", help="6.2 — rolling weekly digest.")
+    wl.add_argument("--dry-run", action="store_true")
+    wl.add_argument("--since-days", type=int, default=7)
+    wl.add_argument("--threshold", type=int, default=9, help="Stale threshold (months).")
+    wl.add_argument("--repo", default=default_repo)
+    wl.add_argument("--json", action="store_true")
+    wl.set_defaults(func=_cmd_workflow_landscape_scan)
+
+    wr = wsub.add_parser("review-pr", help="6.3 — post an advisory rubric review comment on a PR.")
+    wr.add_argument("--pr", type=int, required=True)
+    wr.add_argument("--fixture", help="Path to a PR payload JSON file (offline use).")
+    wr.add_argument("--post", action="store_true")
+    wr.add_argument("--repo", default=default_repo)
+    wr.add_argument("--json", action="store_true")
+    wr.set_defaults(func=_cmd_workflow_review_pr)
 
     return p
 

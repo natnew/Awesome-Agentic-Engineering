@@ -1,0 +1,46 @@
+name: phase-6 pr-review
+
+# Roadmap 6.3 — advisory PR review assistant. Scores content PRs against the
+# rubric and posts/updates a single rubric scorecard comment. Path-scoped to
+# markdown changes. Advisory (continue-on-error at the tool step).
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+    paths:
+      - '**/*.md'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  review:
+    name: pr-review (advisory)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'tools/repo-agent/pyproject.toml'
+
+      - name: Install
+        working-directory: tools/repo-agent
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Post rubric review comment
+        working-directory: tools/repo-agent
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          repo-agent workflow review-pr \
+            --pr "${{ github.event.number }}" \
+            --repo "${{ github.repository }}" \
+            --post

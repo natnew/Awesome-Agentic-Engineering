@@ -182,4 +182,22 @@ FRESHNESS_MONTHS=12 node .github/scripts/find-stale-entries.mjs
 
 When you refresh an entry, bump the `Last reviewed:` line in the same PR — reviewers will look for it.
 
+## Automated PR review (Phase 6, advisory)
+
+Every content PR (anything touching `**/*.md`) gets an **advisory** rubric scorecard comment from the Phase 6 `review-pr` workflow. The comment:
+
+- Scores any entry Markdown inside a ```` ```markdown ```` fenced block in the PR body.
+- Suggests labels (`area:content`, `needs-evidence`, `blocked:hard-gate`, …).
+- Is **updated in place** on every push — one comment per PR, not a new one each time.
+- Never blocks merge. A human reviewer always makes the call.
+
+If you'd rather the assistant stayed out of a particular PR, add the label **`skip-review-assistant`** — the workflow will exit without commenting.
+
+Two companion workflows run alongside:
+
+- **`phase-6 new-tool`** (manual dispatch) drafts a rubric-aligned entry for a candidate URL and opens a tracking issue.
+- **`phase-6 landscape-scan`** (weekly, Mondays 09:00 UTC) maintains one rolling **"Weekly landscape scan"** digest issue listing stale entries plus recent-PR / recent-issue candidates.
+
+All three are path-scoped where sensible, advisory (`continue-on-error: true`), and reproducible locally via `repo-agent workflow ...` — see [`tools/repo-agent/README.md`](tools/repo-agent/README.md).
+
 Thanks for helping keep the repository engineering-focused and usable.

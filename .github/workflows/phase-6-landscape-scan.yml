@@ -1,0 +1,43 @@
+name: phase-6 landscape-scan
+
+# Roadmap 6.2 — weekly rolling digest of stale entries + candidate additions
+# surfaced from recent PRs/issues. Upserts one issue in place by marker.
+
+on:
+  schedule:
+    - cron: '0 9 * * MON'   # Mondays 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  scan:
+    name: landscape-scan (advisory)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'tools/repo-agent/pyproject.toml'
+
+      - name: Install
+        working-directory: tools/repo-agent
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Run landscape scan
+        working-directory: tools/repo-agent
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          repo-agent workflow landscape-scan \
+            --repo "${{ github.repository }}" \
+            --since-days 7
