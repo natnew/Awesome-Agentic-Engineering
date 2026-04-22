@@ -76,6 +76,46 @@ body:
       description: Ecosystem stability, release cadence, integrations, community
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: |
+        ### Optional: seven-dimension self-score
+        Score each dimension `0–3` per [`RUBRIC.md`](../../RUBRIC.md). Reviewers will confirm or adjust at PR time. Merge requires total ≥ 27 / 45 and no `0` on the three hard gates.
+  - type: input
+    id: score_reliability
+    attributes:
+      label: Reliability score (0–3, ×3, hard gate)
+      placeholder: e.g. 2
+  - type: input
+    id: score_evidence
+    attributes:
+      label: Evidence score (0–3, ×3, hard gate)
+      placeholder: e.g. 2
+  - type: input
+    id: score_agentic_relevance
+    attributes:
+      label: Agentic relevance score (0–3, ×3, hard gate)
+      placeholder: e.g. 3
+  - type: input
+    id: score_uniqueness
+    attributes:
+      label: Uniqueness score (0–3, ×2)
+      placeholder: e.g. 2
+  - type: input
+    id: score_maturity
+    attributes:
+      label: Maturity score (0–3, ×2)
+      placeholder: e.g. 2
+  - type: input
+    id: score_licensing
+    attributes:
+      label: Licensing / openness score (0–3, ×1)
+      placeholder: e.g. 3
+  - type: input
+    id: score_community
+    attributes:
+      label: Community signal score (0–3, ×1, tiebreaker only)
+      placeholder: e.g. 2
   - type: textarea
     id: description
     attributes:
