@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Awesome Agentic Engineering — Changelog</title>
+    <link>https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html</link>
+    <description>Stop prompting. Start engineering. A structured reference for taking AI agents into production.</description>
+    <language>en</language>
+    <item>
+      <title>Phase 7 — Publishing &amp; Reach — 2026-04-22</title>
+      <link>https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-7-publishing-reach-2026-04-22</link>
+      <guid isPermaLink="true">https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-7-publishing-reach-2026-04-22</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <description>- **Added** a zero-build static site under `docs/` published via GitHub Pages.</description>
+    </item>
+    <item>
+      <title>Phase 6 — Agentic Workflows (v1) — 2026-04-22</title>
+      <link>https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-6-agentic-workflows-v1-2026-04-22</link>
+      <guid isPermaLink="true">https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-6-agentic-workflows-v1-2026-04-22</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <description>- **Added** three end-to-end workflows composed on top of the Phase 5 skills:</description>
+    </item>
+    <item>
+      <title>Phase 5 — The Repo as an Agentic System (v0) — 2026-04-22</title>
+      <link>https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-5-the-repo-as-an-agentic-system-v0-2026-04-22</link>
+      <guid isPermaLink="true">https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-5-the-repo-as-an-agentic-system-v0-2026-04-22</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <description>- **Added** an MCP server (`tools/repo-agent/`) exposing 8 tools:</description>
+    </item>
+    <item>
+      <title>Phase 4 — Automations &amp; CI Hygiene — 2026-04-22</title>
+      <link>https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-4-automations-ci-hygiene-2026-04-22</link>
+      <guid isPermaLink="true">https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-4-automations-ci-hygiene-2026-04-22</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <description>- **Added** four GitHub Actions: markdown-lint on PR, broken-link check on PR,</description>
+    </item>
+    <item>
+      <title>Phase 3 — Cutting-Edge Resource Expansion — 2026-04-22</title>
+      <link>https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-3-cutting-edge-resource-expansion-2026-04-22</link>
+      <guid isPermaLink="true">https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-3-cutting-edge-resource-expansion-2026-04-22</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <description>- **Added / refreshed** orchestration frameworks (LangGraph, Agent Framework,</description>
+    </item>
+    <item>
+      <title>Phase 2 — Curation Bar &amp; Rubric — 2026-04-22</title>
+      <link>https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-2-curation-bar-rubric-2026-04-22</link>
+      <guid isPermaLink="true">https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-2-curation-bar-rubric-2026-04-22</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <description>- **Added** `RUBRIC.md` with the seven-dimension formal scoring model.</description>
+    </item>
+    <item>
+      <title>Phase 1 — Foundation &amp; Hygiene — 2026-04-22</title>
+      <link>https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-1-foundation-hygiene-2026-04-22</link>
+      <guid isPermaLink="true">https://natnew.github.io/Awesome-Agentic-Engineering/changelog.html#phase-1-foundation-hygiene-2026-04-22</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <description>- **Added** `CONTRIBUTING.md` with the contribution standards, evidence policy,</description>
+    </item>
+  </channel>
+</rss>

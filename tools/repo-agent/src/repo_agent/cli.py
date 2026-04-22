@@ -16,6 +16,9 @@ Usage::
     repo-agent workflow new-tool --url https://... --section "..." [--open-issue --repo owner/name]
     repo-agent workflow landscape-scan [--dry-run] [--repo owner/name] [--since-days 7]
     repo-agent workflow review-pr --pr 123 [--post --repo owner/name]
+
+    # Phase 7 site renderer
+    repo-agent workflow render-site [--output-dir docs] [--check]
 """
 
 from __future__ import annotations
@@ -169,6 +172,23 @@ def _cmd_workflow_review_pr(args: argparse.Namespace) -> int:
     return 0 if result.status != "error" else 1
 
 
+def _cmd_workflow_render_site(args: argparse.Namespace) -> int:
+    from .workflows import render_site as _rs
+
+    output_dir = Path(args.output_dir).resolve() if args.output_dir else None
+    result = _rs.render_site(output_dir=output_dir)
+    sys.stderr.write(f"[workflow:render-site] {result.summary()}\n")
+    if args.check and result.changed:
+        sys.stderr.write(
+            "[workflow:render-site] --check: site is stale (files would change). "
+            "Re-run without --check to regenerate.\n"
+        )
+        for p in result.changed:
+            sys.stderr.write(f"  drift: {p}\n")
+        return 1
+    return 0
+
+
 def _default_repo() -> str | None:
     return os.environ.get("GITHUB_REPOSITORY")
 
@@ -250,6 +270,11 @@ def build_parser() -> argparse.ArgumentParser:
     wr.add_argument("--repo", default=default_repo)
     wr.add_argument("--json", action="store_true")
     wr.set_defaults(func=_cmd_workflow_review_pr)
+
+    ws = wsub.add_parser("render-site", help="7.1 — regenerate the static docs/ site from Markdown sources.")
+    ws.add_argument("--output-dir", default=None, help="Override output directory (default: <repo>/docs).")
+    ws.add_argument("--check", action="store_true", help="Exit non-zero if the site is stale.")
+    ws.set_defaults(func=_cmd_workflow_render_site)
 
     return p
 

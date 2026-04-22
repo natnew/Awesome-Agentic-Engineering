@@ -6,6 +6,8 @@
 
 A curated map of agentic AI systems — covering architectures, frameworks, memory, evaluation, and safety.
 
+**🌐 Live site:** <https://natnew.github.io/Awesome-Agentic-Engineering/>
+
 This is not a list of tools.
 
 We reject "tool list energy." It is a structured guide to building **reliable, observable, and production-grade agentic systems**, rigorously evaluated against engineering dimensions.

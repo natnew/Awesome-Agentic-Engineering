@@ -13,6 +13,7 @@ The package exposes:
     - :mod:`repo_agent.workflows.new_tool`       (roadmap 6.1)
     - :mod:`repo_agent.workflows.landscape_scan` (roadmap 6.2)
     - :mod:`repo_agent.workflows.review_pr`      (roadmap 6.3)
+    - :mod:`repo_agent.workflows.render_site`    (roadmap 7.1)
 """
 
 from __future__ import annotations

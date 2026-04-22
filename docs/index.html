@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome Agentic Engineering · Awesome Agentic Engineering</title>
+<meta name="description" content="Stop prompting. Start engineering. A structured reference for taking AI agents into production.">
+<link rel="stylesheet" href="styles.css">
+<link rel="alternate" type="application/rss+xml" title="Awesome Agentic Engineering — Changelog" href="feed.xml">
+</head>
+<body>
+<header class="site-header">
+<p class="site-title"><a href="index.html">Awesome Agentic Engineering</a></p>
+<nav class="site-nav" aria-label="Primary"><ul><li class="active"><a href="index.html">Home</a></li><li><a href="rubric.html">Rubric</a></li><li><a href="anti-patterns.html">Anti-patterns</a></li><li><a href="contributing.html">Contributing</a></li><li><a href="changelog.html">Changelog</a></li></ul></nav>
+</header>
+<main class="site-main">
+<article class="content">
+<h1 id="awesome-agentic-engineering">🧠 Awesome Agentic Engineering</h1>
+<blockquote>
+<p><strong>Stop prompting. Start engineering. A structured reference for taking AI agents into production.</strong></p>
+</blockquote>
+<p><a href="https://awesome.re" rel="noopener"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome" /></a> <a href="https://github.com/natnew/Awesome-Agentic-Engineering/commits" rel="noopener"><img src="https://img.shields.io/github/last-commit/natnew/Awesome-Agentic-Engineering?label=last%20updated&amp;style=flat-square" alt="Last Commit" /></a> <a href="http://makeapullrequest.com" rel="noopener"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" /></a> <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square" alt="License: MIT" /></a></p>
+<p>A curated map of agentic AI systems — covering architectures, frameworks, memory, evaluation, and safety.</p>
+<p><strong>🌐 Live site:</strong> <a href="https://natnew.github.io/Awesome-Agentic-Engineering/" rel="noopener">https://natnew.github.io/Awesome-Agentic-Engineering/</a></p>
+<p>This is not a list of tools.</p>
+<p>We reject &quot;tool list energy.&quot; It is a structured guide to building <strong>reliable, observable, and production-grade agentic systems</strong>, rigorously evaluated against engineering dimensions.</p>
+<hr />
+<h2 id="table-of-contents">📑 Table of Contents</h2>
+<ul>
+<li><a href="#-thesis">🧭 Thesis</a></li>
+<li><a href="#%EF%B8%8F-architecture-decision-guide">⚖️ Architecture Decision Guide</a></li>
+<li><a href="#-core-agentic-patterns">🧩 Core Agentic Patterns</a></li>
+<li><a href="#-reference-architectures">🏗️ Reference Architectures</a></li>
+<li><a href="#-memory-systems">🧠 Memory Systems</a></li>
+<li><a href="#-formal-evaluation-rubric">📊 Formal Evaluation Rubric</a></li>
+<li><a href="#benchmark-and-evidence-policy">Benchmark and Evidence Policy</a></li>
+<li><a href="#-orchestration-frameworks">⚙️ Orchestration Frameworks</a></li>
+<li><a href="#-protocols-and-standards">📡 Protocols and Standards</a></li>
+<li><a href="#-reasoning--planning-models">� Reasoning &amp; Planning Models</a></li>
+<li><a href="#-evaluation--safety">�🧪 Evaluation &amp; Safety</a></li>
+<li><a href="#-skills-and-operating-principles">🧠 Skills and Operating Principles</a></li>
+<li><a href="#-what-not-to-do">🚫 What NOT to Do</a></li>
+<li><a href="#-signals-how-to-read-this-list">📊 Signals (How to Read This List)</a></li>
+<li><a href="#-getting-started">🚀 Getting Started</a></li>
+<li><a href="#-contributing">🤝 Contributing</a></li>
+<li><a href="#-final-note">📌 Final Note</a></li>
+</ul>
+<h3 id="appendix">📂 Appendix</h3>
+<ul>
+<li><a href="appendix/browser-and-desktop-agents.html">🌐 Browser and Desktop Agents</a></li>
+<li><a href="appendix/voice-agents.html">🎙 Voice Agents</a></li>
+<li><a href="appendix/creative-ai.html">🎨 Creative AI</a></li>
+<li><a href="appendix/customer-support-and-crm-agents.html">💼 Customer Support and CRM Agents</a></li>
+<li><a href="appendix/open-source-models-for-agents.html">🧠 Open-Source Models for Agents</a></li>
+<li><a href="appendix/newsletters-and-communities.html">📰 Newsletters and Communities</a></li>
+<li><a href="appendix/learning-resources.html">📚 Learning Resources</a></li>
+<li><a href="appendix/fast-moving-product-lists.html">⚡ Fast-Moving Product Lists</a></li>
+</ul>
+<hr />
+<h2 id="thesis">🧭 Thesis</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">📈 The Shift (Agentic systems are moving to)</th>
+<th style="text-align:left">📉 The Challenge (Implementations suffer from)</th>
+<th style="text-align:left">🎯 Our Focus (This repository prioritises)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">• Stateful, multi-step reasoning<br>• Multi-agent collaboration &amp; orchestration<br>• Feedback-driven learning loops<br>• Tool-augmented execution environments</td>
+<td style="text-align:left">• Fragility under iteration<br>• Poor observability &amp; evaluation<br>• Weak memory &amp; context management<br>• Limited safety &amp; governance</td>
+<td style="text-align:left">• <strong>Reliability</strong> over novelty<br>• <strong>Evaluation</strong> over intuition<br>• <strong>Architecture</strong> over tooling<br>• <strong>Systems thinking</strong> over prompt engineering</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="architecture-decision-guide">⚖️ Architecture Decision Guide</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">If your task is...</th>
+<th style="text-align:left">Start with...</th>
+<th style="text-align:left">Escalate to...</th>
+<th style="text-align:left">Avoid...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>bounded, tool-using, low-risk</strong></td>
+<td style="text-align:left">single-agent + tools</td>
+<td style="text-align:left">typed state, retries</td>
+<td style="text-align:left">multi-agent teams</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>long-running, inspectable, enterprise</strong></td>
+<td style="text-align:left">graph/workflow orchestration</td>
+<td style="text-align:left">approval gates, persistence</td>
+<td style="text-align:left">opaque emergent loops</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>open-ended research</strong></td>
+<td style="text-align:left">planner/executor or supervisor</td>
+<td style="text-align:left">critique loops, memory</td>
+<td style="text-align:left">rigid pipelines only</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>high-reliability extraction</strong></td>
+<td style="text-align:left">prompt chains + strict schemas</td>
+<td style="text-align:left">validator feedback loops</td>
+<td style="text-align:left">unconstrained conversational agents</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>complex parallel execution</strong></td>
+<td style="text-align:left">modular multi-agent setups</td>
+<td style="text-align:left">shared workspace/memory</td>
+<td style="text-align:left">treating LLMs as deterministic</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="core-agentic-patterns">🧩 Core Agentic Patterns</h2>
+<p>These patterns underpin most production-grade agentic systems.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Pattern</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Key Characteristic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Single-Agent + Tool Use</strong></td>
+<td style="text-align:left">One reasoning loop with structured tool invocation</td>
+<td style="text-align:left">Suited to focused tasks with bounded scope</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Supervisor / Router Agents</strong></td>
+<td style="text-align:left">Central agent delegates tasks to specialised agents</td>
+<td style="text-align:left">Enables modularity and scalability</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Multi-Agent Collaboration</strong></td>
+<td style="text-align:left">Agents operate in parallel or sequence</td>
+<td style="text-align:left">Patterns: debate, critique, planning/execution split</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Reflection / Critique Loops</strong></td>
+<td style="text-align:left">Agents evaluate and refine their own outputs</td>
+<td style="text-align:left">Improves reliability over multiple iterations</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Retrieval-Augmented Agents</strong></td>
+<td style="text-align:left">External knowledge via vector search or APIs</td>
+<td style="text-align:left">Reduces hallucination and improves grounding</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Event-Driven / Long-Running Agents</strong></td>
+<td style="text-align:left">Persistent agents reacting to triggers over time</td>
+<td style="text-align:left">Requires memory, state, and orchestration</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="reference-architectures">🏗️ Reference Architectures</h2>
+<p>Representative system designs for real-world use.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Architecture</th>
+<th style="text-align:left">Ecosystem Maturity</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Architectural Strengths</th>
+<th style="text-align:left">Operational Constraints</th>
+<th style="text-align:left">Workload Suitability</th>
+<th style="text-align:left">Design Paradigm</th>
+<th style="text-align:left">Governance Fit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>DeerFlow</strong></td>
+<td style="text-align:left"><em>Emerging</em></td>
+<td style="text-align:left"><strong>Is:</strong> Open-source orchestration system combining sub-agents, memory, and sandboxes.<br><strong>Demonstrates:</strong> Workflow-oriented orchestration across agents with shared execution context.</td>
+<td style="text-align:left">Strong system-level reference for memory, sandbox, and skills composition.</td>
+<td style="text-align:left">Higher setup complexity and a heavier runtime surface than most teams need initially.</td>
+<td style="text-align:left">Strong fit for compound research/coding workflows and teams studying full-stack agent architectures. Poor fit for lightweight orchestration or narrowly scoped tasks.</td>
+<td style="text-align:left">Hierarchical multi-agent orchestration.</td>
+<td style="text-align:left">Requires explicit sandbox policy, tool boundaries, and operator oversight before untrusted code execution.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>SWE-agent</strong></td>
+<td style="text-align:left"><em>Experimental</em></td>
+<td style="text-align:left"><strong>Is:</strong> Autonomous SWE system using a specialized Agent-Computer Interface (ACI).<br><strong>Demonstrates:</strong> Narrow action spaces and interface design tuned for code-repair tasks.</td>
+<td style="text-align:left">Streamlined command space, compressed history handling, and a clear task boundary for patch workflows.</td>
+<td style="text-align:left">Benchmark-oriented design, high token cost, and long end-to-end fix latency on larger tasks.</td>
+<td style="text-align:left">Strong fit for isolated PRs and self-contained bug fixes. Poor fit for broad refactors or environments without standard build tooling.</td>
+<td style="text-align:left">Single agent with a highly specialized action space (ACI).</td>
+<td style="text-align:left">Needs tight repository scoping, review gates, and execution controls to reduce silent code regressions.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="memory-systems">🧠 Memory Systems</h2>
+<p><em>Last reviewed: April 2026.</em></p>
+<p>Memory is a first-class concern in agentic systems. Rather than treating memory as a simple array of previous messages, production systems require structured approaches to state, persistence, and retrieval. Four categories — working, episodic, procedural, semantic — are load-bearing decisions, not implementation details; pick them deliberately before picking a vendor.</p>
+<h3 id="memory-taxonomy">Memory Taxonomy</h3>
+<p>Different types of memory serve distinct functional roles in an agentic architecture:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">Definition</th>
+<th style="text-align:left">Implementation Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Working Memory</strong> (Thread State)</td>
+<td style="text-align:left">Short-term context for the current execution loop or active conversation thread. Ephemeral.</td>
+<td style="text-align:left">Context window, LangGraph <code>State</code>, in-memory message lists.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Episodic Memory</strong></td>
+<td style="text-align:left">Autobiographical history of past actions, inputs, and outcomes. Enables reflection on past mistakes.</td>
+<td style="text-align:left">Checkpoint logs, event stores, prompt / trajectory histories.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Procedural Memory</strong></td>
+<td style="text-align:left">Reusable skills, system prompts, and tool configurations. Defines <em>how</em> the agent operates.</td>
+<td style="text-align:left">Static configuration, retrieved skill libraries, GitHub workflows.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Semantic Memory</strong></td>
+<td style="text-align:left">Embedded, factual knowledge about the world, the user, or the domain. Defines <em>what</em> the agent knows.</td>
+<td style="text-align:left">Vector databases (FAISS, Pinecone), knowledge graphs, Letta core memory.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="architectural-patterns-shared-vs-private-memory">Architectural Patterns: Shared vs. Private Memory</h3>
+<p>In multi-agent systems, memory boundaries are architectural decisions:</p>
+<ul>
+<li><strong>Private Agent Memory</strong>: Each agent maintains its own semantic and episodic stores. Prevents context leakage and maintains strong role boundaries.</li>
+<li><strong>Shared Workspace (Global Memory)</strong>: A common blackboard or shared state where multiple agents read and write. Requires collision management and strict typing.</li>
+</ul>
+<h3 id="retrieval-and-persistence-decisions">Retrieval and Persistence Decisions</h3>
+<p>Managing the memory lifecycle is critical for long-running agents.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Mechanism</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Best Practices &amp; Risks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Checkpointing</strong></td>
+<td style="text-align:left">Saving the exact thread state at a specific point in time (e.g., node transitions).</td>
+<td style="text-align:left">Enables &quot;time travel&quot; (rewind and replay) and human-in-the-loop approvals.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Write Policies</strong></td>
+<td style="text-align:left">Rules defining when and how an agent commits data to long-term storage.</td>
+<td style="text-align:left">Prefer explicit <code>SaveMemory</code> tool calls over passive auto-saving to maintain control.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Retrieval Triggers</strong></td>
+<td style="text-align:left">Determining when to query past memory (e.g., pre-fetch vs. just-in-time).</td>
+<td style="text-align:left">Use vector search for semantic recall, but use explicit graph keys for structured state.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Summarisation / Compression</strong></td>
+<td style="text-align:left">Reducing token counts of episodic histories.</td>
+<td style="text-align:left">Summarise older interactions into a rolling summary while preserving recent exact messages.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Pruning / Decay</strong></td>
+<td style="text-align:left">Deleting or archiving old or irrelevant memories.</td>
+<td style="text-align:left">Implement TTL (time-to-live) for working memory to prevent context exhaustion.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Contamination / Poisoning</strong></td>
+<td style="text-align:left">Malicious or incorrect data persisting in long-term memory.</td>
+<td style="text-align:left"><strong>Risk</strong>: Once poisoned, an agent's future logic breaks. Require validation or bounds on semantic writes.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="systems-and-protocols">Systems and Protocols</h3>
+<p>Specialised infrastructure for managing agent memory.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">System</th>
+<th style="text-align:left">Role</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>LangGraph Persistence</strong></td>
+<td style="text-align:left">Thread-level state</td>
+<td style="text-align:left">Built-in check-pointers (SQLite, Postgres) for DAG-based execution loops, enabling interrupt/resume.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>LangMem</strong></td>
+<td style="text-align:left">Long-term memory extraction</td>
+<td style="text-align:left">LangChain's framework for extracting user preferences and entity profiles in the background.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Letta</strong> (formerly MemGPT)</td>
+<td style="text-align:left">OS-level memory abstraction</td>
+<td style="text-align:left">Advanced core memory management with explicit paging (read/write limits) to mimic virtual memory.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Mem0</strong></td>
+<td style="text-align:left">Personalized memory layer</td>
+<td style="text-align:left">Managed memory API focusing on user contexts, interactions, and entity relationships.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Zep / Graphiti</strong></td>
+<td style="text-align:left">Enterprise memory &amp; graphs</td>
+<td style="text-align:left">Fast, long-term memory for AI assistants; uses temporal knowledge graphs to map entity relationships over time.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>MCP</strong> (Model Context Protocol)</td>
+<td style="text-align:left">Interoperability fabric</td>
+<td style="text-align:left">While not a DB itself, MCP provides a standard protocol to expose memory stores and file systems universally across tools and agents.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="formal-evaluation-rubric">📊 Formal Evaluation Rubric</h2>
+<p>Every major framework and architecture in this repository is judged against the following <strong>Required Scoring Dimensions</strong>. We evaluate systems based on engineering rigor, not marketing copy.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Dimension</th>
+<th style="text-align:left">Evaluation Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Control flow explicitness</strong></td>
+<td style="text-align:left">How observable and deterministic is the execution path?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>State model</strong></td>
+<td style="text-align:left">How is agent state typed, managed, and persisted?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Memory support</strong></td>
+<td style="text-align:left">Are there built-in primitives for short-term, episodic, and semantic memory?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Observability / tracing</strong></td>
+<td style="text-align:left">Is it easy to trace intermediate reasoning steps and tool calls?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Human-in-the-loop support</strong></td>
+<td style="text-align:left">Does it natively support interrupt-and-resume or approval gates?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Type safety / structured outputs</strong></td>
+<td style="text-align:left">Are outputs guaranteed against strict schemas?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Provider portability</strong></td>
+<td style="text-align:left">How tightly coupled is it to one specific LLM provider?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Security posture</strong></td>
+<td style="text-align:left">Are there built-in mechanisms for sandboxing, access control, or guardrails?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Architectural strengths</strong></td>
+<td style="text-align:left">Which design choices materially improve decomposition, control, state handling, or interface clarity?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Operational constraints</strong></td>
+<td style="text-align:left">What deployment burden, runtime cost, debugging friction, or failure modes does it introduce?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Ecosystem maturity</strong></td>
+<td style="text-align:left">How stable are the APIs, docs, integrations, and operator knowledge base?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Governance fit</strong></td>
+<td style="text-align:left">Does it support auditability, approval gates, access boundaries, policy enforcement, and regulated environments?</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Workload suitability</strong></td>
+<td style="text-align:left">Which workflows, task shapes, and team contexts does it fit well or poorly?</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="benchmark-and-evidence-policy">Benchmark and Evidence Policy</h2>
+<p>Canonical resources are trusted here because they define what counts as evidence. Prefer official docs, architecture guides, papers, benchmark repos, and first-party repositories when establishing capabilities, methodology, or interface details.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Evidence Tag</th>
+<th style="text-align:left">Use For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>[official]</code></td>
+<td style="text-align:left">Official docs, architecture guides, specifications, benchmark documentation, or first-party repositories.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[benchmark]</code></td>
+<td style="text-align:left">Published benchmark runs, evaluation papers, or benchmark repos tied to a named workload.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[field report]</code></td>
+<td style="text-align:left">Production write-ups, incident reports, engineering blogs, or operator notes about real deployments.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[author assessment]</code></td>
+<td style="text-align:left">This repository's synthesis after reviewing the sources above and applying the rubric.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Do not treat marketing copy, launch-day demos, or GitHub stars as sufficient evidence for production claims.</li>
+<li>Separate benchmark performance from production maturity. A benchmark result can support workload fit, but it does not by itself prove reliability, governance fit, cost control, or operational maturity.</li>
+<li>Record <code>Last reviewed: Month YYYY</code> in rapidly changing sections such as product lists, vendor capability summaries, and release-sensitive guidance.</li>
+<li>See <a href="appendix/benchmark-and-evidence-policy.html">appendix/benchmark-and-evidence-policy.md</a> for the full policy.</li>
+</ul>
+<h2 id="orchestration-frameworks">⚙️ Orchestration Frameworks</h2>
+<p><em>Last reviewed: April 2026.</em></p>
+<h3 id="deep-dives">Deep Dives</h3>
+<p>Evidence tags follow the <a href="#benchmark-and-evidence-policy">Benchmark and Evidence Policy</a>. Scored against <a href="RUBRIC.html">RUBRIC.md</a>; cap of 5–8 deep-dive entries enforced.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Framework</th>
+<th style="text-align:left">Ecosystem Maturity</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Architectural Strengths</th>
+<th style="text-align:left">Operational Constraints</th>
+<th style="text-align:left">Workload Suitability</th>
+<th style="text-align:left">Design Paradigm</th>
+<th style="text-align:left">Governance Fit</th>
+<th style="text-align:left">Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>LangGraph</strong></td>
+<td style="text-align:left"><em>Production-ready</em></td>
+<td style="text-align:left"><strong>Is:</strong> Stateful orchestration framework building directed graphs with typed state.<br><strong>Demonstrates:</strong> Deterministic execution control mixed with LLM reasoning.</td>
+<td style="text-align:left">Explicit state management, persistence, and support for complex multi-actor workflows.</td>
+<td style="text-align:left">Verbose abstractions, steep learning curve, and graph sprawl if the workflow is over-modeled.</td>
+<td style="text-align:left">Strong fit for multi-step, stateful, and interruptible agent systems. Poor fit for simple single-prompt completions or linear chains.</td>
+<td style="text-align:left">DAG-based state machine.</td>
+<td style="text-align:left">Good fit for auditable workflows and approval gates, but graph edges must be tightly constrained to avoid runaway loops.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://langchain-ai.github.io/langgraph/" rel="noopener">docs</a> · <code>[field report]</code> <a href="https://blog.langchain.dev/customers-linkedin/" rel="noopener">LinkedIn SQL Bot</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Microsoft Agent Framework</strong></td>
+<td style="text-align:left"><em>Production-ready</em></td>
+<td style="text-align:left"><strong>Is:</strong> Microsoft's unified agent framework merging Semantic Kernel and AutoGen; first-class MCP and A2A support.<br><strong>Demonstrates:</strong> Enterprise-grade agent composition with typed plugins, approval workflows, and Azure integration.</td>
+<td style="text-align:left">Strong .NET + Python parity, typed function-calling, native MCP/A2A, and OpenTelemetry tracing.</td>
+<td style="text-align:left">Broader Azure coupling in the managed path; framework surface is still stabilizing post-merger.</td>
+<td style="text-align:left">Strong fit for enterprise teams already on Azure / Semantic Kernel and needing multi-language agents. Poor fit for teams wanting a minimal Python-only stack.</td>
+<td style="text-align:left">Typed plugin graph with pluggable orchestration (sequential, group chat, handoff).</td>
+<td style="text-align:left">Strong — supports approval gates, policy plugins, and audit logging out of the box.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://github.com/microsoft/agent-framework" rel="noopener">repo</a> · <code>[official]</code> <a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework/" rel="noopener">announce</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>AutoGen</strong></td>
+<td style="text-align:left"><em>Production-ready</em></td>
+<td style="text-align:left"><strong>Is:</strong> Microsoft Research multi-agent conversation framework; now an orchestration pattern inside Microsoft Agent Framework.<br><strong>Demonstrates:</strong> Conversable agents with group chat, code-executor, and human-proxy patterns.</td>
+<td style="text-align:left">Battle-tested multi-agent conversation patterns, large research footprint, flexible role composition.</td>
+<td style="text-align:left">Emergent conversation loops need explicit termination conditions; observability requires added tooling.</td>
+<td style="text-align:left">Strong fit for research on multi-agent collaboration and code-gen crews. Poor fit for strictly deterministic workflows.</td>
+<td style="text-align:left">Conversational multi-agent loop with configurable managers.</td>
+<td style="text-align:left">Needs explicit stop conditions and sandboxed code execution to be safe in production.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://microsoft.github.io/autogen/" rel="noopener">v0.4 docs</a> · <code>[benchmark]</code> <a href="https://arxiv.org/abs/2308.08155" rel="noopener">AutoGen paper</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>OpenAI Agents SDK</strong></td>
+<td style="text-align:left"><em>Production-ready</em></td>
+<td style="text-align:left"><strong>Is:</strong> OpenAI's official agents SDK with handoffs, guardrails, and sessions; successor path to Assistants API.<br><strong>Demonstrates:</strong> First-party multi-step agents with tool-use, tracing, and structured handoffs.</td>
+<td style="text-align:left">Tight integration with OpenAI tools, built-in tracing, ergonomic Python API, provider-agnostic via LiteLLM.</td>
+<td style="text-align:left">Primary optimization target is OpenAI models; porting to other providers loses some ergonomics.</td>
+<td style="text-align:left">Strong fit for teams shipping OpenAI-backed agents quickly with tracing. Poor fit for strict provider portability or local-only models.</td>
+<td style="text-align:left">Handoff-based multi-agent loop with sessions.</td>
+<td style="text-align:left">Viable for hosted approval flows; guardrails are first-class primitives.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://openai.github.io/openai-agents-python/" rel="noopener">docs</a> · <code>[official]</code> <a href="https://github.com/openai/openai-agents-python" rel="noopener">repo</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>CrewAI</strong></td>
+<td style="text-align:left"><em>Emerging</em></td>
+<td style="text-align:left"><strong>Is:</strong> Multi-agent collaboration framework where agents are assigned roles, goals, and tools.<br><strong>Demonstrates:</strong> Role-based agentic workflows with sequential and hierarchical processes.</td>
+<td style="text-align:left">Simple mental model and fast team-based decomposition for prototypes; growing enterprise feature set.</td>
+<td style="text-align:left">Less control for highly complex or non-standard systems; observability and typed state are weaker than LangGraph/MAF.</td>
+<td style="text-align:left">Strong fit for rapid prototyping of agent teams. Poor fit for deterministic execution, rigorous type safety, or custom orchestration loops.</td>
+<td style="text-align:left">Role-based sequential or hierarchical process execution.</td>
+<td style="text-align:left">Requires added guardrails and observability to manage emergent loops and inconsistent agent behaviour.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://docs.crewai.com/" rel="noopener">docs</a> · <code>[field report]</code> <a href="https://www.crewai.com/case-studies" rel="noopener">case studies</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Pydantic AI</strong></td>
+<td style="text-align:left"><em>Production-ready</em></td>
+<td style="text-align:left"><strong>Is:</strong> Framework built directly on Pydantic enforcing strict data validation and type-safe outputs from LLMs.<br><strong>Demonstrates:</strong> Type-driven agentic execution and dependency injection.</td>
+<td style="text-align:left">Strong type-system integration, schema enforcement, dependency injection, and retry support.</td>
+<td style="text-align:left">Smaller surrounding ecosystem than older orchestration stacks; retry loops can increase latency and cost.</td>
+<td style="text-align:left">Strong fit for production systems needing strict type safety and predictable parsing. Poor fit for open-ended generative writing or weakly structured tasks.</td>
+<td style="text-align:left">Strongly typed, schema-first LLM interactions.</td>
+<td style="text-align:left">Good fit where schema validation and dependency control matter, but retry policies need explicit cost and failure bounds.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://ai.pydantic.dev/" rel="noopener">docs</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Smolagents</strong></td>
+<td style="text-align:left"><em>Emerging</em></td>
+<td style="text-align:left"><strong>Is:</strong> Minimalist framework using <code>CodeAgents</code> (Python logic code generation over JSON calling).<br><strong>Demonstrates:</strong> Code-first model execution bounds.</td>
+<td style="text-align:left">Lightweight core and direct execution model that stays close to Python control flow.</td>
+<td style="text-align:left">Weak typed-state enforcement and high exposure if generated code runs with broad permissions.</td>
+<td style="text-align:left">Strong fit for fast prototyping and Python-native experimentation. Poor fit for regulated networks or systems that need strict sandboxing and observability.</td>
+<td style="text-align:left">Python-native logic execution via LLM generation.</td>
+<td style="text-align:left">Requires strong sandboxing, network controls, and review boundaries before production use.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://huggingface.co/docs/smolagents" rel="noopener">docs</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="frameworks-landscape">Frameworks Landscape</h3>
+<p>Broader catalog beyond the deep-dive set. Each subsection capped at 8 entries; entries that cannot clear the rubric were removed in this phase (see PR body for cut list).</p>
+<h4 id="general-purpose">General Purpose</h4>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Lang</th>
+<th>Description</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/langchain-ai/langchain" rel="noopener">LangChain</a></td>
+<td>Py/JS</td>
+<td>Modular framework with chains, tools, memory, and broad integration coverage.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/langchain-ai/langgraph" rel="noopener">LangGraph</a></td>
+<td>Py/JS</td>
+<td>Graph-based orchestration. Stateful typed-state graphs with checkpointing.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/run-llama/llama_index" rel="noopener">LlamaIndex</a></td>
+<td>Py/JS</td>
+<td>Data-centric framework for retrieval-heavy and RAG-oriented agent systems.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/deepset-ai/haystack" rel="noopener">Haystack</a></td>
+<td>Py</td>
+<td>Pipeline-based framework for search, retrieval, and hybrid agent workflows.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/microsoft/semantic-kernel" rel="noopener">Semantic Kernel</a></td>
+<td>C#/Py/Java</td>
+<td>Microsoft enterprise kernel; now a composable layer inside Microsoft Agent Framework.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/microsoft/agent-framework" rel="noopener">Microsoft Agent Framework</a></td>
+<td>Py/.NET</td>
+<td>Microsoft's unified agent framework merging Semantic Kernel and AutoGen; first-class MCP and A2A support.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/pydantic/pydantic-ai" rel="noopener">Pydantic AI</a></td>
+<td>Py</td>
+<td>Type-safe, Pydantic-native; schema-first LLM interactions with dependency injection.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/stanfordnlp/dspy" rel="noopener">DSPy</a></td>
+<td>Py</td>
+<td>Stanford. Programming not prompting; compiler optimizes prompts against metrics.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="multi-agent-orchestration">Multi-Agent Orchestration</h4>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Lang</th>
+<th>Description</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/microsoft/autogen" rel="noopener">AutoGen</a></td>
+<td>Py</td>
+<td>Microsoft Research multi-agent conversations; v0.4 redesigned for async event-driven execution.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/crewAIInc/crewAI" rel="noopener">CrewAI</a></td>
+<td>Py</td>
+<td>Role-based crew members with goals, tools, and sequential/hierarchical processes.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/openai/openai-agents-python" rel="noopener">OpenAI Agents SDK</a></td>
+<td>Py</td>
+<td>Official OpenAI multi-step agents with handoffs, guardrails, sessions, and tracing.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/google/adk-python" rel="noopener">Google ADK</a></td>
+<td>Py</td>
+<td>Native Gemini multi-agent orchestration; deploys to Vertex AI Agent Engine.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/geekan/MetaGPT" rel="noopener">MetaGPT</a></td>
+<td>Py</td>
+<td>PM / architect / engineer roles simulating a software company; research-oriented.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/camel-ai/camel" rel="noopener">CAMEL</a></td>
+<td>Py</td>
+<td>Role-based simulation and collaborative reasoning research framework.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/bytedance/deer-flow" rel="noopener">DeerFlow</a></td>
+<td>Py</td>
+<td>ByteDance orchestration system for planning, tools, memory, and execution.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/modelscope/agentscope" rel="noopener">AgentScope</a></td>
+<td>Py</td>
+<td>Alibaba multi-agent framework with message-passing runtime and distributed mode.</td>
+<td><code>[official]</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="lightweight-minimalist">Lightweight / Minimalist</h4>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Lang</th>
+<th>Description</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/huggingface/smolagents" rel="noopener">Smolagents</a></td>
+<td>Py</td>
+<td>HuggingFace minimal agents (~1000 lines); code-action agents with sandboxed execution.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/agno-agi/agno" rel="noopener">Agno</a></td>
+<td>Py</td>
+<td>Lightweight, model-agnostic agent framework with native multi-modal support.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/upsonic/upsonic" rel="noopener">Upsonic</a></td>
+<td>Py</td>
+<td>MCP-first framework with minimal setup and typed task graphs.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/portia-ai/portia-sdk-python" rel="noopener">Portia AI</a></td>
+<td>Py</td>
+<td>Plan-based agent framework aimed at reliable production deployments with approval gates.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/mastra-ai/mastra" rel="noopener">Mastra</a></td>
+<td>TS</td>
+<td>TypeScript-first framework with observability, workflows, and memory.</td>
+<td><code>[official]</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="protocols-and-standards">📡 Protocols and Standards</h2>
+<p><em>Last reviewed: April 2026.</em></p>
+<p>Protocols are the stable contracts between agents, tools, and hosts. Each entry below distinguishes the <strong>specification</strong> from any specific implementation — mixing the two is a repeat anti-pattern (see <a href="ANTI-PATTERNS.html">ANTI-PATTERNS.md</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Kind</th>
+<th>Description</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://modelcontextprotocol.io/" rel="noopener">MCP (Model Context Protocol)</a></td>
+<td>Open spec</td>
+<td>Anthropic-authored open standard for exposing tools, resources, prompts, and sampling to LLM hosts; wide multi-vendor adoption in 2025–2026.</td>
+<td><code>[official]</code> <a href="https://spec.modelcontextprotocol.io/" rel="noopener">spec</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/a2aproject/A2A" rel="noopener">A2A (Agent2Agent)</a></td>
+<td>Open spec</td>
+<td>Google-originated, Linux Foundation–hosted protocol for secure cross-agent communication across vendors and frameworks.</td>
+<td><code>[official]</code> <a href="https://a2a-protocol.org/" rel="noopener">spec</a></td>
+</tr>
+<tr>
+<td><a href="https://platform.openai.com/docs/guides/function-calling" rel="noopener">OpenAI Function / Tool Calling</a></td>
+<td>Vendor API</td>
+<td>Native structured tool invocation for OpenAI models; JSON-schema-typed tool definitions.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use" rel="noopener">Anthropic Tool Use</a></td>
+<td>Vendor API</td>
+<td>Native structured tool invocation for Claude models; supports parallel tool calls and computer-use tools.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/OAI/OpenAPI-Specification" rel="noopener">OpenAPI</a></td>
+<td>Open spec</td>
+<td>Industry-standard HTTP API specification; foundation for typed, discoverable tool surfaces behind MCP or direct function-calling.</td>
+<td><code>[official]</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="reasoning-planning-models">🧭 Reasoning &amp; Planning Models</h2>
+<p><em>Last reviewed: April 2026.</em></p>
+<p>Models that do <strong>explicit reasoning or planning at inference time</strong> — chain-of-thought baked into the decoding loop, extended thinking budgets, or trained planner heads. They change the shape of agent loops: the model absorbs work that used to live in a planner node, which shifts where you spend tokens, latency, and trust. Cap of 5–8 entries; selected for agentic relevance, not general benchmark wins.</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Provider</th>
+<th>Reasoning Mode</th>
+<th>Why it matters for agents</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OpenAI o3 / o4-mini</strong></td>
+<td>OpenAI</td>
+<td>Internal long chain-of-thought with tool use during reasoning</td>
+<td>First widely available tool-using reasoning models; plan, call tools, and verify inside one model call.</td>
+<td><code>[official]</code> <a href="https://openai.com/index/introducing-o3-and-o4-mini/" rel="noopener">launch</a> · <code>[benchmark]</code> <a href="https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf" rel="noopener">system card</a></td>
+</tr>
+<tr>
+<td><strong>Claude Opus 4 / Sonnet 4 (extended thinking)</strong></td>
+<td>Anthropic</td>
+<td>Configurable thinking-token budget, interleaved with tool calls</td>
+<td>Agent-friendly thinking budget; predictable latency/cost dials for planner-heavy tasks.</td>
+<td><code>[official]</code> <a href="https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking" rel="noopener">docs</a> · <code>[field report]</code> <a href="https://www.anthropic.com/news/claude-4" rel="noopener">Claude 4 post</a></td>
+</tr>
+<tr>
+<td><strong>Gemini 2.5 Pro (Deep Think)</strong></td>
+<td>Google DeepMind</td>
+<td>Parallel hypothesis exploration before answering</td>
+<td>Strong on multi-step math, code, and agent planning; native long-context lets planners keep full trajectories in-window.</td>
+<td><code>[official]</code> <a href="https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/" rel="noopener">blog</a> · <code>[benchmark]</code> <a href="https://deepmind.google/models/gemini/pro/" rel="noopener">model card</a></td>
+</tr>
+<tr>
+<td><strong>DeepSeek-R1</strong></td>
+<td>DeepSeek</td>
+<td>RL-trained reasoning traces, open weights</td>
+<td>First strong open-weight reasoning model; reproducible baseline for planner research and local agent stacks.</td>
+<td><code>[official]</code> <a href="https://github.com/deepseek-ai/DeepSeek-R1" rel="noopener">repo</a> · <code>[benchmark]</code> <a href="https://arxiv.org/abs/2501.12948" rel="noopener">paper</a></td>
+</tr>
+<tr>
+<td><strong>Qwen3 (thinking mode)</strong></td>
+<td>Alibaba</td>
+<td>Switchable thinking / non-thinking modes</td>
+<td>Open-weight family with explicit thinking toggle — useful when you want the same model in both planner and actor roles.</td>
+<td><code>[official]</code> <a href="https://github.com/QwenLM/Qwen3" rel="noopener">repo</a> · <code>[benchmark]</code> <a href="https://arxiv.org/abs/2505.09388" rel="noopener">tech report</a></td>
+</tr>
+<tr>
+<td><strong>Grok 4</strong></td>
+<td>xAI</td>
+<td>Native reasoning with tool use</td>
+<td>Aggressive frontier-reasoning entrant; useful as a diversity source in multi-model planner ensembles.</td>
+<td><code>[official]</code> <a href="https://x.ai/news/grok-4" rel="noopener">page</a></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Decision guide: if your agent loop already does explicit plan → act → verify steps, a reasoning model can often <strong>replace</strong> the planner node — but it rarely removes the need for typed state, tracing, and eval. Treat reasoning as a cheaper planner, not a free reliability upgrade.</p>
+</blockquote>
+<hr />
+<h2 id="evaluation-safety">🧪 Evaluation &amp; Safety</h2>
+<p><em>Last reviewed: April 2026.</em></p>
+<p>This section covers frameworks and operational tooling for testing agent quality, correctness, task completion, regressions, and system behaviour, as well as security scanning, red teaming, policy testing, and misalignment research. Evidence tags follow the <a href="#benchmark-and-evidence-policy">Benchmark and Evidence Policy</a>.</p>
+<h3 id="core-evaluation-areas">Core Evaluation Areas</h3>
+<ul>
+<li>Output correctness</li>
+<li>Reasoning quality</li>
+<li>Tool-use accuracy</li>
+<li>Latency and cost</li>
+<li>Robustness under adversarial input</li>
+</ul>
+<h3 id="evaluation-frameworks">Evaluation Frameworks</h3>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Description</th>
+<th>Methodology / Workload Suitability</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/openai/evals" rel="noopener">OpenAI Evals</a></td>
+<td>Core framework for testing and improving AI systems.</td>
+<td>Foundational evaluation framework and methodology.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://deepeval.com/docs/getting-started" rel="noopener">DeepEval</a></td>
+<td>Open-source LLM evaluation framework with metrics for hallucination, answer relevance, and task completion.</td>
+<td>Application-level evaluation and regression testing.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://www.promptfoo.dev/docs/intro/" rel="noopener">promptfoo</a></td>
+<td>CLI and library for evaluation and red teaming of LLM apps.</td>
+<td>Regression testing, prompt/application evals, adversarial testing.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://inspect.aisi.org.uk/" rel="noopener">Inspect</a></td>
+<td>UK AI Security Institute's framework for rigorous LLM evals covering coding, reasoning, agent behavior, and model-graded scoring.</td>
+<td>Rigorous research-grade and agent-task evaluation.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/evaluation-approach-gen-ai" rel="noopener">Azure AI Evaluation SDK</a></td>
+<td>Azure Foundry evaluation SDK with built-in agent, safety, and quality evaluators.</td>
+<td>Enterprise agent evaluation tied to Foundry tracing.</td>
+<td><code>[official]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="key-practices">Key Practices</h3>
+<ul>
+<li>Golden datasets</li>
+<li>Regression testing</li>
+<li>Adversarial / red-team inputs</li>
+<li>Continuous evaluation pipelines</li>
+</ul>
+<h3 id="tracing-and-monitoring">Tracing and Monitoring</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/langfuse/langfuse" rel="noopener">Langfuse</a></td>
+<td>OSS LLM observability. Traces, evals, prompts.</td>
+</tr>
+<tr>
+<td><a href="https://smith.langchain.com" rel="noopener">LangSmith</a></td>
+<td>LangChain platform. Tracing, testing, evaluation.</td>
+</tr>
+<tr>
+<td><a href="https://braintrustdata.com" rel="noopener">Braintrust</a></td>
+<td>Eval-driven development. Experiment tracking.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Arize-ai/phoenix" rel="noopener">Arize Phoenix</a></td>
+<td>OSS AI observability. Traces, evals, embeddings.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Helicone/helicone" rel="noopener">Helicone</a></td>
+<td>OSS LLM observability. One-line integration.</td>
+</tr>
+<tr>
+<td><a href="https://wandb.ai/site/weave" rel="noopener">Weights and Biases Weave</a></td>
+<td>Trace and evaluate LLM apps.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="benchmarks">Benchmarks</h3>
+<table>
+<thead>
+<tr>
+<th>Benchmark</th>
+<th>Description</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/princeton-nlp/SWE-bench" rel="noopener">SWE-bench</a></td>
+<td>Coding-agent benchmark grounded in real GitHub issues and patches; <code>Verified</code> subset is the canonical agent workload.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/THUDM/AgentBench" rel="noopener">AgentBench</a></td>
+<td>8-environment LLM agent benchmark covering OS, DB, web, and game tasks.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://terminalbench.com" rel="noopener">Terminal-Bench</a></td>
+<td>Evaluates terminal-agent execution on shell-based tasks with scored task completions.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://huggingface.co/gaia-benchmark" rel="noopener">GAIA</a></td>
+<td>General AI assistant benchmark with real-world multi-step tasks and tool use.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/web-arena-x/webarena" rel="noopener">WebArena / VisualWebArena</a></td>
+<td>Web agent benchmark on real-website snapshots; visual variant tests multimodal web agents.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/sierra-research/tau-bench" rel="noopener">τ-bench</a></td>
+<td>Tool-use + user-simulation benchmark measuring agent reliability and consistency across trials.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="safety-risk-surfaces-mitigations">Safety Risk Surfaces &amp; Mitigations</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">⚠️ Core Risk Surfaces</th>
+<th style="text-align:left">🛡️ Mitigation Strategies</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Prompt injection (direct &amp; indirect)</td>
+<td style="text-align:left">Input validation and filtering</td>
+</tr>
+<tr>
+<td style="text-align:left">Tool misuse</td>
+<td style="text-align:left">Tool permissioning and sandboxing</td>
+</tr>
+<tr>
+<td style="text-align:left">Data exfiltration</td>
+<td style="text-align:left">Human-in-the-loop approval gates</td>
+</tr>
+<tr>
+<td style="text-align:left">Memory poisoning</td>
+<td style="text-align:left">Audit logs and traceability</td>
+</tr>
+<tr>
+<td style="text-align:left">Unbounded autonomous behaviour</td>
+<td style="text-align:left">Policy-driven execution</td>
+</tr>
+</tbody>
+</table>
+<h3 id="safety-tooling-methodologies">Safety Tooling &amp; Methodologies</h3>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+<th>Workload Suitability</th>
+<th>Official Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>garak</strong></td>
+<td>LLM vulnerability scanner probing for hallucination, leakage, injection, toxicity, and jailbreaks.</td>
+<td>Automated red teaming &amp; vulnerability scanning</td>
+<td><a href="https://github.com/NVIDIA/garak" rel="noopener">GitHub</a></td>
+</tr>
+<tr>
+<td><strong>OWASP GenAI Security Project</strong></td>
+<td>Governance and mitigation framework for safety risks in LLMs and agentic systems.</td>
+<td>Governance, controls, and secure-design reference</td>
+<td><a href="https://genai.owasp.org/" rel="noopener">Project Home</a></td>
+</tr>
+<tr>
+<td><strong>Anthropic Alignment Stress-Testing</strong></td>
+<td>Research and operational approach for deliberately stress-testing alignment evals and oversight.</td>
+<td>Research-driven safety evaluation methodology</td>
+<td><a href="https://www.alignmentforum.org/posts/EPDSdXr8YbsDkgsDG/introducing-alignment-stress-testing-at-anthropic" rel="noopener">Post</a></td>
+</tr>
+<tr>
+<td><strong>Model Organisms of Misalignment</strong></td>
+<td>In-vitro demonstrations of alignment failures so they can be studied empirically.</td>
+<td>Advanced safety research and methodology</td>
+<td><a href="https://www.alignmentforum.org/posts/ChDH335ckdvpxXaXX/model-organisms-of-misalignment-the-case-for-a-new-pillar-of-1" rel="noopener">Post</a></td>
+</tr>
+<tr>
+<td><strong>AI Safety via Debate</strong></td>
+<td>Alignment framework for cases where direct human supervision is too hard.</td>
+<td>Alignment and scalable oversight resource</td>
+<td><a href="https://arxiv.org/abs/1805.00899" rel="noopener">Paper</a></td>
+</tr>
+<tr>
+<td><strong>Concrete Problems in AI Safety</strong></td>
+<td>Foundational framing paper for safety problems (side effects, reward hacking, safe exploration, shift).</td>
+<td>Foundational safety resource</td>
+<td><a href="https://arxiv.org/abs/1606.06565" rel="noopener">Paper</a></td>
+</tr>
+<tr>
+<td><strong>Anthropic Agentic Misalignment</strong></td>
+<td>Grounds safety concerns in concrete behaviours (blackmail, espionage) in simulated settings.</td>
+<td>Applied safety &amp; threat-modelling reference</td>
+<td><a href="https://www.anthropic.com/research/agentic-misalignment" rel="noopener">Research Post</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ai-guardrails">AI Guardrails</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/guardrails-ai/guardrails" rel="noopener">Guardrails AI</a></td>
+<td>Structural, type, quality guarantees for LLM outputs.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/NVIDIA/NeMo-Guardrails" rel="noopener">NeMo Guardrails</a></td>
+<td>NVIDIA. Programmable conversation guardrails.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/protectai/llm-guard" rel="noopener">LLM Guard</a></td>
+<td>Security toolkit. Input/output scanning.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/protectai/rebuff" rel="noopener">Rebuff</a></td>
+<td>Prompt injection detection.</td>
+</tr>
+<tr>
+<td><a href="https://lakera.ai" rel="noopener">Lakera Guard</a></td>
+<td>Real-time protection. Prompt injection, data leakage, toxicity.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="skills-and-operating-principles">🧠 Skills and Operating Principles</h2>
+<p>Building agentic systems requires a shift in skillset:</p>
+<ul>
+<li>Problem decomposition</li>
+<li>System design and orchestration</li>
+<li>Tool and interface design</li>
+<li>Memory modelling</li>
+<li>Evaluation design</li>
+<li>Failure mode analysis</li>
+<li>Safety and governance thinking</li>
+</ul>
+<hr />
+<h2 id="what-not-to-do">🚫 What NOT to Do</h2>
+<p>To keep this repository genuinely opinionated, we advocate against these common anti-patterns:</p>
+<ul>
+<li><strong>Do not begin with multi-agent systems when a single agent plus tools will do.</strong> Escalate to multi-agent only when task decomposition requires it.</li>
+<li><strong>Do not add memory before defining what deserves persistence.</strong> Avoid &quot;state bloat&quot; by being intentional about what is stored and why.</li>
+<li><strong>Do not treat tracing as optional for long-running systems.</strong> Observability is the only way to debug non-deterministic agentic failures.</li>
+<li><strong>Do not confuse benchmark wins with production readiness.</strong> Real-world reliability requires evaluation on <em>your</em> specific data and edge cases.</li>
+<li><strong>Do not use framework abstractions as a substitute for architecture.</strong> Understand your control flow before outsourcing it to a library.</li>
+</ul>
+<hr />
+<h2 id="signals-how-to-read-this-list">📊 Signals (How to Read This List)</h2>
+<ul>
+<li>⭐ Production-grade</li>
+<li>🧪 Experimental</li>
+<li>⚠️ Early-stage / unstable</li>
+</ul>
+<hr />
+<h2 id="getting-started">🚀 Getting Started</h2>
+<ol>
+<li>Choose a core pattern (e.g. single-agent + tools)</li>
+<li>Add structured tool use</li>
+<li>Introduce evaluation early</li>
+<li>Layer in memory only when needed</li>
+<li>Expand into multi-agent systems with clear roles</li>
+<li>Add observability and safety constraints</li>
+</ol>
+<hr />
+<h2 id="contributing">🤝 Contributing</h2>
+<p>Contributions are welcome! Please read the <a href="CONTRIBUTING.html"><strong>CONTRIBUTING.md</strong></a> for full details before submitting a pull request.</p>
+<p>At a high level, submissions must meet the following criteria:</p>
+<ul>
+<li>Clear description of purpose</li>
+<li>Architectural strengths and operational constraints</li>
+<li>Governance fit and workload suitability</li>
+<li>Evidence of ecosystem maturity or real-world usage (preferred)</li>
+<li>Evidence tags and <code>Last reviewed</code> markers where claims are time-sensitive or likely to change</li>
+</ul>
+<p>This is a <strong>curated list</strong>, not an exhaustive one.</p>
+<p>See <a href="appendix/benchmark-and-evidence-policy.html">appendix/benchmark-and-evidence-policy.md</a> for the sourcing, evidence-tagging, and <code>Last reviewed</code> policy.</p>
+<hr />
+<h2 id="final-note">📌 Final Note</h2>
+<p>The shift to agentic systems is not about more tools.</p>
+<p>It is about:</p>
+<ul>
+<li>Designing systems that can <strong>reason, act, evaluate, and improve</strong></li>
+<li>Ensuring those systems are <strong>reliable, observable, and safe</strong></li>
+</ul>
+<p>Build accordingly.</p>
+</article>
+</main>
+<footer class="site-footer"><p>Source of truth: <a href="https://github.com/natnew/Awesome-Agentic-Engineering" rel="noopener">GitHub</a> · <a href="feed.xml">Subscribe (RSS)</a> · <a href="https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/LICENSE" rel="noopener">MIT License</a></p><p><small>Generated by <code>repo-agent workflow render-site</code>. Pages are rebuilt from Markdown on every push to <code>main</code>.</small></p></footer>
+</body>
+</html>

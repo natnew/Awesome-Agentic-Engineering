@@ -146,6 +146,7 @@ We highly encourage updates to existing sections if definitions become outdated,
 2. Ensure the formatting seamlessly matches the existing markdown.
 3. Keep the **Pull Request title** clear and descriptive (e.g., `Add Inspect to Evaluation Frameworks`).
 4. In the PR body, briefly explain **why** the resource meets the critical bar for this specific repository.
+5. **Add a one-line bullet under `## [Unreleased]` in [`CHANGELOG.md`](CHANGELOG.md)** describing the change. This becomes the item shown in the public RSS feed when the next phase ships.
 
 ## Running Checks Locally
 
