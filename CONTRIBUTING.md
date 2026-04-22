@@ -147,4 +147,39 @@ We highly encourage updates to existing sections if definitions become outdated,
 3. Keep the **Pull Request title** clear and descriptive (e.g., `Add Inspect to Evaluation Frameworks`).
 4. In the PR body, briefly explain **why** the resource meets the critical bar for this specific repository.
 
+## Running Checks Locally
+
+Two GitHub Actions run on every pull request in **advisory** mode (they surface issues but do not block merge). You can reproduce them locally before opening a PR — no setup beyond Node 20 is required.
+
+```sh
+# Markdown style (uses .markdownlint.jsonc at the repo root)
+npx -y markdownlint-cli2 "**/*.md" "#node_modules"
+
+# Broken-link check (uses .markdown-link-check.json at the repo root)
+npx -y markdown-link-check -c .markdown-link-check.json README.md
+```
+
+To check every markdown file for broken links, loop over the tracked files:
+
+```sh
+git ls-files "*.md" | xargs -I {} npx -y markdown-link-check -c .markdown-link-check.json {}
+```
+
+## Freshness
+
+Rapidly changing sections carry a visible `Last reviewed: Month YYYY` marker. A monthly scheduled workflow (`.github/workflows/stale-entry-detector.yml`) scans `README.md` and everything under `appendix/`, and maintains a single rolling issue titled **"Freshness audit — stale entries"** listing:
+
+- Files whose marker is older than **9 months**.
+- Files under the tracked paths that have no marker at all.
+
+You can run the detector locally:
+
+```sh
+node .github/scripts/find-stale-entries.mjs
+# override threshold
+FRESHNESS_MONTHS=12 node .github/scripts/find-stale-entries.mjs
+```
+
+When you refresh an entry, bump the `Last reviewed:` line in the same PR — reviewers will look for it.
+
 Thanks for helping keep the repository engineering-focused and usable.

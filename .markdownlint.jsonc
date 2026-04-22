@@ -1,0 +1,26 @@
+{
+  // markdownlint config for Awesome Agentic Engineering.
+  // Rationale for rule overrides is documented in
+  // specs/2026-04-22-phase-4-automations-ci-hygiene/requirements.md.
+  "default": true,
+
+  // MD013 — line length. Awesome-list entries and tables routinely exceed
+  // any reasonable line length; readability is governed by prose review,
+  // not column count.
+  "MD013": false,
+
+  // MD033 — inline HTML. Needed for badge rows, <details>, and <sub>.
+  "MD033": false,
+
+  // MD041 — first line must be a top-level heading. Several files start
+  // with a badge block before the H1, which is idiomatic for awesome lists.
+  "MD041": false,
+
+  // MD024 — allow duplicate headings when they are in different sections
+  // (e.g., repeated "Examples" subsections across tool entries).
+  "MD024": { "siblings_only": true },
+
+  // MD036 — emphasis used as heading. Triggered by bold lead-ins in entry
+  // bullets ("**Reliability** — ..."); those are styling, not headings.
+  "MD036": false
+}

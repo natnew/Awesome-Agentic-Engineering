@@ -2,7 +2,7 @@
 
 > **Stop prompting. Start engineering. A structured reference for taking AI agents into production.**
 
-[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re) [![Last Update](https://img.shields.io/badge/last%20update-April%202026-blue?style=flat-square)]() [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](LICENSE)
+[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re) [![Last Commit](https://img.shields.io/github/last-commit/natnew/Awesome-Agentic-Engineering?label=last%20updated&style=flat-square)](https://github.com/natnew/Awesome-Agentic-Engineering/commits) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](LICENSE)
 
 A curated map of agentic AI systems — covering architectures, frameworks, memory, evaluation, and safety.
 
