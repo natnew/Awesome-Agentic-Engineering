@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Contribution guide
+    url: https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/CONTRIBUTING.md
+    about: Read the contribution guide and Entry Rubric (v1) before opening an issue.
+  - name: Benchmark and evidence policy
+    url: https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/appendix/benchmark-and-evidence-policy.md
+    about: Review the evidence tags and sourcing rules.
