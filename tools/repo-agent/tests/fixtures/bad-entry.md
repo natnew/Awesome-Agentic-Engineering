@@ -1,0 +1,1 @@
+- **[SomeTool](https://example.com)** — A world-class, state-of-the-art revolutionary agent framework trending on GitHub with 50k stars.
