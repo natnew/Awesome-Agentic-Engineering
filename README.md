@@ -2,7 +2,7 @@
 
 > **Stop prompting. Start engineering. A structured reference for taking AI agents into production.**
 
-[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re) [![Last Update](https://img.shields.io/badge/last%20update-March%202026-blue?style=flat-square)]() [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](LICENSE)
+[![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re) [![Last Update](https://img.shields.io/badge/last%20update-April%202026-blue?style=flat-square)]() [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![License: MIT](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](LICENSE)
 
 A curated map of agentic AI systems — covering architectures, frameworks, memory, evaluation, and safety.
 
@@ -23,7 +23,8 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 - [Benchmark and Evidence Policy](#benchmark-and-evidence-policy)
 - [⚙️ Orchestration Frameworks](#-orchestration-frameworks)
 - [📡 Protocols and Standards](#-protocols-and-standards)
-- [🧪 Evaluation & Safety](#-evaluation--safety)
+- [� Reasoning & Planning Models](#-reasoning--planning-models)
+- [�🧪 Evaluation & Safety](#-evaluation--safety)
 - [🧠 Skills and Operating Principles](#-skills-and-operating-principles)
 - [🚫 What NOT to Do](#-what-not-to-do)
 - [📊 Signals (How to Read This List)](#-signals-how-to-read-this-list)
@@ -92,7 +93,9 @@ Representative system designs for real-world use.
 
 ## 🧠 Memory Systems
 
-Memory is a first-class concern in agentic systems. Rather than treating memory as a simple array of previous messages, production systems require structured approaches to state, persistence, and retrieval.
+_Last reviewed: April 2026._
+
+Memory is a first-class concern in agentic systems. Rather than treating memory as a simple array of previous messages, production systems require structured approaches to state, persistence, and retrieval. Four categories — working, episodic, procedural, semantic — are load-bearing decisions, not implementation details; pick them deliberately before picking a vendor.
 
 ### Memory Taxonomy
 
@@ -179,73 +182,103 @@ Canonical resources are trusted here because they define what counts as evidence
 
 ## ⚙️ Orchestration Frameworks
 
+_Last reviewed: April 2026._
+
 ### Deep Dives
 
-| Framework | Ecosystem Maturity | Description | Architectural Strengths | Operational Constraints | Workload Suitability | Design Paradigm | Governance Fit |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **LangGraph** | *Production-ready* | **Is:** Stateful orchestration framework building directed acyclic graphs (DAGs).<br>**Demonstrates:** Deterministic execution control mixed with LLM reasoning. | Explicit state management, persistence, and support for complex multi-actor workflows. | Verbose abstractions, steep learning curve, and graph sprawl if the workflow is over-modeled. | Strong fit for multi-step, stateful, and interruptible agent systems. Poor fit for simple single-prompt completions or linear chains. | DAG-based state machine. | Good fit for auditable workflows and approval gates, but graph edges must be tightly constrained to avoid runaway loops. |
-| **CrewAI** | *Emerging* | **Is:** Multi-agent collaboration framework where agents are assigned roles, goals, and tools.<br>**Demonstrates:** Role-based agentic workflows. | Simple mental model and fast team-based decomposition for prototypes. | Less control for highly complex or non-standard systems. | Strong fit for rapid prototyping of agent teams. Poor fit for deterministic execution, rigorous type safety, or custom orchestration loops. | Role-based sequential or hierarchical process execution. | Requires added guardrails and observability to manage emergent loops and inconsistent agent behaviour. |
-| **OpenAI Assistants / Agents APIs** | *Production-ready* | **Is:** Hosted orchestration and state management by OpenAI.<br>**Demonstrates:** Managed state and tool execution. | Integrated tools, simplified operations, and reduced infrastructure ownership. | Limited transparency and control, with strong provider coupling. | Strong fit for managed environments and teams optimizing for delivery speed. Poor fit for provider portability, local models, or complex multi-agent setups. | Hosted black-box orchestration. | Viable for hosted approval flows, but bounded by vendor policy, uptime, and data-handling constraints. |
-| **Pydantic AI** | *Production-ready* | **Is:** Framework built directly on Pydantic enforcing strict data validation and type-safe outputs from LLMs.<br>**Demonstrates:** Type-driven agentic execution and dependency injection. | Strong type-system integration, schema enforcement, dependency injection, and retry support. | Smaller surrounding ecosystem than older orchestration stacks; retry loops can increase latency and cost. | Strong fit for production systems needing strict type safety and predictable parsing. Poor fit for open-ended generative writing or weakly structured tasks. | Strongly typed, schema-first LLM interactions. | Good fit where schema validation and dependency control matter, but retry policies need explicit cost and failure bounds. |
-| **Smolagents** | *Emerging* | **Is:** Minimalist framework using `CodeAgents` (Python logic code generation over JSON calling).<br>**Demonstrates:** Code-first model execution bounds. | Lightweight core and direct execution model that stays close to Python control flow. | Weak typed-state enforcement and high exposure if generated code runs with broad permissions. | Strong fit for fast prototyping and Python-native experimentation. Poor fit for regulated networks or systems that need strict sandboxing and observability. | Python-native logic execution via LLM generation. | Requires strong sandboxing, network controls, and review boundaries before production use. |
+Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence-policy). Scored against [RUBRIC.md](RUBRIC.md); cap of 5–8 deep-dive entries enforced.
+
+| Framework | Ecosystem Maturity | Description | Architectural Strengths | Operational Constraints | Workload Suitability | Design Paradigm | Governance Fit | Evidence |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **LangGraph** | *Production-ready* | **Is:** Stateful orchestration framework building directed graphs with typed state.<br>**Demonstrates:** Deterministic execution control mixed with LLM reasoning. | Explicit state management, persistence, and support for complex multi-actor workflows. | Verbose abstractions, steep learning curve, and graph sprawl if the workflow is over-modeled. | Strong fit for multi-step, stateful, and interruptible agent systems. Poor fit for simple single-prompt completions or linear chains. | DAG-based state machine. | Good fit for auditable workflows and approval gates, but graph edges must be tightly constrained to avoid runaway loops. | `[official]` [docs](https://langchain-ai.github.io/langgraph/) · `[field report]` [LinkedIn SQL Bot](https://blog.langchain.dev/customers-linkedin/) |
+| **Microsoft Agent Framework** | *Production-ready* | **Is:** Microsoft's unified agent framework merging Semantic Kernel and AutoGen; first-class MCP and A2A support.<br>**Demonstrates:** Enterprise-grade agent composition with typed plugins, approval workflows, and Azure integration. | Strong .NET + Python parity, typed function-calling, native MCP/A2A, and OpenTelemetry tracing. | Broader Azure coupling in the managed path; framework surface is still stabilizing post-merger. | Strong fit for enterprise teams already on Azure / Semantic Kernel and needing multi-language agents. Poor fit for teams wanting a minimal Python-only stack. | Typed plugin graph with pluggable orchestration (sequential, group chat, handoff). | Strong — supports approval gates, policy plugins, and audit logging out of the box. | `[official]` [repo](https://github.com/microsoft/agent-framework) · `[official]` [announce](https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework/) |
+| **AutoGen** | *Production-ready* | **Is:** Microsoft Research multi-agent conversation framework; now an orchestration pattern inside Microsoft Agent Framework.<br>**Demonstrates:** Conversable agents with group chat, code-executor, and human-proxy patterns. | Battle-tested multi-agent conversation patterns, large research footprint, flexible role composition. | Emergent conversation loops need explicit termination conditions; observability requires added tooling. | Strong fit for research on multi-agent collaboration and code-gen crews. Poor fit for strictly deterministic workflows. | Conversational multi-agent loop with configurable managers. | Needs explicit stop conditions and sandboxed code execution to be safe in production. | `[official]` [v0.4 docs](https://microsoft.github.io/autogen/) · `[benchmark]` [AutoGen paper](https://arxiv.org/abs/2308.08155) |
+| **OpenAI Agents SDK** | *Production-ready* | **Is:** OpenAI's official agents SDK with handoffs, guardrails, and sessions; successor path to Assistants API.<br>**Demonstrates:** First-party multi-step agents with tool-use, tracing, and structured handoffs. | Tight integration with OpenAI tools, built-in tracing, ergonomic Python API, provider-agnostic via LiteLLM. | Primary optimization target is OpenAI models; porting to other providers loses some ergonomics. | Strong fit for teams shipping OpenAI-backed agents quickly with tracing. Poor fit for strict provider portability or local-only models. | Handoff-based multi-agent loop with sessions. | Viable for hosted approval flows; guardrails are first-class primitives. | `[official]` [docs](https://openai.github.io/openai-agents-python/) · `[official]` [repo](https://github.com/openai/openai-agents-python) |
+| **CrewAI** | *Emerging* | **Is:** Multi-agent collaboration framework where agents are assigned roles, goals, and tools.<br>**Demonstrates:** Role-based agentic workflows with sequential and hierarchical processes. | Simple mental model and fast team-based decomposition for prototypes; growing enterprise feature set. | Less control for highly complex or non-standard systems; observability and typed state are weaker than LangGraph/MAF. | Strong fit for rapid prototyping of agent teams. Poor fit for deterministic execution, rigorous type safety, or custom orchestration loops. | Role-based sequential or hierarchical process execution. | Requires added guardrails and observability to manage emergent loops and inconsistent agent behaviour. | `[official]` [docs](https://docs.crewai.com/) · `[field report]` [case studies](https://www.crewai.com/case-studies) |
+| **Pydantic AI** | *Production-ready* | **Is:** Framework built directly on Pydantic enforcing strict data validation and type-safe outputs from LLMs.<br>**Demonstrates:** Type-driven agentic execution and dependency injection. | Strong type-system integration, schema enforcement, dependency injection, and retry support. | Smaller surrounding ecosystem than older orchestration stacks; retry loops can increase latency and cost. | Strong fit for production systems needing strict type safety and predictable parsing. Poor fit for open-ended generative writing or weakly structured tasks. | Strongly typed, schema-first LLM interactions. | Good fit where schema validation and dependency control matter, but retry policies need explicit cost and failure bounds. | `[official]` [docs](https://ai.pydantic.dev/) |
+| **Smolagents** | *Emerging* | **Is:** Minimalist framework using `CodeAgents` (Python logic code generation over JSON calling).<br>**Demonstrates:** Code-first model execution bounds. | Lightweight core and direct execution model that stays close to Python control flow. | Weak typed-state enforcement and high exposure if generated code runs with broad permissions. | Strong fit for fast prototyping and Python-native experimentation. Poor fit for regulated networks or systems that need strict sandboxing and observability. | Python-native logic execution via LLM generation. | Requires strong sandboxing, network controls, and review boundaries before production use. | `[official]` [docs](https://huggingface.co/docs/smolagents) |
 
 ---
 
 ### Frameworks Landscape
 
+Broader catalog beyond the deep-dive set. Each subsection capped at 8 entries; entries that cannot clear the rubric were removed in this phase (see PR body for cut list).
+
 #### General Purpose
-| Framework | Lang | Description |
-|-----------|------|-------------|
-| [LangChain](https://github.com/langchain-ai/langchain) | Py/JS | Modular framework with chains, tools, memory, and broad integration coverage. |
-| [LangGraph](https://github.com/langchain-ai/langgraph) | Py/JS | Graph-based orchestration. Stateful directed graphs. |
-| [LlamaIndex](https://github.com/run-llama/llama_index) | Py/JS | Data-centric framework for retrieval-heavy and RAG-oriented agent systems. |
-| [Haystack](https://github.com/deepset-ai/haystack) | Py | Pipeline-based. Search and retrieval. |
-| [Semantic Kernel](https://github.com/microsoft/semantic-kernel) | C#/Py/Java | Microsoft enterprise. Azure integration. |
-| [Pydantic AI](https://github.com/pydantic/pydantic-ai) | Py | Type-safe. Clean Pythonic API. Production-ready. |
-| [DSPy](https://github.com/stanfordnlp/dspy) | Py | Stanford. Programming not prompting. Auto-optimizes. |
-| [Mastra](https://github.com/mastra-ai/mastra) | TS | TypeScript-first. Observational Memory. Apache 2.0. |
-| [Anthropic SDK](https://github.com/anthropics/anthropic-sdk-python) | Py/TS | Official Claude SDK. Tool use, computer control, streaming. |
+| Framework | Lang | Description | Evidence |
+|-----------|------|-------------|----------|
+| [LangChain](https://github.com/langchain-ai/langchain) | Py/JS | Modular framework with chains, tools, memory, and broad integration coverage. | `[official]` |
+| [LangGraph](https://github.com/langchain-ai/langgraph) | Py/JS | Graph-based orchestration. Stateful typed-state graphs with checkpointing. | `[official]` |
+| [LlamaIndex](https://github.com/run-llama/llama_index) | Py/JS | Data-centric framework for retrieval-heavy and RAG-oriented agent systems. | `[official]` |
+| [Haystack](https://github.com/deepset-ai/haystack) | Py | Pipeline-based framework for search, retrieval, and hybrid agent workflows. | `[official]` |
+| [Semantic Kernel](https://github.com/microsoft/semantic-kernel) | C#/Py/Java | Microsoft enterprise kernel; now a composable layer inside Microsoft Agent Framework. | `[official]` |
+| [Microsoft Agent Framework](https://github.com/microsoft/agent-framework) | Py/.NET | Microsoft's unified agent framework merging Semantic Kernel and AutoGen; first-class MCP and A2A support. | `[official]` |
+| [Pydantic AI](https://github.com/pydantic/pydantic-ai) | Py | Type-safe, Pydantic-native; schema-first LLM interactions with dependency injection. | `[official]` |
+| [DSPy](https://github.com/stanfordnlp/dspy) | Py | Stanford. Programming not prompting; compiler optimizes prompts against metrics. | `[official]` · `[benchmark]` |
 
 #### Multi-Agent Orchestration
-| Framework | Lang | Description |
-|-----------|------|-------------|
-| [AutoGen](https://github.com/microsoft/autogen) | Py | Microsoft multi-agent conversations. |
-| [CrewAI](https://github.com/crewAIInc/crewAI) | Py | Role-based crew members with goals and tools. |
-| [MetaGPT](https://github.com/geekan/MetaGPT) | Py | PM, architect, engineer roles. Software company sim. |
-| [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | Py | Official. Multi-step agents with handoffs. |
-| [Google ADK](https://github.com/google/adk-python) | Py | Native Gemini. Multi-agent orchestration. |
-| [Strands Agents](https://github.com/strands-agents/sdk-python) | Py | AWS-backed. Model-driven tool use. |
-| [CAMEL](https://github.com/camel-ai/camel) | Py | Role-based simulation. Collaborative reasoning. |
-| [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | Py | Pioneer. Now full platform with visual builder. |
-| [AgentScope](https://github.com/modelscope/agentscope) | Py | Alibaba multi-agent framework. |
-| [DeerFlow](https://github.com/bytedance/deer-flow) | Py | ByteDance orchestration system for planning, tools, memory, and execution. |
+| Framework | Lang | Description | Evidence |
+|-----------|------|-------------|----------|
+| [AutoGen](https://github.com/microsoft/autogen) | Py | Microsoft Research multi-agent conversations; v0.4 redesigned for async event-driven execution. | `[official]` · `[benchmark]` |
+| [CrewAI](https://github.com/crewAIInc/crewAI) | Py | Role-based crew members with goals, tools, and sequential/hierarchical processes. | `[official]` |
+| [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) | Py | Official OpenAI multi-step agents with handoffs, guardrails, sessions, and tracing. | `[official]` |
+| [Google ADK](https://github.com/google/adk-python) | Py | Native Gemini multi-agent orchestration; deploys to Vertex AI Agent Engine. | `[official]` |
+| [MetaGPT](https://github.com/geekan/MetaGPT) | Py | PM / architect / engineer roles simulating a software company; research-oriented. | `[official]` · `[benchmark]` |
+| [CAMEL](https://github.com/camel-ai/camel) | Py | Role-based simulation and collaborative reasoning research framework. | `[official]` · `[benchmark]` |
+| [DeerFlow](https://github.com/bytedance/deer-flow) | Py | ByteDance orchestration system for planning, tools, memory, and execution. | `[official]` |
+| [AgentScope](https://github.com/modelscope/agentscope) | Py | Alibaba multi-agent framework with message-passing runtime and distributed mode. | `[official]` |
 
 #### Lightweight / Minimalist
-| Framework | Lang | Description |
-|-----------|------|-------------|
-| [Smolagents](https://github.com/huggingface/smolagents) | Py | HuggingFace minimal agents. ~1000 lines. |
-| [Agno](https://github.com/agno-agi/agno) | Py | Lightweight, model-agnostic. |
-| [Upsonic](https://github.com/upsonic/upsonic) | Py | MCP support. Minimal setup. |
-| [Portia AI](https://github.com/portia-ai/portia-sdk-python) | Py | Reliable agents in production. |
-| [MicroAgent](https://github.com/aymenfurter/microagent) | Py | Self-editing prompts and code. |
+| Framework | Lang | Description | Evidence |
+|-----------|------|-------------|----------|
+| [Smolagents](https://github.com/huggingface/smolagents) | Py | HuggingFace minimal agents (~1000 lines); code-action agents with sandboxed execution. | `[official]` |
+| [Agno](https://github.com/agno-agi/agno) | Py | Lightweight, model-agnostic agent framework with native multi-modal support. | `[official]` |
+| [Upsonic](https://github.com/upsonic/upsonic) | Py | MCP-first framework with minimal setup and typed task graphs. | `[official]` |
+| [Portia AI](https://github.com/portia-ai/portia-sdk-python) | Py | Plan-based agent framework aimed at reliable production deployments with approval gates. | `[official]` |
+| [Mastra](https://github.com/mastra-ai/mastra) | TS | TypeScript-first framework with observability, workflows, and memory. | `[official]` |
 
 ---
 
 ## 📡 Protocols and Standards
 
-| Protocol | Description |
-|----------|-------------|
-| [MCP (Model Context Protocol)](https://github.com/modelcontextprotocol) | Open standard for exposing tools, memory, and file systems to agents. |
-| [A2A (Agent-to-Agent)](https://github.com/google/A2A) | Google protocol for inter-agent communication. |
-| [OpenAI Function Calling](https://platform.openai.com/docs/guides/function-calling) | OpenAI native tool-use. JSON schema. |
-| [Tool Use (Anthropic)](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) | Claude native tool-use. Structured JSON. |
-| [OpenAPI](https://github.com/OAI/OpenAPI-Specification) | Industry-standard API spec. Foundation for agent tools. |
+_Last reviewed: April 2026._
+
+Protocols are the stable contracts between agents, tools, and hosts. Each entry below distinguishes the **specification** from any specific implementation — mixing the two is a repeat anti-pattern (see [ANTI-PATTERNS.md](ANTI-PATTERNS.md)).
+
+| Protocol | Kind | Description | Evidence |
+|----------|------|-------------|----------|
+| [MCP (Model Context Protocol)](https://modelcontextprotocol.io/) | Open spec | Anthropic-authored open standard for exposing tools, resources, prompts, and sampling to LLM hosts; wide multi-vendor adoption in 2025–2026. | `[official]` [spec](https://spec.modelcontextprotocol.io/) |
+| [A2A (Agent2Agent)](https://github.com/a2aproject/A2A) | Open spec | Google-originated, Linux Foundation–hosted protocol for secure cross-agent communication across vendors and frameworks. | `[official]` [spec](https://a2a-protocol.org/) |
+| [OpenAI Function / Tool Calling](https://platform.openai.com/docs/guides/function-calling) | Vendor API | Native structured tool invocation for OpenAI models; JSON-schema-typed tool definitions. | `[official]` |
+| [Anthropic Tool Use](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) | Vendor API | Native structured tool invocation for Claude models; supports parallel tool calls and computer-use tools. | `[official]` |
+| [OpenAPI](https://github.com/OAI/OpenAPI-Specification) | Open spec | Industry-standard HTTP API specification; foundation for typed, discoverable tool surfaces behind MCP or direct function-calling. | `[official]` |
+
+---
+
+## 🧭 Reasoning & Planning Models
+
+_Last reviewed: April 2026._
+
+Models that do **explicit reasoning or planning at inference time** — chain-of-thought baked into the decoding loop, extended thinking budgets, or trained planner heads. They change the shape of agent loops: the model absorbs work that used to live in a planner node, which shifts where you spend tokens, latency, and trust. Cap of 5–8 entries; selected for agentic relevance, not general benchmark wins.
+
+| Model | Provider | Reasoning Mode | Why it matters for agents | Evidence |
+|-------|----------|----------------|---------------------------|----------|
+| **OpenAI o3 / o4-mini** | OpenAI | Internal long chain-of-thought with tool use during reasoning | First widely available tool-using reasoning models; plan, call tools, and verify inside one model call. | `[official]` [launch](https://openai.com/index/introducing-o3-and-o4-mini/) · `[benchmark]` [system card](https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf) |
+| **Claude Opus 4 / Sonnet 4 (extended thinking)** | Anthropic | Configurable thinking-token budget, interleaved with tool calls | Agent-friendly thinking budget; predictable latency/cost dials for planner-heavy tasks. | `[official]` [docs](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking) · `[field report]` [Claude 4 post](https://www.anthropic.com/news/claude-4) |
+| **Gemini 2.5 Pro (Deep Think)** | Google DeepMind | Parallel hypothesis exploration before answering | Strong on multi-step math, code, and agent planning; native long-context lets planners keep full trajectories in-window. | `[official]` [blog](https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/) · `[benchmark]` [model card](https://deepmind.google/models/gemini/pro/) |
+| **DeepSeek-R1** | DeepSeek | RL-trained reasoning traces, open weights | First strong open-weight reasoning model; reproducible baseline for planner research and local agent stacks. | `[official]` [repo](https://github.com/deepseek-ai/DeepSeek-R1) · `[benchmark]` [paper](https://arxiv.org/abs/2501.12948) |
+| **Qwen3 (thinking mode)** | Alibaba | Switchable thinking / non-thinking modes | Open-weight family with explicit thinking toggle — useful when you want the same model in both planner and actor roles. | `[official]` [repo](https://github.com/QwenLM/Qwen3) · `[benchmark]` [tech report](https://arxiv.org/abs/2505.09388) |
+| **Grok 4** | xAI | Native reasoning with tool use | Aggressive frontier-reasoning entrant; useful as a diversity source in multi-model planner ensembles. | `[official]` [page](https://x.ai/news/grok-4) |
+
+> Decision guide: if your agent loop already does explicit plan → act → verify steps, a reasoning model can often **replace** the planner node — but it rarely removes the need for typed state, tracing, and eval. Treat reasoning as a cheaper planner, not a free reliability upgrade.
 
 ---
 
 ## 🧪 Evaluation & Safety
 
-This section covers frameworks and operational tooling for testing agent quality, correctness, task completion, regressions, and system behaviour, as well as security scanning, red teaming, policy testing, and misalignment research.
+_Last reviewed: April 2026._
+
+This section covers frameworks and operational tooling for testing agent quality, correctness, task completion, regressions, and system behaviour, as well as security scanning, red teaming, policy testing, and misalignment research. Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence-policy).
 
 ### Core Evaluation Areas
 
@@ -256,12 +289,13 @@ This section covers frameworks and operational tooling for testing agent quality
 - Robustness under adversarial input  
 
 ### Evaluation Frameworks
-| Framework | Description | Methodology / Workload Suitability |
-|-----------|-------------|------------------------|
-| [OpenAI Evals](https://developers.openai.com/api/docs/guides/evals/) | Core framework for testing and improving AI systems. | Foundational evaluation framework and methodology. |
-| [DeepEval](https://deepeval.com/docs/getting-started) | Dedicated open-source LLM evaluation framework with metrics for hallucination, answer relevance, task completion, etc. | Application-level evaluation and regression testing. |
-| [promptfoo](https://www.promptfoo.dev/docs/intro/) | CLI and library for evaluation and red teaming of LLM apps. | Regression testing, prompt/application evals, adversarial testing. |
-| [Inspect](https://inspect.aisi.org.uk/) | UK AI Security Institute's framework for rigorous LLM evals covering coding, reasoning, agent behavior, and model-graded scoring. | Rigorous research-grade and agent-task evaluation. |
+| Framework | Description | Methodology / Workload Suitability | Evidence |
+|-----------|-------------|------------------------|----------|
+| [OpenAI Evals](https://github.com/openai/evals) | Core framework for testing and improving AI systems. | Foundational evaluation framework and methodology. | `[official]` |
+| [DeepEval](https://deepeval.com/docs/getting-started) | Open-source LLM evaluation framework with metrics for hallucination, answer relevance, and task completion. | Application-level evaluation and regression testing. | `[official]` |
+| [promptfoo](https://www.promptfoo.dev/docs/intro/) | CLI and library for evaluation and red teaming of LLM apps. | Regression testing, prompt/application evals, adversarial testing. | `[official]` |
+| [Inspect](https://inspect.aisi.org.uk/) | UK AI Security Institute's framework for rigorous LLM evals covering coding, reasoning, agent behavior, and model-graded scoring. | Rigorous research-grade and agent-task evaluation. | `[official]` · `[benchmark]` |
+| [Azure AI Evaluation SDK](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/evaluation-approach-gen-ai) | Azure Foundry evaluation SDK with built-in agent, safety, and quality evaluators. | Enterprise agent evaluation tied to Foundry tracing. | `[official]` |
 
 ### Key Practices
 
@@ -281,13 +315,14 @@ This section covers frameworks and operational tooling for testing agent quality
 | [Weights and Biases Weave](https://wandb.ai/site/weave) | Trace and evaluate LLM apps. |
 
 ### Benchmarks
-| Benchmark | Description |
-|-----------|-------------|
-| [SWE-bench](https://github.com/princeton-nlp/SWE-bench) | Coding-agent benchmark grounded in real GitHub issues and patches. |
-| [AgentBench](https://github.com/THUDM/AgentBench) | 8-environment LLM agent benchmark. |
-| [Terminal-Bench](https://terminalbench.com) | Evaluates terminal-agent execution on shell-based tasks. |
-| [GAIA](https://huggingface.co/gaia-benchmark) | General AI Assistant. Real-world tasks. |
-| [WebArena](https://github.com/web-arena-x/webarena) | Web agent benchmark. Real websites. |
+| Benchmark | Description | Evidence |
+|-----------|-------------|----------|
+| [SWE-bench](https://github.com/princeton-nlp/SWE-bench) | Coding-agent benchmark grounded in real GitHub issues and patches; `Verified` subset is the canonical agent workload. | `[official]` · `[benchmark]` |
+| [AgentBench](https://github.com/THUDM/AgentBench) | 8-environment LLM agent benchmark covering OS, DB, web, and game tasks. | `[official]` · `[benchmark]` |
+| [Terminal-Bench](https://terminalbench.com) | Evaluates terminal-agent execution on shell-based tasks with scored task completions. | `[official]` · `[benchmark]` |
+| [GAIA](https://huggingface.co/gaia-benchmark) | General AI assistant benchmark with real-world multi-step tasks and tool use. | `[official]` · `[benchmark]` |
+| [WebArena / VisualWebArena](https://github.com/web-arena-x/webarena) | Web agent benchmark on real-website snapshots; visual variant tests multimodal web agents. | `[official]` · `[benchmark]` |
+| [τ-bench](https://github.com/sierra-research/tau-bench) | Tool-use + user-simulation benchmark measuring agent reliability and consistency across trials. | `[official]` · `[benchmark]` |
 
 ### Safety Risk Surfaces & Mitigations
 
