@@ -1,0 +1,51 @@
+name: Stale or broken entry
+description: Flag an existing entry that is outdated, broken, or no longer meets the rubric
+title: "[Stale]: "
+labels: ["stale-entry", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this to report entries that are outdated, have broken links, or no longer meet the curation bar.
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Which file and section? (e.g. `README.md` → Orchestration Frameworks → LangGraph)
+      placeholder: README.md → Section → Entry
+    validations:
+      required: true
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Issue type
+      options:
+        - Broken link
+        - Outdated information (API changed, project renamed, etc.)
+        - Project abandoned / unmaintained
+        - No longer meets rubric (reliability / evidence / uniqueness / maturity)
+        - Duplicate of another entry
+        - Other (specify below)
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Describe the problem. Include links or quotes where useful.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested_action
+    attributes:
+      label: Suggested action
+      description: What should happen? (Update, remove, replace, mark stale, etc.)
+    validations:
+      required: true
+  - type: input
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Link(s) supporting your claim (e.g. archived commit, deprecation notice)
+    validations:
+      required: false
