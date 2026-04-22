@@ -1,0 +1,31 @@
+name: Link Check (PR)
+
+on:
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '.markdown-link-check.json'
+      - '.github/workflows/link-check-pr.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  link-check:
+    name: markdown-link-check (changed files)
+    runs-on: ubuntu-latest
+    # Advisory rollout: do not fail the PR on broken links.
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run markdown-link-check on changed files
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          use-verbose-mode: 'yes'
+          check-modified-files-only: 'yes'
+          config-file: '.markdown-link-check.json'
+          base-branch: ${{ github.event.pull_request.base.ref }}
