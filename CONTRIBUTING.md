@@ -13,6 +13,22 @@ We prioritize:
 
 If your submission aligns with this philosophy and aids in building reliable, observable, and production-grade agentic systems, we would love to review your pull request!
 
+## Curation Bar
+
+Every entry is scored by a reviewer against the **formal seven-dimension rubric** in [`RUBRIC.md`](RUBRIC.md):
+
+1. **Reliability** (×3) — hard gate; `0` blocks merge.
+2. **Evidence** (×3) — hard gate; `0` blocks merge.
+3. **Agentic relevance** (×3) — hard gate; `0` blocks merge.
+4. **Uniqueness** (×2)
+5. **Maturity** (×2)
+6. **Licensing / openness** (×1)
+7. **Community signal** (×1) — tiebreaker only.
+
+Each dimension is scored `0–3`. **Merge requires a weighted total of ≥ 27 / 45** *and* **no `0` on the three hard gates**. See [`RUBRIC.md`](RUBRIC.md) for the full scale, worked example, and scoring guidance, and [`ANTI-PATTERNS.md`](ANTI-PATTERNS.md) for what fails the rubric and why.
+
+Contributors fill in the quick four-field self-assessment below. Reviewers expand that into the full seven-dimension scored table at review time.
+
 ## Entry Rubric (v1)
 
 Every submission is assessed against four fast-to-read fields. Fill these in your PR or issue using the provided templates. The full scoring dimensions below remain the canonical reference for **deep-dive** entries; these four fields are the minimum bar for **every** contribution.
