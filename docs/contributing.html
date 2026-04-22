@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contributing · Awesome Agentic Engineering</title>
+<meta name="description" content="Stop prompting. Start engineering. A structured reference for taking AI agents into production.">
+<link rel="stylesheet" href="styles.css">
+<link rel="alternate" type="application/rss+xml" title="Awesome Agentic Engineering — Changelog" href="feed.xml">
+</head>
+<body>
+<header class="site-header">
+<p class="site-title"><a href="index.html">Awesome Agentic Engineering</a></p>
+<nav class="site-nav" aria-label="Primary"><ul><li><a href="index.html">Home</a></li><li><a href="rubric.html">Rubric</a></li><li><a href="anti-patterns.html">Anti-patterns</a></li><li class="active"><a href="contributing.html">Contributing</a></li><li><a href="changelog.html">Changelog</a></li></ul></nav>
+</header>
+<main class="site-main">
+<article class="content">
+<h1 id="contributing-to-awesome-agentic-engineering">Contributing to Awesome Agentic Engineering</h1>
+<p>First off, thank you for considering contributing to Awesome Agentic Engineering!</p>
+<p>This repository is <strong>not</strong> an exhaustive directory of every tool that exists. It is a heavily curated, opinionated map of agentic AI systems — with a strict focus on architectures, frameworks, memory, evaluation, and safety for production-grade engineering.</p>
+<h2 id="the-core-philosophy">The Core Philosophy</h2>
+<p>We prioritize:</p>
+<ul>
+<li><strong>Reliability over novelty</strong></li>
+<li><strong>Evaluation over intuition</strong></li>
+<li><strong>Architecture over tooling</strong></li>
+<li><strong>Systems thinking over prompt engineering</strong></li>
+</ul>
+<p>If your submission aligns with this philosophy and aids in building reliable, observable, and production-grade agentic systems, we would love to review your pull request!</p>
+<h2 id="curation-bar">Curation Bar</h2>
+<p>Every entry is scored by a reviewer against the <strong>formal seven-dimension rubric</strong> in <a href="RUBRIC.html"><code>RUBRIC.md</code></a>:</p>
+<ol>
+<li><strong>Reliability</strong> (×3) — hard gate; <code>0</code> blocks merge.</li>
+<li><strong>Evidence</strong> (×3) — hard gate; <code>0</code> blocks merge.</li>
+<li><strong>Agentic relevance</strong> (×3) — hard gate; <code>0</code> blocks merge.</li>
+<li><strong>Uniqueness</strong> (×2)</li>
+<li><strong>Maturity</strong> (×2)</li>
+<li><strong>Licensing / openness</strong> (×1)</li>
+<li><strong>Community signal</strong> (×1) — tiebreaker only.</li>
+</ol>
+<p>Each dimension is scored <code>0–3</code>. <strong>Merge requires a weighted total of ≥ 27 / 45</strong> <em>and</em> <strong>no <code>0</code> on the three hard gates</strong>. See <a href="RUBRIC.html"><code>RUBRIC.md</code></a> for the full scale, worked example, and scoring guidance, and <a href="ANTI-PATTERNS.html"><code>ANTI-PATTERNS.md</code></a> for what fails the rubric and why.</p>
+<p>Contributors fill in the quick four-field self-assessment below. Reviewers expand that into the full seven-dimension scored table at review time.</p>
+<h2 id="entry-rubric-v1">Entry Rubric (v1)</h2>
+<p>Every submission is assessed against four fast-to-read fields. Fill these in your PR or issue using the provided templates. The full scoring dimensions below remain the canonical reference for <strong>deep-dive</strong> entries; these four fields are the minimum bar for <strong>every</strong> contribution.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Field</th>
+<th style="text-align:left">Definition</th>
+<th style="text-align:left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Reliability</strong></td>
+<td style="text-align:left">How dependable is this in production? Stability of APIs, known failure modes, and operator track record.</td>
+<td style="text-align:left">&quot;LangGraph: stable v0.2 API, active maintainers, used in several public production write-ups.&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Evidence</strong></td>
+<td style="text-align:left">What sources back the claims? Tag as <code>[official]</code>, <code>[benchmark]</code>, <code>[field report]</code>, or <code>[author assessment]</code>.</td>
+<td style="text-align:left">&quot;<code>[official]</code> docs + <code>[field report]</code> from Replit engineering blog.&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Uniqueness</strong></td>
+<td style="text-align:left">What does this offer that existing entries don't? Why is it not a duplicate?</td>
+<td style="text-align:left">&quot;First framework with first-class typed state + checkpointing for DAG-based agents.&quot;</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Maturity</strong></td>
+<td style="text-align:left">Ecosystem stability — API churn, docs depth, integrations, community, release cadence.</td>
+<td style="text-align:left">&quot;Production-ready: 18+ months, semantic versioning, &gt;200 integrations.&quot;</td>
+</tr>
+</tbody>
+</table>
+<p>For deep-dive entries, also complete the full <strong>Required Scoring Dimensions</strong> rubric further down this document.</p>
+<h2 id="evidence-policy">Evidence Policy</h2>
+<p>Every substantive claim must be anchored to a source. Use the evidence tags below in your PRs and issues.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Tag</th>
+<th style="text-align:left">Accept for</th>
+<th style="text-align:left">Do NOT accept as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>[official]</code></td>
+<td style="text-align:left">Canonical docs, specs, first-party repos, architecture guides</td>
+<td style="text-align:left">Marketing landing pages, blog posts that are not operator write-ups</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[benchmark]</code></td>
+<td style="text-align:left">Published benchmark runs, evaluation papers, benchmark repos tied to a named workload</td>
+<td style="text-align:left">Cherry-picked demos, launch-day numbers without methodology</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[field report]</code></td>
+<td style="text-align:left">Production write-ups, incident reports, engineering blogs, operator notes</td>
+<td style="text-align:left">Vendor testimonials, press releases</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>[author assessment]</code></td>
+<td style="text-align:left">This repo's synthesis after reviewing the sources above and applying the rubric</td>
+<td style="text-align:left">Standalone opinion without cited sources</td>
+</tr>
+</tbody>
+</table>
+<p>Additional rules:</p>
+<ul>
+<li><strong>Separate benchmark performance from production maturity.</strong> A benchmark result supports workload fit but does not prove reliability, governance fit, or cost control.</li>
+<li><strong>No GitHub-stars-as-evidence.</strong> Popularity is not reliability.</li>
+<li><strong>Date-stamp volatile content.</strong> Add <code>Last reviewed: Month YYYY</code> in fast-moving sections (product lists, vendor summaries, release-sensitive guidance).</li>
+<li><strong>Full policy:</strong> <a href="appendix/benchmark-and-evidence-policy.html">appendix/benchmark-and-evidence-policy.md</a>.</li>
+</ul>
+<h2 id="contribution-flow">Contribution Flow</h2>
+<ol>
+<li><strong>Fork</strong> the repository.</li>
+<li><strong>Branch</strong> from <code>main</code> using a descriptive name (e.g., <code>add-inspect-evals</code>, <code>refresh-memory-systems</code>).</li>
+<li><strong>Edit</strong> the relevant file(s). Follow the formatting of surrounding content exactly.</li>
+<li><strong>Self-assess</strong> against the Entry Rubric (v1) — fill in the PR template.</li>
+<li><strong>Open a Pull Request</strong> against <code>main</code>. The <a href=".github/PULL_REQUEST_TEMPLATE.html">PR template</a> will auto-populate — complete all sections.</li>
+<li><strong>Review</strong> — a maintainer will score your submission against the rubric. Expect questions on evidence and uniqueness.</li>
+<li><strong>Merge</strong> when all rubric fields pass and links are valid.</li>
+</ol>
+<p>For proposals (new sections, major refactors, or resource ideas you don't want to author yourself), open an issue using one of the <a href=".github/ISSUE_TEMPLATE/">issue templates</a> first.</p>
+<h2 id="what-not-to-submit">🚫 What NOT to Submit</h2>
+<p>To protect the curation bar, these will be closed or requested to change:</p>
+<ul>
+<li><strong>Marketing pages or launch posts</strong> without engineering-focused content.</li>
+<li><strong>Duplicate entries</strong> already covered in the README or appendices (check both before submitting).</li>
+<li><strong>Unverified claims</strong> — &quot;state of the art&quot;, &quot;production-ready&quot;, or performance numbers without <code>[official]</code>, <code>[benchmark]</code>, or <code>[field report]</code> evidence.</li>
+<li><strong>Tools without agentic relevance</strong> — generic LLM libraries, prompt-only utilities, or chat UIs that don't support tool use, memory, or multi-step reasoning.</li>
+<li><strong>GitHub-stars-as-evidence</strong> — popularity is not a signal of reliability or production readiness.</li>
+<li><strong>Demo repos, tutorials, or single-author prototypes</strong> presented as production frameworks.</li>
+<li><strong>Entries that restate the rubric without applying it</strong> — we want judgement, not box-ticking.</li>
+</ul>
+<p>If you're unsure whether something qualifies, open a <code>suggestion</code> issue first rather than a PR.</p>
+<h2 id="formal-evaluation-rubric">📊 Formal Evaluation Rubric</h2>
+<p>We reject &quot;tool list energy.&quot; Every major framework and architecture is judged against the same dimensions. Submissions proposing deep-dives or major entries should evaluate the tool based on these <strong>Required Scoring Dimensions</strong>:</p>
+<ul>
+<li><strong>Control flow explicitness</strong>: How observable and deterministic is the execution path?</li>
+<li><strong>State model</strong>: How is agent state typed, managed, and persisted?</li>
+<li><strong>Memory support</strong>: Are there built-in primitives for short-term, episodic, and semantic memory?</li>
+<li><strong>Observability / tracing</strong>: Is it easy to trace intermediate reasoning steps and tool calls?</li>
+<li><strong>Human-in-the-loop support</strong>: Does it natively support interrupt-and-resume or approval gates?</li>
+<li><strong>Type safety / structured outputs</strong>: Are outputs guaranteed against strict schemas?</li>
+<li><strong>Provider portability</strong>: How tightly coupled is it to one specific LLM provider?</li>
+<li><strong>Security posture</strong>: Are there built-in mechanisms for sandboxing, access control, or guardrails?</li>
+<li><strong>Architectural strengths</strong>: Which design choices materially improve decomposition, control, state handling, or interface clarity?</li>
+<li><strong>Operational constraints</strong>: What deployment burden, runtime cost, debugging friction, or failure modes does it introduce?</li>
+<li><strong>Ecosystem maturity</strong>: How stable are the APIs, docs, integrations, and operator knowledge base?</li>
+<li><strong>Governance fit</strong>: Does it support auditability, approval gates, access boundaries, policy enforcement, and regulated environments?</li>
+<li><strong>Workload suitability</strong>: Which workflows, task shapes, and team contexts does it fit well or poorly?</li>
+</ul>
+<h2 id="guidelines-for-submissions">Guidelines for Submissions</h2>
+<p>To keep the repository highly structured and focused, <strong>all major contributions must meet the following criteria</strong>:</p>
+<ol>
+<li><strong>Rigorous Evaluation</strong>: Use the rubric above to formulate your assessment.</li>
+<li><strong>No Marketing Fluff</strong>: Provide an honest, engineering-focused assessment of the system's pros and cons.</li>
+<li><strong>Evidence of Real-World Usage</strong>: Preference is heavily given to tools with demonstrated production adoption and operational maturity.</li>
+<li><strong>Evidence Discipline</strong>: Anchor substantive claims to canonical sources, tag the evidence type, and add <code>Last reviewed</code> dates for rapidly changing sections.</li>
+</ol>
+<p>See <a href="appendix/benchmark-and-evidence-policy.html">appendix/benchmark-and-evidence-policy.md</a> for the source order, evidence tags, and date-stamping rule.</p>
+<h3 id="formatting-your-pull-request">Formatting Your Pull Request</h3>
+<p>To ensure consistency, every <strong>major entry</strong> (e.g., deep dives, reference architectures) must use the following standard template:</p>
+<pre><code class="language-markdown">### [Framework/Architecture Name]
+- **What it is**: [Concise definition]
+- **What it demonstrates**: [Why is this a significant example?]
+- **Architectural strengths**: [Key engineering advantages based on the rubric]
+- **Operational constraints**: [Trade-offs, limitations, and operational friction]
+- **Ecosystem maturity**: [API stability, docs, surrounding tooling, and operator familiarity]
+- **Governance fit**: [Auditability, approval boundaries, access control, and policy alignment]
+- **Workload suitability**: [Where it fits well, and where it creates unnecessary complexity or risk]
+- **Design paradigm**: [e.g., Node-based DAG, Actor Model, Pipeline]
+- **Evidence basis**: [[official] / [benchmark] / [field report] / [author assessment]]
+</code></pre>
+<p>For minor landscape table entries, carefully condense your criteria to match the standard layout used in that section.
+If you update a rapidly changing section such as a product list or API capability summary, add or refresh a visible <code>Last reviewed: Month YYYY</code> marker in that document.
+<em>(Column names may vary slightly across sections—just match the surrounding table exactly.)</em></p>
+<h3 id="updating-existing-sections">Updating Existing Sections</h3>
+<p>We highly encourage updates to existing sections if definitions become outdated, or if the architectural strengths, operational constraints, or governance profile of a framework substantively shift due to a major ecosystem update.</p>
+<h2 id="the-pull-request-process">The Pull Request Process</h2>
+<ol>
+<li><strong>Fork the repository</strong> and create your branch from <code>main</code>.</li>
+<li>Ensure the formatting seamlessly matches the existing markdown.</li>
+<li>Keep the <strong>Pull Request title</strong> clear and descriptive (e.g., <code>Add Inspect to Evaluation Frameworks</code>).</li>
+<li>In the PR body, briefly explain <strong>why</strong> the resource meets the critical bar for this specific repository.</li>
+<li><strong>Add a one-line bullet under <code>## [Unreleased]</code> in <a href="CHANGELOG.html"><code>CHANGELOG.md</code></a></strong> describing the change. This becomes the item shown in the public RSS feed when the next phase ships.</li>
+</ol>
+<h2 id="running-checks-locally">Running Checks Locally</h2>
+<p>Two GitHub Actions run on every pull request in <strong>advisory</strong> mode (they surface issues but do not block merge). You can reproduce them locally before opening a PR — no setup beyond Node 20 is required.</p>
+<pre><code class="language-sh"># Markdown style (uses .markdownlint.jsonc at the repo root)
+npx -y markdownlint-cli2 &quot;**/*.md&quot; &quot;#node_modules&quot;
+
+# Broken-link check (uses .markdown-link-check.json at the repo root)
+npx -y markdown-link-check -c .markdown-link-check.json README.md
+</code></pre>
+<p>To check every markdown file for broken links, loop over the tracked files:</p>
+<pre><code class="language-sh">git ls-files &quot;*.md&quot; | xargs -I {} npx -y markdown-link-check -c .markdown-link-check.json {}
+</code></pre>
+<h2 id="freshness">Freshness</h2>
+<p>Rapidly changing sections carry a visible <code>Last reviewed: Month YYYY</code> marker. A monthly scheduled workflow (<code>.github/workflows/stale-entry-detector.yml</code>) scans <code>README.md</code> and everything under <code>appendix/</code>, and maintains a single rolling issue titled <strong>&quot;Freshness audit — stale entries&quot;</strong> listing:</p>
+<ul>
+<li>Files whose marker is older than <strong>9 months</strong>.</li>
+<li>Files under the tracked paths that have no marker at all.</li>
+</ul>
+<p>You can run the detector locally:</p>
+<pre><code class="language-sh">node .github/scripts/find-stale-entries.mjs
+# override threshold
+FRESHNESS_MONTHS=12 node .github/scripts/find-stale-entries.mjs
+</code></pre>
+<p>When you refresh an entry, bump the <code>Last reviewed:</code> line in the same PR — reviewers will look for it.</p>
+<h2 id="automated-pr-review-phase-6-advisory">Automated PR review (Phase 6, advisory)</h2>
+<p>Every content PR (anything touching <code>**/*.md</code>) gets an <strong>advisory</strong> rubric scorecard comment from the Phase 6 <code>review-pr</code> workflow. The comment:</p>
+<ul>
+<li>Scores any entry Markdown inside a <code>```markdown</code> fenced block in the PR body.</li>
+<li>Suggests labels (<code>area:content</code>, <code>needs-evidence</code>, <code>blocked:hard-gate</code>, …).</li>
+<li>Is <strong>updated in place</strong> on every push — one comment per PR, not a new one each time.</li>
+<li>Never blocks merge. A human reviewer always makes the call.</li>
+</ul>
+<p>If you'd rather the assistant stayed out of a particular PR, add the label <strong><code>skip-review-assistant</code></strong> — the workflow will exit without commenting.</p>
+<p>Two companion workflows run alongside:</p>
+<ul>
+<li><strong><code>phase-6 new-tool</code></strong> (manual dispatch) drafts a rubric-aligned entry for a candidate URL and opens a tracking issue.</li>
+<li><strong><code>phase-6 landscape-scan</code></strong> (weekly, Mondays 09:00 UTC) maintains one rolling <strong>&quot;Weekly landscape scan&quot;</strong> digest issue listing stale entries plus recent-PR / recent-issue candidates.</li>
+</ul>
+<p>All three are path-scoped where sensible, advisory (<code>continue-on-error: true</code>), and reproducible locally via <code>repo-agent workflow ...</code> — see <a href="tools/repo-agent/README.html"><code>tools/repo-agent/README.md</code></a>.</p>
+<p>Thanks for helping keep the repository engineering-focused and usable.</p>
+</article>
+</main>
+<footer class="site-footer"><p>Source of truth: <a href="https://github.com/natnew/Awesome-Agentic-Engineering" rel="noopener">GitHub</a> · <a href="feed.xml">Subscribe (RSS)</a> · <a href="https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/LICENSE" rel="noopener">MIT License</a></p><p><small>Generated by <code>repo-agent workflow render-site</code>. Pages are rebuilt from Markdown on every push to <code>main</code>.</small></p></footer>
+</body>
+</html>

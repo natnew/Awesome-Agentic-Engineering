@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changelog · Awesome Agentic Engineering</title>
+<meta name="description" content="Stop prompting. Start engineering. A structured reference for taking AI agents into production.">
+<link rel="stylesheet" href="styles.css">
+<link rel="alternate" type="application/rss+xml" title="Awesome Agentic Engineering — Changelog" href="feed.xml">
+</head>
+<body>
+<header class="site-header">
+<p class="site-title"><a href="index.html">Awesome Agentic Engineering</a></p>
+<nav class="site-nav" aria-label="Primary"><ul><li><a href="index.html">Home</a></li><li><a href="rubric.html">Rubric</a></li><li><a href="anti-patterns.html">Anti-patterns</a></li><li><a href="contributing.html">Contributing</a></li><li class="active"><a href="changelog.html">Changelog</a></li></ul></nav>
+</header>
+<main class="site-main">
+<article class="content">
+<h1 id="changelog">Changelog</h1>
+<p>All notable changes to Awesome Agentic Engineering are documented here.
+The format is based on <a href="https://keepachangelog.com/en/1.1.0/" rel="noopener">Keep a Changelog</a>
+and this list uses date-stamped phase headings rather than SemVer versions
+because the repo is a curated knowledge base, not a shipped package.</p>
+<p>The RSS feed at <a href="feed.xml"><code>feed.xml</code></a> is generated from this file.</p>
+<h2 id="unreleased">[Unreleased]</h2>
+<ul>
+<li>Placeholder — add a bullet here in the same PR that adds or refreshes an entry.</li>
+</ul>
+<h2 id="phase-7-publishing-reach-2026-04-22">[Phase 7 — Publishing &amp; Reach] - 2026-04-22</h2>
+<ul>
+<li><strong>Added</strong> a zero-build static site under <code>docs/</code> published via GitHub Pages.
+Pages are generated from <code>README.md</code>, <code>appendix/*.md</code>, <code>RUBRIC.md</code>,
+<code>ANTI-PATTERNS.md</code>, <code>CONTRIBUTING.md</code>, and this <code>CHANGELOG.md</code> by the new
+<code>repo-agent workflow render-site</code> command.</li>
+<li><strong>Added</strong> this <code>CHANGELOG.md</code> and an RSS 2.0 <code>feed.xml</code> generated from it.</li>
+<li><strong>Added</strong> <code>specs/2026-04-22-phase-7-publishing-and-reach/submission-checklist.md</code>
+tracking the <code>awesome.re</code> submission and adjacent-community announcements.</li>
+<li><strong>Added</strong> two advisory GitHub Actions workflows: <code>phase-7-publish-site.yml</code>
+(regenerates <code>docs/</code> on <code>main</code>) and <code>phase-7-render-check.yml</code> (fails PRs
+whose <code>docs/</code> output drifts from Markdown sources).</li>
+<li><strong>Changed</strong> <code>tools/repo-agent/pyproject.toml</code> to depend on <code>markdown-it-py</code>
+and <code>mdit-py-plugins</code> (both pure-Python, no native build step).</li>
+</ul>
+<h2 id="phase-6-agentic-workflows-v1-2026-04-22">[Phase 6 — Agentic Workflows (v1)] - 2026-04-22</h2>
+<ul>
+<li><strong>Added</strong> three end-to-end workflows composed on top of the Phase 5 skills:
+<code>workflow new-tool</code> (URL → rubric-aligned draft + tracking issue),
+<code>workflow landscape-scan</code> (weekly rolling digest issue), and
+<code>workflow review-pr</code> (single maintained rubric scorecard comment per content PR).</li>
+<li><strong>Added</strong> three path-scoped GitHub Actions workflows under
+<code>.github/workflows/phase-6-*.yml</code>, all advisory (<code>continue-on-error: true</code>).</li>
+<li><strong>Added</strong> the <code>skip-review-assistant</code> opt-out label for PR authors.</li>
+<li>Shipped in <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/6" rel="noopener">PR #6</a>.</li>
+</ul>
+<h2 id="phase-5-the-repo-as-an-agentic-system-v0-2026-04-22">[Phase 5 — The Repo as an Agentic System (v0)] - 2026-04-22</h2>
+<ul>
+<li><strong>Added</strong> an MCP server (<code>tools/repo-agent/</code>) exposing 8 tools:
+<code>list_sections</code>, <code>get_rubric</code>, <code>get_anti_patterns</code>, <code>search_entries</code>,
+<code>validate_entry</code>, <code>propose_entry</code>, <code>triage_pr</code>, <code>freshness_audit</code>.</li>
+<li><strong>Added</strong> three skills: triage, freshness audit, entry draft.</li>
+<li><strong>Added</strong> a full CLI mirror (<code>repo-agent &lt;subcommand&gt;</code>) and an <code>LLMClient</code>
+protocol with a <code>StubLLMClient</code> default so the system runs with zero API keys.</li>
+<li>Shipped in <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/5" rel="noopener">PR #5</a>.</li>
+</ul>
+<h2 id="phase-4-automations-ci-hygiene-2026-04-22">[Phase 4 — Automations &amp; CI Hygiene] - 2026-04-22</h2>
+<ul>
+<li><strong>Added</strong> four GitHub Actions: markdown-lint on PR, broken-link check on PR,
+weekly scheduled link check (rolling single issue), and a monthly
+stale-entry detector (9-month threshold).</li>
+<li><strong>Added</strong> a live <code>github/last-commit</code> Shields.io badge to the README.</li>
+<li>All workflows ship advisory (<code>continue-on-error: true</code>) with a documented
+graduation path to required checks.</li>
+<li>Shipped in <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/4" rel="noopener">PR #4</a>.</li>
+</ul>
+<h2 id="phase-3-cutting-edge-resource-expansion-2026-04-22">[Phase 3 — Cutting-Edge Resource Expansion] - 2026-04-22</h2>
+<ul>
+<li><strong>Added / refreshed</strong> orchestration frameworks (LangGraph, Agent Framework,
+AutoGen, CrewAI, OpenAI Agents SDK), protocols (MCP, A2A), memory systems,
+evaluation &amp; safety tooling, and open-source agent models.</li>
+<li><strong>Added</strong> a new <em>Reasoning &amp; Planning Models</em> section.</li>
+<li><strong>Expanded</strong> the <em>Computer-Use &amp; Browser Agents</em> appendix.</li>
+<li>Shipped in <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/3" rel="noopener">PR #3</a>.</li>
+</ul>
+<h2 id="phase-2-curation-bar-rubric-2026-04-22">[Phase 2 — Curation Bar &amp; Rubric] - 2026-04-22</h2>
+<ul>
+<li><strong>Added</strong> <code>RUBRIC.md</code> with the seven-dimension formal scoring model.</li>
+<li><strong>Added</strong> <code>ANTI-PATTERNS.md</code> cataloguing what NOT to include.</li>
+<li><strong>Applied</strong> the rubric retroactively to one section as a pilot.</li>
+<li>Shipped in <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/2" rel="noopener">PR #2</a>.</li>
+</ul>
+<h2 id="phase-1-foundation-hygiene-2026-04-22">[Phase 1 — Foundation &amp; Hygiene] - 2026-04-22</h2>
+<ul>
+<li><strong>Added</strong> <code>CONTRIBUTING.md</code> with the contribution standards, evidence policy,
+and v1 Entry Rubric self-assessment.</li>
+<li><strong>Added</strong> PR and issue templates (new entry, stale entry, suggestion).</li>
+<li><strong>Audited</strong> existing sections against the mission and flagged gaps.</li>
+<li>Shipped in <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/1" rel="noopener">PR #1</a>.</li>
+</ul>
+</article>
+</main>
+<footer class="site-footer"><p>Source of truth: <a href="https://github.com/natnew/Awesome-Agentic-Engineering" rel="noopener">GitHub</a> · <a href="feed.xml">Subscribe (RSS)</a> · <a href="https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/LICENSE" rel="noopener">MIT License</a></p><p><small>Generated by <code>repo-agent workflow render-site</code>. Pages are rebuilt from Markdown on every push to <code>main</code>.</small></p></footer>
+</body>
+</html>

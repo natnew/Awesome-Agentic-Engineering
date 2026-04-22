@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entry Rubric · Awesome Agentic Engineering</title>
+<meta name="description" content="Stop prompting. Start engineering. A structured reference for taking AI agents into production.">
+<link rel="stylesheet" href="styles.css">
+<link rel="alternate" type="application/rss+xml" title="Awesome Agentic Engineering — Changelog" href="feed.xml">
+</head>
+<body>
+<header class="site-header">
+<p class="site-title"><a href="index.html">Awesome Agentic Engineering</a></p>
+<nav class="site-nav" aria-label="Primary"><ul><li><a href="index.html">Home</a></li><li class="active"><a href="rubric.html">Rubric</a></li><li><a href="anti-patterns.html">Anti-patterns</a></li><li><a href="contributing.html">Contributing</a></li><li><a href="changelog.html">Changelog</a></li></ul></nav>
+</header>
+<main class="site-main">
+<article class="content">
+<h1 id="entry-rubric">Entry Rubric</h1>
+<p>The curation bar for every entry in this repository. Applied on every PR that adds or refreshes an entry.</p>
+<blockquote>
+<p>This rubric is the <strong>formal scoring model</strong> for the four-field &quot;Entry Rubric (v1)&quot; summary in <a href="CONTRIBUTING.html"><code>CONTRIBUTING.md</code></a>. The v1 fields stay as the quick self-assessment contributors fill in; reviewers use the seven dimensions below to score and gate the merge.</p>
+</blockquote>
+<h2 id="the-seven-dimensions">The seven dimensions</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Dimension</th>
+<th style="text-align:right">Weight</th>
+<th>What it measures</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Reliability</strong></td>
+<td style="text-align:right">×3</td>
+<td>Production-readiness, API stability, known deployments, operator track record, failure-mode transparency.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Evidence</strong></td>
+<td style="text-align:right">×3</td>
+<td>Claims are anchored in <code>[official]</code> docs, <code>[benchmark]</code> results with methodology, <code>[field report]</code> write-ups, or <code>[author assessment]</code> synthesized from the above. See <a href="appendix/benchmark-and-evidence-policy.html"><code>appendix/benchmark-and-evidence-policy.md</code></a>.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Agentic relevance</strong></td>
+<td style="text-align:right">×3</td>
+<td>Direct fit to the mission scope: agent architectures, orchestration, memory, evaluation, protocols, tool use, multi-agent.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Uniqueness</strong></td>
+<td style="text-align:right">×2</td>
+<td>What this entry adds that existing entries in the list do not. No duplicates without added structure or judgement.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Maturity</strong></td>
+<td style="text-align:right">×2</td>
+<td>Release cadence, active maintenance, project age, breaking-change discipline, docs depth.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Licensing / openness</strong></td>
+<td style="text-align:right">×1</td>
+<td>License clarity; does it permit the use described in the entry.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Community signal</strong></td>
+<td style="text-align:right">×1</td>
+<td>Stars, adoption, ecosystem traction. <strong>Tiebreaker only.</strong> Never sufficient on its own.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scoring-scale">Scoring scale</h2>
+<p>Each dimension is scored <strong>0–3</strong>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Score</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td><strong>Fails</strong> — no credible signal, or signal contradicts the claim.</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td><strong>Weak</strong> — partial or thin signal; would not hold up to scrutiny.</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td><strong>Solid</strong> — clear, verifiable signal; meets the bar.</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td><strong>Exemplary</strong> — well-documented, widely verified, best-in-class signal.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="totals-and-thresholds">Totals and thresholds</h2>
+<ul>
+<li><strong>Maximum weighted score:</strong> <strong>45</strong>.
+<ul>
+<li>Per-dimension max (score 3 × weight): Reliability 9, Evidence 9, Agentic relevance 9, Uniqueness 6, Maturity 6, Licensing 3, Community 3. Sum = 45.</li>
+</ul>
+</li>
+<li><strong>Merge threshold:</strong> <strong>≥ 27 / 45</strong> (60%).</li>
+<li><strong>Hard gates</strong> — merge is blocked if any of these score <strong>0</strong>, regardless of total:
+<ul>
+<li>Reliability</li>
+<li>Evidence</li>
+<li>Agentic relevance</li>
+</ul>
+</li>
+<li><strong>Tie-break</strong> — when choosing between two otherwise-equivalent candidates for a single slot, use <strong>Community signal</strong>. Never use community signal to compensate for a failing hard gate.</li>
+</ul>
+<h2 id="how-to-score-for-reviewers">How to score (for reviewers)</h2>
+<ol>
+<li>Read the entry and its cited evidence first. If evidence is missing, stop and request sources.</li>
+<li>Score each of the seven dimensions 0–3 using the scale above.</li>
+<li>Apply the weights and sum. Write the scored table into the PR review.</li>
+<li>Check the hard gates. If any is 0, request changes regardless of total.</li>
+<li>If the total is below 27, request changes with specific dimensions to address.</li>
+<li>Keep scoring notes terse — one line per dimension citing the signal you used.</li>
+</ol>
+<h2 id="worked-example">Worked example</h2>
+<p><strong>Candidate:</strong> <em>FictionalFlow</em> — a hypothetical orchestration framework for typed multi-agent DAGs.</p>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th style="text-align:right">Score</th>
+<th style="text-align:right">Weighted</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reliability</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">6</td>
+<td><code>[field report]</code> from one public production deployment; stable v1 API for 9 months.</td>
+</tr>
+<tr>
+<td>Evidence</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">6</td>
+<td><code>[official]</code> docs thorough; one <code>[benchmark]</code> on a realistic workload; no independent replication yet.</td>
+</tr>
+<tr>
+<td>Agentic relevance</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">9</td>
+<td>Core agent orchestration primitive; first-class tool use, memory, and approval gates.</td>
+</tr>
+<tr>
+<td>Uniqueness</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">4</td>
+<td>Typed DAG + checkpointing distinct from existing entries; overlaps partially with LangGraph.</td>
+</tr>
+<tr>
+<td>Maturity</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">4</td>
+<td>Semantic versioning, ~14 months old, weekly releases, responsive issue triage.</td>
+</tr>
+<tr>
+<td>Licensing</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">3</td>
+<td>Apache-2.0, clear contributor agreement.</td>
+</tr>
+<tr>
+<td>Community signal</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">2</td>
+<td>Moderate adoption; not a primary decision factor here.</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"><strong>34 / 45</strong></td>
+<td><strong>Merge:</strong> hard gates pass, total ≥ 27.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reviewer note:</strong> Approve for merge. Flag Evidence for re-review in 6 months if independent benchmarks materialize.</p>
+<h2 id="relationship-to-the-v1-self-assessment">Relationship to the v1 self-assessment</h2>
+<p>Contributors fill in four fields (<code>Reliability</code>, <code>Evidence</code>, <code>Uniqueness</code>, <code>Maturity</code>) in the PR template — the quick self-assessment. Reviewers expand that into the full seven-dimension weighted score above. A PR can only merge when the reviewer's scored table meets the threshold and passes the hard gates.</p>
+<h2 id="what-fails-the-rubric">What fails the rubric</h2>
+<p>See <a href="ANTI-PATTERNS.html"><code>ANTI-PATTERNS.md</code></a> for concrete rejection patterns mapped to the dimensions they fail.</p>
+<h2 id="change-control">Change control</h2>
+<p>This rubric is reviewed <strong>quarterly</strong>. Changes to dimensions, weights, or thresholds require a PR against <code>main</code> citing the review that prompted the change.</p>
+</article>
+</main>
+<footer class="site-footer"><p>Source of truth: <a href="https://github.com/natnew/Awesome-Agentic-Engineering" rel="noopener">GitHub</a> · <a href="feed.xml">Subscribe (RSS)</a> · <a href="https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/LICENSE" rel="noopener">MIT License</a></p><p><small>Generated by <code>repo-agent workflow render-site</code>. Pages are rebuilt from Markdown on every push to <code>main</code>.</small></p></footer>
+</body>
+</html>
