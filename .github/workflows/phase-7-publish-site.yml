@@ -1,0 +1,65 @@
+name: Phase 7 — Publish site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+      - "RUBRIC.md"
+      - "ANTI-PATTERNS.md"
+      - "CONTRIBUTING.md"
+      - "CHANGELOG.md"
+      - "appendix/**"
+      - "tools/repo-agent/**"
+      - ".github/workflows/phase-7-*.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  regenerate:
+    name: Regenerate docs/ and open PR on drift
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install repo-agent
+        run: python -m pip install --quiet -e tools/repo-agent
+
+      - name: Regenerate docs/
+        continue-on-error: true
+        run: python -m repo_agent workflow render-site
+
+      - name: Detect drift
+        id: drift
+        run: |
+          if git diff --quiet -- docs/; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open or update regeneration PR
+        if: steps.drift.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore(docs): regenerate site"
+          title: "chore(docs): regenerate site"
+          body: |
+            Automated regeneration of `docs/` from the Markdown sources of truth.
+
+            <!-- awesome-agentic:phase-7:regenerate -->
+            Triggered by push to `main`. Review the diff, then merge to publish
+            the updated site via GitHub Pages (`main` / `/docs`).
+          branch: chore/regenerate-docs-site
+          base: main
+          add-paths: docs
+          delete-branch: true

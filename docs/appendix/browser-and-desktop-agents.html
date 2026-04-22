@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Browser and Desktop Agents · Awesome Agentic Engineering</title>
+<meta name="description" content="Stop prompting. Start engineering. A structured reference for taking AI agents into production.">
+<link rel="stylesheet" href="../styles.css">
+<link rel="alternate" type="application/rss+xml" title="Awesome Agentic Engineering — Changelog" href="../feed.xml">
+</head>
+<body>
+<header class="site-header">
+<p class="site-title"><a href="../index.html">Awesome Agentic Engineering</a></p>
+<nav class="site-nav" aria-label="Primary"><ul><li><a href="../index.html">Home</a></li><li><a href="../rubric.html">Rubric</a></li><li><a href="../anti-patterns.html">Anti-patterns</a></li><li><a href="../contributing.html">Contributing</a></li><li><a href="../changelog.html">Changelog</a></li></ul></nav>
+</header>
+<main class="site-main">
+<article class="content">
+<h2 id="browser-and-desktop-agents">🌐 Browser and Desktop Agents</h2>
+<p><em>Last reviewed: April 2026.</em></p>
+<p>Computer-use and browser agents operate on GUI surfaces (DOM, pixels, or accessibility trees) rather than pure APIs. Evidence tags follow the <a href="benchmark-and-evidence-policy.html">Benchmark and Evidence Policy</a>. Entries that are marketing-only or have no active development were removed in this phase.</p>
+<h3 id="consumer-products">Consumer Products</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://operator.chatgpt.com" rel="noopener">OpenAI Operator</a></td>
+<td>ChatGPT autonomous web agent; human checkpoints; built on the CUA (Computer-Using Agent) model.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://docs.anthropic.com/en/docs/agents-and-tools/computer-use" rel="noopener">Claude Computer Use</a></td>
+<td>Anthropic desktop/browser control via screenshots and tool loop.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://www.anthropic.com/news/claude-for-chrome" rel="noopener">Claude for Chrome</a></td>
+<td>Anthropic browsing agent running inside Chrome.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://deepmind.google/technologies/project-mariner/" rel="noopener">Google Project Mariner</a></td>
+<td>Gemini browser agent with multi-task execution in the user's browser context.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://openai.com/index/introducing-chatgpt-atlas/" rel="noopener">ChatGPT Atlas</a></td>
+<td>OpenAI's AI-native browser with Agent Mode.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://www.diabrowser.com/" rel="noopener">Dia Browser</a></td>
+<td>AI-native browser from The Browser Company (acquired by Atlassian).</td>
+<td><code>[official]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="developer-infrastructure">Developer Infrastructure</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/browser-use/browser-use" rel="noopener">Browser Use</a></td>
+<td>OSS browser agent library with DOM + vision hybrid; widely embedded in other agent stacks.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Skyvern-AI/skyvern" rel="noopener">Skyvern</a></td>
+<td>Vision-driven browser automation using multimodal LLMs for navigation without coded selectors.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/bytedance/UI-TARS" rel="noopener">UI-TARS</a></td>
+<td>ByteDance open-source native GUI agent model + desktop app for end-to-end computer use.</td>
+<td><code>[official]</code> · <code>[benchmark]</code> <a href="https://arxiv.org/abs/2501.12326" rel="noopener">paper</a></td>
+</tr>
+<tr>
+<td><a href="https://github.com/simular-ai/Agent-S" rel="noopener">Agent S2 (Simular)</a></td>
+<td>OSS compositional GUI automation framework with generalist + specialist models.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://www.browserbase.com/" rel="noopener">Browserbase</a></td>
+<td>Cloud browser infrastructure for agents; headless Chrome at scale with session persistence.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://labs.amazon.science/blog/nova-act" rel="noopener">Amazon Nova Act</a></td>
+<td>AWS browser automation research preview aimed at enterprise reliability.</td>
+<td><code>[official]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/microsoft/playwright-mcp" rel="noopener">Playwright MCP</a></td>
+<td>Official MCP server wrapping Playwright for agent-driven browser automation.</td>
+<td><code>[official]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="benchmarks-evaluation">Benchmarks &amp; Evaluation</h3>
+<table>
+<thead>
+<tr>
+<th>Benchmark</th>
+<th>Description</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://os-world.github.io/" rel="noopener">OSWorld</a></td>
+<td>Real computer environments benchmark for multimodal agents on open-ended tasks.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/web-arena-x/webarena" rel="noopener">WebArena / VisualWebArena</a></td>
+<td>Reproducible web agent benchmark on real-website snapshots.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/microsoft/WindowsAgentArena" rel="noopener">WindowsAgentArena</a></td>
+<td>Benchmark for Windows desktop agents across real applications.</td>
+<td><code>[official]</code> · <code>[benchmark]</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+</article>
+</main>
+<footer class="site-footer"><p>Source of truth: <a href="https://github.com/natnew/Awesome-Agentic-Engineering" rel="noopener">GitHub</a> · <a href="../feed.xml">Subscribe (RSS)</a> · <a href="https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/LICENSE" rel="noopener">MIT License</a></p><p><small>Generated by <code>repo-agent workflow render-site</code>. Pages are rebuilt from Markdown on every push to <code>main</code>.</small></p></footer>
+</body>
+</html>
