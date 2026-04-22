@@ -1,0 +1,55 @@
+name: phase-6 new-tool
+
+# Roadmap 6.1 — draft a rubric-aligned entry for a URL and upsert a tracking
+# issue. Manual trigger only; advisory (continue-on-error on the tool step).
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL of the candidate tool/resource'
+        required: true
+      section:
+        description: 'Target section (e.g. "Orchestration Frameworks")'
+        required: true
+      rationale:
+        description: 'Short reason this earns a place (optional)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  draft:
+    name: new-tool (advisory)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'tools/repo-agent/pyproject.toml'
+
+      - name: Install
+        working-directory: tools/repo-agent
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Draft + upsert tracking issue
+        working-directory: tools/repo-agent
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          repo-agent workflow new-tool \
+            --url "${{ inputs.url }}" \
+            --section "${{ inputs.section }}" \
+            --rationale "${{ inputs.rationale }}" \
+            --repo "${{ github.repository }}" \
+            --open-issue

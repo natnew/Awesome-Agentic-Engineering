@@ -21,6 +21,16 @@ This directory is **infrastructure**, not a listed resource. Nothing here is lin
 
 Everything is deterministic. No LLM key is required to run the server or the tests.
 
+### Phase 6 workflows
+
+These compose the tools above into end-to-end workflows. All three are **advisory** and **read-only toward content** — they may post comments or maintain a single rolling issue, never write to files and never open PRs automatically.
+
+| Workflow | Roadmap | Purpose |
+|---|---|---|
+| `workflow new-tool` | 6.1 | URL → rubric-aligned draft entry + optional tracking issue. |
+| `workflow landscape-scan` | 6.2 | Weekly digest: stale entries + recent-PR/issue candidates → one rolling issue. |
+| `workflow review-pr` | 6.3 | On a content PR: rubric scorecard → single maintained review comment. |
+
 ## Install
 
 Requires Python 3.12+.
@@ -49,6 +59,31 @@ repo-agent freshness --threshold 9
 ```
 
 Every subcommand emits JSON on stdout.
+
+### Phase 6 workflows (CLI)
+
+```powershell
+# 6.1 — draft an entry for a URL (prints markdown to stdout)
+repo-agent workflow new-tool --url https://example.com/x --section "Orchestration Frameworks"
+
+# 6.1 — same, plus upsert a tracking issue (needs GITHUB_TOKEN + --repo)
+$env:GITHUB_TOKEN = "ghp_..."
+repo-agent workflow new-tool --url https://example.com/x --section "..." --open-issue --repo owner/name
+
+# 6.2 — weekly digest (dry-run renders markdown, no network writes)
+repo-agent workflow landscape-scan --dry-run
+
+# 6.2 — non-dry-run upserts one rolling issue in place
+repo-agent workflow landscape-scan --repo owner/name
+
+# 6.3 — advisory review comment on a PR (from a local fixture)
+repo-agent workflow review-pr --pr 42 --fixture tests/fixtures/sample-pr.json
+
+# 6.3 — post/update the comment on the live PR
+repo-agent workflow review-pr --pr 42 --repo owner/name --post
+```
+
+Each workflow accepts `--json` to emit the full `WorkflowResult` (status, summary, markdown, artifacts) instead of just the rendered markdown.
 
 ## Test
 
@@ -101,6 +136,14 @@ src/repo_agent/
     triage.py      # 5.2
     freshness.py   # 5.3
     entry_draft.py # 5.4
+  workflows/       # Phase 6
+    base.py        # WorkflowResult + protocol
+    github.py      # tiny GH REST client (httpx, test-injectable)
+    render.py      # shared markdown renderers (+ stable markers)
+    idempotent.py  # upsert_issue/pr_comment_by_marker
+    new_tool.py       # 6.1
+    landscape_scan.py # 6.2
+    review_pr.py      # 6.3
 ```
 
 **No write operations.** Every skill returns proposed Markdown as a string. Humans (or Phase 6 workflows) decide what to commit.
