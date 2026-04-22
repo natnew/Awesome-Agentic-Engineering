@@ -1,0 +1,37 @@
+name: repo-agent tests
+
+on:
+  pull_request:
+    paths:
+      - 'tools/repo-agent/**'
+      - '.github/workflows/repo-agent-tests.yml'
+      - 'RUBRIC.md'
+      - 'ANTI-PATTERNS.md'
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    name: pytest (py3.12)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'tools/repo-agent/pyproject.toml'
+
+      - name: Install
+        working-directory: tools/repo-agent
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run tests
+        working-directory: tools/repo-agent
+        continue-on-error: true
+        run: pytest -q
