@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anti-patterns · Awesome Agentic Engineering</title>
+<meta name="description" content="Stop prompting. Start engineering. A structured reference for taking AI agents into production.">
+<link rel="stylesheet" href="styles.css">
+<link rel="alternate" type="application/rss+xml" title="Awesome Agentic Engineering — Changelog" href="feed.xml">
+</head>
+<body>
+<header class="site-header">
+<p class="site-title"><a href="index.html">Awesome Agentic Engineering</a></p>
+<nav class="site-nav" aria-label="Primary"><ul><li><a href="index.html">Home</a></li><li><a href="rubric.html">Rubric</a></li><li class="active"><a href="anti-patterns.html">Anti-patterns</a></li><li><a href="contributing.html">Contributing</a></li><li><a href="changelog.html">Changelog</a></li></ul></nav>
+</header>
+<main class="site-main">
+<article class="content">
+<h1 id="anti-patterns-what-not-to-include">Anti-patterns: What NOT to Include</h1>
+<p>Concrete patterns that will be rejected on PR review, each mapped to the rubric dimension(s) it fails. See <a href="RUBRIC.html"><code>RUBRIC.md</code></a> for scoring.</p>
+<blockquote>
+<p>These are <strong>archetypes</strong>, not accusations of specific projects. Examples are illustrative.</p>
+</blockquote>
+<h2 id="1-generic-llm-wrappers-without-agentic-primitives">1. Generic LLM wrappers without agentic primitives</h2>
+<p><strong>Pattern.</strong> A thin SDK that calls a chat completion endpoint, with no first-class support for tool use, memory, multi-step control flow, or state.</p>
+<p><strong>Example (archetypal).</strong> <em>&quot;A Python package that exposes <code>client.chat(prompt)</code> and nothing else — no tool interface, no state, no orchestration.&quot;</em></p>
+<p><strong>Rubric dimensions it fails.</strong> Agentic relevance (hard gate, likely 0–1), Uniqueness (low — dozens exist).</p>
+<hr />
+<h2 id="2-vendor-marketing-posing-as-engineering-content">2. Vendor marketing posing as engineering content</h2>
+<p><strong>Pattern.</strong> Landing pages, launch announcements, or sponsored blog posts presented as reference material. Typically long on adjectives (&quot;world-class&quot;, &quot;state-of-the-art&quot;) and short on methodology, code, or failure modes.</p>
+<p><strong>Example (archetypal).</strong> <em>&quot;A vendor's 'Why our agent platform is the future of AI' blog post submitted as an entry in Orchestration Frameworks.&quot;</em></p>
+<p><strong>Rubric dimensions it fails.</strong> Evidence (hard gate, 0), Reliability (no operator signal).</p>
+<hr />
+<h2 id="3-unverified-benchmarks-launch-day-numbers">3. Unverified benchmarks / launch-day numbers</h2>
+<p><strong>Pattern.</strong> Performance or capability claims without a reproducible benchmark, without a methodology statement, or sourced only from a launch post. Includes cherry-picked metrics that omit the comparison baseline.</p>
+<p><strong>Example (archetypal).</strong> <em>&quot;'Beats GPT-4 on agentic tasks' cited from a single tweet thread with no eval harness, no dataset, and no baseline configuration.&quot;</em></p>
+<p><strong>Rubric dimensions it fails.</strong> Evidence (hard gate, 0), Reliability (claims cannot be independently verified).</p>
+<hr />
+<h2 id="4-duplicates-that-add-no-structure-or-judgement">4. Duplicates that add no structure or judgement</h2>
+<p><strong>Pattern.</strong> A new entry restates an existing one — same project, same claims, same tier — without new evidence, a new angle, or an additional rubric-relevant distinction. Also includes mirrored entries across sections (e.g., listing the same framework in both Orchestration and Reference Architectures without justifying the split).</p>
+<p><strong>Example (archetypal).</strong> <em>&quot;Proposal to add LangGraph to Reference Architectures when it is already covered in Orchestration Frameworks, with identical bullet points.&quot;</em></p>
+<p><strong>Rubric dimensions it fails.</strong> Uniqueness (0–1), Agentic relevance (no added value).</p>
+<hr />
+<h2 id="5-archived-abandoned-or-single-author-prototypes-presented-as-production-frameworks">5. Archived, abandoned, or single-author prototypes presented as production frameworks</h2>
+<p><strong>Pattern.</strong> A repo with no commits in 12+ months, a GitHub <code>archived</code> flag, an unresolved maintainer transition, or a single contributor and no external deployments — framed as production-grade.</p>
+<p><strong>Example (archetypal).</strong> <em>&quot;A research prototype from a 2023 paper, no releases since, submitted as a 'production orchestration layer'.&quot;</em></p>
+<p><strong>Rubric dimensions it fails.</strong> Maturity (0–1), Reliability (hard gate, likely 0).</p>
+<hr />
+<h2 id="6-github-stars-as-evidence">6. GitHub-stars-as-evidence</h2>
+<p><strong>Pattern.</strong> A submission whose primary justification is star count, trending status, or social-media virality — with no operator write-ups, no benchmarks, no stability signals.</p>
+<p><strong>Example (archetypal).</strong> <em>&quot;'10k stars in a week' cited as the rationale for inclusion, with no linked field report or docs review.&quot;</em></p>
+<p><strong>Rubric dimensions it fails.</strong> Evidence (hard gate, 0), Reliability (popularity ≠ production-readiness). Community signal alone is <strong>tiebreaker-only</strong> by design.</p>
+<hr />
+<h2 id="7-agentic-adjacent-but-out-of-scope-tooling">7. Agentic-adjacent but out-of-scope tooling</h2>
+<p><strong>Pattern.</strong> Generic ML infra, chat UIs without tool use, prompt-only utilities, or content-generation demos with no agent loop, no tool interface, and no multi-step control. Useful software — just not <em>agentic</em>.</p>
+<p><strong>Example (archetypal).</strong> <em>&quot;A prompt templating library, or a ChatGPT-style web UI with no MCP/tool-use layer.&quot;</em></p>
+<p><strong>Rubric dimensions it fails.</strong> Agentic relevance (hard gate, 0).</p>
+<hr />
+<h2 id="8-rubric-restatement-without-rubric-application">8. Rubric-restatement without rubric-application</h2>
+<p><strong>Pattern.</strong> An entry that lists the rubric dimensions and declares the tool passes them, without citing evidence or naming specifics. Box-ticking instead of judgement.</p>
+<p><strong>Example (archetypal).</strong> <em>&quot;'Reliability: High. Evidence: Strong. Uniqueness: Yes.' — with no links, no examples, no tradeoffs.&quot;</em></p>
+<p><strong>Rubric dimensions it fails.</strong> Evidence (hard gate, 0), Reliability (unsubstantiated).</p>
+<hr />
+<h2 id="quick-reference">Quick reference</h2>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Primary failing dimension(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Generic LLM wrappers</td>
+<td>Agentic relevance, Uniqueness</td>
+</tr>
+<tr>
+<td>2. Vendor marketing</td>
+<td>Evidence, Reliability</td>
+</tr>
+<tr>
+<td>3. Unverified benchmarks</td>
+<td>Evidence, Reliability</td>
+</tr>
+<tr>
+<td>4. Duplicates without added structure</td>
+<td>Uniqueness, Agentic relevance</td>
+</tr>
+<tr>
+<td>5. Archived / single-author prototypes</td>
+<td>Maturity, Reliability</td>
+</tr>
+<tr>
+<td>6. Stars-as-evidence</td>
+<td>Evidence, Reliability</td>
+</tr>
+<tr>
+<td>7. Out-of-scope tooling</td>
+<td>Agentic relevance</td>
+</tr>
+<tr>
+<td>8. Rubric-restatement</td>
+<td>Evidence, Reliability</td>
+</tr>
+</tbody>
+</table>
+<p>If in doubt, open a <code>suggestion</code> issue instead of a PR.</p>
+</article>
+</main>
+<footer class="site-footer"><p>Source of truth: <a href="https://github.com/natnew/Awesome-Agentic-Engineering" rel="noopener">GitHub</a> · <a href="feed.xml">Subscribe (RSS)</a> · <a href="https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/LICENSE" rel="noopener">MIT License</a></p><p><small>Generated by <code>repo-agent workflow render-site</code>. Pages are rebuilt from Markdown on every push to <code>main</code>.</small></p></footer>
+</body>
+</html>

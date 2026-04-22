@@ -1,0 +1,38 @@
+name: Phase 7 — Render check
+
+on:
+  pull_request:
+    paths:
+      - "README.md"
+      - "RUBRIC.md"
+      - "ANTI-PATTERNS.md"
+      - "CONTRIBUTING.md"
+      - "CHANGELOG.md"
+      - "appendix/**"
+      - "docs/**"
+      - "tools/repo-agent/**"
+      - ".github/workflows/phase-7-*.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  render-check:
+    name: repo-agent workflow render-site --check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install repo-agent
+        run: python -m pip install --quiet -e tools/repo-agent
+
+      - name: Run render-site --check
+        # Advisory on first rollout — matches the Phase 4/5/6 pattern.
+        continue-on-error: true
+        run: python -m repo_agent workflow render-site --check

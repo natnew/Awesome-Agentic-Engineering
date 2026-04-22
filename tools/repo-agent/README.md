@@ -31,6 +31,20 @@ These compose the tools above into end-to-end workflows. All three are **advisor
 | `workflow landscape-scan` | 6.2 | Weekly digest: stale entries + recent-PR/issue candidates → one rolling issue. |
 | `workflow review-pr` | 6.3 | On a content PR: rubric scorecard → single maintained review comment. |
 
+### Phase 7 site renderer
+
+| Workflow | Roadmap | Purpose |
+|---|---|---|
+| `workflow render-site` | 7.1 | Render `README.md` + `appendix/*.md` + `RUBRIC.md` + `ANTI-PATTERNS.md` + `CONTRIBUTING.md` + `CHANGELOG.md` to `docs/` (zero-build static HTML + `feed.xml` RSS + `sitemap.xml`). |
+
+```powershell
+repo-agent workflow render-site                  # regenerate docs/
+repo-agent workflow render-site --check          # exit 1 if docs/ is stale (for CI)
+repo-agent workflow render-site --output-dir out # render into a custom directory
+```
+
+The renderer is deterministic — running it twice on an unchanged tree produces byte-identical output. See [`docs/README.md`](../../docs/README.md) for how to preview the site locally.
+
 ## Install
 
 Requires Python 3.12+.

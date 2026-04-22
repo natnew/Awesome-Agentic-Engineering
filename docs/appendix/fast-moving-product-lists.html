@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fast Moving Product Lists · Awesome Agentic Engineering</title>
+<meta name="description" content="Stop prompting. Start engineering. A structured reference for taking AI agents into production.">
+<link rel="stylesheet" href="../styles.css">
+<link rel="alternate" type="application/rss+xml" title="Awesome Agentic Engineering — Changelog" href="../feed.xml">
+</head>
+<body>
+<header class="site-header">
+<p class="site-title"><a href="../index.html">Awesome Agentic Engineering</a></p>
+<nav class="site-nav" aria-label="Primary"><ul><li><a href="../index.html">Home</a></li><li><a href="../rubric.html">Rubric</a></li><li><a href="../anti-patterns.html">Anti-patterns</a></li><li><a href="../contributing.html">Contributing</a></li><li><a href="../changelog.html">Changelog</a></li></ul></nav>
+</header>
+<main class="site-main">
+<article class="content">
+<h1 id="fast-moving-product-lists">⚡ Fast-Moving Product Lists</h1>
+<hr />
+<blockquote>
+<p>Last reviewed: March 2026</p>
+<p>Evidence note: verify current capabilities against official docs or first-party repos before treating an entry as current. Inclusion here is not benchmark evidence and does not imply production maturity.</p>
+</blockquote>
+<p>Descriptions in this appendix prioritise delivery model, control surface, operational constraints, and workload fit over valuation, star growth, or leaderboard claims.</p>
+<h2 id="coding-agents">🖥 Coding Agents</h2>
+<h3 id="ide-native-agents">IDE-Native Agents</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cursor.com" rel="noopener">Cursor</a></td>
+<td>VS Code fork with multi-file editing, project context, and managed model integrations.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/features/copilot" rel="noopener">GitHub Copilot</a></td>
+<td>Agent Mode in VS Code. Copilot Workspace issue-to-PR. Multi-model (Claude, GPT-5, Gemini 3).</td>
+</tr>
+<tr>
+<td><a href="https://windsurf.com" rel="noopener">Windsurf (Codeium)</a></td>
+<td>Cascade agentic mode. Project-level memory. 5 parallel agents.</td>
+</tr>
+<tr>
+<td><a href="https://www.jetbrains.com/ai/" rel="noopener">JetBrains AI</a></td>
+<td>Deep integration across all JetBrains IDEs. Context-aware completions.</td>
+</tr>
+<tr>
+<td><a href="https://aws.amazon.com/q/developer/" rel="noopener">Amazon Q Developer</a></td>
+<td>AWS-native. Lambda, CloudWatch, infrastructure, security scanning.</td>
+</tr>
+<tr>
+<td><a href="https://www.tabnine.com/" rel="noopener">Tabnine</a></td>
+<td>Privacy-first. On-premise option. Fine-tuned on your codebase.</td>
+</tr>
+<tr>
+<td><a href="https://sourcegraph.com/cody" rel="noopener">Sourcegraph Cody</a></td>
+<td>Excels at large codebases. Enterprise context engine.</td>
+</tr>
+<tr>
+<td><a href="https://idx.google.com" rel="noopener">Google Antigravity</a></td>
+<td>Free Claude Opus 4.5 access. Learning-focused.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="terminal-and-cli-agents">Terminal and CLI Agents</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.anthropic.com/en/docs/claude-code" rel="noopener">Claude Code</a></td>
+<td>Anthropic CLI agent for repo navigation, tool use, and multi-step coding workflows.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openai/codex" rel="noopener">OpenAI Codex CLI</a></td>
+<td>OpenAI terminal agent. Agents SDK. Multi-agent.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/paul-gauthier/aider" rel="noopener">Aider</a></td>
+<td>OSS pair programmer. Git-aware. Any LLM.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/cline/cline" rel="noopener">Cline</a></td>
+<td>VS Code extension. Full terminal and browser access for Claude/GPT.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/RooVetGit/Roo-Code" rel="noopener">RooCode</a></td>
+<td>Cline fork. Structured modes. Reduced hallucinations.</td>
+</tr>
+<tr>
+<td><a href="https://kilocode.ai" rel="noopener">Kilo Code</a></td>
+<td>Emerging. Structured modes. Tighter context.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/opencode-ai/opencode" rel="noopener">OpenCode</a></td>
+<td>BYOK terminal agent for Cursor refugees.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="autonomous-software-engineers">Autonomous Software Engineers</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://devin.ai" rel="noopener">Devin</a></td>
+<td>Cloud-hosted software engineering agent with sandboxed execution and interactive planning.</td>
+</tr>
+<tr>
+<td><a href="https://githubnext.com/projects/copilot-workspace" rel="noopener">Copilot Workspace</a></td>
+<td>GitHub issue-to-PR agent.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/princeton-nlp/SWE-agent" rel="noopener">SWE-Agent</a></td>
+<td>Princeton. Resolves real GitHub issues autonomously.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/All-Hands-AI/OpenHands" rel="noopener">OpenHands</a></td>
+<td>OSS autonomous software engineer (ex-OpenDevin).</td>
+</tr>
+<tr>
+<td><a href="https://x.ai" rel="noopener">Grok Build (xAI)</a></td>
+<td>8 parallel agents for code gen.</td>
+</tr>
+<tr>
+<td><a href="https://kiro.dev" rel="noopener">Kiro</a></td>
+<td>Spec-driven development. DevOps automation.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="code-review-and-security">Code Review and Security</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.qodo.ai/" rel="noopener">Qodo</a></td>
+<td>AI code review. Context-aware PR validation.</td>
+</tr>
+<tr>
+<td><a href="https://coderabbit.ai/" rel="noopener">CodeRabbit</a></td>
+<td>AI PR reviewer. Inline suggestions, security.</td>
+</tr>
+<tr>
+<td><a href="https://snyk.io/" rel="noopener">Snyk Code</a></td>
+<td>AI security scanner. Real-time vuln detection.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Codium-ai/pr-agent" rel="noopener">PR-Agent</a></td>
+<td>OSS AI PR reviewer. Auto-describe, review, improve.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="app-builders-prompt-to-app">App Builders (Prompt-to-App)</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://bolt.new" rel="noopener">Bolt.new</a></td>
+<td>Prompt to full-stack web app in browser.</td>
+</tr>
+<tr>
+<td><a href="https://lovable.dev" rel="noopener">Lovable</a></td>
+<td>Describe then build then deploy from chat.</td>
+</tr>
+<tr>
+<td><a href="https://v0.dev" rel="noopener">v0 (Vercel)</a></td>
+<td>Prompt to React/Tailwind components.</td>
+</tr>
+<tr>
+<td><a href="https://replit.com" rel="noopener">Replit Agent</a></td>
+<td>Full-stack from prompt. Auto-deploys.</td>
+</tr>
+<tr>
+<td><a href="https://playcode.io" rel="noopener">PlayCode Agent</a></td>
+<td>Browser-based. English to websites.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dyad-sh/dyad" rel="noopener">Dyad</a></td>
+<td>OSS. Local-first. No-code app builder.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="task-and-workflow-agents">⚡ Task and Workflow Agents</h2>
+<h3 id="automation">Automation</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/n8n-io/n8n" rel="noopener">n8n</a></td>
+<td>OSS workflow automation with AI agent nodes. Visual + code.</td>
+</tr>
+<tr>
+<td><a href="https://zapier.com/ai" rel="noopener">Zapier AI</a></td>
+<td>7000+ apps. Natural language workflows.</td>
+</tr>
+<tr>
+<td><a href="https://make.com" rel="noopener">Make</a></td>
+<td>Visual workflow platform. AI capabilities.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/activepieces/activepieces" rel="noopener">Activepieces</a></td>
+<td>OSS Zapier alternative with AI.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/temporalio/temporal" rel="noopener">Temporal</a></td>
+<td>Durable execution for long-running agent workflows.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="no-code-agent-builders">No-Code Agent Builders</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/langgenius/dify" rel="noopener">Dify</a></td>
+<td>Open-source LLMOps platform with visual agent building, workflow orchestration, and RAG support.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/FlowiseAI/Flowise" rel="noopener">Flowise</a></td>
+<td>OSS drag-and-drop LLM agent builder.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/langflow-ai/langflow" rel="noopener">Langflow</a></td>
+<td>Visual multi-agent and RAG builder.</td>
+</tr>
+<tr>
+<td><a href="https://lindy.ai" rel="noopener">Lindy</a></td>
+<td>No-code agents. 3000+ integrations.</td>
+</tr>
+<tr>
+<td><a href="https://relevanceai.com" rel="noopener">Relevance AI</a></td>
+<td>No-code agents for sales, support, research.</td>
+</tr>
+<tr>
+<td><a href="https://rivet.ironcladapp.com" rel="noopener">Rivet</a></td>
+<td>Visual AI workflow builder. Drag-and-drop.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/airtai/fastagency" rel="noopener">FastAgency</a></td>
+<td>Deploy multi-agent workflows as APIs.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="data-and-research-agents">📊 Data and Research Agents</h2>
+<h3 id="deep-research">Deep Research</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://claude.ai" rel="noopener">Claude Deep Research</a></td>
+<td>Multi-step investigation with citations.</td>
+</tr>
+<tr>
+<td><a href="https://chat.openai.com" rel="noopener">ChatGPT Deep Research</a></td>
+<td>Extended reasoning, web browsing, reports.</td>
+</tr>
+<tr>
+<td><a href="https://gemini.google.com" rel="noopener">Gemini Deep Research</a></td>
+<td>Google Search and Knowledge Graph.</td>
+</tr>
+<tr>
+<td><a href="https://perplexity.ai" rel="noopener">Perplexity Pro</a></td>
+<td>AI search with deep research mode. Real-time citations.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/bytedance/deer-flow" rel="noopener">DeerFlow</a></td>
+<td>ByteDance OSS. Planning, tools, memory, execution.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/assafelovic/gpt-researcher" rel="noopener">GPT Researcher</a></td>
+<td>OSS autonomous comprehensive research.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/stanford-oval/storm" rel="noopener">STORM</a></td>
+<td>Stanford. Writes Wikipedia-like articles from scratch.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="data-analysis">Data Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://julius.ai" rel="noopener">Julius AI</a></td>
+<td>Upload CSV/Excel, ask in natural language.</td>
+</tr>
+<tr>
+<td><a href="https://hex.tech" rel="noopener">Hex AI</a></td>
+<td>Collaborative data platform. AI analysis.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Sinaptik-AI/pandas-ai" rel="noopener">PandasAI</a></td>
+<td>Chat with your data. NL to Pandas/SQL.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/microsoft/TaskWeaver" rel="noopener">TaskWeaver</a></td>
+<td>Microsoft. Code-first data analytics agents.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rag-and-knowledge-bases">RAG and Knowledge Bases</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/infiniflow/ragflow" rel="noopener">RAGFlow</a></td>
+<td>OSS RAG engine with agent capabilities.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pathwaycom/pathway" rel="noopener">Pathway</a></td>
+<td>Streaming data framework for live RAG and continuously updated knowledge systems.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mem0ai/mem0" rel="noopener">Mem0</a></td>
+<td>Memory layer for agents. Long-term across sessions.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/chroma-core/chroma" rel="noopener">Chroma</a></td>
+<td>OSS embedding database. Fastest way to build RAG.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/weaviate/weaviate" rel="noopener">Weaviate</a></td>
+<td>OSS vector DB. GraphQL. Multi-modal search.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/qdrant/qdrant" rel="noopener">Qdrant</a></td>
+<td>High-performance vector DB in Rust.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/milvus-io/milvus" rel="noopener">Milvus</a></td>
+<td>Cloud-native vector DB. Billion-scale.</td>
+</tr>
+<tr>
+<td><a href="https://pinecone.io" rel="noopener">Pinecone</a></td>
+<td>Managed vector DB. Serverless. Low-latency.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="local-and-self-hosted-ai">🏠 Local and Self-Hosted AI</h2>
+<h3 id="local-llm-runners">Local LLM Runners</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/ollama/ollama" rel="noopener">Ollama</a></td>
+<td>Local model runner with a minimal CLI and API for self-hosted experimentation.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/ggml-org/llama.cpp" rel="noopener">llama.cpp</a></td>
+<td>C/C++ inference. CPU, GPU, Apple Silicon. Foundation of local AI.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/vllm-project/vllm" rel="noopener">vLLM</a></td>
+<td>High-throughput serving. PagedAttention. Production-grade.</td>
+</tr>
+<tr>
+<td><a href="https://lmstudio.ai" rel="noopener">LM Studio</a></td>
+<td>Desktop application for local LLM inference across common desktop platforms.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/janhq/jan" rel="noopener">Jan</a></td>
+<td>OSS ChatGPT alternative. 100% offline.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mudler/LocalAI" rel="noopener">LocalAI</a></td>
+<td>Drop-in OpenAI API replacement. No GPU required.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/nomic-ai/gpt4all" rel="noopener">GPT4All</a></td>
+<td>OSS local chat. Consumer hardware.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Mozilla-Ocho/llamafile" rel="noopener">Llamafile</a></td>
+<td>LLMs as single files. Zero setup. Mozilla.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="self-hosted-agents-and-uis">Self-Hosted Agents and UIs</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/open-webui/open-webui" rel="noopener">Open WebUI</a></td>
+<td>Self-hosted ChatGPT UI. Access control. Extensions.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/openclaw/openclaw" rel="noopener">OpenClaw</a></td>
+<td>Self-hosted multi-channel agent framework with messaging integrations and extensible skills.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/danny-avila/LibreChat" rel="noopener">LibreChat</a></td>
+<td>Self-hosted multi-model chat. All major providers.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/lobehub/lobe-chat" rel="noopener">LobeChat</a></td>
+<td>OSS ChatGPT/Gemini UI. Plugin system. Multi-modal.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Mintplex-Labs/anything-llm" rel="noopener">Anything LLM</a></td>
+<td>All-in-one AI app. RAG, agents. Desktop + Docker.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eosphoros-ai/DB-GPT" rel="noopener">DB-GPT</a></td>
+<td>Local and self-hosted data interaction stack with agent and retrieval components.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="multi-agent-platforms">🤖 Multi-Agent Platforms</h2>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://chat.openai.com" rel="noopener">ChatGPT</a></td>
+<td>GPTs, Deep Research, Canvas, Agent Mode, vision. GPT-5.</td>
+</tr>
+<tr>
+<td><a href="https://claude.ai" rel="noopener">Claude</a></td>
+<td>Tool use, computer control, MCP, code exec. Chrome, Excel, Cowork.</td>
+</tr>
+<tr>
+<td><a href="https://gemini.google.com" rel="noopener">Gemini</a></td>
+<td>Deep Think, Gems, multi-modal. 1M tokens. Google ecosystem.</td>
+</tr>
+<tr>
+<td><a href="https://x.ai" rel="noopener">Grok</a></td>
+<td>Real-time X data. Grok Build. Image gen.</td>
+</tr>
+<tr>
+<td><a href="https://meta.ai" rel="noopener">Meta AI</a></td>
+<td>Llama-powered. WhatsApp/Messenger. Manus acquisition.</td>
+</tr>
+<tr>
+<td><a href="https://copilot.microsoft.com" rel="noopener">Microsoft Copilot</a></td>
+<td>Office 365 integration. Enterprise.</td>
+</tr>
+<tr>
+<td><a href="https://coze.com" rel="noopener">Coze</a></td>
+<td>ByteDance agent builder. Visual workflow. Plugin marketplace.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="simulation-environments">🧱 Simulation &amp; Environments</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+<th>Strengths</th>
+<th>Weaknesses</th>
+<th>Workload Suitability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/louis-e/arnis" rel="noopener">Arnis</a></td>
+<td>Converts real-world geographic data into Minecraft Java and Bedrock worlds (terrain, streets, buildings).</td>
+<td>Strong bridge between real-world geography and simulated environments.</td>
+<td>Niche relevance unless building spatial/embodied agent systems.</td>
+<td>Embodied AI exploration, spatial simulation environments, and synthetic task environments mapping real-world locations.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="cybersecurity-agents">🔐 Cybersecurity Agents</h2>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/aliasrobotics/CAI" rel="noopener">CAI</a></td>
+<td>AI pentesting, vuln discovery, red teaming. HITL.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/dstl/YAWNING-TITAN" rel="noopener">YAWNING TITAN</a></td>
+<td>Graph-based cybersecurity simulation.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/GreyDGL/PentestGPT" rel="noopener">PentestGPT</a></td>
+<td>GPT-powered pentesting. Automated reasoning.</td>
+</tr>
+<tr>
+<td><a href="https://microsoft.com/security/copilot" rel="noopener">Microsoft Security Copilot</a></td>
+<td>Enterprise threat detection, incident response.</td>
+</tr>
+<tr>
+<td><a href="https://crowdstrike.com" rel="noopener">CrowdStrike Charlotte AI</a></td>
+<td>AI security analyst. Threat hunting.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+</article>
+</main>
+<footer class="site-footer"><p>Source of truth: <a href="https://github.com/natnew/Awesome-Agentic-Engineering" rel="noopener">GitHub</a> · <a href="../feed.xml">Subscribe (RSS)</a> · <a href="https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/LICENSE" rel="noopener">MIT License</a></p><p><small>Generated by <code>repo-agent workflow render-site</code>. Pages are rebuilt from Markdown on every push to <code>main</code>.</small></p></footer>
+</body>
+</html>
