@@ -22,6 +22,21 @@
 - **Uniqueness**: <!-- What does this add that existing entries don't? -->
 - **Maturity**: <!-- Ecosystem stability, release cadence, integrations -->
 
+## Curation bar — seven-dimension self-score
+
+> Required for new entries and major refreshes. Score each dimension `0–3` (see [`RUBRIC.md`](../RUBRIC.md)). Reviewers will confirm or adjust. **Merge requires total ≥ 27 / 45 and no `0` on Reliability, Evidence, or Agentic relevance.**
+
+| Dimension | Weight | Score (0–3) | Weighted | One-line justification |
+|-----------|-------:|------------:|---------:|------------------------|
+| Reliability (hard gate) | ×3 |  |  |  |
+| Evidence (hard gate) | ×3 |  |  |  |
+| Agentic relevance (hard gate) | ×3 |  |  |  |
+| Uniqueness | ×2 |  |  |  |
+| Maturity | ×2 |  |  |  |
+| Licensing / openness | ×1 |  |  |  |
+| Community signal (tiebreaker) | ×1 |  |  |  |
+| **Total** |  |  | **/ 45** |  |
+
 ## Evidence links
 
 <!-- Primary sources backing the claims above. Prefer [official] and [benchmark] over blog posts. -->
