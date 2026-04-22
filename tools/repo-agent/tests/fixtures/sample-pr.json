@@ -1,0 +1,5 @@
+{
+  "title": "Add LangGraph to Orchestration Frameworks",
+  "body": "This PR adds a new entry.\n\n```markdown\n- **[LangGraph](https://github.com/langchain-ai/langgraph)** — Typed graph orchestration with checkpointing. [official](https://langchain-ai.github.io/langgraph/). Production use documented in [field report](https://blog.langchain.dev/langgraph-v1/). Apache-2.0. Unique: typed DAG + interrupts. _Last reviewed: April 2026._\n```\n",
+  "changed_files": ["README.md"]
+}
