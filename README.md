@@ -97,7 +97,7 @@ Representative system designs for real-world use.
 
 _Last reviewed: April 2026._
 
-Memory is a first-class concern in agentic systems. Rather than treating memory as a simple array of previous messages, production systems require structured approaches to state, persistence, and retrieval. Four categories — working, episodic, procedural, semantic — are load-bearing decisions, not implementation details; pick them deliberately before picking a vendor.
+Memory is a first-class concern in agentic systems. Rather than treating memory as a simple array of previous messages, production systems require structured approaches to state, persistence, retrieval, and **experience reuse**. Four categories — working, episodic, procedural, semantic — remain the core architectural choices, but recent frontier research also shows memory is increasingly being used to **improve future agent behaviour**, not merely to store past context.
 
 ### Memory Taxonomy
 
@@ -109,6 +109,16 @@ Different types of memory serve distinct functional roles in an agentic architec
 | **Episodic Memory** | Autobiographical history of past actions, inputs, and outcomes. Enables reflection on past mistakes. | Checkpoint logs, event stores, prompt / trajectory histories. |
 | **Procedural Memory** | Reusable skills, system prompts, and tool configurations. Defines *how* the agent operates. | Static configuration, retrieved skill libraries, GitHub workflows. |
 | **Semantic Memory** | Embedded, factual knowledge about the world, the user, or the domain. Defines *what* the agent knows. | Vector databases (FAISS, Pinecone), knowledge graphs, Letta core memory. |
+
+### Frontier Research: Memory Beyond Storage
+
+Recent research shows frontier agent systems moving beyond simple retrieval towards **experience transformation**: converting prior trajectories, workflows, and reasoning patterns into reusable guidance for future tasks. Memory becomes part of the learning loop, not just the context pipeline.
+
+| System | Best Fit in Taxonomy | Why it matters | Evidence |
+| :--- | :--- | :--- | :--- |
+| **Agent Workflow Memory (AWM)** | Episodic + Procedural | Induces reusable workflows from prior experience and selectively retrieves them to guide future generations; improves long-horizon web-agent tasks in both offline and online settings. | `[official]` [repo](https://github.com/zorazrw/agent-workflow-memory) · `[benchmark]` [paper](https://arxiv.org/abs/2409.07429) |
+| **Synapse** | Episodic | Stores exemplar trajectories as memory and retrieves them via similarity search, using complete state–action histories (not shallow few-shot examples) to improve multi-step computer control. | `[official]` [site](https://ltzheng.github.io/Synapse/) · `[benchmark]` [paper](https://arxiv.org/abs/2306.07863) |
+| **ReasoningBank** | Episodic + Procedural (semantic-adjacent) | Distils generalisable reasoning strategies from self-judged successful *and* failed experiences, then retrieves and updates them over time so the agent improves through continued interaction. | `[benchmark]` [paper](https://arxiv.org/abs/2509.25140) |
 
 ### Architectural Patterns: Shared vs. Private Memory
 
@@ -141,6 +151,8 @@ Specialised infrastructure for managing agent memory.
 | **Mem0** | Personalized memory layer | Managed memory API focusing on user contexts, interactions, and entity relationships. |
 | **Zep / Graphiti** | Enterprise memory & graphs | Fast, long-term memory for AI assistants; uses temporal knowledge graphs to map entity relationships over time. |
 | **MCP** (Model Context Protocol) | Interoperability fabric | While not a DB itself, MCP provides a standard protocol to expose memory stores and file systems universally across tools and agents. |
+
+> **Design implication:** the key question is no longer only *what* the agent remembers, but *how memory changes future behaviour*. Systems like Synapse, Agent Workflow Memory, and ReasoningBank signal a shift — memory is becoming part of the agent's learning loop, enabling reusable routines and self-improvement over time.
 
 ---
 
