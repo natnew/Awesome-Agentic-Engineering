@@ -745,7 +745,7 @@
 <hr />
 <h2 id="reasoning-planning-models">🧭 Reasoning &amp; Planning Models</h2>
 <p><em>Last reviewed: April 2026.</em></p>
-<p>Models that do <strong>explicit reasoning or planning at inference time</strong> — chain-of-thought baked into the decoding loop, extended thinking budgets, or trained planner heads. They change the shape of agent loops: the model absorbs work that used to live in a planner node, which shifts where you spend tokens, latency, and trust. Cap of 5–8 entries; selected for agentic relevance, not general benchmark wins.</p>
+<p>Models that do <strong>explicit reasoning or planning at inference time</strong> — chain-of-thought baked into the decoding loop, extended thinking budgets, or trained planner heads. They change the shape of agent loops: the model absorbs work that used to live in a planner node, which shifts where you spend tokens, latency, and trust. Cap of 5–8 entries; selected for agentic relevance, not general benchmark wins. Same-family tiers (e.g. <code>mini</code> / <code>nano</code>, Sonnet / Haiku, Flash / Flash-Lite) are grouped into one row because they share the same reasoning interface and differ mainly in latency and cost.</p>
 <table>
 <thead>
 <tr>
@@ -758,25 +758,25 @@
 </thead>
 <tbody>
 <tr>
-<td><strong>OpenAI o3 / o4-mini</strong></td>
+<td><strong>GPT-5.4 (family: <code>gpt-5.4</code> / <code>mini</code> / <code>nano</code>)</strong></td>
 <td>OpenAI</td>
-<td>Internal long chain-of-thought with tool use during reasoning</td>
-<td>First widely available tool-using reasoning models; plan, call tools, and verify inside one model call.</td>
-<td><code>[official]</code> <a href="https://openai.com/index/introducing-o3-and-o4-mini/" rel="noopener">launch</a> · <code>[benchmark]</code> <a href="https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf" rel="noopener">system card</a></td>
+<td>Tunable reasoning effort (<code>none</code>/<code>low</code>/<code>medium</code>/<code>high</code>/<code>xhigh</code>) with native computer-use, web/file search, and function tools</td>
+<td>Single family covers planner (<code>gpt-5.4</code>), subagent/actor (<code>mini</code>), and high-volume tool-calling (<code>nano</code>) — lets one agent loop span tiers without swapping SDKs.</td>
+<td><code>[official]</code> <a href="https://developers.openai.com/api/docs/models" rel="noopener">model index</a> · <code>[official]</code> <a href="https://developers.openai.com/api/docs/models/gpt-5.4" rel="noopener"><code>gpt-5.4</code></a> · <a href="https://developers.openai.com/api/docs/models/gpt-5.4-mini" rel="noopener"><code>mini</code></a> · <a href="https://developers.openai.com/api/docs/models/gpt-5.4-nano" rel="noopener"><code>nano</code></a></td>
 </tr>
 <tr>
-<td><strong>Claude Opus 4 / Sonnet 4 (extended thinking)</strong></td>
+<td><strong>Claude Opus 4.7 / Sonnet 4.6 / Haiku 4.5</strong></td>
 <td>Anthropic</td>
-<td>Configurable thinking-token budget, interleaved with tool calls</td>
-<td>Agent-friendly thinking budget; predictable latency/cost dials for planner-heavy tasks.</td>
-<td><code>[official]</code> <a href="https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking" rel="noopener">docs</a> · <code>[field report]</code> <a href="https://www.anthropic.com/news/claude-4" rel="noopener">Claude 4 post</a></td>
+<td>Configurable extended-thinking budget, interleaved with tool calls</td>
+<td>Same thinking-budget dial across a planner/worker/fast-actor trio; agent-friendly latency/cost staging without changing prompt contract.</td>
+<td><code>[official]</code> <a href="https://www.anthropic.com/system-cards" rel="noopener">system cards</a> · <code>[official]</code> <a href="https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking" rel="noopener">extended thinking</a></td>
 </tr>
 <tr>
-<td><strong>Gemini 2.5 Pro (Deep Think)</strong></td>
+<td><strong>Gemini 3.1 Pro / 3 Flash / 3.1 Flash-Lite</strong></td>
 <td>Google DeepMind</td>
-<td>Parallel hypothesis exploration before answering</td>
-<td>Strong on multi-step math, code, and agent planning; native long-context lets planners keep full trajectories in-window.</td>
-<td><code>[official]</code> <a href="https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/" rel="noopener">blog</a> · <code>[benchmark]</code> <a href="https://deepmind.google/models/gemini/pro/" rel="noopener">model card</a></td>
+<td>Deep Think parallel-hypothesis reasoning (Pro); thinking-capable Flash tier for cheaper loops</td>
+<td>Three-tier reasoning ladder over Google's long-context stack — Pro for planning, Flash/Flash-Lite for high-fanout tool calls in the same agent graph.</td>
+<td><code>[official]</code> <a href="https://deepmind.google/models/model-cards/" rel="noopener">model cards</a> · <code>[official]</code> <a href="https://deepmind.google/models/gemini/" rel="noopener">Gemini 3.1 Pro card</a></td>
 </tr>
 <tr>
 <td><strong>DeepSeek-R1</strong></td>
