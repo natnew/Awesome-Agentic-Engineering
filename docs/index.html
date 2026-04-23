@@ -31,6 +31,7 @@
 <li><a href="#%EF%B8%8F-architecture-decision-guide">⚖️ Architecture Decision Guide</a></li>
 <li><a href="#-core-agentic-patterns">🧩 Core Agentic Patterns</a></li>
 <li><a href="#-reference-architectures">🏗️ Reference Architectures</a></li>
+<li><a href="#-spec-driven-development">📐 Spec-Driven Development</a></li>
 <li><a href="#-memory-systems">🧠 Memory Systems</a></li>
 <li><a href="#-formal-evaluation-rubric">📊 Formal Evaluation Rubric</a></li>
 <li><a href="#benchmark-and-evidence-policy">Benchmark and Evidence Policy</a></li>
@@ -201,6 +202,139 @@
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="spec-driven-development">📐 Spec-Driven Development</h2>
+<p><em>Last reviewed: April 2026.</em></p>
+<p>Agentic systems amplify whatever intent you feed them — including vague intent. <strong>Spec-driven development (SDD)</strong> treats the specification as the load-bearing artifact: a durable, reviewable document that describes <em>what</em> the system should do and <em>how</em> it should behave, from which plans, code, and tests are generated (and regenerated) by agents. It is the production-grade answer to &quot;vibe coding.&quot;</p>
+<p>In an agentic context, the spec does three things at once:</p>
+<ol>
+<li><strong>Anchors intent</strong> — a typed, versioned contract the agent (and humans) refer back to across long sessions.</li>
+<li><strong>Defines the acceptance surface</strong> — plans, tasks, and tests are derived from the spec, not improvised per prompt.</li>
+<li><strong>Makes re-generation safe</strong> — regenerating code from an updated spec is cheaper and more reviewable than patching drift.</li>
+</ol>
+<h3 id="core-practices">Core practices</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Practice</th>
+<th style="text-align:left">What it means</th>
+<th style="text-align:left">Why it matters for agents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Spec before plan before code</strong></td>
+<td style="text-align:left">Write a scoped spec (problem, constraints, acceptance criteria) before any plan or implementation. Plans and code are generated <em>from</em> the spec.</td>
+<td style="text-align:left">Agents behave better against a fixed target than against a shifting prompt.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Executable specs</strong></td>
+<td style="text-align:left">Encode acceptance criteria as runnable checks (tests, evals, schema validators) alongside prose.</td>
+<td style="text-align:left">Lets agents self-verify and lets CI reject regressions without human review on every step.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Typed contracts at boundaries</strong></td>
+<td style="text-align:left">Specify tool signatures, state shape, and I/O schemas with types (Pydantic, JSON Schema, TypeSpec).</td>
+<td style="text-align:left">Narrows the action space the agent can hallucinate into.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Review the spec, not the diff</strong></td>
+<td style="text-align:left">Human review focuses on the spec and acceptance checks; the diff is a consequence.</td>
+<td style="text-align:left">Makes agent-authored PRs tractable at volume.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Versioned and diffable</strong></td>
+<td style="text-align:left">Specs live in the repo, are PR-reviewed, and evolve with the code.</td>
+<td style="text-align:left">Gives rollback, blame, and audit trail — same hygiene as code.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>One spec, many artifacts</strong></td>
+<td style="text-align:left">Generate plans, tasks, tests, and docs from the same spec.</td>
+<td style="text-align:left">Keeps planner, actor, and verifier aligned.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="spec-driven-resources">Resources</h3>
+<p>Evidence tags follow the <a href="#benchmark-and-evidence-policy">Benchmark and Evidence Policy</a>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Resource</th>
+<th style="text-align:left">Role</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><a href="https://github.com/github/spec-kit" rel="noopener">GitHub Spec Kit</a></strong></td>
+<td style="text-align:left">Toolkit / methodology</td>
+<td style="text-align:left">Open-source toolkit for spec-driven development with agentic coding assistants (Copilot, Claude Code, Cursor, Gemini CLI). Defines the <code>/specify</code> → <code>/plan</code> → <code>/tasks</code> → <code>/implement</code> workflow used in this repo's own <code>specs/</code> directory.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://github.com/github/spec-kit" rel="noopener">repo</a> · <code>[official]</code> <a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/" rel="noopener">announce</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><a href="https://kiro.dev" rel="noopener">Kiro</a></strong></td>
+<td style="text-align:left">IDE</td>
+<td style="text-align:left">AWS IDE built around spec-driven development: specs, steering files, and hooks drive agent work from requirements through tasks. First-party reference implementation of SDD in an IDE.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://kiro.dev/docs/" rel="noopener">docs</a> · <code>[field report]</code> <a href="https://aws.amazon.com/blogs/aws/introducing-kiro-an-ai-ide-that-thinks-like-a-developer/" rel="noopener">AWS launch post</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><a href="https://model-spec.openai.com/" rel="noopener">OpenAI Model Spec</a></strong></td>
+<td style="text-align:left">Behavioural spec</td>
+<td style="text-align:left">First-party example of treating <em>model behaviour</em> as a versioned, public spec — objectives, rules, defaults, and conflict resolution. A reference for how to write a spec an agent can actually be aligned to.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://model-spec.openai.com/" rel="noopener">spec</a> · <code>[official]</code> <a href="https://openai.com/index/sharing-the-latest-model-spec/" rel="noopener">post</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><a href="https://agents.md/" rel="noopener">AGENTS.md</a></strong></td>
+<td style="text-align:left">Project-level agent spec</td>
+<td style="text-align:left">Simple convention for a repository-scoped file that instructs coding agents about build, test, style, and conventions. Widely supported across agent CLIs.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://agents.md/" rel="noopener">site</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><a href="https://www.claude.com/skills" rel="noopener">Anthropic Claude Skills (SKILL.md)</a></strong></td>
+<td style="text-align:left">Skill-level spec</td>
+<td style="text-align:left">Declarative, self-contained skill specs (<code>SKILL.md</code>) that package instructions, tools, and examples agents can discover and load on demand. Treats individual capabilities as versioned spec artifacts.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview" rel="noopener">docs</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><a href="https://ai.pydantic.dev/" rel="noopener">Pydantic AI</a></strong></td>
+<td style="text-align:left">Typed contracts</td>
+<td style="text-align:left">Python framework that makes schema-first I/O the default for LLM calls — the practical form of &quot;typed contracts at boundaries&quot; for agent code.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://ai.pydantic.dev/" rel="noopener">docs</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="where-sdd-applies">Where SDD applies</h3>
+<p>SDD is not limited to new projects or a single team. The spec becomes a portable artifact in three directions:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Context</th>
+<th style="text-align:left">How SDD applies</th>
+<th style="text-align:left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Greenfield projects</strong></td>
+<td style="text-align:left">Write the spec first; agents scaffold the repo, tests, and initial implementation from it.</td>
+<td style="text-align:left">Easiest case — no legacy constraints; the spec defines the system boundary.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Brownfield projects</strong></td>
+<td style="text-align:left">Reverse-engineer specs from existing code and behaviour, then use them as the contract for future agent-authored changes.</td>
+<td style="text-align:left">Start narrow (one module or flow), treat the spec as the accepted behaviour, and expand coverage incrementally. Agents modify against the spec, not the full legacy codebase.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Shared across orgs</strong></td>
+<td style="text-align:left">Specs, prompts, evals, and skill packs (<code>SKILL.md</code>, <code>AGENTS.md</code>, prompt libraries) are repo-level artifacts that can be open-sourced, forked, and re-used — like shared test suites or style guides.</td>
+<td style="text-align:left">Treat prompts and evals as first-class, versioned assets; publish them alongside code so research, patterns, and hard-won lessons compound across teams rather than staying trapped in one org.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>How this repo uses SDD:</strong> the <a href="https://github.com/natnew/Awesome-Agentic-Engineering/tree/main/specs" rel="noopener"><code>specs/</code></a> directory contains phased specs (requirements → plan → validation) generated and executed against with Spec Kit. The <code>tasks/todo.md</code>, phase validation scripts, and PR bodies are derived artifacts. See <a href="contributing.html">CONTRIBUTING</a> for the contributor-facing workflow.</p>
+</blockquote>
 <hr />
 <h2 id="memory-systems">🧠 Memory Systems</h2>
 <p><em>Last reviewed: April 2026.</em></p>

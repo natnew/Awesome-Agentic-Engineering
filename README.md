@@ -20,6 +20,7 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 - [⚖️ Architecture Decision Guide](#️-architecture-decision-guide)
 - [🧩 Core Agentic Patterns](#-core-agentic-patterns)
 - [🏗️ Reference Architectures](#-reference-architectures)
+- [📐 Spec-Driven Development](#-spec-driven-development)
 - [🧠 Memory Systems](#-memory-systems)
 - [📊 Formal Evaluation Rubric](#-formal-evaluation-rubric)
 - [Benchmark and Evidence Policy](#benchmark-and-evidence-policy)
@@ -90,6 +91,56 @@ Representative system designs for real-world use.
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **DeerFlow** | *Emerging* | **Is:** Open-source orchestration system combining sub-agents, memory, and sandboxes.<br>**Demonstrates:** Workflow-oriented orchestration across agents with shared execution context. | Strong system-level reference for memory, sandbox, and skills composition. | Higher setup complexity and a heavier runtime surface than most teams need initially. | Strong fit for compound research/coding workflows and teams studying full-stack agent architectures. Poor fit for lightweight orchestration or narrowly scoped tasks. | Hierarchical multi-agent orchestration. | Requires explicit sandbox policy, tool boundaries, and operator oversight before untrusted code execution. |
 | **SWE-agent** | *Experimental* | **Is:** Autonomous SWE system using a specialized Agent-Computer Interface (ACI).<br>**Demonstrates:** Narrow action spaces and interface design tuned for code-repair tasks. | Streamlined command space, compressed history handling, and a clear task boundary for patch workflows. | Benchmark-oriented design, high token cost, and long end-to-end fix latency on larger tasks. | Strong fit for isolated PRs and self-contained bug fixes. Poor fit for broad refactors or environments without standard build tooling. | Single agent with a highly specialized action space (ACI). | Needs tight repository scoping, review gates, and execution controls to reduce silent code regressions. |
+
+---
+
+## 📐 Spec-Driven Development
+
+_Last reviewed: April 2026._
+
+Agentic systems amplify whatever intent you feed them — including vague intent. **Spec-driven development (SDD)** treats the specification as the load-bearing artifact: a durable, reviewable document that describes *what* the system should do and *how* it should behave, from which plans, code, and tests are generated (and regenerated) by agents. It is the production-grade answer to "vibe coding."
+
+In an agentic context, the spec does three things at once:
+
+1. **Anchors intent** — a typed, versioned contract the agent (and humans) refer back to across long sessions.
+2. **Defines the acceptance surface** — plans, tasks, and tests are derived from the spec, not improvised per prompt.
+3. **Makes re-generation safe** — regenerating code from an updated spec is cheaper and more reviewable than patching drift.
+
+### Core practices
+
+| Practice | What it means | Why it matters for agents |
+| :--- | :--- | :--- |
+| **Spec before plan before code** | Write a scoped spec (problem, constraints, acceptance criteria) before any plan or implementation. Plans and code are generated *from* the spec. | Agents behave better against a fixed target than against a shifting prompt. |
+| **Executable specs** | Encode acceptance criteria as runnable checks (tests, evals, schema validators) alongside prose. | Lets agents self-verify and lets CI reject regressions without human review on every step. |
+| **Typed contracts at boundaries** | Specify tool signatures, state shape, and I/O schemas with types (Pydantic, JSON Schema, TypeSpec). | Narrows the action space the agent can hallucinate into. |
+| **Review the spec, not the diff** | Human review focuses on the spec and acceptance checks; the diff is a consequence. | Makes agent-authored PRs tractable at volume. |
+| **Versioned and diffable** | Specs live in the repo, are PR-reviewed, and evolve with the code. | Gives rollback, blame, and audit trail — same hygiene as code. |
+| **One spec, many artifacts** | Generate plans, tasks, tests, and docs from the same spec. | Keeps planner, actor, and verifier aligned. |
+
+### Resources
+
+Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence-policy).
+
+| Resource | Role | Description | Evidence |
+| :--- | :--- | :--- | :--- |
+| **[GitHub Spec Kit](https://github.com/github/spec-kit)** | Toolkit / methodology | Open-source toolkit for spec-driven development with agentic coding assistants (Copilot, Claude Code, Cursor, Gemini CLI). Defines the `/specify` → `/plan` → `/tasks` → `/implement` workflow used in this repo's own `specs/` directory. | `[official]` [repo](https://github.com/github/spec-kit) · `[official]` [announce](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/) |
+| **[Kiro](https://kiro.dev)** | IDE | AWS IDE built around spec-driven development: specs, steering files, and hooks drive agent work from requirements through tasks. First-party reference implementation of SDD in an IDE. | `[official]` [docs](https://kiro.dev/docs/) · `[field report]` [AWS launch post](https://aws.amazon.com/blogs/aws/introducing-kiro-an-ai-ide-that-thinks-like-a-developer/) |
+| **[OpenAI Model Spec](https://model-spec.openai.com/)** | Behavioural spec | First-party example of treating *model behaviour* as a versioned, public spec — objectives, rules, defaults, and conflict resolution. A reference for how to write a spec an agent can actually be aligned to. | `[official]` [spec](https://model-spec.openai.com/) · `[official]` [post](https://openai.com/index/sharing-the-latest-model-spec/) |
+| **[AGENTS.md](https://agents.md/)** | Project-level agent spec | Simple convention for a repository-scoped file that instructs coding agents about build, test, style, and conventions. Widely supported across agent CLIs. | `[official]` [site](https://agents.md/) |
+| **[Anthropic Claude Skills (SKILL.md)](https://www.claude.com/skills)** | Skill-level spec | Declarative, self-contained skill specs (`SKILL.md`) that package instructions, tools, and examples agents can discover and load on demand. Treats individual capabilities as versioned spec artifacts. | `[official]` [docs](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) |
+| **[Pydantic AI](https://ai.pydantic.dev/)** | Typed contracts | Python framework that makes schema-first I/O the default for LLM calls — the practical form of "typed contracts at boundaries" for agent code. | `[official]` [docs](https://ai.pydantic.dev/) |
+
+### Where SDD applies
+
+SDD is not limited to new projects or a single team. The spec becomes a portable artifact in three directions:
+
+| Context | How SDD applies | Notes |
+| :--- | :--- | :--- |
+| **Greenfield projects** | Write the spec first; agents scaffold the repo, tests, and initial implementation from it. | Easiest case — no legacy constraints; the spec defines the system boundary. |
+| **Brownfield projects** | Reverse-engineer specs from existing code and behaviour, then use them as the contract for future agent-authored changes. | Start narrow (one module or flow), treat the spec as the accepted behaviour, and expand coverage incrementally. Agents modify against the spec, not the full legacy codebase. |
+| **Shared across orgs** | Specs, prompts, evals, and skill packs (`SKILL.md`, `AGENTS.md`, prompt libraries) are repo-level artifacts that can be open-sourced, forked, and re-used — like shared test suites or style guides. | Treat prompts and evals as first-class, versioned assets; publish them alongside code so research, patterns, and hard-won lessons compound across teams rather than staying trapped in one org. |
+
+> **How this repo uses SDD:** the [`specs/`](specs/) directory contains phased specs (requirements → plan → validation) generated and executed against with Spec Kit. The `tasks/todo.md`, phase validation scripts, and PR bodies are derived artifacts. See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor-facing workflow.
 
 ---
 
