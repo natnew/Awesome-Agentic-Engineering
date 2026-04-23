@@ -207,6 +207,7 @@ Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence
 Broader catalog beyond the deep-dive set. Each subsection capped at 8 entries; entries that cannot clear the rubric were removed in this phase (see PR body for cut list).
 
 #### General Purpose
+
 | Framework | Lang | Description | Evidence |
 |-----------|------|-------------|----------|
 | [LangChain](https://github.com/langchain-ai/langchain) | Py/JS | Modular framework with chains, tools, memory, and broad integration coverage. | `[official]` |
@@ -219,6 +220,7 @@ Broader catalog beyond the deep-dive set. Each subsection capped at 8 entries; e
 | [DSPy](https://github.com/stanfordnlp/dspy) | Py | Stanford. Programming not prompting; compiler optimizes prompts against metrics. | `[official]` · `[benchmark]` |
 
 #### Multi-Agent Orchestration
+
 | Framework | Lang | Description | Evidence |
 |-----------|------|-------------|----------|
 | [AutoGen](https://github.com/microsoft/autogen) | Py | Microsoft Research multi-agent conversations; v0.4 redesigned for async event-driven execution. | `[official]` · `[benchmark]` |
@@ -231,6 +233,7 @@ Broader catalog beyond the deep-dive set. Each subsection capped at 8 entries; e
 | [AgentScope](https://github.com/modelscope/agentscope) | Py | Alibaba multi-agent framework with message-passing runtime and distributed mode. | `[official]` |
 
 #### Lightweight / Minimalist
+
 | Framework | Lang | Description | Evidence |
 |-----------|------|-------------|----------|
 | [Smolagents](https://github.com/huggingface/smolagents) | Py | HuggingFace minimal agents (~1000 lines); code-action agents with sandboxed execution. | `[official]` |
@@ -291,6 +294,7 @@ This section covers frameworks and operational tooling for testing agent quality
 - Robustness under adversarial input  
 
 ### Evaluation Frameworks
+
 | Framework | Description | Methodology / Workload Suitability | Evidence |
 |-----------|-------------|------------------------|----------|
 | [OpenAI Evals](https://github.com/openai/evals) | Core framework for testing and improving AI systems. | Foundational evaluation framework and methodology. | `[official]` |
@@ -307,6 +311,7 @@ This section covers frameworks and operational tooling for testing agent quality
 - Continuous evaluation pipelines  
 
 ### Tracing and Monitoring
+
 | Tool | Description |
 |------|-------------|
 | [Langfuse](https://github.com/langfuse/langfuse) | OSS LLM observability. Traces, evals, prompts. |
@@ -317,6 +322,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | [Weights and Biases Weave](https://wandb.ai/site/weave) | Trace and evaluate LLM apps. |
 
 ### Benchmarks
+
 | Benchmark | Description | Evidence |
 |-----------|-------------|----------|
 | [SWE-bench](https://github.com/princeton-nlp/SWE-bench) | Coding-agent benchmark grounded in real GitHub issues and patches; `Verified` subset is the canonical agent workload. | `[official]` · `[benchmark]` |
@@ -337,6 +343,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | Unbounded autonomous behaviour | Policy-driven execution |
 
 ### Safety Tooling & Methodologies
+
 | Resource | Description | Workload Suitability | Official Link |
 |----------|-------------|----------|---------------|
 | **garak** | LLM vulnerability scanner probing for hallucination, leakage, injection, toxicity, and jailbreaks. | Automated red teaming & vulnerability scanning | [GitHub](https://github.com/NVIDIA/garak) |
@@ -348,6 +355,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | **Anthropic Agentic Misalignment** | Grounds safety concerns in concrete behaviours (blackmail, espionage) in simulated settings. | Applied safety & threat-modelling reference | [Research Post](https://www.anthropic.com/research/agentic-misalignment) |
 
 ### AI Guardrails
+
 | Tool | Description |
 |------|-------------|
 | [Guardrails AI](https://github.com/guardrails-ai/guardrails) | Structural, type, quality guarantees for LLM outputs. |
