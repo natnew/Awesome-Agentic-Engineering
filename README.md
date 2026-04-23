@@ -331,6 +331,9 @@ This section covers frameworks and operational tooling for testing agent quality
 | [GAIA](https://huggingface.co/gaia-benchmark) | General AI assistant benchmark with real-world multi-step tasks and tool use. | `[official]` · `[benchmark]` |
 | [WebArena / VisualWebArena](https://github.com/web-arena-x/webarena) | Web agent benchmark on real-website snapshots; visual variant tests multimodal web agents. | `[official]` · `[benchmark]` |
 | [τ-bench](https://github.com/sierra-research/tau-bench) | Tool-use + user-simulation benchmark measuring agent reliability and consistency across trials. | `[official]` · `[benchmark]` |
+| [OSWorld](https://github.com/xlang-ai/OSWorld) | Computer-use benchmark for multimodal agents on real desktop OS tasks across Ubuntu/Windows/macOS; complements web-only benchmarks. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2404.07972) |
+| [LiveCodeBench](https://livecodebench.github.io) | Contamination-resistant coding benchmark with time-stamped problems from LeetCode/AtCoder/Codeforces; complements SWE-bench's repo-issue workload. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2403.07974) |
+| [WebVoyager](https://github.com/MinorJerry/WebVoyager) | Web-agent benchmark on live production websites (not snapshots); tests multimodal browsing under real network and UI drift conditions. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2401.13919) |
 
 ### Safety Risk Surfaces & Mitigations
 
