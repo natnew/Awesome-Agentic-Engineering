@@ -5,6 +5,7 @@ _Last reviewed: April 2026._
 Computer-use and browser agents operate on GUI surfaces (DOM, pixels, or accessibility trees) rather than pure APIs. Evidence tags follow the [Benchmark and Evidence Policy](benchmark-and-evidence-policy.md). Entries that are marketing-only or have no active development were removed in this phase.
 
 ### Consumer Products
+
 | Agent | Description | Evidence |
 |-------|-------------|----------|
 | [OpenAI Operator](https://operator.chatgpt.com) | ChatGPT autonomous web agent; human checkpoints; built on the CUA (Computer-Using Agent) model. | `[official]` |
@@ -15,6 +16,7 @@ Computer-use and browser agents operate on GUI surfaces (DOM, pixels, or accessi
 | [Dia Browser](https://www.diabrowser.com/) | AI-native browser from The Browser Company (acquired by Atlassian). | `[official]` |
 
 ### Developer Infrastructure
+
 | Tool | Description | Evidence |
 |------|-------------|----------|
 | [Browser Use](https://github.com/browser-use/browser-use) | OSS browser agent library with DOM + vision hybrid; widely embedded in other agent stacks. | `[official]` |
@@ -26,6 +28,7 @@ Computer-use and browser agents operate on GUI surfaces (DOM, pixels, or accessi
 | [Playwright MCP](https://github.com/microsoft/playwright-mcp) | Official MCP server wrapping Playwright for agent-driven browser automation. | `[official]` |
 
 ### Benchmarks & Evaluation
+
 | Benchmark | Description | Evidence |
 |-----------|-------------|----------|
 | [OSWorld](https://os-world.github.io/) | Real computer environments benchmark for multimodal agents on open-ended tasks. | `[official]` · `[benchmark]` |

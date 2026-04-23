@@ -1,6 +1,7 @@
 ## 💼 Customer Support and CRM Agents
 
 ### Support Agents
+
 | Agent | Description |
 |-------|------------- |
 | [Intercom Fin](https://intercom.com) | Support agent grounded in help-center content with automated ticket resolution workflows. |
@@ -11,6 +12,7 @@
 | [Dixa (Mim)](https://dixa.com) | Conversational CRM. AI routing and prioritization. |
 
 ### AI-Powered CRMs
+
 | CRM | AI Features |
 |-----|------------- |
 | [Salesforce Einstein + Agentforce](https://salesforce.com) | Predictions, autonomous agents, ChatGPT integration. |
@@ -24,6 +26,7 @@
 | [Salesmate](https://salesmate.io) | Call summarization, lead qualification. |
 
 ### Sales and Outreach Agents
+
 | Agent | Description |
 |-------|------------- |
 | [Clay](https://clay.com) | AI data enrichment. Personalized outreach at scale. |

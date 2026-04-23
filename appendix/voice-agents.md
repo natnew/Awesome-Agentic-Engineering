@@ -1,6 +1,7 @@
 ## 🎙 Voice Agents
 
 ### Platforms and APIs
+
 | Platform | Description |
 |----------|------------- |
 | [ElevenLabs](https://elevenlabs.io) | Voice platform with conversational AI, multimodal support, batch calling, and compliance-oriented deployment options. |
@@ -16,6 +17,7 @@
 | [AssemblyAI](https://assemblyai.com) | STT with diarization, sentiment, summarization. |
 
 ### Open-Source Voice
+
 | Tool | Description |
 |------|-------------|
 | [LiveKit Agents](https://github.com/livekit/agents) | OSS real-time voice/video AI agents. |
