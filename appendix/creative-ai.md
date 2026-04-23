@@ -3,6 +3,7 @@
 Descriptions in this appendix prioritise workflow characteristics and deployment constraints over superlatives or leaderboard language.
 
 ### Image Generation
+
 | Tool | Description |
 |------|------------- |
 | [Midjourney v7](https://midjourney.com) | Strong stylistic control with Discord and web-based image workflows. |
@@ -16,6 +17,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Recraft](https://recraft.ai) | Design-focused. Vector art, brand consistency. |
 
 ### Video Generation
+
 | Tool | Description |
 |------|------------- |
 | [Sora 2](https://sora.com) | Video generation focused on longer-form scene consistency and motion realism. |
@@ -31,6 +33,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [LTX Video](https://github.com/Lightricks/LTX-Video) | OSS. Licensed data. Clear commercial terms. |
 
 ### Music and Audio
+
 | Tool | Description |
 |------|------------- |
 | [Suno](https://suno.ai) | Text-to-song generation with full tracks and vocal production. |
@@ -40,6 +43,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Meta AudioCraft](https://github.com/facebookresearch/audiocraft) | OSS. MusicGen + AudioGen. |
 
 ### 3D and Design
+
 | Tool | Description |
 |------|------------- |
 | [Meshy](https://meshy.ai) | Text/image to 3D. Game assets, products. |

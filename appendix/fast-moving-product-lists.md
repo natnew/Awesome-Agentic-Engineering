@@ -11,6 +11,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 ## 🖥 Coding Agents
 
 ### IDE-Native Agents
+
 | Agent | Description |
 |-------|------------- |
 | [Cursor](https://cursor.com) | VS Code fork with multi-file editing, project context, and managed model integrations. |
@@ -23,6 +24,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Google Antigravity](https://idx.google.com) | Free Claude Opus 4.5 access. Learning-focused. |
 
 ### Terminal and CLI Agents
+
 | Agent | Description |
 |-------|------------- |
 | [Claude Code](https://docs.anthropic.com/en/docs/claude-code) | Anthropic CLI agent for repo navigation, tool use, and multi-step coding workflows. |
@@ -34,6 +36,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [OpenCode](https://github.com/opencode-ai/opencode) | BYOK terminal agent for Cursor refugees. |
 
 ### Autonomous Software Engineers
+
 | Agent | Description |
 |-------|------------- |
 | [Devin](https://devin.ai) | Cloud-hosted software engineering agent with sandboxed execution and interactive planning. |
@@ -44,6 +47,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Kiro](https://kiro.dev) | Spec-driven development. DevOps automation. |
 
 ### Code Review and Security
+
 | Agent | Description |
 |-------|------------- |
 | [Qodo](https://www.qodo.ai/) | AI code review. Context-aware PR validation. |
@@ -52,6 +56,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [PR-Agent](https://github.com/Codium-ai/pr-agent) | OSS AI PR reviewer. Auto-describe, review, improve. |
 
 ### App Builders (Prompt-to-App)
+
 | Agent | Description |
 |-------|------------- |
 | [Bolt.new](https://bolt.new) | Prompt to full-stack web app in browser. |
@@ -66,6 +71,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 ## ⚡ Task and Workflow Agents
 
 ### Automation
+
 | Agent | Description |
 |-------|------------- |
 | [n8n](https://github.com/n8n-io/n8n) | OSS workflow automation with AI agent nodes. Visual + code. |
@@ -75,6 +81,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Temporal](https://github.com/temporalio/temporal) | Durable execution for long-running agent workflows. |
 
 ### No-Code Agent Builders
+
 | Agent | Description |
 |-------|------------- |
 | [Dify](https://github.com/langgenius/dify) | Open-source LLMOps platform with visual agent building, workflow orchestration, and RAG support. |
@@ -90,6 +97,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 ## 📊 Data and Research Agents
 
 ### Deep Research
+
 | Agent | Description |
 |-------|------------- |
 | [Claude Deep Research](https://claude.ai) | Multi-step investigation with citations. |
@@ -101,6 +109,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [STORM](https://github.com/stanford-oval/storm) | Stanford. Writes Wikipedia-like articles from scratch. |
 
 ### Data Analysis
+
 | Agent | Description |
 |-------|------------- |
 | [Julius AI](https://julius.ai) | Upload CSV/Excel, ask in natural language. |
@@ -109,6 +118,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [TaskWeaver](https://github.com/microsoft/TaskWeaver) | Microsoft. Code-first data analytics agents. |
 
 ### RAG and Knowledge Bases
+
 | Tool | Description |
 |------|-------------|
 | [RAGFlow](https://github.com/infiniflow/ragflow) | OSS RAG engine with agent capabilities. |
@@ -125,6 +135,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 ## 🏠 Local and Self-Hosted AI
 
 ### Local LLM Runners
+
 | Tool | Description |
 |------|-------------|
 | [Ollama](https://github.com/ollama/ollama) | Local model runner with a minimal CLI and API for self-hosted experimentation. |
@@ -137,6 +148,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Llamafile](https://github.com/Mozilla-Ocho/llamafile) | LLMs as single files. Zero setup. Mozilla. |
 
 ### Self-Hosted Agents and UIs
+
 | Tool | Description |
 |------|-------------|
 | [Open WebUI](https://github.com/open-webui/open-webui) | Self-hosted ChatGPT UI. Access control. Extensions. |
