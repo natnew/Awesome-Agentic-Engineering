@@ -175,11 +175,50 @@ def _add_rel_noopener(html_body: str) -> str:
     return _EXT_A_RE.sub(_sub, html_body)
 
 
+# Tables under these h3 section ids are wide (4–7 columns with long prose)
+# and render poorly inside the 860px content column. Tag them so the
+# stylesheet can apply fixed-layout desktop rules and a stacked-card mobile
+# layout. Scope is intentionally narrow — see
+# specs/2026-04-22-phase-7-publishing-and-reach/plan.md (task 7.1).
+_LANDSCAPE_H3_IDS = frozenset(
+    {
+        "frameworks-landscape",
+        "evaluation-frameworks",
+        "tracing-and-monitoring",
+        "benchmarks",
+        "safety-tooling-methodologies",
+    }
+)
+
+# Match h1/h2/h3 only — h4 subsections (e.g. under "Frameworks Landscape")
+# must stay inside the parent section so their tables get tagged too.
+_HEADING_BOUNDARY_RE = re.compile(r'<h([123])(?:\s+id="([^"]+)")?[^>]*>')
+
+
+def _tag_landscape_tables(html_body: str) -> str:
+    """Add ``class="landscape-table"`` to every ``<table>`` that appears
+    under one of the wide-table h3 sections. Idempotent."""
+    headings = list(_HEADING_BOUNDARY_RE.finditer(html_body))
+    if not headings:
+        return html_body
+    parts: list[str] = [html_body[: headings[0].start()]]
+    for i, m in enumerate(headings):
+        start = m.start()
+        end = headings[i + 1].start() if i + 1 < len(headings) else len(html_body)
+        segment = html_body[start:end]
+        hid = m.group(2) or ""
+        if hid in _LANDSCAPE_H3_IDS:
+            segment = segment.replace("<table>", '<table class="landscape-table">')
+        parts.append(segment)
+    return "".join(parts)
+
+
 def render_markdown_to_html(md_text: str, parser: MarkdownIt | None = None) -> str:
     parser = parser or build_markdown_parser()
     body = parser.render(md_text)
     body = _rewrite_internal_links(body)
     body = _add_rel_noopener(body)
+    body = _tag_landscape_tables(body)
     return body
 
 
@@ -358,6 +397,65 @@ a:hover, a:focus { text-decoration: underline; }
 .content th { background: var(--code-bg); }
 .content img { max-width: 100%; height: auto; }
 .content hr { border: 0; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+/* Wide reference tables (Frameworks Landscape, Evaluation Frameworks,
+   Tracing and Monitoring, Benchmarks, Safety Tooling & Methodologies).
+   Keep the 860px content column; use fixed table layout so cells wrap
+   inside the column instead of forcing horizontal scroll, and collapse
+   to stacked cards on small viewports. Tagged by the renderer via
+   _tag_landscape_tables(). */
+.content table.landscape-table {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  overflow-x: visible;
+  font-size: 0.9rem;
+}
+.content table.landscape-table th,
+.content table.landscape-table td {
+  padding: 0.5rem 0.6rem;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+.content table.landscape-table code,
+.content table.landscape-table a {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 720px) {
+  .content table.landscape-table,
+  .content table.landscape-table thead,
+  .content table.landscape-table tbody,
+  .content table.landscape-table tr,
+  .content table.landscape-table th,
+  .content table.landscape-table td {
+    display: block;
+    width: 100%;
+  }
+  .content table.landscape-table thead {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+  }
+  .content table.landscape-table tr {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin: 0.75rem 0;
+    padding: 0.25rem 0.75rem;
+    background: var(--bg);
+  }
+  .content table.landscape-table td {
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 0;
+  }
+  .content table.landscape-table td:last-child { border-bottom: 0; }
+  .content table.landscape-table td:first-child {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+}
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 1.5rem 1.25rem;
