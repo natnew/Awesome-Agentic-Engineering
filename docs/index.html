@@ -204,7 +204,7 @@
 <hr />
 <h2 id="memory-systems">🧠 Memory Systems</h2>
 <p><em>Last reviewed: April 2026.</em></p>
-<p>Memory is a first-class concern in agentic systems. Rather than treating memory as a simple array of previous messages, production systems require structured approaches to state, persistence, and retrieval. Four categories — working, episodic, procedural, semantic — are load-bearing decisions, not implementation details; pick them deliberately before picking a vendor.</p>
+<p>Memory is a first-class concern in agentic systems. Rather than treating memory as a simple array of previous messages, production systems require structured approaches to state, persistence, retrieval, and <strong>experience reuse</strong>. Four categories — working, episodic, procedural, semantic — remain the core architectural choices, but recent frontier research also shows memory is increasingly being used to <strong>improve future agent behaviour</strong>, not merely to store past context.</p>
 <h3 id="memory-taxonomy">Memory Taxonomy</h3>
 <p>Different types of memory serve distinct functional roles in an agentic architecture:</p>
 <table>
@@ -235,6 +235,38 @@
 <td style="text-align:left"><strong>Semantic Memory</strong></td>
 <td style="text-align:left">Embedded, factual knowledge about the world, the user, or the domain. Defines <em>what</em> the agent knows.</td>
 <td style="text-align:left">Vector databases (FAISS, Pinecone), knowledge graphs, Letta core memory.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="frontier-research-memory-beyond-storage">Frontier Research: Memory Beyond Storage</h3>
+<p>Recent research shows frontier agent systems moving beyond simple retrieval towards <strong>experience transformation</strong>: converting prior trajectories, workflows, and reasoning patterns into reusable guidance for future tasks. Memory becomes part of the learning loop, not just the context pipeline.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">System</th>
+<th style="text-align:left">Best Fit in Taxonomy</th>
+<th style="text-align:left">Why it matters</th>
+<th style="text-align:left">Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Agent Workflow Memory (AWM)</strong></td>
+<td style="text-align:left">Episodic + Procedural</td>
+<td style="text-align:left">Induces reusable workflows from prior experience and selectively retrieves them to guide future generations; improves long-horizon web-agent tasks in both offline and online settings.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://github.com/zorazrw/agent-workflow-memory" rel="noopener">repo</a> · <code>[benchmark]</code> <a href="https://arxiv.org/abs/2409.07429" rel="noopener">paper</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Synapse</strong></td>
+<td style="text-align:left">Episodic</td>
+<td style="text-align:left">Stores exemplar trajectories as memory and retrieves them via similarity search, using complete state–action histories (not shallow few-shot examples) to improve multi-step computer control.</td>
+<td style="text-align:left"><code>[official]</code> <a href="https://ltzheng.github.io/Synapse/" rel="noopener">site</a> · <code>[benchmark]</code> <a href="https://arxiv.org/abs/2306.07863" rel="noopener">paper</a></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ReasoningBank</strong></td>
+<td style="text-align:left">Episodic + Procedural (semantic-adjacent)</td>
+<td style="text-align:left">Distils generalisable reasoning strategies from self-judged successful <em>and</em> failed experiences, then retrieves and updates them over time so the agent improves through continued interaction.</td>
+<td style="text-align:left"><code>[benchmark]</code> <a href="https://arxiv.org/abs/2509.25140" rel="noopener">paper</a></td>
 </tr>
 </tbody>
 </table>
@@ -330,6 +362,9 @@
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p><strong>Design implication:</strong> the key question is no longer only <em>what</em> the agent remembers, but <em>how memory changes future behaviour</em>. Systems like Synapse, Agent Workflow Memory, and ReasoningBank signal a shift — memory is becoming part of the agent's learning loop, enabling reusable routines and self-improvement over time.</p>
+</blockquote>
 <hr />
 <h2 id="formal-evaluation-rubric">📊 Formal Evaluation Rubric</h2>
 <p>Every major framework and architecture in this repository is judged against the following <strong>Required Scoring Dimensions</strong>. We evaluate systems based on engineering rigor, not marketing copy.</p>
