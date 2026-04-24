@@ -209,6 +209,8 @@ Specialised infrastructure for managing agent memory.
 
 ## 📊 Formal Evaluation Rubric
 
+> **🎯 Evaluation principle:** rubrics assess quality, test suites verify behaviour, assertions enforce invariants, and LLM-as-a-judge is used only in tightly scoped regression tests.
+
 Every major framework and architecture in this repository is judged against the following **Required Scoring Dimensions**. We evaluate systems based on engineering rigor, not marketing copy.
 
 | Dimension | Evaluation Criteria |
