@@ -208,3 +208,15 @@ __marimo__/
 
 # Local-only constitution / feature specs (not for publication)
 specs/
+
+# Learning
+learning/
+
+# specs
+specs/
+roadmap.md
+
+# tools
+hygiene.py
+test_hygiene_no_mojibake.py
+
