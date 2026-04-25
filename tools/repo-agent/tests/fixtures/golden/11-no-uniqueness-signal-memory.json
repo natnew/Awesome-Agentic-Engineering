@@ -1,0 +1,15 @@
+{
+  "slug": "no-uniqueness-signal-memory",
+  "outcome": "revise",
+  "human_scores": {
+    "Reliability": 3,
+    "Evidence": 2,
+    "Agentic relevance": 2,
+    "Uniqueness": 2,
+    "Maturity": 3,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Lacks explicit 'unique/distinct' phrasing; entry is otherwise solid. Human gives Uniqueness +1 over heuristic since the vector+graph combo is genuinely differentiated even though the marker phrase is missing. Revise to make the differentiation explicit.",
+  "source": "synthetic"
+}

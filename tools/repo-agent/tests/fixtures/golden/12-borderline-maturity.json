@@ -1,0 +1,15 @@
+{
+  "slug": "borderline-maturity",
+  "outcome": "revise",
+  "human_scores": {
+    "Reliability": 2,
+    "Evidence": 1,
+    "Agentic relevance": 2,
+    "Uniqueness": 3,
+    "Maturity": 2,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Pre-1.0; heuristic underweights since semver/release-cadence/'maintained' phrasing absent. Human gives +1 to reflect 'stable enough for staging'. Revise to add a benchmark or field report.",
+  "source": "synthetic"
+}

@@ -1,0 +1,15 @@
+{
+  "slug": "stars-as-evidence-anti-pattern",
+  "outcome": "reject",
+  "human_scores": {
+    "Reliability": 1,
+    "Evidence": 1,
+    "Agentic relevance": 2,
+    "Uniqueness": 0,
+    "Maturity": 1,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Stars-as-evidence anti-pattern. Heuristic flags via anti-pattern check; human rejects.",
+  "source": "synthetic"
+}

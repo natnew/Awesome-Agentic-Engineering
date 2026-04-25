@@ -1,0 +1,15 @@
+{
+  "slug": "no-agentic-relevance",
+  "outcome": "reject",
+  "human_scores": {
+    "Reliability": 2,
+    "Evidence": 2,
+    "Agentic relevance": 0,
+    "Uniqueness": 0,
+    "Maturity": 3,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "No agentic relevance — Agentic relevance hard-gate fails. Human and heuristic agree: reject.",
+  "source": "synthetic"
+}

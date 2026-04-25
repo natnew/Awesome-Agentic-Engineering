@@ -1,0 +1,15 @@
+{
+  "slug": "borderline-marketing",
+  "outcome": "revise",
+  "human_scores": {
+    "Reliability": 3,
+    "Evidence": 2,
+    "Agentic relevance": 3,
+    "Uniqueness": 0,
+    "Maturity": 3,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Marketing-adjacent ('enterprise-grade', 'modern stack') but no hard anti-pattern. Human nudges Uniqueness down 1 since the differentiation is asserted rather than demonstrated. Revise to remove marketing phrasing.",
+  "source": "synthetic"
+}

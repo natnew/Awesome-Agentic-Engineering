@@ -1,0 +1,15 @@
+{
+  "slug": "no-evidence-tags",
+  "outcome": "reject",
+  "human_scores": {
+    "Reliability": 0,
+    "Evidence": 0,
+    "Agentic relevance": 3,
+    "Uniqueness": 0,
+    "Maturity": 2,
+    "Licensing / openness": 0,
+    "Community signal": 2
+  },
+  "rationale": "Zero evidence tags — Evidence hard-gate fails. License unclear. Human and heuristic agree: reject.",
+  "source": "synthetic"
+}

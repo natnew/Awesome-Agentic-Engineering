@@ -1,0 +1,15 @@
+{
+  "slug": "thin-but-real-protocol",
+  "outcome": "revise",
+  "human_scores": {
+    "Reliability": 1,
+    "Evidence": 1,
+    "Agentic relevance": 2,
+    "Uniqueness": 0,
+    "Maturity": 0,
+    "Licensing / openness": 0,
+    "Community signal": 2
+  },
+  "rationale": "Pre-stable protocol. Heuristic and human both score it as revise.",
+  "source": "synthetic"
+}

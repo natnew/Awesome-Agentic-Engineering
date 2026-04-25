@@ -1,0 +1,15 @@
+{
+  "slug": "abandoned-no-maintenance",
+  "outcome": "reject",
+  "human_scores": {
+    "Reliability": 2,
+    "Evidence": 1,
+    "Agentic relevance": 1,
+    "Uniqueness": 0,
+    "Maturity": 2,
+    "Licensing / openness": 0,
+    "Community signal": 2
+  },
+  "rationale": "Abandoned. Heuristic gives some Reliability/Maturity due to v-string, but human rejects on the abandoned signal. Some divergence expected here.",
+  "source": "synthetic"
+}

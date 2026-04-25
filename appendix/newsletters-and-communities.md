@@ -1,5 +1,7 @@
 ## 📰 Newsletters and Communities
 
+> Audience: all contributors · Evidence class: mixed
+
 | Resource | Description |
 |----------|-------------|
 | [Awesome Agents Newsletter](https://awesomeagents.ai) | Weekly tools + reviews |

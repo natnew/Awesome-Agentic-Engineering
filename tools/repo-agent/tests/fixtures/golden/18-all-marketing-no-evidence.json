@@ -1,0 +1,15 @@
+{
+  "slug": "all-marketing-no-evidence",
+  "outcome": "reject",
+  "human_scores": {
+    "Reliability": 0,
+    "Evidence": 0,
+    "Agentic relevance": 1,
+    "Uniqueness": 0,
+    "Maturity": 0,
+    "Licensing / openness": 0,
+    "Community signal": 0
+  },
+  "rationale": "Pure marketing, no evidence, no URL, no license, no agentic terms. Both reject.",
+  "source": "synthetic (anti-pattern showcase)"
+}

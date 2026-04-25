@@ -1,0 +1,15 @@
+{
+  "slug": "weak-agentic-relevance-tooling",
+  "outcome": "revise",
+  "human_scores": {
+    "Reliability": 2,
+    "Evidence": 2,
+    "Agentic relevance": 1,
+    "Uniqueness": 1,
+    "Maturity": 1,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Borderline: the library is adjacent to agent stacks but not itself agentic. Heuristic reads agentic terms; human accepts at lower bar.",
+  "source": "synthetic"
+}

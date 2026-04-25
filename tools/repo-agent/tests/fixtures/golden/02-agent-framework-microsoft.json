@@ -1,0 +1,15 @@
+{
+  "slug": "agent-framework-microsoft",
+  "outcome": "accept",
+  "human_scores": {
+    "Reliability": 3,
+    "Evidence": 2,
+    "Agentic relevance": 3,
+    "Uniqueness": 1,
+    "Maturity": 3,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Production framework with two evidence tags and clear differentiation. Heuristic and human align closely.",
+  "source": "synthetic (modeled on README orchestration section)"
+}

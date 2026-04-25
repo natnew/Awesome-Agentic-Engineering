@@ -1,0 +1,15 @@
+{
+  "slug": "missing-license-orchestrator",
+  "outcome": "revise",
+  "human_scores": {
+    "Reliability": 3,
+    "Evidence": 2,
+    "Agentic relevance": 3,
+    "Uniqueness": 1,
+    "Maturity": 0,
+    "Licensing / openness": 0,
+    "Community signal": 2
+  },
+  "rationale": "License unspecified — heuristic correctly scores Licensing 0, but Evidence 2 and Agentic relevance ≥ 2 keep it borderline. Revise to add license clarity.",
+  "source": "synthetic"
+}

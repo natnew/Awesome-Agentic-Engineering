@@ -1,0 +1,15 @@
+{
+  "slug": "autogen-multi-agent",
+  "outcome": "accept",
+  "human_scores": {
+    "Reliability": 3,
+    "Evidence": 3,
+    "Agentic relevance": 3,
+    "Uniqueness": 3,
+    "Maturity": 3,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Three-tag accept with strong maturity signal. Heuristic and human align fully.",
+  "source": "synthetic (modeled on README orchestration section)"
+}

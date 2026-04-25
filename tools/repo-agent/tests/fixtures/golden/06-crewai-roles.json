@@ -1,0 +1,15 @@
+{
+  "slug": "crewai-roles",
+  "outcome": "accept",
+  "human_scores": {
+    "Reliability": 3,
+    "Evidence": 2,
+    "Agentic relevance": 3,
+    "Uniqueness": 3,
+    "Maturity": 3,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Two-tag accept. Heuristic and human align.",
+  "source": "synthetic (modeled on README orchestration section)"
+}

@@ -1,0 +1,15 @@
+{
+  "slug": "duplicate-without-differentiation",
+  "outcome": "reject",
+  "human_scores": {
+    "Reliability": 2,
+    "Evidence": 1,
+    "Agentic relevance": 2,
+    "Uniqueness": 0,
+    "Maturity": 2,
+    "Licensing / openness": 0,
+    "Community signal": 2
+  },
+  "rationale": "Adds nothing over upstream. Reject.",
+  "source": "synthetic"
+}

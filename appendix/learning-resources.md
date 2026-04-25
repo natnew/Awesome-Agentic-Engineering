@@ -1,5 +1,7 @@
 ## 📚 Learning Resources
 
+> Audience: all contributors · Evidence class: mixed
+
 ### Courses and Tutorials
 - [DeepLearning.AI Agent Courses](https://www.deeplearning.ai/) - Free courses with LangChain, CrewAI, AutoGen
 - [HuggingFace Agents Course](https://huggingface.co/learn/agents-course) - Open-source agent dev course

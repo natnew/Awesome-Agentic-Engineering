@@ -1,0 +1,15 @@
+{
+  "slug": "no-license",
+  "outcome": "reject",
+  "human_scores": {
+    "Reliability": 3,
+    "Evidence": 2,
+    "Agentic relevance": 3,
+    "Uniqueness": 1,
+    "Maturity": 0,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "License hard-gate fails. Even with two tags and clear agentic relevance, no-license = reject.",
+  "source": "synthetic"
+}

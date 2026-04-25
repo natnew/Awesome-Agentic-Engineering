@@ -1,0 +1,15 @@
+{
+  "slug": "thin-evidence-planner",
+  "outcome": "revise",
+  "human_scores": {
+    "Reliability": 1,
+    "Evidence": 1,
+    "Agentic relevance": 3,
+    "Uniqueness": 0,
+    "Maturity": 0,
+    "Licensing / openness": 0,
+    "Community signal": 2
+  },
+  "rationale": "Single evidence tag, no maturity signal, no uniqueness phrasing. Heuristic and human both flag for revision.",
+  "source": "synthetic"
+}

@@ -1,0 +1,15 @@
+{
+  "slug": "mcp-protocol",
+  "outcome": "accept",
+  "human_scores": {
+    "Reliability": 3,
+    "Evidence": 3,
+    "Agentic relevance": 2,
+    "Uniqueness": 3,
+    "Maturity": 3,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Protocol entry. Heuristic over-counts agentic terms (mcp + agent + tool use + memory) ⇒ 3; human nudges down to 2 since 'agentic relevance' for a protocol is one step removed.",
+  "source": "synthetic (modeled on README protocols section)"
+}

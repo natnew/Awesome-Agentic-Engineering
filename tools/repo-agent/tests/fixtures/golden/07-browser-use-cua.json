@@ -1,0 +1,15 @@
+{
+  "slug": "browser-use-cua",
+  "outcome": "accept",
+  "human_scores": {
+    "Reliability": 3,
+    "Evidence": 3,
+    "Agentic relevance": 3,
+    "Uniqueness": 3,
+    "Maturity": 3,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Three-tag computer-use accept. Heuristic and human align.",
+  "source": "synthetic (modeled on appendix/browser-and-desktop-agents.md)"
+}

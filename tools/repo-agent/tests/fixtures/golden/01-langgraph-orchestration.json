@@ -1,0 +1,15 @@
+{
+  "slug": "langgraph-orchestration",
+  "outcome": "accept",
+  "human_scores": {
+    "Reliability": 3,
+    "Evidence": 3,
+    "Agentic relevance": 3,
+    "Uniqueness": 3,
+    "Maturity": 2,
+    "Licensing / openness": 3,
+    "Community signal": 2
+  },
+  "rationale": "Multi-tag, production-ready orchestration framework. Heuristic captures all dims well; human nudges Maturity down by 1 (release cadence not yet 'maintained' in semver-strict sense for v0.x).",
+  "source": "synthetic (modeled on README orchestration section)"
+}

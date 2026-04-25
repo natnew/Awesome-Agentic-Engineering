@@ -1,5 +1,7 @@
 ## 💼 Customer Support and CRM Agents
 
+> Audience: practitioners · Evidence class: field report
+
 ### Support Agents
 
 | Agent | Description |
