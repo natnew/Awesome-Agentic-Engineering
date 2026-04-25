@@ -28,8 +28,9 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 - [Benchmark and Evidence Policy](#benchmark-and-evidence-policy)
 - [⚙️ Orchestration Frameworks](#-orchestration-frameworks)
 - [📡 Protocols and Standards](#-protocols-and-standards)
-- [� Reasoning & Planning Models](#-reasoning--planning-models)
-- [�🧪 Evaluation & Safety](#-evaluation--safety)
+- [🛂 Agent Authority, Identity & Delegation](#-agent-authority-identity--delegation)
+- [🧭 Reasoning & Planning Models](#-reasoning--planning-models)
+- [🧪 Evaluation & Safety](#-evaluation--safety)
 - [🧠 Skills and Operating Principles](#-skills-and-operating-principles)
 - [🚫 What NOT to Do](#-what-not-to-do)
 - [📊 Signals (How to Read This List)](#-signals-how-to-read-this-list)
@@ -71,6 +72,8 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 | **open-ended research** | planner/executor or supervisor | critique loops, memory | rigid pipelines only |
 | **high-reliability extraction** | prompt chains + strict schemas | validator feedback loops | unconstrained conversational agents |
 | **complex parallel execution** | modular multi-agent setups | shared workspace/memory | treating LLMs as deterministic |
+
+> **Authority rule:** any agent that can act outside its own runtime — for example by calling APIs, modifying files, opening pull requests, sending messages, triggering workflows, or accessing private data — needs an explicit identity, scoped authority, audit trail, and revocation path. See [Agent Authority, Identity & Delegation](#-agent-authority-identity--delegation).
 
 ---
 
@@ -347,6 +350,65 @@ Protocols are the stable contracts between agents, tools, and hosts. Each entry 
 
 ---
 
+## 🛂 Agent Authority, Identity & Delegation
+
+> Audience: practitioners, AI security, enterprise architects · Evidence class: mixed
+
+_Last reviewed: April 2026._
+
+Protocols like MCP, A2A, and function calling explain **how** agents connect to tools and systems. This section covers **who or what is authorised** to use those connections, and how that authority is governed in production — what the industry has begun to call the **AI Agent Authority Gap**.
+
+Action-taking agents do not emerge with independent authority. They are triggered, invoked, provisioned, or empowered by existing enterprise identities — human users, service accounts, bots, machine identities, OAuth tokens, API keys, tool connectors, MCP servers, CLIs, scripts, and automation infrastructure. The same agent loop can reach into source control, ticketing, messaging, cloud APIs, and private data through credentials that were never designed for autonomous use.
+
+> Agents are not just a new identity type. They are a **delegated identity type**. Their authority originates from traditional enterprise actors — humans, bots, service accounts, and machine identities — and is **inseparable from the posture of those delegators**.
+
+Traditional IAM was built to answer a narrow question: *who has access?* Once agents are introduced, the operative question shifts:
+
+> What authority is being delegated, by whom, under what conditions, for what purpose, and across what scope?
+
+**Identity dark matter** is the term for authority that exists, operates, and accumulates risk **outside the view of managed IAM** — fragmented human and machine identities, embedded credentials, unmanaged service accounts, bot accounts, and application-specific identity logic. If that dark matter remains unobserved, agents inherit an already-broken authority model and become efficient amplifiers of hidden access, hidden permissions, and hidden execution paths.
+
+The practical consequence is **sequencing**: an enterprise cannot safely govern Agent-AI unless it first observes and governs the traditional actors that serve as its **delegation source**. Closing the authority gap is therefore a delegation problem first, and an agent problem second.
+
+### Core Concepts
+
+| Concept | Definition | Why it matters |
+|---------|------------|----------------|
+| **Agent Identity** | A first-class, distinguishable identity for the agent itself, separate from the human, service account, or bot whose authority it borrows. | Without it, every agent action is attributed to its delegator or a shared service account, breaking attribution, audit, and incident response. |
+| **Delegation Source** | The human, service account, bot, or machine identity that triggers, invokes, or empowers the agent. | Agent authority is inseparable from delegator posture; a poorly governed delegator yields a poorly governed agent. |
+| **Delegation Chain** | The end-to-end path *delegator → agent → tool → target application → action*, including any intermediate scopes, tokens, and approvals. | Makes the path of authority explicit and reviewable instead of inherited from whatever credentials the runtime happens to hold. |
+| **Identity Dark Matter** | Authority — identities, credentials, tokens, service accounts, embedded secrets, application-specific access paths — that exists and operates outside the view of managed IAM. | Agents amplify hidden authority into automated action at machine speed; un-illuminated dark matter becomes the agent's effective permission set. |
+| **Authority Boundary** | The explicit set of applications, workflows, scopes, and actions an agent is allowed to touch. | Defines the blast radius. An agent without a stated boundary effectively has the union of every credential its delegator can reach. |
+| **Dynamic Sequential Delegation Control** | Runtime authority decisions that combine the **posture** of the delegator, the **context** of the target application, the **intent** behind the requested action, and the **scope** of execution. | Static, long-lived permissions do not match agents whose delegators, tasks, and risk levels change per run. |
+| **Continuous Observability** | A live feed of identity behaviour across managed and unmanaged environments, used as input to authority decisions rather than as after-the-fact reporting. | Turns observability into governance: the same telemetry that illuminates dark matter becomes the decision input for what the agent is allowed to do next. |
+| **Human Approval Gate** | A required human checkpoint before sensitive or irreversible actions are executed. | Keeps high-impact decisions reviewable; separates *recommend* from *execute* on the act / recommend / constrain / stop continuum. |
+| **Audit Trail** | An immutable record linking *delegator → agent identity → delegated authority → tool call → target application → decision point → result*. | Required for incident response, compliance, and learning loops. Without it, agent failures are unreproducible and dark matter stays dark. |
+| **Revocation Path** | A defined, tested way to disable an agent, rotate its credentials, and invalidate its delegated authority — including upstream delegator credentials when needed. | When an agent or its delegator is compromised, you need a working off switch, not a code change. |
+
+### Design Principles
+
+- Treat agents as **delegated actors**, not autonomous islands; their authority is bounded by the posture of their delegation source.
+- **Govern the delegation source first.** Reduce identity dark matter across human and machine identities before granting agents broad action rights.
+- Map the delegation chain explicitly: *delegator (human / service account / bot / machine identity) → agent → tool → target application → action*.
+- Use least privilege, scoped tokens, short-lived credentials, and tested revocation paths at every link in the chain.
+- Govern authority continuously on **posture, context, intent, and scope** — not only on nominal permissions issued at provisioning time.
+- Operate agents on an **act / recommend / constrain / stop** continuum: not every request should result in execution; some should be downgraded to recommendation, restricted to a limited tool set, or blocked.
+- Separate **recommend**, **prepare**, **execute**, and **approve** as distinct steps in the agent loop, and require human approval gates for sensitive or irreversible actions (writes to production, financial transactions, external messages, code merges).
+- Log the **delegator, agent identity, delegated authority, tool call, target application, decision point, and result** for every action — not just the final answer.
+- Evaluate whether agents attempt to **exceed their authority** or **amplify dark matter**, not only whether they complete tasks.
+- Do not confuse model guardrails with identity governance. Production systems need both: prompt-level safety *and* continuous, IAM-level delegation control.
+
+### Resources
+
+| Resource | Focus | Why it matters |
+|----------|-------|----------------|
+| [Bridging the AI Agent Authority Gap](https://thehackernews.com/2026/04/bridging-ai-agent-authority-gap.html) | Authority gap, delegation source, identity dark matter, continuous observability as a decision engine | Frames AI agents as a delegated identity type whose authority originates from humans, bots, service accounts, and machine identities, and argues for governing the delegation source before the agent. |
+| [OWASP GenAI Security Project](https://genai.owasp.org/) | GenAI and agent security controls | Useful governance and threat-modelling reference for agentic systems, including excessive agency and tool-use risks. |
+| [Model Context Protocol](https://modelcontextprotocol.io/) | Tool and context protocol | Tool access expands the authority surface of agentic systems; MCP is a primary vector for that expansion and where scoping must be applied. |
+| [Auth0 AI Agents / Token Vault](https://auth0.com/ai) | Scoped delegated access for AI agents | Practical identity pattern for managing agent access to user-authorised systems with short-lived, scoped tokens. |
+
+---
+
 ## 🧭 Reasoning & Planning Models
 
 > Audience: researchers · Evidence class: benchmark
@@ -487,6 +549,7 @@ To keep this repository genuinely opinionated, we advocate against these common 
 - **Do not treat tracing as optional for long-running systems.** Observability is the only way to debug non-deterministic agentic failures.
 - **Do not confuse benchmark wins with production readiness.** Real-world reliability requires evaluation on *your* specific data and edge cases.
 - **Do not use framework abstractions as a substitute for architecture.** Understand your control flow before outsourcing it to a library.
+- **Do not give agents inherited or ambient authority without mapping the delegation chain.** Every action-taking agent should have a clear identity, scoped permissions, observable tool calls, approval gates where needed, and a revocation path. See [Agent Authority, Identity & Delegation](#-agent-authority-identity--delegation).
 
 ---
 
@@ -497,6 +560,7 @@ To keep this repository genuinely opinionated, we advocate against these common 
 - ⭐ Production-grade  
 - 🧪 Experimental  
 - ⚠️ Early-stage / unstable  
+- 🛂 Authority-aware — explicitly models identity, delegated permissions, approval gates, and auditability  
 
 ---
 
