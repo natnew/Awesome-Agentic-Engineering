@@ -1,5 +1,7 @@
 ## 🎨 Creative AI
 
+> Audience: practitioners · Evidence class: mixed
+
 Descriptions in this appendix prioritise workflow characteristics and deployment constraints over superlatives or leaderboard language.
 
 ### Image Generation

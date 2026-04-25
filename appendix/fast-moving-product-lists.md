@@ -1,5 +1,7 @@
 # ⚡ Fast-Moving Product Lists
 
+> Audience: all contributors · Evidence class: mixed
+
 ---
 
 > Last reviewed: March 2026

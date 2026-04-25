@@ -1,5 +1,7 @@
 # Benchmark and Evidence Policy
 
+> Audience: maintainers · Evidence class: official
+
 Last reviewed: March 2026
 
 Canonical resources are trusted in this repository because they define what counts as evidence. A source is strong when it makes a capability, interface, benchmark, or operational claim falsifiable.

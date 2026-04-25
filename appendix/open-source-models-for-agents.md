@@ -1,5 +1,7 @@
 ## 🧠 Open-Source Models for Agents
 
+> Audience: practitioners · Evidence class: mixed
+
 _Last reviewed: April 2026._
 
 Open-weight models selected for agentic relevance: native tool/function-calling, long context for trajectories, or explicit reasoning modes. Cap of 5–8; models without credible agent-workload evidence are excluded regardless of general benchmark wins. Evidence tags follow the [Benchmark and Evidence Policy](benchmark-and-evidence-policy.md).

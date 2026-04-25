@@ -1,5 +1,7 @@
 ## 🌐 Browser and Desktop Agents
 
+> Audience: practitioners · Evidence class: mixed
+
 _Last reviewed: April 2026._
 
 Computer-use and browser agents operate on GUI surfaces (DOM, pixels, or accessibility trees) rather than pure APIs. Evidence tags follow the [Benchmark and Evidence Policy](benchmark-and-evidence-policy.md). Entries that are marketing-only or have no active development were removed in this phase.

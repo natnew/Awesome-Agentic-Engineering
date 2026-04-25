@@ -16,6 +16,8 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 
 ## 📑 Table of Contents
 
+> Audience: all contributors · Evidence class: mixed
+
 - [🧭 Thesis](#-thesis)
 - [⚖️ Architecture Decision Guide](#️-architecture-decision-guide)
 - [🧩 Core Agentic Patterns](#-core-agentic-patterns)
@@ -50,6 +52,8 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 
 ## 🧭 Thesis
 
+> Audience: all contributors · Evidence class: mixed
+
 | 📈 The Shift (Agentic systems are moving to) | 📉 The Challenge (Implementations suffer from) | 🎯 Our Focus (This repository prioritises) |
 | :--- | :--- | :--- |
 | • Stateful, multi-step reasoning<br>• Multi-agent collaboration & orchestration<br>• Feedback-driven learning loops<br>• Tool-augmented execution environments | • Fragility under iteration<br>• Poor observability & evaluation<br>• Weak memory & context management<br>• Limited safety & governance | • **Reliability** over novelty<br>• **Evaluation** over intuition<br>• **Architecture** over tooling<br>• **Systems thinking** over prompt engineering |
@@ -57,6 +61,8 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 ---
 
 ## ⚖️ Architecture Decision Guide
+
+> Audience: practitioners · Evidence class: mixed
 
 | If your task is... | Start with... | Escalate to... | Avoid... |
 | :--- | :--- | :--- | :--- |
@@ -69,6 +75,8 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 ---
 
 ## 🧩 Core Agentic Patterns
+
+> Audience: practitioners · Evidence class: mixed
 
 These patterns underpin most production-grade agentic systems.
 
@@ -85,6 +93,8 @@ These patterns underpin most production-grade agentic systems.
 
 ## 🏗️ Reference Architectures
 
+> Audience: practitioners · Evidence class: mixed
+
 Representative system designs for real-world use.
 
 | Architecture | Ecosystem Maturity | Description | Architectural Strengths | Operational Constraints | Workload Suitability | Design Paradigm | Governance Fit |
@@ -95,6 +105,8 @@ Representative system designs for real-world use.
 ---
 
 ## 📐 Spec-Driven Development
+
+> Audience: practitioners · Evidence class: mixed
 
 _Last reviewed: April 2026._
 
@@ -145,6 +157,8 @@ SDD is not limited to new projects or a single team. The spec becomes a portable
 ---
 
 ## 🧠 Memory Systems
+
+> Audience: practitioners · Evidence class: mixed
 
 _Last reviewed: April 2026._
 
@@ -209,6 +223,8 @@ Specialised infrastructure for managing agent memory.
 
 ## 📊 Formal Evaluation Rubric
 
+> Audience: maintainers · Evidence class: mixed
+
 > **🎯 Evaluation principle:** rubrics assess quality, test suites verify behaviour, assertions enforce invariants, and LLM-as-a-judge is used only in tightly scoped regression tests.
 
 Every major framework and architecture in this repository is judged against the following **Required Scoring Dimensions**. We evaluate systems based on engineering rigor, not marketing copy.
@@ -233,6 +249,8 @@ Every major framework and architecture in this repository is judged against the 
 
 ## Benchmark and Evidence Policy
 
+> Audience: maintainers · Evidence class: official
+
 Canonical resources are trusted here because they define what counts as evidence. Prefer official docs, architecture guides, papers, benchmark repos, and first-party repositories when establishing capabilities, methodology, or interface details.
 
 | Evidence Tag | Use For |
@@ -248,6 +266,8 @@ Canonical resources are trusted here because they define what counts as evidence
 - See [appendix/benchmark-and-evidence-policy.md](appendix/benchmark-and-evidence-policy.md) for the full policy.
 
 ## ⚙️ Orchestration Frameworks
+
+> Audience: practitioners · Evidence class: mixed
 
 _Last reviewed: April 2026._
 
@@ -311,6 +331,8 @@ Broader catalog beyond the deep-dive set. Each subsection capped at 8 entries; e
 
 ## 📡 Protocols and Standards
 
+> Audience: practitioners · Evidence class: official
+
 _Last reviewed: April 2026._
 
 Protocols are the stable contracts between agents, tools, and hosts. Each entry below distinguishes the **specification** from any specific implementation — mixing the two is a repeat anti-pattern (see [ANTI-PATTERNS.md](ANTI-PATTERNS.md)).
@@ -326,6 +348,8 @@ Protocols are the stable contracts between agents, tools, and hosts. Each entry 
 ---
 
 ## 🧭 Reasoning & Planning Models
+
+> Audience: researchers · Evidence class: benchmark
 
 _Last reviewed: April 2026._
 
@@ -345,6 +369,8 @@ Models that do **explicit reasoning or planning at inference time** — chain-of
 ---
 
 ## 🧪 Evaluation & Safety
+
+> Audience: researchers · Evidence class: benchmark
 
 _Last reviewed: April 2026._
 
@@ -436,6 +462,8 @@ This section covers frameworks and operational tooling for testing agent quality
 
 ## 🧠 Skills and Operating Principles
 
+> Audience: practitioners · Evidence class: field report
+
 Building agentic systems requires a shift in skillset:
 
 - Problem decomposition  
@@ -450,6 +478,8 @@ Building agentic systems requires a shift in skillset:
 
 ## 🚫 What NOT to Do
 
+> Audience: all contributors · Evidence class: mixed
+
 To keep this repository genuinely opinionated, we advocate against these common anti-patterns:
 
 - **Do not begin with multi-agent systems when a single agent plus tools will do.** Escalate to multi-agent only when task decomposition requires it.
@@ -462,6 +492,8 @@ To keep this repository genuinely opinionated, we advocate against these common 
 
 ## 📊 Signals (How to Read This List)
 
+> Audience: all contributors · Evidence class: mixed
+
 - ⭐ Production-grade  
 - 🧪 Experimental  
 - ⚠️ Early-stage / unstable  
@@ -469,6 +501,8 @@ To keep this repository genuinely opinionated, we advocate against these common 
 ---
 
 ## 🚀 Getting Started
+
+> Audience: practitioners · Evidence class: mixed
 
 1. Choose a core pattern (e.g. single-agent + tools)  
 2. Add structured tool use  
@@ -480,6 +514,8 @@ To keep this repository genuinely opinionated, we advocate against these common 
 ---
 
 ## 🤝 Contributing
+
+> Audience: all contributors · Evidence class: mixed
 
 Contributions are welcome! Please read the [**CONTRIBUTING.md**](CONTRIBUTING.md) for full details before submitting a pull request.
 
@@ -498,6 +534,8 @@ See [appendix/benchmark-and-evidence-policy.md](appendix/benchmark-and-evidence-
 ---
 
 ## 📌 Final Note
+
+> Audience: all contributors · Evidence class: mixed
 
 The shift to agentic systems is not about more tools.
 
