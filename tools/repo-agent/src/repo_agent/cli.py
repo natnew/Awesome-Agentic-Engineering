@@ -193,6 +193,45 @@ def _default_repo() -> str | None:
     return os.environ.get("GITHUB_REPOSITORY")
 
 
+def _cmd_graduation_audit(args: argparse.Namespace) -> int:
+    from . import graduation as G
+
+    if args.live:
+        if not args.repo:
+            sys.stderr.write("--live requires --repo or $GITHUB_REPOSITORY\n")
+            return 2
+        import httpx
+
+        token = os.environ.get("GITHUB_TOKEN")
+        headers = {
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28",
+            "User-Agent": "repo-agent-phase13/0.1",
+        }
+        if token:
+            headers["Authorization"] = f"Bearer {token}"
+        client = httpx.Client(base_url="https://api.github.com", headers=headers, timeout=15.0)
+        try:
+            audits = G.audit_workflows(client=client, repo=args.repo)
+        finally:
+            client.close()
+    else:
+        fixture = args.fixture or str(
+            Path(__file__).resolve().parents[2]
+            / "tests"
+            / "fixtures"
+            / "graduation"
+            / "sample_runs.json"
+        )
+        audits = G.audit_workflows(fixture=fixture)
+
+    if args.out == "table":
+        sys.stdout.write(G.to_table(audits) + "\n")
+    else:
+        sys.stdout.write(G.to_json(audits) + "\n")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="repo-agent", description="Awesome-Agentic-Engineering agentic system (Phase 5)")
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -275,6 +314,17 @@ def build_parser() -> argparse.ArgumentParser:
     ws.add_argument("--output-dir", default=None, help="Override output directory (default: <repo>/docs).")
     ws.add_argument("--check", action="store_true", help="Exit non-zero if the site is stale.")
     ws.set_defaults(func=_cmd_workflow_render_site)
+
+    # ----------------------------------------------------- Phase 13 graduation
+    pg = sub.add_parser("graduation", help="Phase 13 — advisory → required graduation tooling.")
+    gsub = pg.add_subparsers(dest="graduation_cmd", required=True)
+
+    ga = gsub.add_parser("audit", help="Audit advisory workflows for the 30-day green window.")
+    ga.add_argument("--fixture", default=None, help="Path to a sample_runs.json fixture (offline mode).")
+    ga.add_argument("--live", action="store_true", help="Query the live GitHub Actions API.")
+    ga.add_argument("--repo", default=default_repo, help="owner/name (live mode; defaults to $GITHUB_REPOSITORY).")
+    ga.add_argument("--out", choices=("json", "table"), default="json")
+    ga.set_defaults(func=_cmd_graduation_audit)
 
     return p
 
