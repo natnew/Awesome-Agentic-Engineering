@@ -15,6 +15,11 @@ Or from the installed package::
 from __future__ import annotations
 
 from . import tools as T
+from .observability import Run
+
+
+def _obs(tool: str, **inputs):  # pragma: no cover - covered via wrapped handlers
+    return Run(component="mcp", tool=tool, inputs=inputs)
 
 
 def build_server():  # pragma: no cover - thin SDK wiring
@@ -27,32 +32,38 @@ def build_server():  # pragma: no cover - thin SDK wiring
     @mcp.tool()
     def list_sections() -> dict:
         """List every section and appendix file in the curated list."""
-        return T.list_sections()
+        with _obs("list_sections"):
+            return T.list_sections()
 
     @mcp.tool()
     def get_rubric() -> dict:
         """Return the curation rubric (dimensions, weights, thresholds, hard gates)."""
-        return T.get_rubric()
+        with _obs("get_rubric"):
+            return T.get_rubric()
 
     @mcp.tool()
     def get_anti_patterns() -> dict:
         """Return the anti-pattern policy (rejection patterns + hype phrases)."""
-        return T.get_anti_patterns()
+        with _obs("get_anti_patterns"):
+            return T.get_anti_patterns()
 
     @mcp.tool()
     def search_entries(query: str, section: str | None = None, limit: int = 20) -> dict:
         """Full-text search across README.md and appendix/**."""
-        return T.search_entries(query=query, section=section, limit=limit)
+        with _obs("search_entries", query=query, section=section, limit=limit):
+            return T.search_entries(query=query, section=section, limit=limit)
 
     @mcp.tool()
     def validate_entry(entry_markdown: str) -> dict:
         """Score an entry against the rubric and flag anti-pattern hits."""
-        return T.validate_entry(entry_markdown=entry_markdown)
+        with _obs("validate_entry", entry_len=len(entry_markdown or "")):
+            return T.validate_entry(entry_markdown=entry_markdown)
 
     @mcp.tool()
     def propose_entry(url: str, section: str, rationale: str = "") -> dict:
         """Draft a rubric-aligned entry stub for a URL, with self-validation."""
-        return T.propose_entry(url=url, section=section, rationale=rationale)
+        with _obs("propose_entry", url=url, section=section):
+            return T.propose_entry(url=url, section=section, rationale=rationale)
 
     @mcp.tool()
     def triage_pr(
@@ -62,17 +73,24 @@ def build_server():  # pragma: no cover - thin SDK wiring
         entry_markdown: str | None = None,
     ) -> dict:
         """Classify an incoming PR or issue against the rubric."""
-        return T.triage_pr(
-            title=title,
-            body=body,
-            changed_files=changed_files,
-            entry_markdown=entry_markdown,
-        )
+        with _obs(
+            "triage_pr",
+            title_len=len(title or ""),
+            body_len=len(body or ""),
+            n_files=len(changed_files or []),
+        ):
+            return T.triage_pr(
+                title=title,
+                body=body,
+                changed_files=changed_files,
+                entry_markdown=entry_markdown,
+            )
 
     @mcp.tool()
     def freshness_audit(threshold_months: int = 9) -> dict:
         """Return structured stale-entry candidates (does not open issues)."""
-        return T.freshness_audit(threshold_months=threshold_months)
+        with _obs("freshness_audit", threshold_months=threshold_months):
+            return T.freshness_audit(threshold_months=threshold_months)
 
     return mcp
 

@@ -12,6 +12,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import Any
 
+from ..observability import Run
 from ..skills import freshness
 from .base import WorkflowResult
 from .github import GitHubClient
@@ -28,6 +29,34 @@ def run(
     dry_run: bool = False,
     now: datetime | None = None,
     threshold_months: int = 9,
+) -> WorkflowResult:
+    with Run(
+        component="workflow",
+        tool="workflow.landscape-scan",
+        inputs={
+            "since_days": int(since_days),
+            "dry_run": bool(dry_run),
+            "threshold_months": int(threshold_months),
+        },
+    ) as obs:
+        return _run_inner(
+            obs,
+            since_days=since_days,
+            gh_client=gh_client,
+            dry_run=dry_run,
+            now=now,
+            threshold_months=threshold_months,
+        )
+
+
+def _run_inner(
+    obs: Run,
+    *,
+    since_days: int,
+    gh_client: GitHubClient | None,
+    dry_run: bool,
+    now: datetime | None,
+    threshold_months: int,
 ) -> WorkflowResult:
     now = now or datetime.now(tz=timezone.utc)
 
@@ -87,6 +116,8 @@ def run(
         labels=("phase-6", "landscape-scan"),
     )
     artifacts["issue"] = {"action": action, "number": record.get("number"), "url": record.get("html_url")}
+    obs.add_github_ref(record.get("html_url"))
+    obs.add_event(f"issue-{action}")
     return WorkflowResult(
         status="ok",
         summary=f"Landscape scan: {total} candidate(s); digest issue {action} (#{record.get('number')})",

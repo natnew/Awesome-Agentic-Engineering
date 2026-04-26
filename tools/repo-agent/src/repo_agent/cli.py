@@ -28,8 +28,10 @@ import json
 import os
 import sys
 from pathlib import Path
+from typing import Any
 
 from . import tools as T
+from .observability import Run
 
 
 def _emit(obj: object) -> None:
@@ -195,6 +197,11 @@ def _default_repo() -> str | None:
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="repo-agent", description="Awesome-Agentic-Engineering agentic system (Phase 5)")
+    p.add_argument(
+        "--log-json-file",
+        default=None,
+        help="Append the JSON observability record to this file instead of stderr.",
+    )
     sub = p.add_subparsers(dest="cmd", required=True)
 
     sub.add_parser("serve", help="Run the MCP server on stdio.").set_defaults(func=_cmd_serve)
@@ -279,10 +286,42 @@ def build_parser() -> argparse.ArgumentParser:
     return p
 
 
+def _redact_inputs(args: argparse.Namespace) -> dict[str, Any]:
+    """Build a JSON-serialisable inputs dict from argparse, dropping callables."""
+    out: dict[str, Any] = {}
+    for k, v in vars(args).items():
+        if k == "func" or callable(v):
+            continue
+        if isinstance(v, (str, int, float, bool, type(None))):
+            out[k] = v
+        elif isinstance(v, (list, tuple)):
+            out[k] = [x for x in v if isinstance(x, (str, int, float, bool, type(None)))]
+        else:
+            out[k] = str(v)
+    return out
+
+
+def _tool_name(args: argparse.Namespace) -> str:
+    cmd = getattr(args, "cmd", None) or "unknown"
+    sub = getattr(args, "workflow_cmd", None)
+    return f"{cmd}.{sub}" if sub else cmd
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
-    return args.func(args)
+    inputs = _redact_inputs(args)
+    log_file = inputs.pop("log_json_file", None)
+    with Run(
+        component="cli",
+        tool=_tool_name(args),
+        inputs=inputs,
+        log_file=log_file,
+    ) as run:
+        rc = args.func(args)
+        if rc != 0:
+            run.set_outcome("error", error_class=f"exit_{rc}")
+        return rc
 
 
 if __name__ == "__main__":  # pragma: no cover
