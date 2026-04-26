@@ -24,7 +24,21 @@ from typing import Any, Iterable
 
 import httpx
 
+from ..input_validation import sanitise_text
+
 GITHUB_API = "https://api.github.com"
+
+# Fields on GitHub API payloads that carry untrusted free-form text.
+# Sanitised on read at the trust boundary (see specs/safety-model.md).
+_UNTRUSTED_TEXT_FIELDS = ("body", "title")
+
+
+def _sanitise_payload(item: dict[str, Any]) -> dict[str, Any]:
+    for field in _UNTRUSTED_TEXT_FIELDS:
+        value = item.get(field)
+        if isinstance(value, str):
+            item[field] = sanitise_text(value)
+    return item
 
 
 class GitHubWriteError(RuntimeError):
@@ -94,7 +108,7 @@ class GitHubClient:
                 continue
             dt = datetime.fromisoformat(merged_at.replace("Z", "+00:00"))
             if dt >= cutoff:
-                out.append(pr)
+                out.append(_sanitise_payload(pr))
         return out
 
     def list_recent_issues(self, since_days: int = 7, per_page: int = 30) -> list[dict[str, Any]]:
@@ -116,7 +130,7 @@ class GitHubClient:
                 continue
             dt = datetime.fromisoformat(created.replace("Z", "+00:00"))
             if dt >= cutoff:
-                out.append(issue)
+                out.append(_sanitise_payload(issue))
         return out
 
     def list_issues_all(self, per_page: int = 100) -> list[dict[str, Any]]:
@@ -126,7 +140,7 @@ class GitHubClient:
             params={"state": "open", "per_page": per_page},
         )
         r.raise_for_status()
-        return [i for i in r.json() if "pull_request" not in i]
+        return [_sanitise_payload(i) for i in r.json() if "pull_request" not in i]
 
     def list_pr_comments(self, pr_number: int, per_page: int = 100) -> list[dict[str, Any]]:
         r = self._client.get(
@@ -134,7 +148,7 @@ class GitHubClient:
             params={"per_page": per_page},
         )
         r.raise_for_status()
-        return r.json()
+        return [_sanitise_payload(c) for c in r.json()]
 
     # ----------------------------------------------------------------- writes
     def _require_token(self) -> None:
