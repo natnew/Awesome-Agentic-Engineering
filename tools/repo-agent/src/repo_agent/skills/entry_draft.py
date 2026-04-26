@@ -17,6 +17,7 @@ from typing import Any, Callable
 
 import httpx
 
+from ..input_validation import sanitise_text, validate_url
 from ..rubric import load_policy, score_entry
 
 
@@ -81,8 +82,11 @@ class _MetaExtractor(HTMLParser):
 def extract_metadata(url: str, html: str) -> PageMetadata:
     p = _MetaExtractor()
     p.feed(html)
-    title = p.title or url
-    description = p.description or "(no description found; contributor to add)"
+    title = sanitise_text(p.title or url, max_chars=500)
+    description = sanitise_text(
+        p.description or "(no description found; contributor to add)",
+        max_chars=2_000,
+    )
     return PageMetadata(url=url, title=title, description=description)
 
 
@@ -106,6 +110,7 @@ def draft(
     rationale: str = "",
     fetcher: Fetcher | None = None,
 ) -> DraftResult:
+    validate_url(url)
     fetch = fetcher or default_fetcher
     html = fetch(url)
     meta = extract_metadata(url, html)
