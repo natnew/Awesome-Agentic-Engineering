@@ -101,6 +101,7 @@ def site_pages() -> list[PageSpec]:
 
 # Kept out of ``site_pages`` so tests can monkey-patch easily.
 _APPENDIX_FILES: tuple[str, ...] = (
+    "agentic-engineering-reference-stack.md",
     "benchmark-and-evidence-policy.md",
     "browser-and-desktop-agents.md",
     "creative-ai.md",
@@ -153,11 +154,21 @@ def _slugify(text: str) -> str:
     return text or "section"
 
 
+# Rewrite `README.md` (the home page) → `index.html` so links from sub-pages
+# back to the README resolve on the static site. Must run before _MD_LINK_RE.
+_README_LINK_RE = re.compile(
+    r'(href="(?!https?://|#|mailto:)(?:[^"]*/)?)README\.md(#[^"]*)?(")'
+)
+
 # Rewrite `foo.md` and `foo.md#anchor` → `foo.html` / `foo.html#anchor`.
 _MD_LINK_RE = re.compile(r'(href="(?!https?://|#|mailto:)[^"]*?)\.md(#[^"]*)?(")')
 
 
 def _rewrite_internal_links(html_body: str) -> str:
+    html_body = _README_LINK_RE.sub(
+        lambda m: f"{m.group(1)}index.html{m.group(2) or ''}{m.group(3)}",
+        html_body,
+    )
     return _MD_LINK_RE.sub(lambda m: f"{m.group(1)}.html{m.group(2) or ''}{m.group(3)}", html_body)
 
 

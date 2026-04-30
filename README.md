@@ -19,6 +19,7 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 > Audience: all contributors · Evidence class: mixed
 
 - [🧭 Thesis](#-thesis)
+- [🧱 Agentic Engineering Reference Stack](#-agentic-engineering-reference-stack)
 - [⚖️ Architecture Decision Guide](#️-architecture-decision-guide)
 - [🧩 Core Agentic Patterns](#-core-agentic-patterns)
 - [🏗️ Reference Architectures](#-reference-architectures)
@@ -39,6 +40,7 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 - [📌 Final Note](#-final-note)
 
 ### 📂 Appendix
+- [🧱 Agentic Engineering Reference Stack](appendix/agentic-engineering-reference-stack.md)
 - [🌐 Browser and Desktop Agents](appendix/browser-and-desktop-agents.md)
 - [🎙 Voice Agents](appendix/voice-agents.md)
 - [🎨 Creative AI](appendix/creative-ai.md)
@@ -58,6 +60,37 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 | 📈 The Shift (Agentic systems are moving to) | 📉 The Challenge (Implementations suffer from) | 🎯 Our Focus (This repository prioritises) |
 | :--- | :--- | :--- |
 | • Stateful, multi-step reasoning<br>• Multi-agent collaboration & orchestration<br>• Feedback-driven learning loops<br>• Tool-augmented execution environments | • Fragility under iteration<br>• Poor observability & evaluation<br>• Weak memory & context management<br>• Limited safety & governance | • **Reliability** over novelty<br>• **Evaluation** over intuition<br>• **Architecture** over tooling<br>• **Systems thinking** over prompt engineering |
+
+---
+
+## 🧱 Agentic Engineering Reference Stack
+
+> Audience: practitioners · Evidence class: mixed
+
+A serious agentic system has nine engineering layers between a user goal and a running production system. Most production failures are a missing layer, not a bad model.
+
+```mermaid
+flowchart TD
+    A["User / System Goal"] --> B["Spec / Intent / Task Definition"]
+    B --> C["Planner / Decomposition"]
+    C --> D["Agent Runtime / Control Loop"]
+    D --> E["Tools / APIs / External Systems"]
+    E --> F["Memory / Context / State"]
+    F --> G["Evaluation / Tests / Rubrics / Guards"]
+    G --> H["Observability / Tracing / Monitoring"]
+    H --> I["Governance / Identity / Permissions / Human Approval"]
+    I --> J["Deployment / Runtime Operations"]
+```
+
+| Tier | Layers | What the tier is for |
+| :--- | :--- | :--- |
+| **Intent and execution** | Spec · Planner · Agent Runtime | Define what the system should do and how it does it. |
+| **World-binding** | Tools · Memory · Evaluation | Connect the system to data, history, and ground truth. |
+| **Operability** | Observability · Governance · Deployment | Keep it inspectable, accountable, and operable. |
+
+Skip a tier and the layers above it become indefensible.
+
+→ Full reference, with per-layer engineering concerns and failure modes: **[Agentic Engineering Reference Stack](appendix/agentic-engineering-reference-stack.md)**.
 
 ---
 
