@@ -46,6 +46,16 @@ def test_internal_md_links_rewritten_to_html():
     assert 'href="appendix/voice-agents.html"' in html
 
 
+def test_readme_md_links_rewritten_to_index_html():
+    md = "[home](../README.md) and [anchor](../README.md#thesis) and [root](README.md)"
+    html = rs.render_markdown_to_html(md)
+    assert 'href="../index.html"' in html
+    assert 'href="../index.html#thesis"' in html
+    assert 'href="index.html"' in html
+    # The naive .md→.html rewriter must not also fire on README.md.
+    assert "README.html" not in html
+
+
 def test_external_links_get_rel_noopener():
     md = "[ext](https://example.com)"
     html = rs.render_markdown_to_html(md)
