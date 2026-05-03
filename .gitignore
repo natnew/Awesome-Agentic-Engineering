@@ -220,3 +220,6 @@ roadmap.md
 hygiene.py
 test_hygiene_no_mojibake.py
 
+# private working notes (glossaries, drafts, internal scratch)
+_private/
+
