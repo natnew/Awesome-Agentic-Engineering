@@ -8,6 +8,8 @@
 
 A curated map of agentic AI systems — covering architectures, frameworks, memory, evaluation, and safety.
 
+This is not a tool list. It's a structured guide to building **reliable, observable, production-grade agentic systems**, evaluated against rigorous engineering dimensions.
+
 <a href="https://natnew.github.io/Awesome-Agentic-Engineering/">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/github/live-site-dark.svg">
@@ -15,7 +17,19 @@ A curated map of agentic AI systems — covering architectures, frameworks, memo
   </picture>
 </a>
 
-This is not a tool list. It's a structured guide to building **reliable, observable, production-grade agentic systems**, evaluated against rigorous engineering dimensions.
+<details>
+<summary><h2 style="display:inline-block">🚀 Get Started</h2></summary>
+
+<sub>Audience: practitioners · Evidence class: mixed</sub>
+
+Choose a core pattern (e.g. single-agent + tools)<br>
+Add structured tool use<br>
+Introduce evaluation early<br>
+Layer in memory only when needed<br>
+Expand into multi-agent systems with clear roles<br>
+Add observability and safety constraints
+
+</details>
 
 </div>
 
@@ -42,7 +56,6 @@ This is not a tool list. It's a structured guide to building **reliable, observa
 - [🧠 Skills and Operating Principles](#-skills-and-operating-principles)
 - [🚫 What NOT to Do](#-what-not-to-do)
 - [📊 Signals (How to Read This List)](#-signals-how-to-read-this-list)
-- [🚀 Getting Started](#-getting-started)
 - [🤝 Contributing](#-contributing)
 
 ### 📂 Appendix
@@ -599,19 +612,6 @@ To keep this repository genuinely opinionated, we advocate against these common 
 - 🧪 Experimental  
 - ⚠️ Early-stage / unstable  
 - 🛂 Authority-aware — explicitly models identity, delegated permissions, approval gates, and auditability  
-
----
-
-## 🚀 Getting Started
-
-> Audience: practitioners · Evidence class: mixed
-
-1. Choose a core pattern (e.g. single-agent + tools)  
-2. Add structured tool use  
-3. Introduce evaluation early  
-4. Layer in memory only when needed  
-5. Expand into multi-agent systems with clear roles  
-6. Add observability and safety constraints  
 
 ---
 
