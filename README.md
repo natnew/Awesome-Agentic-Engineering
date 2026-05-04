@@ -56,6 +56,7 @@ Add observability and safety constraints
 - [🧠 Skills and Operating Principles](#-skills-and-operating-principles)
 - [🚫 What NOT to Do](#-what-not-to-do)
 - [📊 Signals (How to Read This List)](#-signals-how-to-read-this-list)
+- [Related Projects](#related-projects)
 - [🤝 Contributing](#-contributing)
 
 ### 📂 Appendix
@@ -612,6 +613,16 @@ To keep this repository genuinely opinionated, we advocate against these common 
 - 🧪 Experimental  
 - ⚠️ Early-stage / unstable  
 - 🛂 Authority-aware — explicitly models identity, delegated permissions, approval gates, and auditability  
+
+---
+
+## Related Projects
+
+Companion field guides by the same maintainer covering adjacent areas of AI. Read alongside this repository for broader context on how agentic AI is being built and applied beyond the security boundary.
+
+- [Awesome Physical AI](https://github.com/natnew/Awesome-Physical-AI) — Robotics, embodied AI, and physical-world agent systems.
+- [Awesome Agentic AI Security](https://github.com/natnew/Awesome-Agentic-AI-Security) — Security research, threat models, defenses, and governance for agentic AI systems.
+- [Awesome AI Scientists](https://github.com/natnew/Awesome-AI-Scientists) — AI scientist systems for literature intelligence, hypothesis generation, experiment planning, tool use, evaluation, and scientific communication.
 
 ---
 
