@@ -23,7 +23,7 @@ This is not a tool list. It's a structured guide to building **reliable, observa
 
 ## 📑 Table of Contents
 
-> Audience: all contributors · Evidence class: mixed
+
 
 - [🧭 Thesis](#-thesis)
 - [🧱 Agentic Engineering Reference Stack](#-agentic-engineering-reference-stack)
@@ -44,7 +44,6 @@ This is not a tool list. It's a structured guide to building **reliable, observa
 - [📊 Signals (How to Read This List)](#-signals-how-to-read-this-list)
 - [🚀 Getting Started](#-getting-started)
 - [🤝 Contributing](#-contributing)
-- [📌 Final Note](#-final-note)
 
 ### 📂 Appendix
 - [🧱 Agentic Engineering Reference Stack](appendix/agentic-engineering-reference-stack.md)
@@ -616,34 +615,26 @@ To keep this repository genuinely opinionated, we advocate against these common 
 
 ---
 
+<div align="center">
+
 ## 🤝 Contributing
 
-> Audience: all contributors · Evidence class: mixed
+<img src="assets/github/contributors-banner.png" alt="We love Contributors" width="720">
 
-Contributions are welcome! Please read the [**CONTRIBUTING.md**](CONTRIBUTING.md) for full details before submitting a pull request.
 
-At a high level, submissions must meet the following criteria:
 
-- Clear description of purpose  
-- Architectural strengths and operational constraints  
-- Governance fit and workload suitability  
-- Evidence of ecosystem maturity or real-world usage (preferred)  
-- Evidence tags and `Last reviewed` markers where claims are time-sensitive or likely to change
+Thrilled to have you here.<br>
+Whether it's a quick typo fix, a fresh resource,<br>
+a doc polish, or a sweeping overhaul — every contribution helps this list grow.<br>
+Jump in and join the community — PRs of every size are welcome.
 
-This is a **curated list**, not an exhaustive one.
+📝 [Read the contributing guide](CONTRIBUTING.md) · 🐛 [good first issues](https://github.com/natnew/Awesome-Agentic-Engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
-See [appendix/benchmark-and-evidence-policy.md](appendix/benchmark-and-evidence-policy.md) for the sourcing, evidence-tagging, and `Last reviewed` policy.
+<a href="appendix/benchmark-and-evidence-policy.md">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/github/evidence-policy-dark.svg">
+    <img alt="Evidence Policy — sourcing, evidence-tagging, and Last reviewed" src="assets/github/evidence-policy-light.svg" height="36">
+  </picture>
+</a>
 
----
-
-## 📌 Final Note
-
-> Audience: all contributors · Evidence class: mixed
-
-The shift to agentic systems is not about more tools.
-
-It is about:
-- Designing systems that can **reason, act, evaluate, and improve**  
-- Ensuring those systems are **reliable, observable, and safe**  
-
-Build accordingly.
+</div>
