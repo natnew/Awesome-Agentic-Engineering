@@ -15,22 +15,36 @@
 </header>
 <main class="site-main">
 <article class="content">
+<div align="center">
 <h1 id="awesome-agentic-engineering">🧠 Awesome Agentic Engineering</h1>
 <blockquote>
 <p><strong>Stop prompting. Start engineering. A structured reference for taking AI agents into production.</strong></p>
 </blockquote>
 <p><a href="https://awesome.re" rel="noopener"><img src="https://awesome.re/badge-flat2.svg" alt="Awesome" /></a> <a href="https://github.com/natnew/Awesome-Agentic-Engineering/commits" rel="noopener"><img src="https://img.shields.io/github/last-commit/natnew/Awesome-Agentic-Engineering?label=last%20updated&amp;style=flat-square" alt="Last Commit" /></a> <a href="http://makeapullrequest.com" rel="noopener"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" /></a> <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square" alt="License: MIT" /></a></p>
 <p>A curated map of agentic AI systems — covering architectures, frameworks, memory, evaluation, and safety.</p>
-<p><strong>🌐 Live site:</strong> <a href="https://natnew.github.io/Awesome-Agentic-Engineering/" rel="noopener">https://natnew.github.io/Awesome-Agentic-Engineering/</a></p>
-<p>This is not a list of tools.</p>
-<p>We reject &quot;tool list energy.&quot; It is a structured guide to building <strong>reliable, observable, and production-grade agentic systems</strong>, rigorously evaluated against engineering dimensions.</p>
+<p>This is not a tool list. It's a structured guide to building <strong>reliable, observable, production-grade agentic systems</strong>, evaluated against rigorous engineering dimensions.</p>
+<a href="https://natnew.github.io/Awesome-Agentic-Engineering/" rel="noopener">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/github/live-site-dark.svg">
+    <img alt="Live Site" src="assets/github/live-site-light.svg" height="36">
+  </picture>
+</a>
+<details>
+<summary><h2 style="display:inline-block">🚀 Get Started</h2></summary>
+<p><sub>Audience: practitioners · Evidence class: mixed</sub></p>
+<p>Choose a core pattern (e.g. single-agent + tools)<br>
+Add structured tool use<br>
+Introduce evaluation early<br>
+Layer in memory only when needed<br>
+Expand into multi-agent systems with clear roles<br>
+Add observability and safety constraints</p>
+</details>
+</div>
 <hr />
 <h2 id="table-of-contents">📑 Table of Contents</h2>
-<blockquote>
-<p>Audience: all contributors · Evidence class: mixed</p>
-</blockquote>
 <ul>
 <li><a href="#-thesis">🧭 Thesis</a></li>
+<li><a href="#-agentic-engineering-reference-stack">🧱 Agentic Engineering Reference Stack</a></li>
 <li><a href="#%EF%B8%8F-architecture-decision-guide">⚖️ Architecture Decision Guide</a></li>
 <li><a href="#-core-agentic-patterns">🧩 Core Agentic Patterns</a></li>
 <li><a href="#-reference-architectures">🏗️ Reference Architectures</a></li>
@@ -46,12 +60,11 @@
 <li><a href="#-skills-and-operating-principles">🧠 Skills and Operating Principles</a></li>
 <li><a href="#-what-not-to-do">🚫 What NOT to Do</a></li>
 <li><a href="#-signals-how-to-read-this-list">📊 Signals (How to Read This List)</a></li>
-<li><a href="#-getting-started">🚀 Getting Started</a></li>
 <li><a href="#-contributing">🤝 Contributing</a></li>
-<li><a href="#-final-note">📌 Final Note</a></li>
 </ul>
 <h3 id="appendix">📂 Appendix</h3>
 <ul>
+<li><a href="appendix/agentic-engineering-reference-stack.html">🧱 Agentic Engineering Reference Stack</a></li>
 <li><a href="appendix/browser-and-desktop-agents.html">🌐 Browser and Desktop Agents</a></li>
 <li><a href="appendix/voice-agents.html">🎙 Voice Agents</a></li>
 <li><a href="appendix/creative-ai.html">🎨 Creative AI</a></li>
@@ -82,6 +95,51 @@
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="agentic-engineering-reference-stack">🧱 Agentic Engineering Reference Stack</h2>
+<blockquote>
+<p>Audience: practitioners · Evidence class: mixed</p>
+</blockquote>
+<p>A serious agentic system has nine engineering layers between a user goal and a running production system. Most production failures are a missing layer, not a bad model.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A[&quot;User / System Goal&quot;] --&gt; B[&quot;Spec / Intent / Task Definition&quot;]
+    B --&gt; C[&quot;Planner / Decomposition&quot;]
+    C --&gt; D[&quot;Agent Runtime / Control Loop&quot;]
+    D --&gt; E[&quot;Tools / APIs / External Systems&quot;]
+    E --&gt; F[&quot;Memory / Context / State&quot;]
+    F --&gt; G[&quot;Evaluation / Tests / Rubrics / Guards&quot;]
+    G --&gt; H[&quot;Observability / Tracing / Monitoring&quot;]
+    H --&gt; I[&quot;Governance / Identity / Permissions / Human Approval&quot;]
+    I --&gt; J[&quot;Deployment / Runtime Operations&quot;]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Tier</th>
+<th style="text-align:left">Layers</th>
+<th style="text-align:left">What the tier is for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Intent and execution</strong></td>
+<td style="text-align:left">Spec · Planner · Agent Runtime</td>
+<td style="text-align:left">Define what the system should do and how it does it.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>World-binding</strong></td>
+<td style="text-align:left">Tools · Memory · Evaluation</td>
+<td style="text-align:left">Connect the system to data, history, and ground truth.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Operability</strong></td>
+<td style="text-align:left">Observability · Governance · Deployment</td>
+<td style="text-align:left">Keep it inspectable, accountable, and operable.</td>
+</tr>
+</tbody>
+</table>
+<p>Skip a tier and the layers above it become indefensible.</p>
+<p>→ Full reference, with per-layer engineering concerns and failure modes: <strong><a href="appendix/agentic-engineering-reference-stack.html">Agentic Engineering Reference Stack</a></strong>.</p>
 <hr />
 <h2 id="architecture-decision-guide">⚖️ Architecture Decision Guide</h2>
 <blockquote>
@@ -1455,46 +1513,21 @@
 <li>🛂 Authority-aware — explicitly models identity, delegated permissions, approval gates, and auditability</li>
 </ul>
 <hr />
-<h2 id="getting-started">🚀 Getting Started</h2>
-<blockquote>
-<p>Audience: practitioners · Evidence class: mixed</p>
-</blockquote>
-<ol>
-<li>Choose a core pattern (e.g. single-agent + tools)</li>
-<li>Add structured tool use</li>
-<li>Introduce evaluation early</li>
-<li>Layer in memory only when needed</li>
-<li>Expand into multi-agent systems with clear roles</li>
-<li>Add observability and safety constraints</li>
-</ol>
-<hr />
+<div align="center">
 <h2 id="contributing">🤝 Contributing</h2>
-<blockquote>
-<p>Audience: all contributors · Evidence class: mixed</p>
-</blockquote>
-<p>Contributions are welcome! Please read the <a href="CONTRIBUTING.html"><strong>CONTRIBUTING.md</strong></a> for full details before submitting a pull request.</p>
-<p>At a high level, submissions must meet the following criteria:</p>
-<ul>
-<li>Clear description of purpose</li>
-<li>Architectural strengths and operational constraints</li>
-<li>Governance fit and workload suitability</li>
-<li>Evidence of ecosystem maturity or real-world usage (preferred)</li>
-<li>Evidence tags and <code>Last reviewed</code> markers where claims are time-sensitive or likely to change</li>
-</ul>
-<p>This is a <strong>curated list</strong>, not an exhaustive one.</p>
-<p>See <a href="appendix/benchmark-and-evidence-policy.html">appendix/benchmark-and-evidence-policy.md</a> for the sourcing, evidence-tagging, and <code>Last reviewed</code> policy.</p>
-<hr />
-<h2 id="final-note">📌 Final Note</h2>
-<blockquote>
-<p>Audience: all contributors · Evidence class: mixed</p>
-</blockquote>
-<p>The shift to agentic systems is not about more tools.</p>
-<p>It is about:</p>
-<ul>
-<li>Designing systems that can <strong>reason, act, evaluate, and improve</strong></li>
-<li>Ensuring those systems are <strong>reliable, observable, and safe</strong></li>
-</ul>
-<p>Build accordingly.</p>
+<img src="assets/github/contributors-banner.png" alt="We love Contributors" width="720">
+<p>Thrilled to have you here.<br>
+Whether it's a quick typo fix, a fresh resource,<br>
+a doc polish, or a sweeping overhaul — every contribution helps this list grow.<br>
+Jump in and join the community — PRs of every size are welcome.</p>
+<p>📝 <a href="CONTRIBUTING.html">Read the contributing guide</a> · 🐛 <a href="https://github.com/natnew/Awesome-Agentic-Engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22" rel="noopener">good first issues</a></p>
+<a href="appendix/benchmark-and-evidence-policy.html">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/github/evidence-policy-dark.svg">
+    <img alt="Evidence Policy — sourcing, evidence-tagging, and Last reviewed" src="assets/github/evidence-policy-light.svg" height="36">
+  </picture>
+</a>
+</div>
 </article>
 </main>
 <footer class="site-footer"><p>Source of truth: <a href="https://github.com/natnew/Awesome-Agentic-Engineering" rel="noopener">GitHub</a> · <a href="feed.xml">Subscribe (RSS)</a> · <a href="https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/LICENSE" rel="noopener">MIT License</a></p><p><small>Generated by <code>repo-agent workflow render-site</code>. Pages are rebuilt from Markdown on every push to <code>main</code>.</small></p></footer>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Engineering Reference Stack · Awesome Agentic Engineering</title>
+<meta name="description" content="Stop prompting. Start engineering. A structured reference for taking AI agents into production.">
+<link rel="stylesheet" href="../styles.css">
+<link rel="alternate" type="application/rss+xml" title="Awesome Agentic Engineering — Changelog" href="../feed.xml">
+</head>
+<body>
+<header class="site-header">
+<p class="site-title"><a href="../index.html">Awesome Agentic Engineering</a></p>
+<nav class="site-nav" aria-label="Primary"><ul><li><a href="../index.html">Home</a></li><li><a href="../rubric.html">Rubric</a></li><li><a href="../anti-patterns.html">Anti-patterns</a></li><li><a href="../contributing.html">Contributing</a></li><li><a href="../changelog.html">Changelog</a></li></ul></nav>
+</header>
+<main class="site-main">
+<article class="content">
+<h1 id="agentic-engineering-reference-stack">🧱 Agentic Engineering Reference Stack</h1>
+<blockquote>
+<p>Audience: practitioners · Evidence class: mixed</p>
+</blockquote>
+<p>A serious agentic system is not a prompt with tools attached. It is nine engineering layers between a user goal and a running production system — and most production failures are a missing layer, not a bad model. This page names the layers, what each one is for, how each one fails, and where to read deeper.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A[&quot;User / System Goal&quot;] --&gt; B[&quot;Spec / Intent / Task Definition&quot;]
+    B --&gt; C[&quot;Planner / Decomposition&quot;]
+    C --&gt; D[&quot;Agent Runtime / Control Loop&quot;]
+    D --&gt; E[&quot;Tools / APIs / External Systems&quot;]
+    E --&gt; F[&quot;Memory / Context / State&quot;]
+    F --&gt; G[&quot;Evaluation / Tests / Rubrics / Guards&quot;]
+    G --&gt; H[&quot;Observability / Tracing / Monitoring&quot;]
+    H --&gt; I[&quot;Governance / Identity / Permissions / Human Approval&quot;]
+    I --&gt; J[&quot;Deployment / Runtime Operations&quot;]
+</code></pre>
+<blockquote>
+<p>Read top-to-bottom: a goal becomes a spec, a spec becomes a plan, a plan becomes a run, and that run only earns the right to call itself production-grade once it is bounded by evaluation, observability, governance, and deployment discipline. Skip a layer and every layer above it becomes indefensible.</p>
+</blockquote>
+<h2 id="the-nine-layers">The nine layers</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Layer</th>
+<th style="text-align:left">Purpose</th>
+<th style="text-align:left">Engineering concern</th>
+<th style="text-align:left">Common failure mode</th>
+<th style="text-align:left">What good looks like</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Spec</strong></td>
+<td style="text-align:left">Durable, versioned contract for what the system should do and how it should behave.</td>
+<td style="text-align:left">Acceptance criteria are typed, reviewable, and the source from which plans, code, and tests regenerate.</td>
+<td style="text-align:left">&quot;Vibe coding&quot;: implicit specs that drift across sessions and resist regression.</td>
+<td style="text-align:left">Spec survives model swaps and team turnover; agents and humans refer back to the same artifact.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Planner</strong></td>
+<td style="text-align:left">Decomposes the spec into ordered tasks; routes work to agents and tools.</td>
+<td style="text-align:left">Plans are explicit, inspectable, and re-plannable on failure — not fused into the executor.</td>
+<td style="text-align:left">Planner and executor collapse into one loop; replanning happens silently inside a prompt.</td>
+<td style="text-align:left">Plan surfaces as a first-class artifact with traceable revisions and a clear handoff to execution.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Agent Runtime</strong></td>
+<td style="text-align:left">Executes the plan: state, message-passing, tool dispatch, retries, control flow.</td>
+<td style="text-align:left">Deterministic state transitions, idempotent steps, scoped concurrency, durable resumability.</td>
+<td style="text-align:left">Hidden global state, opaque emergent loops, no way to replay or resume a failed run.</td>
+<td style="text-align:left">Inspectable state graph, replayable runs, durable checkpoints, bounded loops.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Tools</strong></td>
+<td style="text-align:left">The APIs and actions the agent can invoke — to read external data or change the world.</td>
+<td style="text-align:left">Typed inputs and outputs, scoped credentials, idempotency, rate limits, structured errors.</td>
+<td style="text-align:left">Tool sprawl, unauthenticated side-effects, ambiguous error semantics, silent retries.</td>
+<td style="text-align:left">Typed contracts, structured errors, explicit auth boundaries, a registry that distinguishes read from write.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Memory</strong></td>
+<td style="text-align:left">What the agent remembers across turns, sessions, and runs.</td>
+<td style="text-align:left">Differentiated working / episodic / semantic / procedural stores, eviction policy, retrieval quality.</td>
+<td style="text-align:left">One vector store for everything; context bloat; retrieval poisoning; no provenance.</td>
+<td style="text-align:left">Distinct stores by purpose, explicit read and write paths, provenance per memory, measurable retrieval.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Evaluation</strong></td>
+<td style="text-align:left">Measures whether the system is doing the right thing, on real cases, repeatedly.</td>
+<td style="text-align:left">Versioned golden sets, rubrics with inter-rater agreement (κ ≥ 0.6), regression gates in CI.</td>
+<td style="text-align:left">Vibe-evals; unit tests masquerading as evals; no golden set; metrics that move only when humans look.</td>
+<td style="text-align:left">Golden sets are versioned artifacts; rubric scores gate PRs; new failures get added to the set.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Observability</strong></td>
+<td style="text-align:left">Traces, logs, and metrics that make a run inspectable after the fact.</td>
+<td style="text-align:left">Structured traces (e.g. OpenTelemetry), per-step latency / cost / retries, prompt and response capture with redaction.</td>
+<td style="text-align:left">Print-debugging in production; no correlation IDs; logs without spans; cost is invisible until the bill arrives.</td>
+<td style="text-align:left">Every run yields a trace tree; cost and latency are queryable per step; redaction is automatic, not aspirational.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Governance</strong></td>
+<td style="text-align:left">Policies, approvals, and audit trails that bound what an agent may do.</td>
+<td style="text-align:left">Scoped identity, least-privilege authority, approval gates on consequential actions, revocation paths.</td>
+<td style="text-align:left">Implicit human authority leaks into agent identity; the audit trail is the chat log; revocation is a code change.</td>
+<td style="text-align:left">Agents have explicit identity; consequential actions are logged with their approver; access can be revoked in seconds.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Deployment</strong></td>
+<td style="text-align:left">How the system runs in production: environment, scaling, rollout, rollback.</td>
+<td style="text-align:left">Reproducible builds, staged rollout, kill-switches, environment parity, secret management.</td>
+<td style="text-align:left">Notebook-to-prod; one shared API key; no rollback; &quot;it worked on my laptop&quot; as a release strategy.</td>
+<td style="text-align:left">Versioned artifacts, infra-as-code, shadow runs, instant kill-switch, parity between staging and prod.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deeper-reading">Deeper reading</h2>
+<p>Each layer maps to existing material in this repo. Use the table above as the index; follow these links for depth.</p>
+<ul>
+<li><strong>Spec</strong> → <a href="../index.html#-spec-driven-development">Spec-Driven Development</a></li>
+<li><strong>Planner</strong> → <a href="../index.html#-reasoning--planning-models">Reasoning &amp; Planning Models</a></li>
+<li><strong>Agent Runtime</strong> → <a href="../index.html#-orchestration-frameworks">Orchestration Frameworks</a>, <a href="../index.html#-reference-architectures">Reference Architectures</a></li>
+<li><strong>Tools</strong> → <a href="../index.html#-protocols-and-standards">Protocols and Standards</a></li>
+<li><strong>Memory</strong> → <a href="../index.html#-memory-systems">Memory Systems</a></li>
+<li><strong>Evaluation</strong> → <a href="../index.html#-formal-evaluation-rubric">Formal Evaluation Rubric</a>, <a href="../RUBRIC.html">RUBRIC.md</a>, <a href="benchmark-and-evidence-policy.html">Benchmark and Evidence Policy</a></li>
+<li><strong>Observability</strong> → not yet covered as a standalone reference; flagged for a follow-up appendix.</li>
+<li><strong>Governance</strong> → <a href="../index.html#-agent-authority-identity--delegation">Agent Authority, Identity &amp; Delegation</a></li>
+<li><strong>Deployment</strong> → not yet covered as a standalone reference; flagged for a follow-up appendix.</li>
+</ul>
+<h2 id="how-to-use-the-stack">How to use the stack</h2>
+<p>This is the repo's <strong>engineering vocabulary</strong>, not a maturity model. A maturity model would describe a progression from script to ecosystem; the stack describes the layers any one system has, at any maturity level. The two are complementary: a Level 1 prompt script still has all nine layers — most of them are just implicit, undefined, or absent. The job of agentic engineering is to make every layer explicit, inspectable, and tested.</p>
+<p>When reviewing a system — your own or someone else's — walk the table top to bottom and ask the <strong>What good looks like</strong> question for each layer. The first row that does not have a confident answer is the next thing to build.</p>
+</article>
+</main>
+<footer class="site-footer"><p>Source of truth: <a href="https://github.com/natnew/Awesome-Agentic-Engineering" rel="noopener">GitHub</a> · <a href="../feed.xml">Subscribe (RSS)</a> · <a href="https://github.com/natnew/Awesome-Agentic-Engineering/blob/main/LICENSE" rel="noopener">MIT License</a></p><p><small>Generated by <code>repo-agent workflow render-site</code>. Pages are rebuilt from Markdown on every push to <code>main</code>.</small></p></footer>
+</body>
+</html>
