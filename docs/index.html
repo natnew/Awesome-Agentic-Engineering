@@ -26,6 +26,9 @@
 <p>We reject &quot;tool list energy.&quot; It is a structured guide to building <strong>reliable, observable, and production-grade agentic systems</strong>, rigorously evaluated against engineering dimensions.</p>
 <hr />
 <h2 id="table-of-contents">📑 Table of Contents</h2>
+<blockquote>
+<p>Audience: all contributors · Evidence class: mixed</p>
+</blockquote>
 <ul>
 <li><a href="#-thesis">🧭 Thesis</a></li>
 <li><a href="#%EF%B8%8F-architecture-decision-guide">⚖️ Architecture Decision Guide</a></li>
@@ -37,8 +40,9 @@
 <li><a href="#benchmark-and-evidence-policy">Benchmark and Evidence Policy</a></li>
 <li><a href="#-orchestration-frameworks">⚙️ Orchestration Frameworks</a></li>
 <li><a href="#-protocols-and-standards">📡 Protocols and Standards</a></li>
-<li><a href="#-reasoning--planning-models">� Reasoning &amp; Planning Models</a></li>
-<li><a href="#-evaluation--safety">�🧪 Evaluation &amp; Safety</a></li>
+<li><a href="#-agent-authority-identity--delegation">🛂 Agent Authority, Identity &amp; Delegation</a></li>
+<li><a href="#-reasoning--planning-models">🧭 Reasoning &amp; Planning Models</a></li>
+<li><a href="#-evaluation--safety">🧪 Evaluation &amp; Safety</a></li>
 <li><a href="#-skills-and-operating-principles">🧠 Skills and Operating Principles</a></li>
 <li><a href="#-what-not-to-do">🚫 What NOT to Do</a></li>
 <li><a href="#-signals-how-to-read-this-list">📊 Signals (How to Read This List)</a></li>
@@ -59,6 +63,9 @@
 </ul>
 <hr />
 <h2 id="thesis">🧭 Thesis</h2>
+<blockquote>
+<p>Audience: all contributors · Evidence class: mixed</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -77,6 +84,9 @@
 </table>
 <hr />
 <h2 id="architecture-decision-guide">⚖️ Architecture Decision Guide</h2>
+<blockquote>
+<p>Audience: practitioners · Evidence class: mixed</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -119,8 +129,14 @@
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p><strong>Authority rule:</strong> any agent that can act outside its own runtime — for example by calling APIs, modifying files, opening pull requests, sending messages, triggering workflows, or accessing private data — needs an explicit identity, scoped authority, audit trail, and revocation path. See <a href="#-agent-authority-identity--delegation">Agent Authority, Identity &amp; Delegation</a>.</p>
+</blockquote>
 <hr />
 <h2 id="core-agentic-patterns">🧩 Core Agentic Patterns</h2>
+<blockquote>
+<p>Audience: practitioners · Evidence class: mixed</p>
+</blockquote>
 <p>These patterns underpin most production-grade agentic systems.</p>
 <table>
 <thead>
@@ -165,6 +181,9 @@
 </table>
 <hr />
 <h2 id="reference-architectures">🏗️ Reference Architectures</h2>
+<blockquote>
+<p>Audience: practitioners · Evidence class: mixed</p>
+</blockquote>
 <p>Representative system designs for real-world use.</p>
 <table>
 <thead>
@@ -204,6 +223,9 @@
 </table>
 <hr />
 <h2 id="spec-driven-development">📐 Spec-Driven Development</h2>
+<blockquote>
+<p>Audience: practitioners · Evidence class: mixed</p>
+</blockquote>
 <p><em>Last reviewed: April 2026.</em></p>
 <p>Agentic systems amplify whatever intent you feed them — including vague intent. <strong>Spec-driven development (SDD)</strong> treats the specification as the load-bearing artifact: a durable, reviewable document that describes <em>what</em> the system should do and <em>how</em> it should behave, from which plans, code, and tests are generated (and regenerated) by agents. It is the production-grade answer to &quot;vibe coding.&quot;</p>
 <p>In an agentic context, the spec does three things at once:</p>
@@ -254,7 +276,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="spec-driven-resources">Resources</h3>
+<h3 id="resources">Resources</h3>
 <p>Evidence tags follow the <a href="#benchmark-and-evidence-policy">Benchmark and Evidence Policy</a>.</p>
 <table>
 <thead>
@@ -333,10 +355,13 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>How this repo uses SDD:</strong> the <a href="https://github.com/natnew/Awesome-Agentic-Engineering/tree/main/specs" rel="noopener"><code>specs/</code></a> directory contains phased specs (requirements → plan → validation) generated and executed against with Spec Kit. The <code>tasks/todo.md</code>, phase validation scripts, and PR bodies are derived artifacts. See <a href="contributing.html">CONTRIBUTING</a> for the contributor-facing workflow.</p>
+<p><strong>How this repo uses SDD:</strong> the <a href="specs/"><code>specs/</code></a> directory contains phased specs (requirements → plan → validation) generated and executed against with Spec Kit. The <code>tasks/todo.md</code>, phase validation scripts, and PR bodies are derived artifacts. See <a href="CONTRIBUTING.html">CONTRIBUTING.md</a> for the contributor-facing workflow.</p>
 </blockquote>
 <hr />
 <h2 id="memory-systems">🧠 Memory Systems</h2>
+<blockquote>
+<p>Audience: practitioners · Evidence class: mixed</p>
+</blockquote>
 <p><em>Last reviewed: April 2026.</em></p>
 <p>Memory is a first-class concern in agentic systems. Rather than treating memory as a simple array of previous messages, production systems require structured approaches to state, persistence, retrieval, and <strong>experience reuse</strong>. Four categories — working, episodic, procedural, semantic — remain the core architectural choices, but recent frontier research also shows memory is increasingly being used to <strong>improve future agent behaviour</strong>, not merely to store past context.</p>
 <h3 id="memory-taxonomy">Memory Taxonomy</h3>
@@ -501,6 +526,12 @@
 </blockquote>
 <hr />
 <h2 id="formal-evaluation-rubric">📊 Formal Evaluation Rubric</h2>
+<blockquote>
+<p>Audience: maintainers · Evidence class: mixed</p>
+</blockquote>
+<blockquote>
+<p><strong>🎯 Evaluation principle:</strong> rubrics assess quality, test suites verify behaviour, assertions enforce invariants, and LLM-as-a-judge is used only in tightly scoped regression tests.</p>
+</blockquote>
 <p>Every major framework and architecture in this repository is judged against the following <strong>Required Scoring Dimensions</strong>. We evaluate systems based on engineering rigor, not marketing copy.</p>
 <table>
 <thead>
@@ -566,6 +597,9 @@
 </table>
 <hr />
 <h2 id="benchmark-and-evidence-policy">Benchmark and Evidence Policy</h2>
+<blockquote>
+<p>Audience: maintainers · Evidence class: official</p>
+</blockquote>
 <p>Canonical resources are trusted here because they define what counts as evidence. Prefer official docs, architecture guides, papers, benchmark repos, and first-party repositories when establishing capabilities, methodology, or interface details.</p>
 <table>
 <thead>
@@ -600,6 +634,9 @@
 <li>See <a href="appendix/benchmark-and-evidence-policy.html">appendix/benchmark-and-evidence-policy.md</a> for the full policy.</li>
 </ul>
 <h2 id="orchestration-frameworks">⚙️ Orchestration Frameworks</h2>
+<blockquote>
+<p>Audience: practitioners · Evidence class: mixed</p>
+</blockquote>
 <p><em>Last reviewed: April 2026.</em></p>
 <h3 id="deep-dives">Deep Dives</h3>
 <p>Evidence tags follow the <a href="#benchmark-and-evidence-policy">Benchmark and Evidence Policy</a>. Scored against <a href="RUBRIC.html">RUBRIC.md</a>; cap of 5–8 deep-dive entries enforced.</p>
@@ -867,6 +904,9 @@
 </table>
 <hr />
 <h2 id="protocols-and-standards">📡 Protocols and Standards</h2>
+<blockquote>
+<p>Audience: practitioners · Evidence class: official</p>
+</blockquote>
 <p><em>Last reviewed: April 2026.</em></p>
 <p>Protocols are the stable contracts between agents, tools, and hosts. Each entry below distinguishes the <strong>specification</strong> from any specific implementation — mixing the two is a repeat anti-pattern (see <a href="ANTI-PATTERNS.html">ANTI-PATTERNS.md</a>).</p>
 <table>
@@ -912,7 +952,134 @@
 </tbody>
 </table>
 <hr />
+<h2 id="agent-authority-identity-delegation">🛂 Agent Authority, Identity &amp; Delegation</h2>
+<blockquote>
+<p>Audience: practitioners, AI security, enterprise architects · Evidence class: mixed</p>
+</blockquote>
+<p><em>Last reviewed: April 2026.</em></p>
+<p>Protocols like MCP, A2A, and function calling explain <strong>how</strong> agents connect to tools and systems. This section covers <strong>who or what is authorised</strong> to use those connections, and how that authority is governed in production — what the industry has begun to call the <strong>AI Agent Authority Gap</strong>.</p>
+<p>Action-taking agents do not emerge with independent authority. They are triggered, invoked, provisioned, or empowered by existing enterprise identities — human users, service accounts, bots, machine identities, OAuth tokens, API keys, tool connectors, MCP servers, CLIs, scripts, and automation infrastructure. The same agent loop can reach into source control, ticketing, messaging, cloud APIs, and private data through credentials that were never designed for autonomous use.</p>
+<blockquote>
+<p>Agents are not just a new identity type. They are a <strong>delegated identity type</strong>. Their authority originates from traditional enterprise actors — humans, bots, service accounts, and machine identities — and is <strong>inseparable from the posture of those delegators</strong>.</p>
+</blockquote>
+<p>Traditional IAM was built to answer a narrow question: <em>who has access?</em> Once agents are introduced, the operative question shifts:</p>
+<blockquote>
+<p>What authority is being delegated, by whom, under what conditions, for what purpose, and across what scope?</p>
+</blockquote>
+<p><strong>Identity dark matter</strong> is the term for authority that exists, operates, and accumulates risk <strong>outside the view of managed IAM</strong> — fragmented human and machine identities, embedded credentials, unmanaged service accounts, bot accounts, and application-specific identity logic. If that dark matter remains unobserved, agents inherit an already-broken authority model and become efficient amplifiers of hidden access, hidden permissions, and hidden execution paths.</p>
+<p>The practical consequence is <strong>sequencing</strong>: an enterprise cannot safely govern Agent-AI unless it first observes and governs the traditional actors that serve as its <strong>delegation source</strong>. Closing the authority gap is therefore a delegation problem first, and an agent problem second.</p>
+<h3 id="core-concepts">Core Concepts</h3>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Definition</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Agent Identity</strong></td>
+<td>A first-class, distinguishable identity for the agent itself, separate from the human, service account, or bot whose authority it borrows.</td>
+<td>Without it, every agent action is attributed to its delegator or a shared service account, breaking attribution, audit, and incident response.</td>
+</tr>
+<tr>
+<td><strong>Delegation Source</strong></td>
+<td>The human, service account, bot, or machine identity that triggers, invokes, or empowers the agent.</td>
+<td>Agent authority is inseparable from delegator posture; a poorly governed delegator yields a poorly governed agent.</td>
+</tr>
+<tr>
+<td><strong>Delegation Chain</strong></td>
+<td>The end-to-end path <em>delegator → agent → tool → target application → action</em>, including any intermediate scopes, tokens, and approvals.</td>
+<td>Makes the path of authority explicit and reviewable instead of inherited from whatever credentials the runtime happens to hold.</td>
+</tr>
+<tr>
+<td><strong>Identity Dark Matter</strong></td>
+<td>Authority — identities, credentials, tokens, service accounts, embedded secrets, application-specific access paths — that exists and operates outside the view of managed IAM.</td>
+<td>Agents amplify hidden authority into automated action at machine speed; un-illuminated dark matter becomes the agent's effective permission set.</td>
+</tr>
+<tr>
+<td><strong>Authority Boundary</strong></td>
+<td>The explicit set of applications, workflows, scopes, and actions an agent is allowed to touch.</td>
+<td>Defines the blast radius. An agent without a stated boundary effectively has the union of every credential its delegator can reach.</td>
+</tr>
+<tr>
+<td><strong>Dynamic Sequential Delegation Control</strong></td>
+<td>Runtime authority decisions that combine the <strong>posture</strong> of the delegator, the <strong>context</strong> of the target application, the <strong>intent</strong> behind the requested action, and the <strong>scope</strong> of execution.</td>
+<td>Static, long-lived permissions do not match agents whose delegators, tasks, and risk levels change per run.</td>
+</tr>
+<tr>
+<td><strong>Continuous Observability</strong></td>
+<td>A live feed of identity behaviour across managed and unmanaged environments, used as input to authority decisions rather than as after-the-fact reporting.</td>
+<td>Turns observability into governance: the same telemetry that illuminates dark matter becomes the decision input for what the agent is allowed to do next.</td>
+</tr>
+<tr>
+<td><strong>Human Approval Gate</strong></td>
+<td>A required human checkpoint before sensitive or irreversible actions are executed.</td>
+<td>Keeps high-impact decisions reviewable; separates <em>recommend</em> from <em>execute</em> on the act / recommend / constrain / stop continuum.</td>
+</tr>
+<tr>
+<td><strong>Audit Trail</strong></td>
+<td>An immutable record linking <em>delegator → agent identity → delegated authority → tool call → target application → decision point → result</em>.</td>
+<td>Required for incident response, compliance, and learning loops. Without it, agent failures are unreproducible and dark matter stays dark.</td>
+</tr>
+<tr>
+<td><strong>Revocation Path</strong></td>
+<td>A defined, tested way to disable an agent, rotate its credentials, and invalidate its delegated authority — including upstream delegator credentials when needed.</td>
+<td>When an agent or its delegator is compromised, you need a working off switch, not a code change.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="design-principles">Design Principles</h3>
+<ul>
+<li>Treat agents as <strong>delegated actors</strong>, not autonomous islands; their authority is bounded by the posture of their delegation source.</li>
+<li><strong>Govern the delegation source first.</strong> Reduce identity dark matter across human and machine identities before granting agents broad action rights.</li>
+<li>Map the delegation chain explicitly: <em>delegator (human / service account / bot / machine identity) → agent → tool → target application → action</em>.</li>
+<li>Use least privilege, scoped tokens, short-lived credentials, and tested revocation paths at every link in the chain.</li>
+<li>Govern authority continuously on <strong>posture, context, intent, and scope</strong> — not only on nominal permissions issued at provisioning time.</li>
+<li>Operate agents on an <strong>act / recommend / constrain / stop</strong> continuum: not every request should result in execution; some should be downgraded to recommendation, restricted to a limited tool set, or blocked.</li>
+<li>Separate <strong>recommend</strong>, <strong>prepare</strong>, <strong>execute</strong>, and <strong>approve</strong> as distinct steps in the agent loop, and require human approval gates for sensitive or irreversible actions (writes to production, financial transactions, external messages, code merges).</li>
+<li>Log the <strong>delegator, agent identity, delegated authority, tool call, target application, decision point, and result</strong> for every action — not just the final answer.</li>
+<li>Evaluate whether agents attempt to <strong>exceed their authority</strong> or <strong>amplify dark matter</strong>, not only whether they complete tasks.</li>
+<li>Do not confuse model guardrails with identity governance. Production systems need both: prompt-level safety <em>and</em> continuous, IAM-level delegation control.</li>
+</ul>
+<h3 id="resources-1">Resources</h3>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Focus</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://thehackernews.com/2026/04/bridging-ai-agent-authority-gap.html" rel="noopener">Bridging the AI Agent Authority Gap</a></td>
+<td>Authority gap, delegation source, identity dark matter, continuous observability as a decision engine</td>
+<td>Frames AI agents as a delegated identity type whose authority originates from humans, bots, service accounts, and machine identities, and argues for governing the delegation source before the agent.</td>
+</tr>
+<tr>
+<td><a href="https://genai.owasp.org/" rel="noopener">OWASP GenAI Security Project</a></td>
+<td>GenAI and agent security controls</td>
+<td>Useful governance and threat-modelling reference for agentic systems, including excessive agency and tool-use risks.</td>
+</tr>
+<tr>
+<td><a href="https://modelcontextprotocol.io/" rel="noopener">Model Context Protocol</a></td>
+<td>Tool and context protocol</td>
+<td>Tool access expands the authority surface of agentic systems; MCP is a primary vector for that expansion and where scoping must be applied.</td>
+</tr>
+<tr>
+<td><a href="https://auth0.com/ai" rel="noopener">Auth0 AI Agents / Token Vault</a></td>
+<td>Scoped delegated access for AI agents</td>
+<td>Practical identity pattern for managing agent access to user-authorised systems with short-lived, scoped tokens.</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="reasoning-planning-models">🧭 Reasoning &amp; Planning Models</h2>
+<blockquote>
+<p>Audience: researchers · Evidence class: benchmark</p>
+</blockquote>
 <p><em>Last reviewed: April 2026.</em></p>
 <p>Models that do <strong>explicit reasoning or planning at inference time</strong> — chain-of-thought baked into the decoding loop, extended thinking budgets, or trained planner heads. They change the shape of agent loops: the model absorbs work that used to live in a planner node, which shifts where you spend tokens, latency, and trust. Cap of 5–8 entries; selected for agentic relevance, not general benchmark wins. Same-family tiers (e.g. <code>mini</code> / <code>nano</code>, Sonnet / Haiku, Flash / Flash-Lite) are grouped into one row because they share the same reasoning interface and differ mainly in latency and cost.</p>
 <table>
@@ -975,6 +1142,9 @@
 </blockquote>
 <hr />
 <h2 id="evaluation-safety">🧪 Evaluation &amp; Safety</h2>
+<blockquote>
+<p>Audience: researchers · Evidence class: benchmark</p>
+</blockquote>
 <p><em>Last reviewed: April 2026.</em></p>
 <p>This section covers frameworks and operational tooling for testing agent quality, correctness, task completion, regressions, and system behaviour, as well as security scanning, red teaming, policy testing, and misalignment research. Evidence tags follow the <a href="#benchmark-and-evidence-policy">Benchmark and Evidence Policy</a>.</p>
 <h3 id="core-evaluation-areas">Core Evaluation Areas</h3>
@@ -1246,6 +1416,9 @@
 </table>
 <hr />
 <h2 id="skills-and-operating-principles">🧠 Skills and Operating Principles</h2>
+<blockquote>
+<p>Audience: practitioners · Evidence class: field report</p>
+</blockquote>
 <p>Building agentic systems requires a shift in skillset:</p>
 <ul>
 <li>Problem decomposition</li>
@@ -1258,6 +1431,9 @@
 </ul>
 <hr />
 <h2 id="what-not-to-do">🚫 What NOT to Do</h2>
+<blockquote>
+<p>Audience: all contributors · Evidence class: mixed</p>
+</blockquote>
 <p>To keep this repository genuinely opinionated, we advocate against these common anti-patterns:</p>
 <ul>
 <li><strong>Do not begin with multi-agent systems when a single agent plus tools will do.</strong> Escalate to multi-agent only when task decomposition requires it.</li>
@@ -1265,16 +1441,24 @@
 <li><strong>Do not treat tracing as optional for long-running systems.</strong> Observability is the only way to debug non-deterministic agentic failures.</li>
 <li><strong>Do not confuse benchmark wins with production readiness.</strong> Real-world reliability requires evaluation on <em>your</em> specific data and edge cases.</li>
 <li><strong>Do not use framework abstractions as a substitute for architecture.</strong> Understand your control flow before outsourcing it to a library.</li>
+<li><strong>Do not give agents inherited or ambient authority without mapping the delegation chain.</strong> Every action-taking agent should have a clear identity, scoped permissions, observable tool calls, approval gates where needed, and a revocation path. See <a href="#-agent-authority-identity--delegation">Agent Authority, Identity &amp; Delegation</a>.</li>
 </ul>
 <hr />
 <h2 id="signals-how-to-read-this-list">📊 Signals (How to Read This List)</h2>
+<blockquote>
+<p>Audience: all contributors · Evidence class: mixed</p>
+</blockquote>
 <ul>
 <li>⭐ Production-grade</li>
 <li>🧪 Experimental</li>
 <li>⚠️ Early-stage / unstable</li>
+<li>🛂 Authority-aware — explicitly models identity, delegated permissions, approval gates, and auditability</li>
 </ul>
 <hr />
 <h2 id="getting-started">🚀 Getting Started</h2>
+<blockquote>
+<p>Audience: practitioners · Evidence class: mixed</p>
+</blockquote>
 <ol>
 <li>Choose a core pattern (e.g. single-agent + tools)</li>
 <li>Add structured tool use</li>
@@ -1285,6 +1469,9 @@
 </ol>
 <hr />
 <h2 id="contributing">🤝 Contributing</h2>
+<blockquote>
+<p>Audience: all contributors · Evidence class: mixed</p>
+</blockquote>
 <p>Contributions are welcome! Please read the <a href="CONTRIBUTING.html"><strong>CONTRIBUTING.md</strong></a> for full details before submitting a pull request.</p>
 <p>At a high level, submissions must meet the following criteria:</p>
 <ul>
@@ -1298,6 +1485,9 @@
 <p>See <a href="appendix/benchmark-and-evidence-policy.html">appendix/benchmark-and-evidence-policy.md</a> for the sourcing, evidence-tagging, and <code>Last reviewed</code> policy.</p>
 <hr />
 <h2 id="final-note">📌 Final Note</h2>
+<blockquote>
+<p>Audience: all contributors · Evidence class: mixed</p>
+</blockquote>
 <p>The shift to agentic systems is not about more tools.</p>
 <p>It is about:</p>
 <ul>

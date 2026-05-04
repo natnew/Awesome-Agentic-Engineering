@@ -1,3 +1,5 @@
+<div align="center">
+
 # 🧠 Awesome Agentic Engineering
 
 > **Stop prompting. Start engineering. A structured reference for taking AI agents into production.**
@@ -6,11 +8,16 @@
 
 A curated map of agentic AI systems — covering architectures, frameworks, memory, evaluation, and safety.
 
-**🌐 Live site:** <https://natnew.github.io/Awesome-Agentic-Engineering/>
+<a href="https://natnew.github.io/Awesome-Agentic-Engineering/">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/github/live-site-dark.svg">
+    <img alt="Live Site" src="assets/github/live-site-light.svg" height="36">
+  </picture>
+</a>
 
-This is not a list of tools.
+This is not a tool list. It's a structured guide to building **reliable, observable, production-grade agentic systems**, evaluated against rigorous engineering dimensions.
 
-We reject "tool list energy." It is a structured guide to building **reliable, observable, and production-grade agentic systems**, rigorously evaluated against engineering dimensions.
+</div>
 
 ---
 
@@ -49,7 +56,6 @@ We reject "tool list energy." It is a structured guide to building **reliable, o
 - [📰 Newsletters and Communities](appendix/newsletters-and-communities.md)
 - [📚 Learning Resources](appendix/learning-resources.md)
 - [⚡ Fast-Moving Product Lists](appendix/fast-moving-product-lists.md)
-
 
 ---
 
