@@ -507,6 +507,9 @@ This section covers frameworks and operational tooling for testing agent quality
 | [promptfoo](https://www.promptfoo.dev/docs/intro/) | CLI and library for evaluation and red teaming of LLM apps. | Regression testing, prompt/application evals, adversarial testing. | `[official]` |
 | [Inspect](https://inspect.aisi.org.uk/) | UK AI Security Institute's framework for rigorous LLM evals covering coding, reasoning, agent behavior, and model-graded scoring. | Rigorous research-grade and agent-task evaluation. | `[official]` · `[benchmark]` |
 | [Azure AI Evaluation SDK](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/evaluation-approach-gen-ai) | Azure Foundry evaluation SDK with built-in agent, safety, and quality evaluators. | Enterprise agent evaluation tied to Foundry tracing. | `[official]` |
+| [ai-evaluation](https://github.com/future-agi/ai-evaluation) | Open-source LLM evaluation framework with 50+ metrics, LLM-as-Judge, and guardrail scanners (jailbreak, PII, injection). | Application-level evaluation, regression testing, and guardrail scanning. | `[official]` |
+| [agent-opt](https://github.com/future-agi/agent-opt) | Prompt and agent optimization library with six algorithms (Bayesian, ProTeGi, GEPA, and more). | Iterative prompt and agent tuning across eval datasets. | `[official]` |
+| [simulate-sdk](https://github.com/future-agi/simulate-sdk) | Persona- and scenario-driven SDK for simulating voice and text AI agents. | Pre-production agent simulation and stress testing. | `[official]` |
 
 ### Key Practices
 
@@ -525,6 +528,8 @@ This section covers frameworks and operational tooling for testing agent quality
 | [Arize Phoenix](https://github.com/Arize-ai/phoenix) | OSS AI observability. Traces, evals, embeddings. |
 | [Helicone](https://github.com/Helicone/helicone) | OSS LLM observability. One-line integration. |
 | [Weights and Biases Weave](https://wandb.ai/site/weave) | Trace and evaluate LLM apps. |
+| [traceAI](https://github.com/future-agi/traceAI) | OpenTelemetry-native tracing for LLM and agent apps with 50+ framework integrations. |
+| [Future AGI](https://github.com/future-agi/future-agi) | Self-hostable end-to-end agent engineering platform with tracing, evals, guardrails, and gateway. |
 
 ### Benchmarks
 
