@@ -529,6 +529,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | [Helicone](https://github.com/Helicone/helicone) | OSS LLM observability. One-line integration. |
 | [Weights and Biases Weave](https://wandb.ai/site/weave) | Trace and evaluate LLM apps. |
 | [traceAI](https://github.com/future-agi/traceAI) | OpenTelemetry-native tracing for LLM and agent apps with 50+ framework integrations. |
+| [agenttrace](https://github.com/luoyuctl/agenttrace) | Local-first TUI and report generator for auditing AI coding-agent session logs, token and cost usage, latency, tool failures, health, and CI regression checks. |
 | [Future AGI](https://github.com/future-agi/future-agi) | Self-hostable end-to-end agent engineering platform with tracing, evals, guardrails, and gateway. |
 
 ### Benchmarks
