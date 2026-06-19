@@ -15,7 +15,8 @@
 
 ## Entry Rubric (v1) self-assessment
 
-> Required for all content PRs. See `CONTRIBUTING.md` → **Entry Rubric (v1)**.
+> Required for new entries and major content refreshes. See `CONTRIBUTING.md` → **Entry Rubric (v1)**.
+> Skip this section for typo-only, formatting-only, or broken-link fixes that do not add or materially change an entry.
 
 - **Reliability**: <!-- API stability, maintainers, known failure modes -->
 - **Evidence**: <!-- Tag as [official] / [benchmark] / [field report] / [author assessment] with links -->
