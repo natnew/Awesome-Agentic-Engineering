@@ -215,7 +215,8 @@ roadmap.md
 # Learning
 learning/
 
-# tools
+# tools (local-only automation CLI; not for publication)
+tools/
 hygiene.py
 test_hygiene_no_mojibake.py
 
