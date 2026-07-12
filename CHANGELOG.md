@@ -9,7 +9,7 @@ The RSS feed at [`feed.xml`](feed.xml) is generated from this file.
 
 ## [Unreleased]
 
-- **Added** `skills/ask-user/SKILLS.md` — reusable human-in-the-loop gate skill for presenting explicit choices and gating execution until the user responds; platform-agnostic (Telegram, Discord, CLI, agent message API).
+- Placeholder — add a bullet here in the same PR that adds or refreshes an entry.
 
 ## [Phase 7 — Publishing & Reach] - 2026-04-22
 
