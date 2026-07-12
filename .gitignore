@@ -208,7 +208,6 @@ __marimo__/
 
 # Local-only spec-driven-development artifacts (not for publication)
 specs/
-skills/
 tasks/
 roadmap.md
 
