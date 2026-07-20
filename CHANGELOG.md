@@ -9,7 +9,7 @@ The RSS feed at [`feed.xml`](feed.xml) is generated from this file.
 
 ## [Unreleased]
 
-- Placeholder — add a bullet here in the same PR that adds or refreshes an entry.
+- **Added** Harness Handbook to the Spec-Driven Development resources as a paper on behaviour localization for evolving agent harnesses.
 
 ## [Phase 7 — Publishing & Reach] - 2026-04-22
 
