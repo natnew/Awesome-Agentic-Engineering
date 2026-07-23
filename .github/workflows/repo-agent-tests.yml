@@ -18,7 +18,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # tools/repo-agent is local-only automation and is not published to
+      # this repository. Skip cleanly when it is absent so content PRs are
+      # not blocked; the steps below still run if the tool is ever added.
+      - name: Check for repo-agent
+        id: tooling
+        run: |
+          if [ -f tools/repo-agent/pyproject.toml ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::tools/repo-agent is not present in this repository (local-only automation); tests skipped."
+          fi
+
       - name: Set up Python
+        if: steps.tooling.outputs.present == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -26,12 +40,14 @@ jobs:
           cache-dependency-path: 'tools/repo-agent/pyproject.toml'
 
       - name: Install
+        if: steps.tooling.outputs.present == 'true'
         working-directory: tools/repo-agent
         run: |
           python -m pip install --upgrade pip
           pip install -e ".[dev]"
 
       - name: Run tests
+        if: steps.tooling.outputs.present == 'true'
         working-directory: tools/repo-agent
         continue-on-error: true
         run: pytest -q
