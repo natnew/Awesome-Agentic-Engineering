@@ -17,5 +17,50 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      # The scan is inlined so the check is self-sufficient: tools/ holds
+      # local-only automation and is not published to this repository.
       - name: Run hygiene scan
-        run: python tools/repo-agent/src/repo_agent/hygiene.py .
+        run: |
+          python - <<'EOF'
+          """Scan tracked Markdown files for mojibake / encoding corruption."""
+          import re
+          import subprocess
+          import sys
+
+          MOJIBAKE = re.compile(
+              "\N{REPLACEMENT CHARACTER}"
+              "|â€"                         # corrupted smart quotes, dashes, ellipsis
+              "|Ã[©¨«¤¶¼±§¢€‚ƒ„…†‡ˆ‰Š‹ŒŽ]"  # corrupted accented letters
+              "|Â[·£°®»«± \N{NO-BREAK SPACE}]"  # corrupted symbols / non-breaking space
+              "|ï»¿"                        # UTF-8 BOM decoded as text
+          )
+
+          files = subprocess.run(
+              ["git", "ls-files", "*.md"],
+              capture_output=True, text=True, check=True,
+          ).stdout.splitlines()
+
+          problems = []
+          for path in files:
+              with open(path, "rb") as fh:
+                  raw = fh.read()
+              try:
+                  text = raw.decode("utf-8")
+              except UnicodeDecodeError as exc:
+                  problems.append(f"{path}: not valid UTF-8 ({exc})")
+                  continue
+              for lineno, line in enumerate(text.splitlines(), 1):
+                  match = MOJIBAKE.search(line)
+                  if match:
+                      problems.append(
+                          f"{path}:{lineno}: suspicious sequence {match.group(0)!r}"
+                      )
+
+          if problems:
+              print("Mojibake / encoding corruption found:")
+              for problem in problems:
+                  print(f"  {problem}")
+              sys.exit(1)
+
+          print(f"OK: {len(files)} Markdown files scanned, no mojibake found.")
+          EOF
