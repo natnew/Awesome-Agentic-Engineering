@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** LLMs Get Lost in Evolving User Intent as an Evaluation & Safety resource for testing agents under incrementally revealed, revised, and redirected user intent.
 - **Added** Harness Handbook to the Spec-Driven Development resources as a paper on behaviour localization for evolving agent harnesses.
 
 ## [Phase 7 — Publishing & Reach] - 2026-04-22
@@ -78,5 +79,3 @@ The RSS feed at [`feed.xml`](feed.xml) is generated from this file.
 - **Added** `CONTRIBUTING.md` with the contribution standards, evidence policy,
   and v1 Entry Rubric self-assessment.
 - **Added** PR and issue templates (new entry, stale entry, suggestion).
-- **Audited** existing sections against the mission and flagged gaps.
-- Shipped in [PR #1](https://github.com/natnew/Awesome-Agentic-Engineering/pull/1).
