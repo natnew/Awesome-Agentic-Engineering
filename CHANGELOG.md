@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** LLMs Get Lost in Evolving User Intent to the Evaluation & Safety benchmarks for testing agents under incrementally revealed, revised, and redirected user intent.
 - **Added** Harness Handbook to the Spec-Driven Development resources as a paper on behaviour localization for evolving agent harnesses.
 
 ## [Phase 7 — Publishing & Reach] - 2026-04-22

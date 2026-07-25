@@ -487,7 +487,7 @@ Models that do **explicit reasoning or planning at inference time** — chain-of
 
 > Audience: researchers · Evidence class: benchmark
 
-_Last reviewed: April 2026._
+_Last reviewed: July 2026._
 
 This section covers frameworks and operational tooling for testing agent quality, correctness, task completion, regressions, and system behaviour, as well as security scanning, red teaming, policy testing, and misalignment research. Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence-policy).
 
@@ -543,6 +543,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | [GAIA](https://huggingface.co/gaia-benchmark) | General AI assistant benchmark with real-world multi-step tasks and tool use. | `[official]` · `[benchmark]` |
 | [WebArena / VisualWebArena](https://github.com/web-arena-x/webarena) | Web agent benchmark on real-website snapshots; visual variant tests multimodal web agents. | `[official]` · `[benchmark]` |
 | [τ-bench](https://github.com/sierra-research/tau-bench) | Tool-use + user-simulation benchmark measuring agent reliability and consistency across trials. | `[official]` · `[benchmark]` |
+| [LLMs Get Lost in Evolving User Intent](https://github.com/microsoft/evolving-intent) | Evaluates whether models track changing user intent across multi-turn conversations with argument reveals, revisions, function switches, and combined transitions; supports GSM8K, BIRD-SQL, BrowseComp+, and SWE-bench Verified. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2607.20734) |
 | [OSWorld](https://github.com/xlang-ai/OSWorld) | Computer-use benchmark for multimodal agents on real desktop OS tasks across Ubuntu/Windows/macOS; complements web-only benchmarks. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2404.07972) |
 | [LiveCodeBench](https://livecodebench.github.io) | Contamination-resistant coding benchmark with time-stamped problems from LeetCode/AtCoder/Codeforces; complements SWE-bench's repo-issue workload. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2403.07974) |
 | [WebVoyager](https://github.com/MinorJerry/WebVoyager) | Web-agent benchmark on live production websites (not snapshots); tests multimodal browsing under real network and UI drift conditions. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2401.13919) |
