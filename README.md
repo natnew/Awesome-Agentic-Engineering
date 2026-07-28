@@ -466,7 +466,7 @@ The practical consequence is **sequencing**: an enterprise cannot safely govern 
 
 > Audience: researchers · Evidence class: benchmark
 
-_Last reviewed: April 2026._
+_Last reviewed: July 2026._
 
 Models that do **explicit reasoning or planning at inference time** — chain-of-thought baked into the decoding loop, extended thinking budgets, or trained planner heads. They change the shape of agent loops: the model absorbs work that used to live in a planner node, which shifts where you spend tokens, latency, and trust. Cap of 5–8 entries; selected for agentic relevance, not general benchmark wins. Same-family tiers (e.g. `mini` / `nano`, Sonnet / Haiku, Flash / Flash-Lite) are grouped into one row because they share the same reasoning interface and differ mainly in latency and cost.
 
@@ -478,6 +478,7 @@ Models that do **explicit reasoning or planning at inference time** — chain-of
 | **DeepSeek-R1** | DeepSeek | RL-trained reasoning traces, open weights | First strong open-weight reasoning model; reproducible baseline for planner research and local agent stacks. | `[official]` [repo](https://github.com/deepseek-ai/DeepSeek-R1) · `[benchmark]` [paper](https://arxiv.org/abs/2501.12948) |
 | **Qwen3 (thinking mode)** | Alibaba | Switchable thinking / non-thinking modes | Open-weight family with explicit thinking toggle — useful when you want the same model in both planner and actor roles. | `[official]` [repo](https://github.com/QwenLM/Qwen3) · `[benchmark]` [tech report](https://arxiv.org/abs/2505.09388) |
 | **Grok 4** | xAI | Native reasoning with tool use | Aggressive frontier-reasoning entrant; useful as a diversity source in multi-model planner ensembles. | `[official]` [page](https://x.ai/news/grok-4) |
+| **Multi-Head Latent Control** | Huawei | Dedicated latent control heads select among answering, tool use, clarification, abstention, and delegation | Unifies mutually exclusive control decisions behind one inference interface, reducing external routing logic while making agent action selection an explicit architectural component; useful for studying where policy, escalation, and safe refusal should sit in production agent loops. | `[benchmark]` [paper](https://arxiv.org/search/?query=Multi-Head+Latent+Control%3A+A+Unified+Interface+for+LLM+Agent+Decision+Making&searchtype=title) |
 
 > Decision guide: if your agent loop already does explicit plan → act → verify steps, a reasoning model can often **replace** the planner node — but it rarely removes the need for typed state, tracing, and eval. Treat reasoning as a cheaper planner, not a free reliability upgrade.
 
