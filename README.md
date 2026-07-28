@@ -549,6 +549,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | [LiveCodeBench](https://livecodebench.github.io) | Contamination-resistant coding benchmark with time-stamped problems from LeetCode/AtCoder/Codeforces; complements SWE-bench's repo-issue workload. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2403.07974) |
 | [WebVoyager](https://github.com/MinorJerry/WebVoyager) | Web-agent benchmark on live production websites (not snapshots); tests multimodal browsing under real network and UI drift conditions. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2401.13919) |
 | [ClawBench](https://github.com/TIGER-AI-Lab/ClawBench) | Browser-agent benchmark on live production websites with isolated runs, final-request interception, and five-layer execution evidence. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2604.08523) |
+| [DataPrep-Bench](https://dataprep-bench.github.io/) | Evaluates LLMs and agents on automated training-data preparation workflows, adding a data-centric workload for comparing multi-stage preparation capabilities beyond conventional task-execution benchmarks. | `[official]` · `[benchmark]` [paper](https://arxiv.org/search/?query=DataPrep-Bench%3A+Benchmarking+LLMs+as+Training+Data+Preparators&searchtype=title) |
 
 ### Safety Risk Surfaces & Mitigations
 
