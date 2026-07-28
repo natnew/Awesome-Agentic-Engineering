@@ -548,6 +548,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | [OSWorld](https://github.com/xlang-ai/OSWorld) | Computer-use benchmark for multimodal agents on real desktop OS tasks across Ubuntu/Windows/macOS; complements web-only benchmarks. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2404.07972) |
 | [LiveCodeBench](https://livecodebench.github.io) | Contamination-resistant coding benchmark with time-stamped problems from LeetCode/AtCoder/Codeforces; complements SWE-bench's repo-issue workload. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2403.07974) |
 | [WebVoyager](https://github.com/MinorJerry/WebVoyager) | Web-agent benchmark on live production websites (not snapshots); tests multimodal browsing under real network and UI drift conditions. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2401.13919) |
+| [ClawBench](https://github.com/TIGER-AI-Lab/ClawBench) | Browser-agent benchmark on live production websites with isolated runs, final-request interception, and five-layer execution evidence. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2604.08523) |
 
 ### Safety Risk Surfaces & Mitigations
 

@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** ClawBench to the Evaluation & Safety benchmarks for live-site browser-agent evaluation with isolated runs and captured execution evidence.
 - **Added** LLMs Get Lost in Evolving User Intent to the Evaluation & Safety benchmarks for testing agents under incrementally revealed, revised, and redirected user intent.
 - **Added** Harness Handbook to the Spec-Driven Development resources as a paper on behaviour localization for evolving agent harnesses.
 
