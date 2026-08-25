@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** Repo0 to the Spec-Driven Development resources as a paper on design-driven repository generation via a Dual-DAG of requirements and components.
 - **Added** DataPrep-Bench to the Evaluation & Safety benchmarks for evaluating LLMs and agents on automated training-data preparation workflows.
 - **Added** ClawBench to the Evaluation & Safety benchmarks for live-site browser-agent evaluation with isolated runs and captured execution evidence.
 - **Added** LLMs Get Lost in Evolving User Intent to the Evaluation & Safety benchmarks for testing agents under incrementally revealed, revised, and redirected user intent.
