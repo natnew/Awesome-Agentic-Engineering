@@ -535,6 +535,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | [traceAI](https://github.com/future-agi/traceAI) | OpenTelemetry-native tracing for LLM and agent apps with 50+ framework integrations. |
 | [agenttrace](https://github.com/luoyuctl/agenttrace) | Local-first TUI and report generator for auditing AI coding-agent session logs, token and cost usage, latency, tool failures, health, and CI regression checks. |
 | [Future AGI](https://github.com/future-agi/future-agi) | Self-hostable end-to-end agent engineering platform with tracing, evals, guardrails, and gateway. |
+| [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) | Records a coding-agent run below the harness, then replays it offline with no model called or forks it from a checkpoint onto another model. |
 
 ### Benchmarks
 
