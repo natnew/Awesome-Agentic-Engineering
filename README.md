@@ -552,6 +552,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | [WebVoyager](https://github.com/MinorJerry/WebVoyager) | Web-agent benchmark on live production websites (not snapshots); tests multimodal browsing under real network and UI drift conditions. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2401.13919) |
 | [ClawBench](https://github.com/TIGER-AI-Lab/ClawBench) | Browser-agent benchmark on live production websites with isolated runs, final-request interception, and five-layer execution evidence. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2604.08523) |
 | [DataPrep-Bench](https://datapreparationbench.github.io/) | Evaluates LLMs and agents on automated training-data preparation workflows, adding a data-centric workload for comparing multi-stage preparation capabilities beyond conventional task-execution benchmarks. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2607.20465) |
+| [YYLO Benchmark](https://github.com/yylo-dev/yylo-benchmark) | Longitudinal evaluation and immutable evidence for agent runs: private fresh-repository attempt workspaces, deterministic and LLM-judge evaluation profiles, and hash-linked receipts, manifests, and evaluator provenance. | `[official]` · `[benchmark]` |
 
 ### Safety Risk Surfaces & Mitigations
 

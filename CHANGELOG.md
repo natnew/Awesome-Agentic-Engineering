@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** YYLO Benchmark to the Evaluation & Safety benchmarks for longitudinal evaluation of agent runs with fresh-repository attempt isolation and hash-linked receipts as immutable evidence.
 - **Added** Repo0 to the Spec-Driven Development resources as a paper on design-driven repository generation via a Dual-DAG of requirements and components.
 - **Added** Proxifield to Reference Architectures and the Learning Resources key papers; fixed Markdown and link-check findings, replaced the unavailable Live Site button with publishing instructions, and removed the Portia entry after no working official source could be verified.
 - **Added** DataPrep-Bench to the Evaluation & Safety benchmarks for evaluating LLMs and agents on automated training-data preparation workflows.
