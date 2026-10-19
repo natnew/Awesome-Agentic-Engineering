@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 
+- **Added** PerspectiveGap to the Evaluation & Safety benchmarks for testing how models split context and write prompts for sub-agents, with omission and cross-role leakage as the scored failures.
 - **Added** NVIDIA OpenShell to the Agent Authority, Identity & Delegation resources for out-of-process policy enforcement in agent sandboxes.
 - **Added** AgentWorld to the Evaluation & Safety benchmarks for long-horizon multi-agent collaboration with a causal contribution metric.
 - **Added** "On Evaluating and Improving Conversational Agents in Production" and AECP to the Learning Resources key papers, covering statistically grounded offline evaluation and artifact-only multi-agent communication.
