@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 
+- **Added** agent-qa to Browser and Desktop Agents for Web, Android and iOS QA with inspectable evidence, persistent memory and evidence-gated learning, with explicit v0.2 limitations.
 - **Added** NVIDIA OpenShell to the Agent Authority, Identity & Delegation resources for out-of-process policy enforcement in agent sandboxes.
 - **Added** AgentWorld to the Evaluation & Safety benchmarks for long-horizon multi-agent collaboration with a causal contribution metric.
 - **Added** "On Evaluating and Improving Conversational Agents in Production" and AECP to the Learning Resources key papers, covering statistically grounded offline evaluation and artifact-only multi-agent communication.
