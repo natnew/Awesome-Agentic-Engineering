@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** Impeccable to the Creative AI appendix (3D and Design) as a design-guidance skill and anti-pattern detector for coding agents.
 - **Added** Playwright CLI to Browser and Desktop Agents as the CLI counterpart to Playwright MCP for coding agents.
 - **Added** img2threejs to the Creative AI appendix (3D and Design) as an agent skill for image-to-procedural-Three.js reconstruction.
 - **Added** Awesome DESIGN.md to the Spec-Driven Development resources as a design-level spec pattern for coding agents.
