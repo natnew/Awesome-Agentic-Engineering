@@ -2,7 +2,7 @@
 
 > Audience: practitioners · Evidence class: mixed
 
-_Last reviewed: November 2026 (agent-qa entry); other entries: April 2026._
+_Last reviewed: November 2026 (agent-qa and Playwright CLI entries); other entries: April 2026._
 
 Computer-use and browser agents operate on GUI surfaces (DOM, pixels, or accessibility trees) rather than pure APIs. Evidence tags follow the [Benchmark and Evidence Policy](benchmark-and-evidence-policy.md). Entries that are marketing-only or have no active development were removed in this phase.
 
@@ -29,6 +29,7 @@ Computer-use and browser agents operate on GUI surfaces (DOM, pixels, or accessi
 | [Amazon Nova Act](https://labs.amazon.science/blog/nova-act) | AWS browser automation research preview aimed at enterprise reliability. | `[official]` |
 | [Playwright MCP](https://github.com/microsoft/playwright-mcp) | Official MCP server wrapping Playwright for agent-driven browser automation. | `[official]` |
 | [agent-qa](https://vostride.com/docs/agent-qa) | Natural-language QA for Web, Android and iOS via CLI/MCP, with inspectable evidence, persistent memidex memory and evidence-gated self-improvement. Early v0.2; commands apply without approval prompts. | `[official]` [MCP](https://vostride.com/docs/agent-qa/mcp) · [learning](https://vostride.com/docs/agent-qa/self-improvement) · [limits](https://vostride.com/docs/agent-qa/safety) |
+| [Playwright CLI](https://playwright.dev/docs/getting-started-cli) | Official command-line interface for agent-driven browser automation. Keeps tool schemas and accessibility trees out of model context, and installs skills that teach coding agents how to use it. | `[official]` |
 
 ### Benchmarks & Evaluation
 
