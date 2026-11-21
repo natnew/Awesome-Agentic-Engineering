@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** agent-qa to Browser and Desktop Agents for Web, Android and iOS QA with inspectable evidence, persistent memory and evidence-gated learning, with explicit v0.2 limitations.
 - **Added** PerspectiveGap to the Evaluation & Safety benchmarks for testing how models split context and write prompts for sub-agents, with omission and cross-role leakage as the scored failures.
 - **Added** LazyMind to Orchestration Frameworks as an emerging skill-to-workflow runtime with explicit first-party evidence limits.
 - **Added** NVIDIA OpenShell to the Agent Authority, Identity & Delegation resources for out-of-process policy enforcement in agent sandboxes.
