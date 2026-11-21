@@ -162,7 +162,7 @@ Representative system designs for real-world use.
 
 > Audience: practitioners · Evidence class: mixed
 
-*Last reviewed: November 2026 (Awesome DESIGN.md entry); other entries: September 2026.*
+*Last reviewed: November 2026 (Matt Pocock Skills and Awesome DESIGN.md entries); other entries: September 2026.*
 
 Agentic systems amplify whatever intent you feed them — including vague intent. **Spec-driven development (SDD)** treats the specification as the load-bearing artifact: a durable, reviewable document that describes *what* the system should do and *how* it should behave, from which plans, code, and tests are generated (and regenerated) by agents. It is the production-grade answer to "vibe coding."
 
@@ -197,6 +197,7 @@ Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence
 | **[Harness Handbook](https://arxiv.org/abs/2607.13285)** | Behaviour localization | Paper proposing behaviour-centric maps from agent-harness behaviours to source locations, with progressive disclosure for planning edits across evolving harness codebases. | `[benchmark]` [paper](https://arxiv.org/abs/2607.13285) |
 | **[Repo0](https://arxiv.org/abs/2608.19854)** | Design-driven generation | Paper proposing full-repository generation from natural-language requirements with architecture as an explicit intermediate state: a Dual-DAG aligns requirement and component graphs, evolves module boundaries under modularity metrics until convergence, then drives test-driven implementation. | `[benchmark]` [paper](https://arxiv.org/abs/2608.19854) |
 | **[Pydantic AI](https://ai.pydantic.dev/)** | Typed contracts | Python framework that makes schema-first I/O the default for LLM calls — the practical form of "typed contracts at boundaries" for agent code. | `[official]` [docs](https://ai.pydantic.dev/) |
+| **[Matt Pocock Skills](https://github.com/mattpocock/skills)** | Skill pack | Open-source collection of `SKILL.md` engineering skills (for example `tdd`, `to-spec`, `code-review` and `grill-me`) that install into Claude Code, Codex, Copilot, Gemini CLI and other agent CLIs. Worked example of encoding engineering workflow discipline as reusable skill specs. | `[official]` [repo](https://github.com/mattpocock/skills) |
 | **[Awesome DESIGN.md](https://github.com/VoltAgent/awesome-design-md)** | Design-level spec | Curated collection of `DESIGN.md` files, each describing a brand's design system (for example Stripe, Linear and Vercel) in a form coding agents read before generating UI. Extends the repository-file spec pattern of `AGENTS.md` to visual design. | `[official]` [repo](https://github.com/VoltAgent/awesome-design-md) |
 
 ### Where SDD applies
