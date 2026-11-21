@@ -563,6 +563,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | [YYLO Benchmark](https://github.com/yylo-dev/yylo-benchmark) | Longitudinal evaluation and immutable evidence for agent runs: private fresh-repository attempt workspaces, deterministic and LLM-judge evaluation profiles, and hash-linked receipts, manifests, and evaluator provenance. | `[official]` · `[benchmark]` |
 | [AgentWorld](https://github.com/openagents-org/agentworld) | Long-horizon multi-agent collaboration benchmark in an MMORPG sandbox: 100 human-annotated tasks plus augmented variants for 3–20 role-differentiated agents, Python success verifiers, and a causal-graph metric (CCE) measuring the share of actions that contributed to task success. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2609.31590) |
 | [PerspectiveGap](https://github.com/WhymustIhaveaname/PerspectiveGap) | Multi-agent orchestration prompting benchmark: 110 scenarios over 10 loop topologies test whether a model gives each sub-agent the context fragments it needs and writes role prompts without omissions or cross-role leakage, scored by a deterministic strict-pass check. | `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2606.08878) |
+| [From Prompts to Posteriors](https://arxiv.org/abs/2610.29331) | Tests whether LLM agents update beliefs as Bayes' rule prescribes; in-context updating is mostly poor, while reasoning plus code execution approaches the correct posterior. | `[benchmark]` |
 
 ### Safety Risk Surfaces & Mitigations
 
