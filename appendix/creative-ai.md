@@ -51,5 +51,6 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Meshy](https://meshy.ai) | Text/image to 3D. Game assets, products. |
 | [Tripo AI](https://tripo3d.ai) | Fast 3D from text/images. Multi-format export. |
 | [Vizcom](https://vizcom.ai) | Real-time AI rendering for industrial designers. |
+| [img2threejs](https://github.com/img2threejs/img2threejs) | Agent skill that rebuilds the object in a reference image as a code-only, procedural Three.js model. Runs in Claude Code, Codex, OpenCode and Hermes. |
 
 ---
