@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** Impeccable to the Creative AI appendix (3D and Design) as a design-guidance skill and anti-pattern detector for coding agents.
 - **Added** agent-qa to Browser and Desktop Agents for Web, Android and iOS QA with inspectable evidence, persistent memory and evidence-gated learning, with explicit v0.2 limitations.
 - **Added** PerspectiveGap to the Evaluation & Safety benchmarks for testing how models split context and write prompts for sub-agents, with omission and cross-role leakage as the scored failures.
 - **Added** LazyMind to Orchestration Frameworks as an emerging skill-to-workflow runtime with explicit first-party evidence limits.

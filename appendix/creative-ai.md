@@ -51,5 +51,6 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Meshy](https://meshy.ai) | Text/image to 3D. Game assets, products. |
 | [Tripo AI](https://tripo3d.ai) | Fast 3D from text/images. Multi-format export. |
 | [Vizcom](https://vizcom.ai) | Real-time AI rendering for industrial designers. |
+| [Impeccable](https://impeccable.style/) | Open-source design skill and slash commands for coding agents, with a CLI detector that flags common AI-generated UI defaults. Supports Claude Code, Cursor, Codex, Gemini CLI and GitHub Copilot. |
 
 ---
