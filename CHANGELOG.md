@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
+- **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
 
 - **Added** Anime.js to the Creative AI appendix (3D and Design) as a JavaScript animation library.
 - **Added** Zookeeper to the Creative AI appendix (3D and Design) as a conversational text-to-CAD agent.
