@@ -58,5 +58,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Astryx](https://astryx.atmeta.com/) | Open-source React design system with customizable themes, described by its docs as agent ready. Beta; built on React 19+ and StyleX. |
 | [Napkin AI](https://www.napkin.ai/) | Text-to-visual tool that generates diagrams, flowcharts, mind maps and charts from pasted text, with an API for automated generation. Slides feature is in beta. |
 | [Anime.js](https://animejs.com/) | JavaScript animation library for CSS, SVG and DOM animation, with timeline, scroll observer and draggable APIs. Not AI-specific. |
+| [Zookeeper (Zoo)](https://zoo.dev/zookeeper) | Conversational CAD agent in Zoo Design Studio that generates CAD files from text prompts, using engine-level tools to inspect, snapshot and debug geometry. Generated models import into other CAD programs. |
+
 
 ---
