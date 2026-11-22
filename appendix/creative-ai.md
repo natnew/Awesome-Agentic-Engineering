@@ -56,5 +56,6 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Impeccable](https://impeccable.style/) | Open-source design skill and slash commands for coding agents, with a CLI detector that flags common AI-generated UI defaults. Supports Claude Code, Cursor, Codex, Gemini CLI and GitHub Copilot. |
 | [Kimi 3D Make](https://www.kimi.ai/make3d) | Browser tool that generates interactive 3D websites and games, 3D models and print-ready files for 3D printing. |
 | [Astryx](https://astryx.atmeta.com/) | Open-source React design system with customizable themes, described by its docs as agent ready. Beta; built on React 19+ and StyleX. |
+| [Things Workshop](https://www.things-workshop.com/explore/) | Collection of interactive 3D models of machines and everyday mechanisms, each with an explanation and sources. |
 
 ---
