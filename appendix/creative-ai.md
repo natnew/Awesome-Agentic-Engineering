@@ -59,7 +59,6 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Napkin AI](https://www.napkin.ai/) | Text-to-visual tool that generates diagrams, flowcharts, mind maps and charts from pasted text, with an API for automated generation. Slides feature is in beta. |
 | [Anime.js](https://animejs.com/) | JavaScript animation library for CSS, SVG and DOM animation, with timeline, scroll observer and draggable APIs. Not AI-specific. |
 | [Zookeeper (Zoo)](https://zoo.dev/zookeeper) | Conversational CAD agent in Zoo Design Studio that generates CAD files from text prompts, using engine-level tools to inspect, snapshot and debug geometry. Generated models import into other CAD programs. |
-
 | [CityRT](https://cityrt.com/en/) | Free browser city-building game with roads, districts, schools, hospitals and a city budget, playable solo or online. |
 
 ---
