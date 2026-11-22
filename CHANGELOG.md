@@ -10,6 +10,9 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
+
+- **Added** Anime.js to the Creative AI appendix (3D and Design) as a JavaScript animation library.
+- **Added** Zookeeper to the Creative AI appendix (3D and Design) as a conversational text-to-CAD agent.
 - **Added** Napkin AI to the Creative AI appendix (3D and Design) as a text-to-diagram and visuals tool with an API.
 - **Added** You.com to Fast-Moving Product Lists (Deep Research) as a search and inference API for AI applications.
 - **Added** Learn Harness Engineering to the Learning Resources courses and tutorials as a project-based course on coding-agent harnesses.
