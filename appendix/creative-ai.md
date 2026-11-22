@@ -60,5 +60,6 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Anime.js](https://animejs.com/) | JavaScript animation library for CSS, SVG and DOM animation, with timeline, scroll observer and draggable APIs. Not AI-specific. |
 | [Zookeeper (Zoo)](https://zoo.dev/zookeeper) | Conversational CAD agent in Zoo Design Studio that generates CAD files from text prompts, using engine-level tools to inspect, snapshot and debug geometry. Generated models import into other CAD programs. |
 
+| [Things Workshop](https://www.things-workshop.com/explore/) | Collection of interactive 3D models of machines and everyday mechanisms, each with an explanation and sources. |
 
 ---
