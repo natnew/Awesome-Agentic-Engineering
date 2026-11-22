@@ -10,6 +10,8 @@
 - [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook) - Claude agent recipes
 - [Microsoft GenAI for Beginners](https://github.com/microsoft/generative-ai-for-beginners) - 21-lesson course
 - [OpenAI Cookbook](https://github.com/openai/openai-cookbook) - Practical API guides
+- [roadmap.sh](https://roadmap.sh/) - Community-driven developer roadmaps, including skill-based paths for AI Agents, Claude Code and Prompt & Context Engineering.
+- [HUMAN.md](https://www.human-md.ai/) - Personal manifesto by Briana (Mazzio) May on what humans contribute alongside increasingly capable models.
 
 ### Key Papers
 

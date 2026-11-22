@@ -33,6 +33,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Wan 2.1](https://github.com/Wan-Video/Wan2.1) | Open-source video generation model suitable for self-hosted experimentation. |
 | [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) | Tencent OSS. Consumer GPU. Multi-style. |
 | [LTX Video](https://github.com/Lightricks/LTX-Video) | OSS. Licensed data. Clear commercial terms. |
+| [Rea Video](https://reavideo.video/) | Browser tool that analyses a clip locally, without upload, to find cuts, extract reference frames and export a shot-by-shot prompt pack for AI video. Accepts MP4 or WebM up to 3 minutes and 300 MB. |
 
 ### Music and Audio
 
@@ -53,5 +54,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Vizcom](https://vizcom.ai) | Real-time AI rendering for industrial designers. |
 | [img2threejs](https://github.com/img2threejs/img2threejs) | Agent skill that rebuilds the object in a reference image as a code-only, procedural Three.js model. Runs in Claude Code, Codex, OpenCode and Hermes. |
 | [Impeccable](https://impeccable.style/) | Open-source design skill and slash commands for coding agents, with a CLI detector that flags common AI-generated UI defaults. Supports Claude Code, Cursor, Codex, Gemini CLI and GitHub Copilot. |
+| [Kimi 3D Make](https://www.kimi.ai/make3d) | Browser tool that generates interactive 3D websites and games, 3D models and print-ready files for 3D printing. |
+| [Astryx](https://astryx.atmeta.com/) | Open-source React design system with customizable themes, described by its docs as agent ready. Beta; built on React 19+ and StyleX. |
 
 ---
