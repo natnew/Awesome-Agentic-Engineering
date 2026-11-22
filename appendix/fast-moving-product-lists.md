@@ -4,7 +4,7 @@
 
 ---
 
-> Last reviewed: November 2026 (Yogurt entry); other entries: September 2026 (link maintenance)
+> Last reviewed: November 2026 (Yogurt and You.com entries); other entries: September 2026 (link maintenance)
 >
 > Evidence note: verify current capabilities against official docs or first-party repos before treating an entry as current. Inclusion here is not benchmark evidence and does not imply production maturity.
 
@@ -109,6 +109,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [DeerFlow](https://github.com/bytedance/deer-flow) | ByteDance OSS. Planning, tools, memory, execution. |
 | [GPT Researcher](https://github.com/assafelovic/gpt-researcher) | OSS autonomous comprehensive research. |
 | [STORM](https://github.com/stanford-oval/storm) | Stanford. Writes Wikipedia-like articles from scratch. |
+| [You.com](https://you.com/) | Search and inference APIs for AI, with web search, answer, research and contents modes. |
 
 ### Data Analysis
 
