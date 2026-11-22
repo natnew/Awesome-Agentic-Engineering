@@ -57,6 +57,9 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Kimi 3D Make](https://www.kimi.ai/make3d) | Browser tool that generates interactive 3D websites and games, 3D models and print-ready files for 3D printing. |
 | [Astryx](https://astryx.atmeta.com/) | Open-source React design system with customizable themes, described by its docs as agent ready. Beta; built on React 19+ and StyleX. |
 | [Napkin AI](https://www.napkin.ai/) | Text-to-visual tool that generates diagrams, flowcharts, mind maps and charts from pasted text, with an API for automated generation. Slides feature is in beta. |
+| [Anime.js](https://animejs.com/) | JavaScript animation library for CSS, SVG and DOM animation, with timeline, scroll observer and draggable APIs. Not AI-specific. |
+| [Zookeeper (Zoo)](https://zoo.dev/zookeeper) | Conversational CAD agent in Zoo Design Studio that generates CAD files from text prompts, using engine-level tools to inspect, snapshot and debug geometry. Generated models import into other CAD programs. |
+
 | [CityRT](https://cityrt.com/en/) | Free browser city-building game with roads, districts, schools, hospitals and a city budget, playable solo or online. |
 
 ---
