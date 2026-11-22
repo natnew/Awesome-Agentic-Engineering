@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
+- **Added** You.com to Fast-Moving Product Lists (Deep Research) as a search and inference API for AI applications.
 - **Added** Learn Harness Engineering to the Learning Resources courses and tutorials as a project-based course on coding-agent harnesses.
 - **Added** Harness² to the Spec-Driven Development resources as a research framework for recursive agent harnessing, with first-party benchmark claims left untagged.
 - **Added** Cloudflare security-audit skill to the Evaluation & Safety safety tooling as an agent skill for security audits.
