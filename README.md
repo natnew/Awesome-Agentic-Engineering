@@ -499,7 +499,7 @@ Models that do **explicit reasoning or planning at inference time** — chain-of
 
 > Audience: researchers · Evidence class: benchmark
 
-*Last reviewed: October 2026.*
+*Last reviewed: November 2026 (ARQUÍA-EVAL-001 entry); other entries: October 2026.*
 
 This section covers frameworks and operational tooling for testing agent quality, correctness, task completion, regressions, and system behaviour, as well as security scanning, red teaming, policy testing, and misalignment research. Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence-policy).
 
@@ -523,6 +523,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | [ai-evaluation](https://github.com/future-agi/ai-evaluation) | Open-source LLM evaluation framework with 50+ metrics, LLM-as-Judge, and guardrail scanners (jailbreak, PII, injection). | Application-level evaluation, regression testing, and guardrail scanning. | `[official]` |
 | [agent-opt](https://github.com/future-agi/agent-opt) | Prompt and agent optimization library with six algorithms (Bayesian, ProTeGi, GEPA, and more). | Iterative prompt and agent tuning across eval datasets. | `[official]` |
 | [simulate-sdk](https://github.com/future-agi/simulate-sdk) | Persona- and scenario-driven SDK for simulating voice and text AI agents. | Pre-production agent simulation and stress testing. | `[official]` |
+| [ARQUÍA-EVAL-001](https://github.com/argensite/arquia-eval-001) | Offline Python harness for testing how tool-using agents handle revoked permissions. | Synthetic regression tests for dispatch authority, effects, late receipts, and stale permissions. | `[official]` |
 
 ### Key Practices
 
