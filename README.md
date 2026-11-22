@@ -499,7 +499,7 @@ Models that do **explicit reasoning or planning at inference time** — chain-of
 
 > Audience: researchers · Evidence class: benchmark
 
-*Last reviewed: October 2026.*
+*Last reviewed: November 2026 (Cloudflare security-audit skill entry); other entries: October 2026.*
 
 This section covers frameworks and operational tooling for testing agent quality, correctness, task completion, regressions, and system behaviour, as well as security scanning, red teaming, policy testing, and misalignment research. Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence-policy).
 
@@ -588,6 +588,7 @@ This section covers frameworks and operational tooling for testing agent quality
 | **AI Safety via Debate** | Alignment framework for cases where direct human supervision is too hard. | Alignment and scalable oversight resource | [Paper](https://arxiv.org/abs/1805.00899) |
 | **Concrete Problems in AI Safety** | Foundational framing paper for safety problems (side effects, reward hacking, safe exploration, shift). | Foundational safety resource | [Paper](https://arxiv.org/abs/1606.06565) |
 | **Anthropic Agentic Misalignment** | Grounds safety concerns in concrete behaviours (blackmail, espionage) in simulated settings. | Applied safety & threat-modelling reference | [Research Post](https://www.anthropic.com/research/agentic-misalignment) |
+| **Cloudflare security-audit skill** | Agent skill for security audits, listed under the `cloudflare` namespace and installed with `npx skills add cloudflare/security-audit-skill`. | Agent-driven security review | [skills.sh](https://www.skills.sh/cloudflare/security-audit-skill) |
 
 ### AI Guardrails
 

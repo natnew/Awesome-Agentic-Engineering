@@ -9,6 +9,11 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** Cloudflare security-audit skill to the Evaluation & Safety safety tooling as an agent skill for security audits.
+- **Added** Craft Anything to Browser and Desktop Agents as an early-alpha Rust engine with CLI and MCP tools that drives a coding agent to rebuild studied software.
+- **Added** Yogurt to Fast-Moving Product Lists (Self-Hosted Agents and UIs) as a local meeting-notes app with an optional read-only MCP server.
+- **Added** Kimi 3D Make and Astryx to the Creative AI appendix (3D and Design), and Rea Video to Video Generation.
+- **Added** roadmap.sh and HUMAN.md to the Learning Resources courses and tutorials.
 - **Added** Impeccable to the Creative AI appendix (3D and Design) as a design-guidance skill and anti-pattern detector for coding agents.
 - **Added** Playwright CLI to Browser and Desktop Agents as the CLI counterpart to Playwright MCP for coding agents.
 - **Added** img2threejs to the Creative AI appendix (3D and Design) as an agent skill for image-to-procedural-Three.js reconstruction.
