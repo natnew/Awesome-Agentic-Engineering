@@ -56,6 +56,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Impeccable](https://impeccable.style/) | Open-source design skill and slash commands for coding agents, with a CLI detector that flags common AI-generated UI defaults. Supports Claude Code, Cursor, Codex, Gemini CLI and GitHub Copilot. |
 | [Kimi 3D Make](https://www.kimi.ai/make3d) | Browser tool that generates interactive 3D websites and games, 3D models and print-ready files for 3D printing. |
 | [Astryx](https://astryx.atmeta.com/) | Open-source React design system with customizable themes, described by its docs as agent ready. Beta; built on React 19+ and StyleX. |
+| [Napkin AI](https://www.napkin.ai/) | Text-to-visual tool that generates diagrams, flowcharts, mind maps and charts from pasted text, with an API for automated generation. Slides feature is in beta. |
 | [Anime.js](https://animejs.com/) | JavaScript animation library for CSS, SVG and DOM animation, with timeline, scroll observer and draggable APIs. Not AI-specific. |
 
 ---
