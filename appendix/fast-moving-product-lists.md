@@ -4,7 +4,7 @@
 
 ---
 
-> Last reviewed: November 2026 (Yogurt, You.com and codebase-memory-mcp entries); other entries: September 2026 (link maintenance)
+> Last reviewed: November 2026 (Yogurt, You.com, freellmapi, Orca and codebase-memory-mcp entries); other entries: September 2026 (link maintenance)
 >
 > Evidence note: verify current capabilities against official docs or first-party repos before treating an entry as current. Inclusion here is not benchmark evidence and does not imply production maturity.
 
@@ -162,6 +162,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Anything LLM](https://github.com/Mintplex-Labs/anything-llm) | All-in-one AI app. RAG, agents. Desktop + Docker. |
 | [DB-GPT](https://github.com/eosphoros-ai/DB-GPT) | Local and self-hosted data interaction stack with agent and retrieval components. |
 | [Yogurt](https://github.com/FrigadeHQ/yogurt) | MIT-licensed desktop app that transcribes and summarises meetings locally with whisper.cpp and llama.cpp. Optional read-only local MCP server, off by default and without per-app tokens. |
+| [freellmapi](https://github.com/tashfeenahmed/freellmapi) | MIT-licensed self-hosted router that pools free-tier LLM providers behind one OpenAI-compatible endpoint with failover on 429 and 5xx errors; works with coding agents such as Claude Code, Codex CLI and Cline. The repo describes it as for personal experimentation only; no frontier models or SLA. |
 
 ---
 
@@ -176,6 +177,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Meta AI](https://meta.ai) | Llama-powered. WhatsApp/Messenger. Manus acquisition. |
 | [Microsoft Copilot](https://copilot.microsoft.com) | Office 365 integration. Enterprise. |
 | [Coze](https://coze.com) | ByteDance agent builder. Visual workflow. Plugin marketplace. |
+| [Orca](https://github.com/stablyai/orca) | MIT-licensed desktop, mobile and remote runtime for running multiple CLI coding agents such as Claude Code, Codex and Cursor, with a CLI that agents can use to create worktrees and start workers. |
 
 ---
 
