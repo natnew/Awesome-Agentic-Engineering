@@ -23,6 +23,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
 - **Added** VoiceStudio to the Voice Agents appendix (Open-Source Voice) as a voice cloning and dubbing studio with a local API and MCP server.
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
+- **Added** freellmapi to Fast-Moving Product Lists (Self-Hosted Agents and UIs) as a self-hosted OpenAI-compatible router over free-tier LLM providers.
 
 - **Added** Anime.js to the Creative AI appendix (3D and Design) as a JavaScript animation library.
 - **Added** Zookeeper to the Creative AI appendix (3D and Design) as a conversational text-to-CAD agent.
