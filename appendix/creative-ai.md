@@ -34,6 +34,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) | Tencent OSS. Consumer GPU. Multi-style. |
 | [LTX Video](https://github.com/Lightricks/LTX-Video) | OSS. Licensed data. Clear commercial terms. |
 | [Rea Video](https://reavideo.video/) | Browser tool that analyses a clip locally, without upload, to find cuts, extract reference frames and export a shot-by-shot prompt pack for AI video. Accepts MP4 or WebM up to 3 minutes and 300 MB. |
+| [OpenChatCut](https://github.com/0xsline/OpenChatCut) | AGPL-3.0-or-later local-first video editor in which a built-in agent and external MCP agents such as Codex and Claude Code share the same editing tools. Edits are written to real tracks, clips and captions that stay editable, with transcript-driven cuts and MP4, FCPXML and project exports. Under active development. |
 
 ### Music and Audio
 
