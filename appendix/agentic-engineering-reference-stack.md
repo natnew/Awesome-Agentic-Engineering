@@ -41,8 +41,8 @@ Each layer maps to existing material in this repo. Use the table above as the in
 - **Planner** → [Reasoning & Planning Models](../README.md#-reasoning--planning-models)
 - **Agent Runtime** → [Orchestration Frameworks](../README.md#-orchestration-frameworks), [Reference Architectures](../README.md#-reference-architectures)
 - **Tools** → [Protocols and Standards](../README.md#-protocols-and-standards)
-- **Memory** → [Memory Systems](../README.md#-memory-systems)
-- **Evaluation** → [Formal Evaluation Rubric](../README.md#-formal-evaluation-rubric), [RUBRIC.md](../RUBRIC.md), [Benchmark and Evidence Policy](benchmark-and-evidence-policy.md)
+- **Memory** → not yet covered as a standalone reference; flagged for a follow-up appendix.
+- **Evaluation** → [RUBRIC.md](../RUBRIC.md), [Benchmark and Evidence Policy](benchmark-and-evidence-policy.md)
 - **Observability** → not yet covered as a standalone reference; flagged for a follow-up appendix.
 - **Governance** → [Agent Authority, Identity & Delegation](../README.md#-agent-authority-identity--delegation)
 - **Deployment** → not yet covered as a standalone reference; flagged for a follow-up appendix.

@@ -26,5 +26,6 @@
 | [Rasa](https://github.com/RasaHQ/rasa) | OSS conversational AI. Self-hosted. NLU training. |
 | [Pipecat](https://github.com/pipecat-ai/pipecat) | OSS voice and multimodal conversational AI. |
 | [Vocode](https://github.com/vocodedev/vocode-python) | OSS voice-based LLM agents. |
+| [VoiceStudio](https://github.com/debpalash/VoiceStudio) | AGPL-3.0 voice studio for voice cloning, dubbing, dictation, transcription and audiobooks, with a local API, MCP server and agent skills. Default model weights are non-commercial; platform support ranges from stable to preview. |
 
 ---
