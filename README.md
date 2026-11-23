@@ -164,6 +164,7 @@ This is not a tool list. It's a structured guide to building **reliable, observa
 - [ai-evaluation](https://github.com/future-agi/ai-evaluation): Open-source LLM evaluation framework with 50+ metrics, LLM-as-Judge, and guardrail scanners (jailbreak, PII, injection). `[official]`
 - [agent-opt](https://github.com/future-agi/agent-opt): Prompt and agent optimisation library with six algorithms (Bayesian, ProTeGi, GEPA, and more) for iterative tuning across eval datasets. `[official]`
 - [simulate-sdk](https://github.com/future-agi/simulate-sdk): Persona- and scenario-driven SDK for simulating voice and text AI agents; suited to pre-production simulation and stress testing. `[official]`
+- [EvalShift](https://github.com/evalshift/evalshift-cli): Open-source CLI that replays recorded agent runs on the current and a candidate model and reports per-case tool-call and output regressions with paired statistics; suited to model-migration regression testing and CI gating of model changes. `[official]`
 
 ### Tracing and Monitoring
 
