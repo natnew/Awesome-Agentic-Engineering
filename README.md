@@ -66,6 +66,7 @@ This is not a tool list. It's a structured guide to building **reliable, observa
 - [Pydantic AI](https://ai.pydantic.dev/): Python framework that makes schema-first I/O the default for LLM calls — the practical form of "typed contracts at boundaries" for agent code. `[official]`
 - [Matt Pocock Skills](https://github.com/mattpocock/skills): Open-source collection of `SKILL.md` engineering skills (for example `tdd`, `to-spec`, `code-review` and `grill-me`) that install into Claude Code, Codex, Copilot, Gemini CLI and other agent CLIs. Worked example of encoding engineering workflow discipline as reusable skill specs. `[official]`
 - [Awesome DESIGN.md](https://github.com/VoltAgent/awesome-design-md): Curated collection of `DESIGN.md` files, each describing a brand's design system (for example Stripe, Linear and Vercel) in a form coding agents read before generating UI. Extends the repository-file spec pattern of `AGENTS.md` to visual design. `[official]`
+- [Humanizer](https://github.com/blader/humanizer): Open-source agent skill (`SKILL.md`) that rewrites text to remove patterns of AI-generated writing, based on Wikipedia's "Signs of AI writing" guide. Installs into Claude Code, Codex and other agents through the Skills CLI; states it does not aim to evade AI detectors. `[official]`
 
 ---
 
