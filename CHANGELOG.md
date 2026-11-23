@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** image-blaster to the Creative AI appendix (3D and Design) as a set of Claude skills that turns an image into a 3D environment, meshes and sound effects.
+- **Added** Maestro to the Creative AI appendix (Video Generation) as a local creative studio with a Director workflow and built-in MCP, under a non-commercial licence.
 - **Added** Founder skill to Fast-Moving Product Lists (Multi-Agent Platforms) as a set of eleven Claude skills with board and consumer-panel sub-agents for testing a business idea.
 - **Added** OpenChatCut to the Creative AI appendix (Video Generation) as a local-first video editor whose built-in and MCP agents share one set of editing tools.
 - **Added** 15 Motion Design Styles to the Creative AI appendix (Video Generation) as a code-generated film showcase published with prompts, source and a review rubric.
