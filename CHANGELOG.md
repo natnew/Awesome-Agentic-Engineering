@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** ArtCraft Crafting Apps to Browser and Desktop Agents (Developer Infrastructure) as a family of open-source Rust creative apps that agents can drive through a CLI, a control channel and MCP.
+- **Added** OpenChatCut to the Creative AI appendix (Video Generation) as a local-first video editor whose built-in and MCP agents share one set of editing tools.
 - **Added** 15 Motion Design Styles to the Creative AI appendix (Video Generation) as a code-generated film showcase published with prompts, source and a review rubric.
 - **Added** video-talkcraft to the Creative AI appendix (Video Generation) as a noncommercially licensed skill for voiceover-driven Remotion videos.
 - **Added** anything2explainer to the Creative AI appendix (Video Generation) as a noncommercially licensed skill that builds narrated explainer videos with parallel build and QC agents.
