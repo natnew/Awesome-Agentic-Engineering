@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Removed** the Evidence Policy badge link from the bottom of the README Contributing section.
 - **Removed** the audience and evidence-class tags, `Last reviewed` lines, and introductory text from the README sections, leaving each section as a title followed by its resource list.
 - **Removed** the Get Started, Architecture Decision Guide, Memory Systems, and Formal Evaluation Rubric sections from the README, and the two appendix links that pointed to them.
 - **Removed** the README Thesis, Reference Stack, Core Agentic Patterns, Benchmark and Evidence Policy, Skills and Operating Principles, What NOT to Do, and Signals sections, plus the prose, taxonomy, practice, and concept subsections in Spec-Driven Development, Memory Systems, Agent Authority, and Evaluation & Safety, leaving their resource lists. **Changed** the README order so Contributing is the last section.

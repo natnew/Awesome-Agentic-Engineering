@@ -295,11 +295,4 @@ Jump in and join the community — PRs of every size are welcome.
 
 📝 [Read the contributing guide](CONTRIBUTING.md) · 🐛 [good first issues](https://github.com/natnew/Awesome-Agentic-Engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
 
-<a href="appendix/benchmark-and-evidence-policy.md">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/github/evidence-policy-dark.svg">
-    <img alt="Evidence Policy — sourcing, evidence-tagging, and Last reviewed" src="assets/github/evidence-policy-light.svg" height="36">
-  </picture>
-</a>
-
 </div>
