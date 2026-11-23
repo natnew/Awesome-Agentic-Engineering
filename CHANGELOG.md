@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** Maestro to the Creative AI appendix (Video Generation) as a local creative studio with a Director workflow and built-in MCP, under a non-commercial licence.
+- **Added** anything2explainer to the Creative AI appendix (Video Generation) as a noncommercially licensed skill that builds narrated explainer videos with parallel build and QC agents.
 - **Added** video-shotcraft to the Creative AI appendix (Video Generation) as a Claude Code and Codex skill that builds product films from Remotion motion recipes.
 - **Removed** the Evidence Policy badge link from the bottom of the README Contributing section.
 - **Removed** the audience and evidence-class tags, `Last reviewed` lines, and introductory text from the README sections, leaving each section as a title followed by its resource list.
