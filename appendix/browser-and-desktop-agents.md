@@ -2,7 +2,7 @@
 
 > Audience: practitioners · Evidence class: mixed
 
-_Last reviewed: November 2026 (agent-qa, Playwright CLI and Craft Anything and agent-desktop entries); other entries: April 2026._
+_Last reviewed: November 2026 (agent-qa, Playwright CLI, Craft Anything, agent-desktop and CLI-Anything entries); other entries: April 2026._
 
 Computer-use and browser agents operate on GUI surfaces (DOM, pixels, or accessibility trees) rather than pure APIs. Evidence tags follow the [Benchmark and Evidence Policy](benchmark-and-evidence-policy.md). Entries that are marketing-only or have no active development were removed in this phase.
 
@@ -32,6 +32,7 @@ Computer-use and browser agents operate on GUI surfaces (DOM, pixels, or accessi
 | [Playwright CLI](https://playwright.dev/docs/getting-started-cli) | Official command-line interface for agent-driven browser automation. Keeps tool schemas and accessibility trees out of model context, and installs skills that teach coding agents how to use it. | `[official]` |
 | [Craft Anything](https://github.com/storytold/craft-anything) | Open-source Rust engine that studies a target website, app or file with inspection tools, has a coding agent build a new project, checks it against the original and refines it. Exposes 320 tools as CLI subcommands and MCP tools; Claude Code is the first supported builder. Early alpha. | `[official]` [README](https://github.com/storytold/craft-anything#readme) · [Claude Code guide](https://github.com/storytold/craft-anything/blob/main/docs/claude-code.md) |
 | [agent-desktop](https://github.com/vercel-labs/agent-desktop) | Apache-2.0 CLI and C library that lets an agent read and operate desktop apps through the OS accessibility tree on macOS, Windows and Linux, returning JSON with element refs. Contains no model; ships an MCP server and an installable skill. | `[official]` |
+| [CLI-Anything](https://github.com/HKUDS/CLI-Anything) | Apache-2.0 project that generates command-line harnesses with JSON output and `SKILL.md` skills so coding agents can operate existing software such as GIMP, Blender and LibreOffice. Includes CLI-Hub, a registry for community CLIs. Output depends on available source code and may need refinement runs. | `[official]` |
 
 ### Benchmarks & Evaluation
 
