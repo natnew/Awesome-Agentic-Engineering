@@ -47,10 +47,6 @@ This is not a tool list. It's a structured guide to building **reliable, observa
 
 ## 🏗️ Reference Architectures
 
-> Audience: practitioners · Evidence class: mixed
-
-Representative system designs for real-world use.
-
 - [DeerFlow](https://github.com/bytedance/deer-flow): Open-source orchestration system combining sub-agents, memory, and sandboxes; demonstrates workflow-oriented orchestration across agents with shared execution context. *Emerging.*
 - [SWE-agent](https://github.com/SWE-agent/SWE-agent): Autonomous software-engineering system using a specialised Agent-Computer Interface (ACI); demonstrates narrow action spaces and interface design tuned for code-repair tasks. *Experimental.*
 - [Proxifield](https://arxiv.org/abs/2609.20889): Multi-agent communication protocol with sparse semantic routing; demonstrates proposal, peer-reply, and action-commitment rounds, studied on simulated drone search-and-rescue and HiddenBench collective reasoning. *Research preprint.* `[official]` `[benchmark]`
@@ -77,13 +73,7 @@ Representative system designs for real-world use.
 
 ## ⚙️ Orchestration Frameworks
 
-> Audience: practitioners · Evidence class: mixed
-
-*Last reviewed: November 2026 (LazyMind review, link maintenance and list reformat).*
-
 ### Deep Dives
-
-Evidence tags follow the [Benchmark and Evidence Policy](appendix/benchmark-and-evidence-policy.md). Scored against [RUBRIC.md](RUBRIC.md); cap of 5–8 deep-dive entries enforced.
 
 - [LangGraph](https://langchain-ai.github.io/langgraph/): Stateful orchestration framework building directed graphs with typed state; demonstrates deterministic execution control mixed with LLM reasoning. *Production-ready.* `[official]` · `[field report]` [LinkedIn SQL Bot](https://www.linkedin.com/blog/engineering/ai/practical-text-to-sql-for-data-analytics)
 - [Microsoft Agent Framework](https://github.com/microsoft/agent-framework): Microsoft's unified agent framework merging Semantic Kernel and AutoGen, with first-class MCP and A2A support; demonstrates enterprise-grade agent composition with typed plugins, approval workflows, and Azure integration. *Production-ready.* `[official]` · `[official]` [announce](https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/)
@@ -97,8 +87,6 @@ Evidence tags follow the [Benchmark and Evidence Policy](appendix/benchmark-and-
 ---
 
 ### Frameworks Landscape
-
-Broader catalog beyond the deep-dive set. Each subsection capped at 8 entries; entries that cannot clear the rubric were removed in this phase (see PR body for cut list).
 
 #### General Purpose
 
@@ -133,12 +121,6 @@ Broader catalog beyond the deep-dive set. Each subsection capped at 8 entries; e
 
 ## 📡 Protocols and Standards
 
-> Audience: practitioners · Evidence class: official
-
-*Last reviewed: November 2026 (list reformat); link maintenance: September 2026.*
-
-Protocols are the stable contracts between agents, tools, and hosts. Each entry below distinguishes the **specification** from any specific implementation — mixing the two is a repeat anti-pattern (see [ANTI-PATTERNS.md](ANTI-PATTERNS.md)).
-
 - [MCP (Model Context Protocol)](https://modelcontextprotocol.io/): Open spec. Anthropic-authored open standard for exposing tools, resources, prompts, and sampling to LLM hosts; wide multi-vendor adoption in 2025–2026. `[official]` [spec](https://modelcontextprotocol.io/specification/)
 - [A2A (Agent2Agent)](https://github.com/a2aproject/A2A): Open spec. Google-originated, Linux Foundation–hosted protocol for secure cross-agent communication across vendors and frameworks. `[official]` [spec](https://a2a-protocol.org/)
 - [OpenAI Function / Tool Calling](https://platform.openai.com/docs/guides/function-calling): Vendor API. Native structured tool invocation for OpenAI models; JSON-schema-typed tool definitions. `[official]`
@@ -159,12 +141,6 @@ Protocols are the stable contracts between agents, tools, and hosts. Each entry 
 
 ## 🧭 Reasoning & Planning Models
 
-> Audience: researchers · Evidence class: benchmark
-
-*Last reviewed: November 2026 (list reformat); other content: July 2026.*
-
-Models that do **explicit reasoning or planning at inference time** — chain-of-thought baked into the decoding loop, extended thinking budgets, or trained planner heads. They change the shape of agent loops: the model absorbs work that used to live in a planner node, which shifts where you spend tokens, latency, and trust. Cap of 5–8 entries; selected for agentic relevance, not general benchmark wins. Same-family tiers (e.g. `mini` / `nano`, Sonnet / Haiku, Flash / Flash-Lite) are grouped into one row because they share the same reasoning interface and differ mainly in latency and cost.
-
 - [GPT-5.4 (`gpt-5.4` / `mini` / `nano`)](https://developers.openai.com/api/docs/models/gpt-5.4): OpenAI. Tunable reasoning effort with native computer-use, web/file search, and function tools; one family covers planner, subagent/actor, and high-volume tool-calling tiers. `[official]` [model index](https://developers.openai.com/api/docs/models) · [`mini`](https://developers.openai.com/api/docs/models/gpt-5.4-mini) · [`nano`](https://developers.openai.com/api/docs/models/gpt-5.4-nano)
 - [Claude Opus 4.7 / Sonnet 4.6 / Haiku 4.5](https://www.anthropic.com/system-cards): Anthropic. Configurable extended-thinking budget interleaved with tool calls; the same dial across a planner/worker/fast-actor trio. `[official]` [extended thinking](https://docs.anthropic.com/en/docs/build-with-claude/extended-thinking)
 - [Gemini 3.1 Pro / 3 Flash / 3.1 Flash-Lite](https://deepmind.google/models/model-cards/): Google DeepMind. Deep Think parallel-hypothesis reasoning (Pro) and a thinking-capable Flash tier; a three-tier reasoning ladder over a long-context stack. `[official]` [Gemini 3.1 Pro card](https://deepmind.google/models/gemini/)
@@ -172,8 +148,6 @@ Models that do **explicit reasoning or planning at inference time** — chain-of
 - [Qwen3 (thinking mode)](https://github.com/QwenLM/Qwen3): Alibaba. Open-weight family with switchable thinking and non-thinking modes, usable in both planner and actor roles. `[official]` · `[benchmark]` [tech report](https://arxiv.org/abs/2505.09388)
 - [Grok 4](https://x.ai/news/grok-4): xAI. Native reasoning with tool use; a diversity source in multi-model planner ensembles. `[official]`
 - [Multi-Head Latent Control](https://arxiv.org/search/?query=Multi-Head+Latent+Control%3A+A+Unified+Interface+for+LLM+Agent+Decision+Making&searchtype=title): Huawei. Dedicated latent control heads select among answering, tool use, clarification, abstention, and delegation; useful for studying where policy, escalation, and safe refusal sit in agent loops. `[benchmark]`
-
-> Decision guide: if your agent loop already does explicit plan → act → verify steps, a reasoning model can often **replace** the planner node — but it rarely removes the need for typed state, tracing, and eval. Treat reasoning as a cheaper planner, not a free reliability upgrade.
 
 ---
 
@@ -244,8 +218,6 @@ Models that do **explicit reasoning or planning at inference time** — chain-of
 ---
 
 ## Related Projects
-
-Companion field guides by the same maintainer covering adjacent areas of AI. Read alongside this repository for broader context on how agentic AI is being built and applied beyond the security boundary.
 
 - [Awesome Physical AI](https://github.com/natnew/Awesome-Physical-AI) — Robotics, embodied AI, and physical-world agent systems.
 - [Awesome Agentic AI Security](https://github.com/natnew/Awesome-Agentic-AI-Security) — Security research, threat models, defenses, and governance for agentic AI systems.
