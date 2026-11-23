@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** video-shotcraft to the Creative AI appendix (Video Generation) as a Claude Code and Codex skill that builds product films from Remotion motion recipes.
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
 
