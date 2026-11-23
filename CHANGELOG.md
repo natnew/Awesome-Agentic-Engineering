@@ -26,6 +26,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 - **Added** freellmapi to Fast-Moving Product Lists (Self-Hosted Agents and UIs) as a self-hosted OpenAI-compatible router over free-tier LLM providers.
 
 - **Added** Anime.js to the Creative AI appendix (3D and Design) as a JavaScript animation library.
+- **Added** Orca to Fast-Moving Product Lists (Multi-Agent Platforms) as a runtime for running multiple CLI coding agents.
 - **Added** Zookeeper to the Creative AI appendix (3D and Design) as a conversational text-to-CAD agent.
 - **Added** Napkin AI to the Creative AI appendix (3D and Design) as a text-to-diagram and visuals tool with an API.
 - **Added** You.com to Fast-Moving Product Lists (Deep Research) as a search and inference API for AI applications.
