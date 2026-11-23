@@ -132,6 +132,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Qdrant](https://github.com/qdrant/qdrant) | High-performance vector DB in Rust. |
 | [Milvus](https://github.com/milvus-io/milvus) | Cloud-native vector DB. Billion-scale. |
 | [Pinecone](https://pinecone.io) | Managed vector DB. Serverless. Low-latency. |
+| [WeKnora](https://github.com/Tencent/WeKnora) | MIT-licensed Tencent framework for document understanding and retrieval, with RAG, an agent mode that runs skills in Docker sandboxes and calls external MCP tools, and a wiki mode. Provides a built-in MCP server with per-endpoint tokens and scopes, workspace RBAC with audit logs, and Langfuse tracing of agent steps. |
 
 ---
 
