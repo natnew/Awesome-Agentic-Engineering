@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** WeKnora to Fast-Moving Product Lists (RAG and Knowledge Bases) as a knowledge framework with RAG, agent mode, a scoped MCP server and Langfuse tracing.
+- **Added** Maestro to the Creative AI appendix (Video Generation) as a local creative studio with a Director workflow and built-in MCP, under a non-commercial licence.
 - **Added** Founder skill to Fast-Moving Product Lists (Multi-Agent Platforms) as a set of eleven Claude skills with board and consumer-panel sub-agents for testing a business idea.
 - **Added** OpenChatCut to the Creative AI appendix (Video Generation) as a local-first video editor whose built-in and MCP agents share one set of editing tools.
 - **Added** 15 Motion Design Styles to the Creative AI appendix (Video Generation) as a code-generated film showcase published with prompts, source and a review rubric.
