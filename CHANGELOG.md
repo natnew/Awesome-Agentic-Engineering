@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** MiroFish to Fast-Moving Product Lists (Simulation & Environments) as an AGPL-3.0 multi-agent social simulation engine, with its unpublished prediction accuracy noted.
 - **Added** BambooAI to Fast-Moving Product Lists (Data Analysis) as a data-analysis workbench with code traces, replay-based reproducibility checks and an optional reviewer model.
 - **Added** WeKnora to Fast-Moving Product Lists (RAG and Knowledge Bases) as a knowledge framework with RAG, agent mode, a scoped MCP server and Langfuse tracing.
 - **Added** image-blaster to the Creative AI appendix (3D and Design) as a set of Claude skills that turns an image into a 3D environment, meshes and sound effects.
