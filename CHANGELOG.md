@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** WeKnora to Fast-Moving Product Lists (RAG and Knowledge Bases) as a knowledge framework with RAG, agent mode, a scoped MCP server and Langfuse tracing.
+- **Added** 15 Motion Design Styles to the Creative AI appendix (Video Generation) as a code-generated film showcase published with prompts, source and a review rubric.
 - **Added** video-talkcraft to the Creative AI appendix (Video Generation) as a noncommercially licensed skill for voiceover-driven Remotion videos.
 - **Added** anything2explainer to the Creative AI appendix (Video Generation) as a noncommercially licensed skill that builds narrated explainer videos with parallel build and QC agents.
 - **Added** video-shotcraft to the Creative AI appendix (Video Generation) as a Claude Code and Codex skill that builds product films from Remotion motion recipes.
