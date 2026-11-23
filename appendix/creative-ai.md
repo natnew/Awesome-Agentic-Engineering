@@ -34,6 +34,8 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) | Tencent OSS. Consumer GPU. Multi-style. |
 | [LTX Video](https://github.com/Lightricks/LTX-Video) | OSS. Licensed data. Clear commercial terms. |
 | [Rea Video](https://reavideo.video/) | Browser tool that analyses a clip locally, without upload, to find cuts, extract reference frames and export a shot-by-shot prompt pack for AI video. Accepts MP4 or WebM up to 3 minutes and 300 MB. |
+| [OpenMontage](https://github.com/OpenMontageInc/OpenMontage) | AGPL-3.0 agentic video production system with 12 pipelines defined as YAML manifests and Markdown skill files, run by a coding assistant such as Claude Code, Cursor, Copilot, Codex or Windsurf. Includes approval gates and a default budget cap; several features need paid provider keys. |
+| [MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | Short-video generator that turns a topic into a script, footage, subtitles and background music, through a WebUI, API, CLI or an agent workflow driven by a `SKILL.md`. Cloud LLM, footage and TTS services need API keys. |
 | [anything2explainer](https://github.com/Vincentwei1021/anything2explainer) | Skill for Claude Code and Codex that turns a topic into a narrated explainer video drawn in code with Remotion, with TTS voiceover, subtitles and quantitative QC. Documents a multi-agent protocol in which parallel build agents write one component per shot and QC agents review rendered frames. PolyForm Noncommercial 1.0.0 licence; one film takes roughly 1 to 3 hours. |
 
 ### Music and Audio
