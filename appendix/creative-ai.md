@@ -69,5 +69,6 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [Zookeeper (Zoo)](https://zoo.dev/zookeeper) | Conversational CAD agent in Zoo Design Studio that generates CAD files from text prompts, using engine-level tools to inspect, snapshot and debug geometry. Generated models import into other CAD programs. |
 | [Things Workshop](https://www.things-workshop.com/explore/) | Collection of interactive 3D models of machines and everyday mechanisms, each with an explanation and sources. |
 | [CityRT](https://cityrt.com/en/) | Free browser city-building game with roads, districts, schools, hospitals and a city budget, playable solo or online. |
+| [image-blaster](https://github.com/neilsonnn/image-blaster) | MIT-licensed set of Claude skills that turns a single image into a Gaussian-splat environment, 3D object meshes (`.glb`, `.obj`) and ambient and object sound effects, using World Labs and FAL generation models. Needs World Labs and FAL API keys; last commit May 2026. |
 
 ---
