@@ -4,7 +4,7 @@
 
 ---
 
-> Last reviewed: November 2026 (Yogurt and You.com entries); other entries: September 2026 (link maintenance)
+> Last reviewed: November 2026 (Yogurt, You.com and The Agency entries); other entries: September 2026 (link maintenance)
 >
 > Evidence note: verify current capabilities against official docs or first-party repos before treating an entry as current. Inclusion here is not benchmark evidence and does not imply production maturity.
 
@@ -175,6 +175,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Meta AI](https://meta.ai) | Llama-powered. WhatsApp/Messenger. Manus acquisition. |
 | [Microsoft Copilot](https://copilot.microsoft.com) | Office 365 integration. Enterprise. |
 | [Coze](https://coze.com) | ByteDance agent builder. Visual workflow. Plugin marketplace. |
+| [The Agency](https://github.com/msitarzewski/agency-agents) | MIT-licensed collection of 230+ role-based agent definitions, with scripts that install them as subagents, skills or rules for Claude Code, Copilot, Cursor, Gemini CLI and other tools. Does not ship an MCP server. |
 
 ---
 
