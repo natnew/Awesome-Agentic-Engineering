@@ -133,6 +133,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Milvus](https://github.com/milvus-io/milvus) | Cloud-native vector DB. Billion-scale. |
 | [Pinecone](https://pinecone.io) | Managed vector DB. Serverless. Low-latency. |
 | [codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | MIT-licensed local MCP server that indexes a repository into a persistent code knowledge graph (symbols, calls, imports, routes) and exposes 17 MCP tools and a CLI, without a hosted service or API key. Browser UI is open beta. |
+| [WeKnora](https://github.com/Tencent/WeKnora) | MIT-licensed Tencent framework for document understanding and retrieval, with RAG, an agent mode that runs skills in Docker sandboxes and calls external MCP tools, and a wiki mode. Provides a built-in MCP server with per-endpoint tokens and scopes, workspace RBAC with audit logs, and Langfuse tracing of agent steps. |
 
 ---
 
