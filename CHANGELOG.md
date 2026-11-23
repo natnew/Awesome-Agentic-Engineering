@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Changed** the README resource tables (reference architectures, spec-driven development, memory systems, orchestration frameworks, protocols, authority resources, reasoning models, and evaluation and safety) to `- [Name](link): Description` lists. Per-entry strengths, constraints, suitability, paradigm, and governance columns were removed from the architecture and framework deep dives.
 - **Added** a Contributors section to the README that credits people who have added resources, with profile pictures and links to their contributions.
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
