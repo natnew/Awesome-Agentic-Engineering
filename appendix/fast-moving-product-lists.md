@@ -4,8 +4,8 @@
 
 ---
 
+> Last reviewed: November 2026 (Yogurt, You.com, freellmapi, Orca and codebase-memory-mcp entries); other entries: September 2026 (link maintenance)
 > Last reviewed: November 2026 (Yogurt, You.com, freellmapi, Orca and The Agency entries); other entries: September 2026 (link maintenance)
->
 > Evidence note: verify current capabilities against official docs or first-party repos before treating an entry as current. Inclusion here is not benchmark evidence and does not imply production maturity.
 
 Descriptions in this appendix prioritise delivery model, control surface, operational constraints, and workload fit over valuation, star growth, or leaderboard claims.
@@ -132,6 +132,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Qdrant](https://github.com/qdrant/qdrant) | High-performance vector DB in Rust. |
 | [Milvus](https://github.com/milvus-io/milvus) | Cloud-native vector DB. Billion-scale. |
 | [Pinecone](https://pinecone.io) | Managed vector DB. Serverless. Low-latency. |
+| [codebase-memory-mcp](https://github.com/DeusData/codebase-memory-mcp) | MIT-licensed local MCP server that indexes a repository into a persistent code knowledge graph (symbols, calls, imports, routes) and exposes 17 MCP tools and a CLI, without a hosted service or API key. Browser UI is open beta. |
 
 ---
 
