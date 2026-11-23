@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** Founder skill to Fast-Moving Product Lists (Multi-Agent Platforms) as a set of eleven Claude skills with board and consumer-panel sub-agents for testing a business idea.
+- **Added** video-talkcraft to the Creative AI appendix (Video Generation) as a noncommercially licensed skill for voiceover-driven Remotion videos.
 - **Added** anything2explainer to the Creative AI appendix (Video Generation) as a noncommercially licensed skill that builds narrated explainer videos with parallel build and QC agents.
 - **Added** video-shotcraft to the Creative AI appendix (Video Generation) as a Claude Code and Codex skill that builds product films from Remotion motion recipes.
 - **Removed** the Evidence Policy badge link from the bottom of the README Contributing section.
