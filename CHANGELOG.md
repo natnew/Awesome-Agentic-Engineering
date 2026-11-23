@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** MiroFish to Fast-Moving Product Lists (Simulation & Environments) as an AGPL-3.0 multi-agent social simulation engine, with its unpublished prediction accuracy noted.
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
 

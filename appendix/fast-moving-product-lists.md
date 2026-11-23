@@ -183,6 +183,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | Tool | Description | Strengths | Weaknesses | Workload Suitability |
 |------|-------------|-----------|------------|----------|
 | [Arnis](https://github.com/louis-e/arnis) | Converts real-world geographic data into Minecraft Java and Bedrock worlds (terrain, streets, buildings). | Strong bridge between real-world geography and simulated environments. | Niche relevance unless building spatial/embodied agent systems. | Embodied AI exploration, spatial simulation environments, and synthetic task environments mapping real-world locations. |
+| [MiroFish](https://github.com/666ghj/MiroFish) | AGPL-3.0 multi-agent simulation engine that builds a GraphRAG world from seed documents, generates agent personas, runs OASIS-based social simulations and produces a report through a ReportAgent. Describes itself as a prediction engine. | Persona generation, per-agent memory and the ability to chat with simulated agents and the ReportAgent after a run. | No published evaluation of prediction accuracy found; needs LLM and Zep Cloud API keys. | Scenario exploration and what-if analysis of social dynamics; not validated as a forecasting tool. |
 
 ---
 
