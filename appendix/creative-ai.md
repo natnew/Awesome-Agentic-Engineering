@@ -34,6 +34,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) | Tencent OSS. Consumer GPU. Multi-style. |
 | [LTX Video](https://github.com/Lightricks/LTX-Video) | OSS. Licensed data. Clear commercial terms. |
 | [Rea Video](https://reavideo.video/) | Browser tool that analyses a clip locally, without upload, to find cuts, extract reference frames and export a shot-by-shot prompt pack for AI video. Accepts MP4 or WebM up to 3 minutes and 300 MB. |
+| [Maestro](https://github.com/Blizaine/Maestro) | Local creative studio that combines image, video and audio generation with a Director workflow that plans shots from a song or story and a multi-track editor. Built-in MCP lets agents submit work, with local access and optional Tailscale access. Built on WanGP and licensed for non-commercial use only; third-party model licences apply. |
 
 ### Music and Audio
 
