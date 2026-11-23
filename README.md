@@ -32,26 +32,19 @@ Add observability and safety constraints
 
 ## 📑 Table of Contents
 
-- [🧭 Thesis](#-thesis)
-- [🧱 Agentic Engineering Reference Stack](#-agentic-engineering-reference-stack)
 - [⚖️ Architecture Decision Guide](#architecture-decision-guide)
-- [🧩 Core Agentic Patterns](#-core-agentic-patterns)
 - [🏗️ Reference Architectures](#reference-architectures)
 - [📐 Spec-Driven Development](#-spec-driven-development)
 - [🧠 Memory Systems](#-memory-systems)
 - [📊 Formal Evaluation Rubric](#-formal-evaluation-rubric)
-- [Benchmark and Evidence Policy](#benchmark-and-evidence-policy)
 - [⚙️ Orchestration Frameworks](#orchestration-frameworks)
 - [📡 Protocols and Standards](#-protocols-and-standards)
 - [🛂 Agent Authority, Identity & Delegation](#-agent-authority-identity--delegation)
 - [🧭 Reasoning & Planning Models](#-reasoning--planning-models)
 - [🧪 Evaluation & Safety](#-evaluation--safety)
-- [🧠 Skills and Operating Principles](#-skills-and-operating-principles)
-- [🚫 What NOT to Do](#-what-not-to-do)
-- [📊 Signals (How to Read This List)](#-signals-how-to-read-this-list)
 - [Related Projects](#related-projects)
-- [🤝 Contributing](#-contributing)
 - [🌟 Contributors](#-contributors)
+- [🤝 Contributing](#-contributing)
 
 ### 📂 Appendix
 
@@ -64,47 +57,6 @@ Add observability and safety constraints
 - [📰 Newsletters and Communities](appendix/newsletters-and-communities.md)
 - [📚 Learning Resources](appendix/learning-resources.md)
 - [⚡ Fast-Moving Product Lists](appendix/fast-moving-product-lists.md)
-
----
-
-## 🧭 Thesis
-
-> Audience: all contributors · Evidence class: mixed
-
-| 📈 The Shift (Agentic systems are moving to) | 📉 The Challenge (Implementations suffer from) | 🎯 Our Focus (This repository prioritises) |
-| :--- | :--- | :--- |
-| • Stateful, multi-step reasoning<br>• Multi-agent collaboration & orchestration<br>• Feedback-driven learning loops<br>• Tool-augmented execution environments | • Fragility under iteration<br>• Poor observability & evaluation<br>• Weak memory & context management<br>• Limited safety & governance | • **Reliability** over novelty<br>• **Evaluation** over intuition<br>• **Architecture** over tooling<br>• **Systems thinking** over prompt engineering |
-
----
-
-## 🧱 Agentic Engineering Reference Stack
-
-> Audience: practitioners · Evidence class: mixed
-
-A serious agentic system has nine engineering layers between a user goal and a running production system. Most production failures are a missing layer, not a bad model.
-
-```mermaid
-flowchart TD
-    A["User / System Goal"] --> B["Spec / Intent / Task Definition"]
-    B --> C["Planner / Decomposition"]
-    C --> D["Agent Runtime / Control Loop"]
-    D --> E["Tools / APIs / External Systems"]
-    E --> F["Memory / Context / State"]
-    F --> G["Evaluation / Tests / Rubrics / Guards"]
-    G --> H["Observability / Tracing / Monitoring"]
-    H --> I["Governance / Identity / Permissions / Human Approval"]
-    I --> J["Deployment / Runtime Operations"]
-```
-
-| Tier | Layers | What the tier is for |
-| :--- | :--- | :--- |
-| **Intent and execution** | Spec · Planner · Agent Runtime | Define what the system should do and how it does it. |
-| **World-binding** | Tools · Memory · Evaluation | Connect the system to data, history, and ground truth. |
-| **Operability** | Observability · Governance · Deployment | Keep it inspectable, accountable, and operable. |
-
-Skip a tier and the layers above it become indefensible.
-
-→ Full reference, with per-layer engineering concerns and failure modes: **[Agentic Engineering Reference Stack](appendix/agentic-engineering-reference-stack.md)**.
 
 ---
 
@@ -126,23 +78,6 @@ Skip a tier and the layers above it become indefensible.
 
 ---
 
-## 🧩 Core Agentic Patterns
-
-> Audience: practitioners · Evidence class: mixed
-
-These patterns underpin most production-grade agentic systems.
-
-| Pattern | Description | Key Characteristic |
-| :--- | :--- | :--- |
-| **Single-Agent + Tool Use** | One reasoning loop with structured tool invocation | Suited to focused tasks with bounded scope |
-| **Supervisor / Router Agents** | Central agent delegates tasks to specialised agents | Enables modularity and scalability |
-| **Multi-Agent Collaboration** | Agents operate in parallel or sequence | Patterns: debate, critique, planning/execution split |
-| **Reflection / Critique Loops** | Agents evaluate and refine their own outputs | Improves reliability over multiple iterations |
-| **Retrieval-Augmented Agents** | External knowledge via vector search or APIs | Reduces hallucination and improves grounding |
-| **Event-Driven / Long-Running Agents** | Persistent agents reacting to triggers over time | Requires memory, state, and orchestration |
-
----
-
 <a id="reference-architectures"></a>
 
 ## 🏗️ Reference Architectures
@@ -159,33 +94,6 @@ Representative system designs for real-world use.
 
 ## 📐 Spec-Driven Development
 
-> Audience: practitioners · Evidence class: mixed
-
-*Last reviewed: November 2026 (Matt Pocock Skills, Awesome DESIGN.md and Harness² entries, list reformat); other entries: September 2026.*
-
-Agentic systems amplify whatever intent you feed them — including vague intent. **Spec-driven development (SDD)** treats the specification as the load-bearing artifact: a durable, reviewable document that describes *what* the system should do and *how* it should behave, from which plans, code, and tests are generated (and regenerated) by agents. It is the production-grade answer to "vibe coding."
-
-In an agentic context, the spec does three things at once:
-
-1. **Anchors intent** — a typed, versioned contract the agent (and humans) refer back to across long sessions.
-2. **Defines the acceptance surface** — plans, tasks, and tests are derived from the spec, not improvised per prompt.
-3. **Makes re-generation safe** — regenerating code from an updated spec is cheaper and more reviewable than patching drift.
-
-### Core practices
-
-| Practice | What it means | Why it matters for agents |
-| :--- | :--- | :--- |
-| **Spec before plan before code** | Write a scoped spec (problem, constraints, acceptance criteria) before any plan or implementation. Plans and code are generated *from* the spec. | Agents behave better against a fixed target than against a shifting prompt. |
-| **Executable specs** | Encode acceptance criteria as runnable checks (tests, evals, schema validators) alongside prose. | Lets agents self-verify and lets CI reject regressions without human review on every step. |
-| **Typed contracts at boundaries** | Specify tool signatures, state shape, and I/O schemas with types (Pydantic, JSON Schema, TypeSpec). | Narrows the action space the agent can hallucinate into. |
-| **Review the spec, not the diff** | Human review focuses on the spec and acceptance checks; the diff is a consequence. | Makes agent-authored PRs tractable at volume. |
-| **Versioned and diffable** | Specs live in the repo, are PR-reviewed, and evolve with the code. | Gives rollback, blame, and audit trail — same hygiene as code. |
-| **One spec, many artifacts** | Generate plans, tasks, tests, and docs from the same spec. | Keeps planner, actor, and verifier aligned. |
-
-### Resources
-
-Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence-policy).
-
 - [GitHub Spec Kit](https://github.com/github/spec-kit): Open-source toolkit for spec-driven development with agentic coding assistants (Copilot, Claude Code, Cursor, Gemini CLI). Defines the `/specify` → `/plan` → `/tasks` → `/implement` workflow used in this repo's own `specs/` directory. `[official]` [announce](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/)
 - [Kiro](https://kiro.dev): AWS IDE built around spec-driven development: specs, steering files, and hooks drive agent work from requirements through tasks. First-party reference implementation of SDD in an IDE. `[official]` [docs](https://kiro.dev/docs/) · `[official]` [launch post](https://kiro.dev/blog/introducing-kiro/)
 - [OpenAI Model Spec](https://model-spec.openai.com/): First-party example of treating *model behaviour* as a versioned, public spec — objectives, rules, defaults, and conflict resolution. A reference for how to write a spec an agent can actually be aligned to. `[official]` [post](https://openai.com/index/sharing-the-latest-model-spec/)
@@ -198,53 +106,9 @@ Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence
 - [Matt Pocock Skills](https://github.com/mattpocock/skills): Open-source collection of `SKILL.md` engineering skills (for example `tdd`, `to-spec`, `code-review` and `grill-me`) that install into Claude Code, Codex, Copilot, Gemini CLI and other agent CLIs. Worked example of encoding engineering workflow discipline as reusable skill specs. `[official]`
 - [Awesome DESIGN.md](https://github.com/VoltAgent/awesome-design-md): Curated collection of `DESIGN.md` files, each describing a brand's design system (for example Stripe, Linear and Vercel) in a form coding agents read before generating UI. Extends the repository-file spec pattern of `AGENTS.md` to visual design. `[official]`
 
-### Where SDD applies
-
-SDD is not limited to new projects or a single team. The spec becomes a portable artifact in three directions:
-
-| Context | How SDD applies | Notes |
-| :--- | :--- | :--- |
-| **Greenfield projects** | Write the spec first; agents scaffold the repo, tests, and initial implementation from it. | Easiest case — no legacy constraints; the spec defines the system boundary. |
-| **Brownfield projects** | Reverse-engineer specs from existing code and behaviour, then use them as the contract for future agent-authored changes. | Start narrow (one module or flow), treat the spec as the accepted behaviour, and expand coverage incrementally. Agents modify against the spec, not the full legacy codebase. |
-| **Shared across orgs** | Specs, prompts, evals, and skill packs (`SKILL.md`, `AGENTS.md`, prompt libraries) are repo-level artifacts that can be open-sourced, forked, and re-used — like shared test suites or style guides. | Treat prompts and evals as first-class, versioned assets; publish them alongside code so research, patterns, and hard-won lessons compound across teams rather than staying trapped in one org. |
-
-> **How this repo uses SDD:** the local-only `specs/` directory contains phased specs (requirements → plan → validation) generated and executed against with Spec Kit. The `tasks/todo.md`, phase validation scripts, and PR bodies are derived artifacts. See [CONTRIBUTING.md](CONTRIBUTING.md) for the contributor-facing workflow.
-
 ---
 
 ## 🧠 Memory Systems
-
-> Audience: practitioners · Evidence class: mixed
-
-*Last reviewed: November 2026 (list reformat); Hyperconsciousness entry: September 2026; other entries: April 2026.*
-
-Memory is a first-class concern in agentic systems. Rather than treating memory as a simple array of previous messages, production systems require structured approaches to state, persistence, retrieval, and **experience reuse**. Four categories — working, episodic, procedural, semantic — remain the core architectural choices, but recent frontier research also shows memory is increasingly being used to **improve future agent behaviour**, not merely to store past context.
-
-### Memory Taxonomy
-
-Different types of memory serve distinct functional roles in an agentic architecture:
-
-| Type | Definition | Implementation Examples |
-| :--- | :--- | :--- |
-| **Working Memory** (Thread State) | Short-term context for the current execution loop or active conversation thread. Ephemeral. | Context window, LangGraph `State`, in-memory message lists. |
-| **Episodic Memory** | Autobiographical history of past actions, inputs, and outcomes. Enables reflection on past mistakes. | Checkpoint logs, event stores, prompt / trajectory histories. |
-| **Procedural Memory** | Reusable skills, system prompts, and tool configurations. Defines *how* the agent operates. | Static configuration, retrieved skill libraries, GitHub workflows. |
-| **Semantic Memory** | Embedded, factual knowledge about the world, the user, or the domain. Defines *what* the agent knows. | Vector databases (FAISS, Pinecone), knowledge graphs, Letta core memory. |
-
-### Frontier Research: Memory Beyond Storage
-
-Recent research shows frontier agent systems moving beyond simple retrieval towards **experience transformation**: converting prior trajectories, workflows, and reasoning patterns into reusable guidance for future tasks. Memory becomes part of the learning loop, not just the context pipeline.
-
-- [Agent Workflow Memory (AWM)](https://github.com/zorazrw/agent-workflow-memory): Episodic and procedural memory that induces reusable workflows from prior experience and selectively retrieves them to guide future generations; improves long-horizon web-agent tasks in both offline and online settings. `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2409.07429)
-- [Synapse](https://ltzheng.github.io/Synapse/): Episodic memory that stores exemplar trajectories and retrieves them via similarity search, using complete state–action histories (not shallow few-shot examples) to improve multi-step computer control. `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2306.07863)
-- [ReasoningBank](https://arxiv.org/abs/2509.25140): Episodic and procedural memory that distils generalisable reasoning strategies from self-judged successful *and* failed experiences, then retrieves and updates them over time so the agent improves through continued interaction. `[benchmark]`
-
-### Architectural Patterns: Shared vs. Private Memory
-
-In multi-agent systems, memory boundaries are architectural decisions:
-
-- **Private Agent Memory**: Each agent maintains its own semantic and episodic stores. Prevents context leakage and maintains strong role boundaries.
-- **Shared Workspace (Global Memory)**: A common blackboard or shared state where multiple agents read and write. Requires collision management and strict typing.
 
 ### Retrieval and Persistence Decisions
 
@@ -304,24 +168,6 @@ Every major framework and architecture in this repository is judged against the 
 
 ---
 
-## Benchmark and Evidence Policy
-
-> Audience: maintainers · Evidence class: official
-
-Canonical resources are trusted here because they define what counts as evidence. Prefer official docs, architecture guides, papers, benchmark repos, and first-party repositories when establishing capabilities, methodology, or interface details.
-
-| Evidence Tag | Use For |
-| :--- | :--- |
-| `[official]` | Official docs, architecture guides, specifications, benchmark documentation, or first-party repositories. |
-| `[benchmark]` | Published benchmark runs, evaluation papers, or benchmark repos tied to a named workload. |
-| `[field report]` | Production write-ups, incident reports, engineering blogs, or operator notes about real deployments. |
-| `[author assessment]` | This repository's synthesis after reviewing the sources above and applying the rubric. |
-
-- Do not treat marketing copy, launch-day demos, or GitHub stars as sufficient evidence for production claims.
-- Separate benchmark performance from production maturity. A benchmark result can support workload fit, but it does not by itself prove reliability, governance fit, cost control, or operational maturity.
-- Record `Last reviewed: Month YYYY` in rapidly changing sections such as product lists, vendor capability summaries, and release-sensitive guidance.
-- See [appendix/benchmark-and-evidence-policy.md](appendix/benchmark-and-evidence-policy.md) for the full policy.
-
 <a id="orchestration-frameworks"></a>
 
 ## ⚙️ Orchestration Frameworks
@@ -332,7 +178,7 @@ Canonical resources are trusted here because they define what counts as evidence
 
 ### Deep Dives
 
-Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence-policy). Scored against [RUBRIC.md](RUBRIC.md); cap of 5–8 deep-dive entries enforced.
+Evidence tags follow the [Benchmark and Evidence Policy](appendix/benchmark-and-evidence-policy.md). Scored against [RUBRIC.md](RUBRIC.md); cap of 5–8 deep-dive entries enforced.
 
 - [LangGraph](https://langchain-ai.github.io/langgraph/): Stateful orchestration framework building directed graphs with typed state; demonstrates deterministic execution control mixed with LLM reasoning. *Production-ready.* `[official]` · `[field report]` [LinkedIn SQL Bot](https://www.linkedin.com/blog/engineering/ai/practical-text-to-sql-for-data-analytics)
 - [Microsoft Agent Framework](https://github.com/microsoft/agent-framework): Microsoft's unified agent framework merging Semantic Kernel and AutoGen, with first-class MCP and A2A support; demonstrates enterprise-grade agent composition with typed plugins, approval workflows, and Azure integration. *Production-ready.* `[official]` · `[official]` [announce](https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/)
@@ -398,54 +244,6 @@ Protocols are the stable contracts between agents, tools, and hosts. Each entry 
 
 ## 🛂 Agent Authority, Identity & Delegation
 
-> Audience: practitioners, AI security, enterprise architects · Evidence class: mixed
-
-*Last reviewed: November 2026 (list reformat); other content: October 2026.*
-
-Protocols like MCP, A2A, and function calling explain **how** agents connect to tools and systems. This section covers **who or what is authorised** to use those connections, and how that authority is governed in production — what the industry has begun to call the **AI Agent Authority Gap**.
-
-Action-taking agents do not emerge with independent authority. They are triggered, invoked, provisioned, or empowered by existing enterprise identities — human users, service accounts, bots, machine identities, OAuth tokens, API keys, tool connectors, MCP servers, CLIs, scripts, and automation infrastructure. The same agent loop can reach into source control, ticketing, messaging, cloud APIs, and private data through credentials that were never designed for autonomous use.
-
-> Agents are not just a new identity type. They are a **delegated identity type**. Their authority originates from traditional enterprise actors — humans, bots, service accounts, and machine identities — and is **inseparable from the posture of those delegators**.
-
-Traditional IAM was built to answer a narrow question: *who has access?* Once agents are introduced, the operative question shifts:
-
-> What authority is being delegated, by whom, under what conditions, for what purpose, and across what scope?
-
-**Identity dark matter** is the term for authority that exists, operates, and accumulates risk **outside the view of managed IAM** — fragmented human and machine identities, embedded credentials, unmanaged service accounts, bot accounts, and application-specific identity logic. If that dark matter remains unobserved, agents inherit an already-broken authority model and become efficient amplifiers of hidden access, hidden permissions, and hidden execution paths.
-
-The practical consequence is **sequencing**: an enterprise cannot safely govern Agent-AI unless it first observes and governs the traditional actors that serve as its **delegation source**. Closing the authority gap is therefore a delegation problem first, and an agent problem second.
-
-### Core Concepts
-
-| Concept | Definition | Why it matters |
-|---------|------------|----------------|
-| **Agent Identity** | A first-class, distinguishable identity for the agent itself, separate from the human, service account, or bot whose authority it borrows. | Without it, every agent action is attributed to its delegator or a shared service account, breaking attribution, audit, and incident response. |
-| **Delegation Source** | The human, service account, bot, or machine identity that triggers, invokes, or empowers the agent. | Agent authority is inseparable from delegator posture; a poorly governed delegator yields a poorly governed agent. |
-| **Delegation Chain** | The end-to-end path *delegator → agent → tool → target application → action*, including any intermediate scopes, tokens, and approvals. | Makes the path of authority explicit and reviewable instead of inherited from whatever credentials the runtime happens to hold. |
-| **Identity Dark Matter** | Authority — identities, credentials, tokens, service accounts, embedded secrets, application-specific access paths — that exists and operates outside the view of managed IAM. | Agents amplify hidden authority into automated action at machine speed; un-illuminated dark matter becomes the agent's effective permission set. |
-| **Authority Boundary** | The explicit set of applications, workflows, scopes, and actions an agent is allowed to touch. | Defines the blast radius. An agent without a stated boundary effectively has the union of every credential its delegator can reach. |
-| **Dynamic Sequential Delegation Control** | Runtime authority decisions that combine the **posture** of the delegator, the **context** of the target application, the **intent** behind the requested action, and the **scope** of execution. | Static, long-lived permissions do not match agents whose delegators, tasks, and risk levels change per run. |
-| **Continuous Observability** | A live feed of identity behaviour across managed and unmanaged environments, used as input to authority decisions rather than as after-the-fact reporting. | Turns observability into governance: the same telemetry that illuminates dark matter becomes the decision input for what the agent is allowed to do next. |
-| **Human Approval Gate** | A required human checkpoint before sensitive or irreversible actions are executed. | Keeps high-impact decisions reviewable; separates *recommend* from *execute* on the act / recommend / constrain / stop continuum. |
-| **Audit Trail** | An immutable record linking *delegator → agent identity → delegated authority → tool call → target application → decision point → result*. | Required for incident response, compliance, and learning loops. Without it, agent failures are unreproducible and dark matter stays dark. |
-| **Revocation Path** | A defined, tested way to disable an agent, rotate its credentials, and invalidate its delegated authority — including upstream delegator credentials when needed. | When an agent or its delegator is compromised, you need a working off switch, not a code change. |
-
-### Design Principles
-
-- Treat agents as **delegated actors**, not autonomous islands; their authority is bounded by the posture of their delegation source.
-- **Govern the delegation source first.** Reduce identity dark matter across human and machine identities before granting agents broad action rights.
-- Map the delegation chain explicitly: *delegator (human / service account / bot / machine identity) → agent → tool → target application → action*.
-- Use least privilege, scoped tokens, short-lived credentials, and tested revocation paths at every link in the chain.
-- Govern authority continuously on **posture, context, intent, and scope** — not only on nominal permissions issued at provisioning time.
-- Operate agents on an **act / recommend / constrain / stop** continuum: not every request should result in execution; some should be downgraded to recommendation, restricted to a limited tool set, or blocked.
-- Separate **recommend**, **prepare**, **execute**, and **approve** as distinct steps in the agent loop, and require human approval gates for sensitive or irreversible actions (writes to production, financial transactions, external messages, code merges).
-- Log the **delegator, agent identity, delegated authority, tool call, target application, decision point, and result** for every action — not just the final answer.
-- Evaluate whether agents attempt to **exceed their authority** or **amplify dark matter**, not only whether they complete tasks.
-- Do not confuse model guardrails with identity governance. Production systems need both: prompt-level safety *and* continuous, IAM-level delegation control.
-
-### Resources
-
 - [Bridging the AI Agent Authority Gap](https://thehackernews.com/2026/04/bridging-ai-agent-authority-gap.html): Frames AI agents as a delegated identity type whose authority originates from humans, bots, service accounts, and machine identities, and argues for governing the delegation source before the agent.
 - [OWASP GenAI Security Project](https://genai.owasp.org/): Governance and threat-modelling reference for agentic systems, including excessive agency and tool-use risks.
 - [Model Context Protocol](https://modelcontextprotocol.io/): Tool and context protocol. Tool access expands the authority surface of agentic systems; MCP is a primary vector for that expansion and where scoping must be applied.
@@ -476,20 +274,6 @@ Models that do **explicit reasoning or planning at inference time** — chain-of
 
 ## 🧪 Evaluation & Safety
 
-> Audience: researchers · Evidence class: benchmark
-
-*Last reviewed: November 2026 (Cloudflare security-audit skill entry, list reformat); other entries: October 2026.*
-
-This section covers frameworks and operational tooling for testing agent quality, correctness, task completion, regressions, and system behaviour, as well as security scanning, red teaming, policy testing, and misalignment research. Evidence tags follow the [Benchmark and Evidence Policy](#benchmark-and-evidence-policy).
-
-### Core Evaluation Areas
-
-- Output correctness  
-- Reasoning quality  
-- Tool-use accuracy  
-- Latency and cost  
-- Robustness under adversarial input  
-
 ### Evaluation Frameworks
 
 - [OpenAI Evals](https://github.com/openai/evals): Core framework for testing and improving AI systems; foundational evaluation framework and methodology. `[official]`
@@ -500,13 +284,6 @@ This section covers frameworks and operational tooling for testing agent quality
 - [ai-evaluation](https://github.com/future-agi/ai-evaluation): Open-source LLM evaluation framework with 50+ metrics, LLM-as-Judge, and guardrail scanners (jailbreak, PII, injection). `[official]`
 - [agent-opt](https://github.com/future-agi/agent-opt): Prompt and agent optimisation library with six algorithms (Bayesian, ProTeGi, GEPA, and more) for iterative tuning across eval datasets. `[official]`
 - [simulate-sdk](https://github.com/future-agi/simulate-sdk): Persona- and scenario-driven SDK for simulating voice and text AI agents; suited to pre-production simulation and stress testing. `[official]`
-
-### Key Practices
-
-- Golden datasets  
-- Regression testing  
-- Adversarial / red-team inputs  
-- Continuous evaluation pipelines  
 
 ### Tracing and Monitoring
 
@@ -540,16 +317,6 @@ This section covers frameworks and operational tooling for testing agent quality
 - [PerspectiveGap](https://github.com/WhymustIhaveaname/PerspectiveGap): Multi-agent orchestration prompting benchmark: 110 scenarios over 10 loop topologies test whether a model gives each sub-agent the context fragments it needs and writes role prompts without omissions or cross-role leakage, scored by a deterministic strict-pass check. `[official]` · `[benchmark]` [paper](https://arxiv.org/abs/2606.08878)
 - [From Prompts to Posteriors](https://arxiv.org/abs/2610.29331): Tests whether LLM agents update beliefs as Bayes' rule prescribes; in-context updating is mostly poor, while reasoning plus code execution approaches the correct posterior. `[benchmark]`
 
-### Safety Risk Surfaces & Mitigations
-
-| ⚠️ Core Risk Surfaces | 🛡️ Mitigation Strategies |
-| :--- | :--- |
-| Prompt injection (direct & indirect) | Input validation and filtering |
-| Tool misuse | Tool permissioning and sandboxing |
-| Data exfiltration | Human-in-the-loop approval gates |
-| Memory poisoning | Audit logs and traceability |
-| Unbounded autonomous behaviour | Policy-driven execution |
-
 ### Safety Tooling & Methodologies
 
 - [garak](https://github.com/NVIDIA/garak): LLM vulnerability scanner probing for hallucination, leakage, injection, toxicity, and jailbreaks.
@@ -571,48 +338,6 @@ This section covers frameworks and operational tooling for testing agent quality
 
 ---
 
-## 🧠 Skills and Operating Principles
-
-> Audience: practitioners · Evidence class: field report
-
-Building agentic systems requires a shift in skillset:
-
-- Problem decomposition  
-- System design and orchestration  
-- Tool and interface design  
-- Memory modelling  
-- Evaluation design  
-- Failure mode analysis  
-- Safety and governance thinking  
-
----
-
-## 🚫 What NOT to Do
-
-> Audience: all contributors · Evidence class: mixed
-
-To keep this repository genuinely opinionated, we advocate against these common anti-patterns:
-
-- **Do not begin with multi-agent systems when a single agent plus tools will do.** Escalate to multi-agent only when task decomposition requires it.
-- **Do not add memory before defining what deserves persistence.** Avoid "state bloat" by being intentional about what is stored and why.
-- **Do not treat tracing as optional for long-running systems.** Observability is the only way to debug non-deterministic agentic failures.
-- **Do not confuse benchmark wins with production readiness.** Real-world reliability requires evaluation on *your* specific data and edge cases.
-- **Do not use framework abstractions as a substitute for architecture.** Understand your control flow before outsourcing it to a library.
-- **Do not give agents inherited or ambient authority without mapping the delegation chain.** Every action-taking agent should have a clear identity, scoped permissions, observable tool calls, approval gates where needed, and a revocation path. See [Agent Authority, Identity & Delegation](#-agent-authority-identity--delegation).
-
----
-
-## 📊 Signals (How to Read This List)
-
-> Audience: all contributors · Evidence class: mixed
-
-- ⭐ Production-grade  
-- 🧪 Experimental  
-- ⚠️ Early-stage / unstable  
-- 🛂 Authority-aware — explicitly models identity, delegated permissions, approval gates, and auditability  
-
----
-
 ## Related Projects
 
 Companion field guides by the same maintainer covering adjacent areas of AI. Read alongside this repository for broader context on how agentic AI is being built and applied beyond the security boundary.
@@ -620,30 +345,6 @@ Companion field guides by the same maintainer covering adjacent areas of AI. Rea
 - [Awesome Physical AI](https://github.com/natnew/Awesome-Physical-AI) — Robotics, embodied AI, and physical-world agent systems.
 - [Awesome Agentic AI Security](https://github.com/natnew/Awesome-Agentic-AI-Security) — Security research, threat models, defenses, and governance for agentic AI systems.
 - [Awesome AI Scientists](https://github.com/natnew/Awesome-AI-Scientists) — AI scientist systems for literature intelligence, hypothesis generation, experiment planning, tool use, evaluation, and scientific communication.
-
----
-
-<div align="center">
-
-## 🤝 Contributing
-
-<img src="assets/github/contributors-banner.png" alt="We love Contributors" width="720">
-
-Thrilled to have you here.<br>
-Whether it's a quick typo fix, a fresh resource,<br>
-a doc polish, or a sweeping overhaul — every contribution helps this list grow.<br>
-Jump in and join the community — PRs of every size are welcome.
-
-📝 [Read the contributing guide](CONTRIBUTING.md) · 🐛 [good first issues](https://github.com/natnew/Awesome-Agentic-Engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
-
-<a href="appendix/benchmark-and-evidence-policy.md">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/github/evidence-policy-dark.svg">
-    <img alt="Evidence Policy — sourcing, evidence-tagging, and Last reviewed" src="assets/github/evidence-policy-light.svg" height="36">
-  </picture>
-</a>
-
-</div>
 
 ---
 
@@ -699,5 +400,29 @@ Thank you to everyone who has added a resource to this list. 📚 marks a contri
 </table>
 
 Add a resource and your profile picture lands here. See the [contributing guide](CONTRIBUTING.md) to get started.
+
+</div>
+
+---
+
+<div align="center">
+
+## 🤝 Contributing
+
+<img src="assets/github/contributors-banner.png" alt="We love Contributors" width="720">
+
+Thrilled to have you here.<br>
+Whether it's a quick typo fix, a fresh resource,<br>
+a doc polish, or a sweeping overhaul — every contribution helps this list grow.<br>
+Jump in and join the community — PRs of every size are welcome.
+
+📝 [Read the contributing guide](CONTRIBUTING.md) · 🐛 [good first issues](https://github.com/natnew/Awesome-Agentic-Engineering/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+
+<a href="appendix/benchmark-and-evidence-policy.md">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/github/evidence-policy-dark.svg">
+    <img alt="Evidence Policy — sourcing, evidence-tagging, and Last reviewed" src="assets/github/evidence-policy-light.svg" height="36">
+  </picture>
+</a>
 
 </div>
