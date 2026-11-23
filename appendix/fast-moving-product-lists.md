@@ -5,7 +5,7 @@
 ---
 
 > Last reviewed: November 2026 (Yogurt, You.com, freellmapi, Orca and codebase-memory-mcp entries); other entries: September 2026 (link maintenance)
->
+> Last reviewed: November 2026 (Yogurt, You.com, freellmapi, Orca and The Agency entries); other entries: September 2026 (link maintenance)
 > Evidence note: verify current capabilities against official docs or first-party repos before treating an entry as current. Inclusion here is not benchmark evidence and does not imply production maturity.
 
 Descriptions in this appendix prioritise delivery model, control surface, operational constraints, and workload fit over valuation, star growth, or leaderboard claims.
@@ -178,6 +178,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Microsoft Copilot](https://copilot.microsoft.com) | Office 365 integration. Enterprise. |
 | [Coze](https://coze.com) | ByteDance agent builder. Visual workflow. Plugin marketplace. |
 | [Orca](https://github.com/stablyai/orca) | MIT-licensed desktop, mobile and remote runtime for running multiple CLI coding agents such as Claude Code, Codex and Cursor, with a CLI that agents can use to create worktrees and start workers. |
+| [The Agency](https://github.com/msitarzewski/agency-agents) | MIT-licensed collection of 230+ role-based agent definitions, with scripts that install them as subagents, skills or rules for Claude Code, Copilot, Cursor, Gemini CLI and other tools. Does not ship an MCP server. |
 
 ---
 
