@@ -175,6 +175,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Meta AI](https://meta.ai) | Llama-powered. WhatsApp/Messenger. Manus acquisition. |
 | [Microsoft Copilot](https://copilot.microsoft.com) | Office 365 integration. Enterprise. |
 | [Coze](https://coze.com) | ByteDance agent builder. Visual workflow. Plugin marketplace. |
+| [Founder skill](https://github.com/Jakeschincariol/founder-skill) | MIT-licensed set of eleven Claude skills for stress-testing a business idea, including a three-member board of sub-agents that apply published frameworks and a consumer panel of simulated buyer agents (100 by default). The README states the panel is not a forecast; the repository has a single commit. |
 
 ---
 

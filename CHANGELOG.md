@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** Founder skill to Fast-Moving Product Lists (Multi-Agent Platforms) as a set of eleven Claude skills with board and consumer-panel sub-agents for testing a business idea.
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
 
