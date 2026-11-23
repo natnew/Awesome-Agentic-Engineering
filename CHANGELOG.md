@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** WeKnora to Fast-Moving Product Lists (RAG and Knowledge Bases) as a knowledge framework with RAG, agent mode, a scoped MCP server and Langfuse tracing.
+- **Added** video-shotcraft to the Creative AI appendix (Video Generation) as a Claude Code and Codex skill that builds product films from Remotion motion recipes.
 - **Removed** the Evidence Policy badge link from the bottom of the README Contributing section.
 - **Removed** the audience and evidence-class tags, `Last reviewed` lines, and introductory text from the README sections, leaving each section as a title followed by its resource list.
 - **Added** Humanizer to the Spec-Driven Development resources as an agent skill that removes patterns of AI-generated writing.
