@@ -34,6 +34,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) | Tencent OSS. Consumer GPU. Multi-style. |
 | [LTX Video](https://github.com/Lightricks/LTX-Video) | OSS. Licensed data. Clear commercial terms. |
 | [Rea Video](https://reavideo.video/) | Browser tool that analyses a clip locally, without upload, to find cuts, extract reference frames and export a shot-by-shot prompt pack for AI video. Accepts MP4 or WebM up to 3 minutes and 300 MB. |
+| [video-talkcraft](https://github.com/Vincentwei1021/video-talkcraft) | Skill for Claude Code and Codex that turns a narration script and finished voiceover into a Remotion explainer video, aligning word-level timestamps locally and storyboarding each beat into a SHOTBOOK. Includes 108 motion recipe cards and a triple-gate QA process; methodology docs are written in Chinese. PolyForm Noncommercial 1.0.0 licence. |
 
 ### Music and Audio
 

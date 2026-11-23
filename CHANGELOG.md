@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** video-talkcraft to the Creative AI appendix (Video Generation) as a noncommercially licensed skill for voiceover-driven Remotion videos.
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
 
