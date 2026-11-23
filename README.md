@@ -12,31 +12,14 @@ This is not a tool list. It's a structured guide to building **reliable, observa
 
 [Site source and publishing instructions](docs/README.md)
 
-<details>
-<summary><h2 style="display:inline-block">🚀 Get Started</h2></summary>
-
-<sub>Audience: practitioners · Evidence class: mixed</sub>
-
-Choose a core pattern (e.g. single-agent + tools)<br>
-Add structured tool use<br>
-Introduce evaluation early<br>
-Layer in memory only when needed<br>
-Expand into multi-agent systems with clear roles<br>
-Add observability and safety constraints
-
-</details>
-
 </div>
 
 ---
 
 ## 📑 Table of Contents
 
-- [⚖️ Architecture Decision Guide](#architecture-decision-guide)
 - [🏗️ Reference Architectures](#reference-architectures)
 - [📐 Spec-Driven Development](#-spec-driven-development)
-- [🧠 Memory Systems](#-memory-systems)
-- [📊 Formal Evaluation Rubric](#-formal-evaluation-rubric)
 - [⚙️ Orchestration Frameworks](#orchestration-frameworks)
 - [📡 Protocols and Standards](#-protocols-and-standards)
 - [🛂 Agent Authority, Identity & Delegation](#-agent-authority-identity--delegation)
@@ -57,24 +40,6 @@ Add observability and safety constraints
 - [📰 Newsletters and Communities](appendix/newsletters-and-communities.md)
 - [📚 Learning Resources](appendix/learning-resources.md)
 - [⚡ Fast-Moving Product Lists](appendix/fast-moving-product-lists.md)
-
----
-
-<a id="architecture-decision-guide"></a>
-
-## ⚖️ Architecture Decision Guide
-
-> Audience: practitioners · Evidence class: mixed
-
-| If your task is... | Start with... | Escalate to... | Avoid... |
-| :--- | :--- | :--- | :--- |
-| **bounded, tool-using, low-risk** | single-agent + tools | typed state, retries | multi-agent teams |
-| **long-running, inspectable, enterprise** | graph/workflow orchestration | approval gates, persistence | opaque emergent loops |
-| **open-ended research** | planner/executor or supervisor | critique loops, memory | rigid pipelines only |
-| **high-reliability extraction** | prompt chains + strict schemas | validator feedback loops | unconstrained conversational agents |
-| **complex parallel execution** | modular multi-agent setups | shared workspace/memory | treating LLMs as deterministic |
-
-> **Authority rule:** any agent that can act outside its own runtime — for example by calling APIs, modifying files, opening pull requests, sending messages, triggering workflows, or accessing private data — needs an explicit identity, scoped authority, audit trail, and revocation path. See [Agent Authority, Identity & Delegation](#-agent-authority-identity--delegation).
 
 ---
 
@@ -105,66 +70,6 @@ Representative system designs for real-world use.
 - [Pydantic AI](https://ai.pydantic.dev/): Python framework that makes schema-first I/O the default for LLM calls — the practical form of "typed contracts at boundaries" for agent code. `[official]`
 - [Matt Pocock Skills](https://github.com/mattpocock/skills): Open-source collection of `SKILL.md` engineering skills (for example `tdd`, `to-spec`, `code-review` and `grill-me`) that install into Claude Code, Codex, Copilot, Gemini CLI and other agent CLIs. Worked example of encoding engineering workflow discipline as reusable skill specs. `[official]`
 - [Awesome DESIGN.md](https://github.com/VoltAgent/awesome-design-md): Curated collection of `DESIGN.md` files, each describing a brand's design system (for example Stripe, Linear and Vercel) in a form coding agents read before generating UI. Extends the repository-file spec pattern of `AGENTS.md` to visual design. `[official]`
-
----
-
-## 🧠 Memory Systems
-
-### Retrieval and Persistence Decisions
-
-Managing the memory lifecycle is critical for long-running agents.
-
-| Mechanism | Description | Best Practices & Risks |
-| :--- | :--- | :--- |
-| **Checkpointing** | Saving the exact thread state at a specific point in time (e.g., node transitions). | Enables "time travel" (rewind and replay) and human-in-the-loop approvals. |
-| **Write Policies** | Rules defining when and how an agent commits data to long-term storage. | Prefer explicit `SaveMemory` tool calls over passive auto-saving to maintain control. |
-| **Retrieval Triggers** | Determining when to query past memory (e.g., pre-fetch vs. just-in-time). | Use vector search for semantic recall, but use explicit graph keys for structured state. |
-| **Summarisation / Compression** | Reducing token counts of episodic histories. | Summarise older interactions into a rolling summary while preserving recent exact messages. |
-| **Pruning / Decay** | Deleting or archiving old or irrelevant memories. | Implement TTL (time-to-live) for working memory to prevent context exhaustion. |
-| **Contamination / Poisoning** | Malicious or incorrect data persisting in long-term memory. | **Risk**: Once poisoned, an agent's future logic breaks. Require validation or bounds on semantic writes. |
-
-### Systems and Protocols
-
-Specialised infrastructure for managing agent memory.
-
-*Last reviewed: November 2026 (list reformat); Hermeneutic entry: September 2026.*
-
-- [LangGraph Persistence](https://langchain-ai.github.io/langgraph/): Thread-level state. Built-in check-pointers (SQLite, Postgres) for DAG-based execution loops, enabling interrupt/resume.
-- [LangMem](https://github.com/langchain-ai/langmem): Long-term memory extraction. LangChain's framework for extracting user preferences and entity profiles in the background.
-- [Letta](https://github.com/letta-ai/letta): OS-level memory abstraction (formerly MemGPT). Advanced core memory management with explicit paging (read/write limits) to mimic virtual memory.
-- [Mem0](https://github.com/mem0ai/mem0): Personalised memory layer. Managed memory API focusing on user contexts, interactions, and entity relationships.
-- [Zep / Graphiti](https://github.com/getzep/graphiti): Enterprise memory and graphs. Fast, long-term memory for AI assistants; uses temporal knowledge graphs to map entity relationships over time.
-- [MCP (Model Context Protocol)](https://modelcontextprotocol.io/): Interoperability fabric. While not a database itself, MCP provides a standard protocol to expose memory stores and file systems universally across tools and agents.
-- [Hyperconsciousness](https://github.com/louis030195/hyperconsciousness): Encrypted knowledge store. Developer-alpha Rust store for append-only records, device sync and scoped, expiring MCP grants. Source installation; APIs may change. `[official]` [Security limits](https://github.com/louis030195/hyperconsciousness/blob/main/docs/CONSTRAINTS.md)
-- [Hermeneutic](https://github.com/hermes-labs-ai/hermeneutic): Correction-derived episodic memory. Mines correction episodes from agent logs into a local corpus; retrieves relevant prior corrections as advisory context with corpus-row citations. Narrow correction patterns; retrieval requires local Ollama; downstream improvement unmeasured. `[official]` [memory workflow](https://github.com/hermes-labs-ai/hermeneutic#hermeneutic-memory) · `[benchmark]` [bounded retrieval evaluation](https://github.com/hermes-labs-ai/hermeneutic/blob/main/evals/leave-one-out/RESULTS.md)
-
-> **Design implication:** the key question is no longer only *what* the agent remembers, but *how memory changes future behaviour*. Systems like Synapse, Agent Workflow Memory, and ReasoningBank signal a shift — memory is becoming part of the agent's learning loop, enabling reusable routines and self-improvement over time.
-
----
-
-## 📊 Formal Evaluation Rubric
-
-> Audience: maintainers · Evidence class: mixed
->
-> **🎯 Evaluation principle:** rubrics assess quality, test suites verify behaviour, assertions enforce invariants, and LLM-as-a-judge is used only in tightly scoped regression tests.
-
-Every major framework and architecture in this repository is judged against the following **Required Scoring Dimensions**. We evaluate systems based on engineering rigor, not marketing copy.
-
-| Dimension | Evaluation Criteria |
-| :--- | :--- |
-| **Control flow explicitness** | How observable and deterministic is the execution path? |
-| **State model** | How is agent state typed, managed, and persisted? |
-| **Memory support** | Are there built-in primitives for short-term, episodic, and semantic memory? |
-| **Observability / tracing** | Is it easy to trace intermediate reasoning steps and tool calls? |
-| **Human-in-the-loop support** | Does it natively support interrupt-and-resume or approval gates? |
-| **Type safety / structured outputs** | Are outputs guaranteed against strict schemas? |
-| **Provider portability** | How tightly coupled is it to one specific LLM provider? |
-| **Security posture** | Are there built-in mechanisms for sandboxing, access control, or guardrails? |
-| **Architectural strengths** | Which design choices materially improve decomposition, control, state handling, or interface clarity? |
-| **Operational constraints** | What deployment burden, runtime cost, debugging friction, or failure modes does it introduce? |
-| **Ecosystem maturity** | How stable are the APIs, docs, integrations, and operator knowledge base? |
-| **Governance fit** | Does it support auditability, approval gates, access boundaries, policy enforcement, and regulated environments? |
-| **Workload suitability** | Which workflows, task shapes, and team contexts does it fit well or poorly? |
 
 ---
 
