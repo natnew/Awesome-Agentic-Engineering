@@ -21,6 +21,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 - **Added** a Contributors section to the README that credits people who have added resources, with profile pictures and links to their contributions.
 - **Added** OpenMontage to the Creative AI appendix (Video Generation) as an agentic video production system driven by coding assistants.
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
+- **Added** VoiceStudio to the Voice Agents appendix (Open-Source Voice) as a voice cloning and dubbing studio with a local API and MCP server.
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
 
 - **Added** Anime.js to the Creative AI appendix (3D and Design) as a JavaScript animation library.
