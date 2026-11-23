@@ -34,6 +34,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) | Tencent OSS. Consumer GPU. Multi-style. |
 | [LTX Video](https://github.com/Lightricks/LTX-Video) | OSS. Licensed data. Clear commercial terms. |
 | [Rea Video](https://reavideo.video/) | Browser tool that analyses a clip locally, without upload, to find cuts, extract reference frames and export a shot-by-shot prompt pack for AI video. Accepts MP4 or WebM up to 3 minutes and 300 MB. |
+| [15 Motion Design Styles](https://github.com/Vincentwei1021/mg-styles-15) | MIT-licensed set of fifteen 10-second motion-design films written as code by Claude (web pages rendered frame by frame in headless Chrome, synthesised audio, ffmpeg), published with each film's prompt, source and a rubric-based AI review loop. A showcase of outputs rather than a reusable tool. |
 
 ### Music and Audio
 
