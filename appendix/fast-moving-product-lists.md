@@ -119,6 +119,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Hex AI](https://hex.tech) | Collaborative data platform. AI analysis. |
 | [PandasAI](https://github.com/Sinaptik-AI/pandas-ai) | Chat with your data. NL to Pandas/SQL. |
 | [TaskWeaver](https://github.com/microsoft/TaskWeaver) | Microsoft. Code-first data analytics agents. |
+| [BambooAI](https://github.com/pgalko/BambooAI) | MIT-licensed data-analysis workbench in which an LLM Analyst writes and runs code in a persistent Python kernel and keeps the full computational record. Numerical findings link to the code that produced them, the supporting computation is replayed in a fresh kernel to check reproducibility, and an optional Reviewer model challenges assumptions. Works with cloud and local models. |
 
 ### RAG and Knowledge Bases
 
