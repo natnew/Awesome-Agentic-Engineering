@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** image-blaster to the Creative AI appendix (3D and Design) as a set of Claude skills that turns an image into a 3D environment, meshes and sound effects.
+- **Added** video-shotcraft to the Creative AI appendix (Video Generation) as a Claude Code and Codex skill that builds product films from Remotion motion recipes.
 - **Removed** the Evidence Policy badge link from the bottom of the README Contributing section.
 - **Removed** the audience and evidence-class tags, `Last reviewed` lines, and introductory text from the README sections, leaving each section as a title followed by its resource list.
 - **Added** Humanizer to the Spec-Driven Development resources as an agent skill that removes patterns of AI-generated writing.
