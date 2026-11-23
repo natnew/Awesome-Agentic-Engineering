@@ -10,12 +10,28 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** WeKnora to Fast-Moving Product Lists (RAG and Knowledge Bases) as a knowledge framework with RAG, agent mode, a scoped MCP server and Langfuse tracing.
+- **Removed** the Evidence Policy badge link from the bottom of the README Contributing section.
+- **Removed** the audience and evidence-class tags, `Last reviewed` lines, and introductory text from the README sections, leaving each section as a title followed by its resource list.
+- **Added** Humanizer to the Spec-Driven Development resources as an agent skill that removes patterns of AI-generated writing.
+- **Removed** the Get Started, Architecture Decision Guide, Memory Systems, and Formal Evaluation Rubric sections from the README, and the two appendix links that pointed to them.
+- **Added** agent-desktop to Browser and Desktop Agents (Developer Infrastructure) as an accessibility-tree CLI for desktop automation by agents.
+- **Removed** the README Thesis, Reference Stack, Core Agentic Patterns, Benchmark and Evidence Policy, Skills and Operating Principles, What NOT to Do, and Signals sections, plus the prose, taxonomy, practice, and concept subsections in Spec-Driven Development, Memory Systems, Agent Authority, and Evaluation & Safety, leaving their resource lists. **Changed** the README order so Contributing is the last section.
+- **Added** CLI-Anything to Browser and Desktop Agents (Developer Infrastructure) as a generator of agent-usable CLI harnesses for existing software.
+- **Changed** the README resource tables (reference architectures, spec-driven development, memory systems, orchestration frameworks, protocols, authority resources, reasoning models, and evaluation and safety) to `- [Name](link): Description` lists. Per-entry strengths, constraints, suitability, paradigm, and governance columns were removed from the architecture and framework deep dives.
+- **Added** MoneyPrinterTurbo to the Creative AI appendix (Video Generation) as a topic-to-short-video generator with an agent workflow.
+- **Added** a Contributors section to the README that credits people who have added resources, with profile pictures and links to their contributions.
+- **Added** OpenMontage to the Creative AI appendix (Video Generation) as an agentic video production system driven by coding assistants.
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
+- **Added** VoiceStudio to the Voice Agents appendix (Open-Source Voice) as a voice cloning and dubbing studio with a local API and MCP server.
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
+- **Added** freellmapi to Fast-Moving Product Lists (Self-Hosted Agents and UIs) as a self-hosted OpenAI-compatible router over free-tier LLM providers.
 
 - **Added** Anime.js to the Creative AI appendix (3D and Design) as a JavaScript animation library.
+- **Added** Orca to Fast-Moving Product Lists (Multi-Agent Platforms) as a runtime for running multiple CLI coding agents.
 - **Added** Zookeeper to the Creative AI appendix (3D and Design) as a conversational text-to-CAD agent.
+- **Added** The Agency to Fast-Moving Product Lists (Multi-Agent Platforms) as a collection of role-based agent definitions.
 - **Added** Napkin AI to the Creative AI appendix (3D and Design) as a text-to-diagram and visuals tool with an API.
+- **Added** codebase-memory-mcp to Fast-Moving Product Lists (RAG and Knowledge Bases) as a local MCP server for code knowledge graphs.
 - **Added** You.com to Fast-Moving Product Lists (Deep Research) as a search and inference API for AI applications.
 - **Added** Learn Harness Engineering to the Learning Resources courses and tutorials as a project-based course on coding-agent harnesses.
 - **Added** Harness² to the Spec-Driven Development resources as a research framework for recursive agent harnessing, with first-party benchmark claims left untagged.
