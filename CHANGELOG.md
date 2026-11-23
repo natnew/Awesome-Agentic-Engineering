@@ -10,6 +10,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 ## [Unreleased]
 
 - **Added** image-blaster to the Creative AI appendix (3D and Design) as a set of Claude skills that turns an image into a 3D environment, meshes and sound effects.
+- **Added** video-talkcraft to the Creative AI appendix (Video Generation) as a noncommercially licensed skill for voiceover-driven Remotion videos.
 - **Added** anything2explainer to the Creative AI appendix (Video Generation) as a noncommercially licensed skill that builds narrated explainer videos with parallel build and QC agents.
 - **Added** video-shotcraft to the Creative AI appendix (Video Generation) as a Claude Code and Codex skill that builds product films from Remotion motion recipes.
 - **Removed** the Evidence Policy badge link from the bottom of the README Contributing section.
