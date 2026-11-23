@@ -16,6 +16,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 - **Added** agent-desktop to Browser and Desktop Agents (Developer Infrastructure) as an accessibility-tree CLI for desktop automation by agents.
 - **Removed** the README Thesis, Reference Stack, Core Agentic Patterns, Benchmark and Evidence Policy, Skills and Operating Principles, What NOT to Do, and Signals sections, plus the prose, taxonomy, practice, and concept subsections in Spec-Driven Development, Memory Systems, Agent Authority, and Evaluation & Safety, leaving their resource lists. **Changed** the README order so Contributing is the last section.
 - **Changed** the README resource tables (reference architectures, spec-driven development, memory systems, orchestration frameworks, protocols, authority resources, reasoning models, and evaluation and safety) to `- [Name](link): Description` lists. Per-entry strengths, constraints, suitability, paradigm, and governance columns were removed from the architecture and framework deep dives.
+- **Added** MoneyPrinterTurbo to the Creative AI appendix (Video Generation) as a topic-to-short-video generator with an agent workflow.
 - **Added** a Contributors section to the README that credits people who have added resources, with profile pictures and links to their contributions.
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
