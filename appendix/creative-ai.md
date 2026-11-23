@@ -34,6 +34,7 @@ Descriptions in this appendix prioritise workflow characteristics and deployment
 | [HunyuanVideo](https://github.com/Tencent/HunyuanVideo) | Tencent OSS. Consumer GPU. Multi-style. |
 | [LTX Video](https://github.com/Lightricks/LTX-Video) | OSS. Licensed data. Clear commercial terms. |
 | [Rea Video](https://reavideo.video/) | Browser tool that analyses a clip locally, without upload, to find cuts, extract reference frames and export a shot-by-shot prompt pack for AI video. Accepts MP4 or WebM up to 3 minutes and 300 MB. |
+| [MoneyPrinterTurbo](https://github.com/harry0703/MoneyPrinterTurbo) | Short-video generator that turns a topic into a script, footage, subtitles and background music, through a WebUI, API, CLI or an agent workflow driven by a `SKILL.md`. Cloud LLM, footage and TTS services need API keys. |
 
 ### Music and Audio
 
