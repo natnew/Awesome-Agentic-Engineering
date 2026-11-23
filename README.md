@@ -51,6 +51,7 @@ Add observability and safety constraints
 - [📊 Signals (How to Read This List)](#-signals-how-to-read-this-list)
 - [Related Projects](#related-projects)
 - [🤝 Contributing](#-contributing)
+- [🌟 Contributors](#-contributors)
 
 ### 📂 Appendix
 
@@ -674,5 +675,62 @@ Jump in and join the community — PRs of every size are welcome.
     <img alt="Evidence Policy — sourcing, evidence-tagging, and Last reviewed" src="assets/github/evidence-policy-light.svg" height="36">
   </picture>
 </a>
+
+</div>
+
+---
+
+## 🌟 Contributors
+
+<div align="center">
+
+Thank you to everyone who has added a resource to this list. 📚 marks a contributed resource; select it to see what was added.
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://github.com/SuhaniNagpal7"><img src="https://github.com/SuhaniNagpal7.png?size=160" width="80" height="80" alt="Suhani Nagpal"><br><sub><b>Suhani Nagpal</b></sub></a><br>
+      <a href="https://github.com/natnew/Awesome-Agentic-Engineering/commit/cd9bd1dfd96decfde7a87c40c5892a66e5eedf5d" title="Added Future AGI products to Evaluation, Tracing &amp; Monitoring, and AI Guardrails">📚</a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/reacher-z"><img src="https://github.com/reacher-z.png?size=160" width="80" height="80" alt="reacher-z"><br><sub><b>reacher-z</b></sub></a><br>
+      <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/28" title="Added ClawBench to agent benchmarks">📚</a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/InsightFactoryAPP"><img src="https://github.com/InsightFactoryAPP.png?size=160" width="80" height="80" alt="InsightFactoryAPP"><br><sub><b>InsightFactoryAPP</b></sub></a><br>
+      <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/34" title="Added YYLO Benchmark to Evaluation &amp; Safety benchmarks">📚</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://github.com/xizhuomengcontin"><img src="https://github.com/xizhuomengcontin.png?size=160" width="80" height="80" alt="xizhuomengcontin"><br><sub><b>xizhuomengcontin</b></sub></a><br>
+      <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/36" title="Added OrcaReplay to Tracing and Monitoring">📚</a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/roli-lpci"><img src="https://github.com/roli-lpci.png?size=160" width="80" height="80" alt="Roli Bosch"><br><sub><b>Roli Bosch</b></sub></a><br>
+      <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/38" title="Added Hermeneutic to Memory Systems">📚</a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/louis030195"><img src="https://github.com/louis030195.png?size=160" width="80" height="80" alt="Louis Beaumont"><br><sub><b>Louis Beaumont</b></sub></a><br>
+      <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/39" title="Added Hyperconsciousness to Memory Systems">📚</a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://github.com/WhymustIhaveaname"><img src="https://github.com/WhymustIhaveaname.png?size=160" width="80" height="80" alt="WhymustIhaveaname"><br><sub><b>WhymustIhaveaname</b></sub></a><br>
+      <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/48" title="Added PerspectiveGap to Evaluation &amp; Safety benchmarks">📚</a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/pranshuchittora"><img src="https://github.com/pranshuchittora.png?size=160" width="80" height="80" alt="pranshuchittora"><br><sub><b>pranshuchittora</b></sub></a><br>
+      <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/51" title="Added agent-qa to Browser and Desktop Agents">📚</a>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://github.com/NicoYang1984"><img src="https://github.com/NicoYang1984.png?size=160" width="80" height="80" alt="NicoYang1984"><br><sub><b>NicoYang1984</b></sub></a><br>
+      <a href="https://github.com/natnew/Awesome-Agentic-Engineering/pull/52" title="Added LazyMind to Orchestration Frameworks">📚</a>
+    </td>
+  </tr>
+</table>
+
+Add a resource and your profile picture lands here. See the [contributing guide](CONTRIBUTING.md) to get started.
 
 </div>
