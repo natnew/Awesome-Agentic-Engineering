@@ -9,6 +9,7 @@ The RSS feed at [`feed.xml`](docs/feed.xml) is generated from this file.
 
 ## [Unreleased]
 
+- **Added** ArtCraft Crafting Apps to Browser and Desktop Agents (Developer Infrastructure) as a family of open-source Rust creative apps that agents can drive through a CLI, a control channel and MCP.
 - **Added** CityRT to the Creative AI appendix (3D and Design) as a browser city-building game.
 - **Added** Things Workshop to the Creative AI appendix (3D and Design) as a collection of interactive 3D explainers.
 
