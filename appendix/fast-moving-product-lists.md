@@ -179,6 +179,7 @@ Descriptions in this appendix prioritise delivery model, control surface, operat
 | [Coze](https://coze.com) | ByteDance agent builder. Visual workflow. Plugin marketplace. |
 | [Orca](https://github.com/stablyai/orca) | MIT-licensed desktop, mobile and remote runtime for running multiple CLI coding agents such as Claude Code, Codex and Cursor, with a CLI that agents can use to create worktrees and start workers. |
 | [The Agency](https://github.com/msitarzewski/agency-agents) | MIT-licensed collection of 230+ role-based agent definitions, with scripts that install them as subagents, skills or rules for Claude Code, Copilot, Cursor, Gemini CLI and other tools. Does not ship an MCP server. |
+| [Founder skill](https://github.com/Jakeschincariol/founder-skill) | MIT-licensed set of eleven Claude skills for stress-testing a business idea, including a three-member board of sub-agents that apply published frameworks and a consumer panel of simulated buyer agents (100 by default). The README states the panel is not a forecast; the repository has a single commit. |
 
 ---
 
